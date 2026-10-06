@@ -185,27 +185,11 @@ function StepSection({ application, onStep }: { application: Application; onStep
       ) : null}
       {step === 'denied' ? <Banner icon={Info} title={t('steps.denied')} body={t('tracker.deniedNote')} /> : null}
 
-      <HStack gap="xs" align="stretch">
+      <VStack gap="xs">
         {step === 'waiting' ? (
           <>
-            <Button
-              variant="secondary"
-              compact
-              icon={ThumbsUp}
-              label={t('tracker.yes')}
-              onPress={() => go('approved')}
-              style={styles.grow}
-              testID={`app-yes-${programId}`}
-            />
-            <Button
-              variant="secondary"
-              compact
-              icon={ThumbsDown}
-              label={t('tracker.no')}
-              onPress={() => go('denied')}
-              style={styles.grow}
-              testID={`app-no-${programId}`}
-            />
+            <Button variant="secondary" compact icon={ThumbsUp} label={t('tracker.yes')} onPress={() => go('approved')} testID={`app-yes-${programId}`} />
+            <Button variant="secondary" compact icon={ThumbsDown} label={t('tracker.no')} onPress={() => go('denied')} testID={`app-no-${programId}`} />
           </>
         ) : nextStep ? (
           <Button
@@ -214,7 +198,6 @@ function StepSection({ application, onStep }: { application: Application; onStep
             icon={ArrowRight}
             label={t('tracker.next', { step: t(`steps.${nextStep}`) })}
             onPress={() => go(nextStep)}
-            style={styles.grow}
             testID={`app-next-${programId}`}
           />
         ) : null}
@@ -225,10 +208,11 @@ function StepSection({ application, onStep }: { application: Application; onStep
             icon={Undo2}
             label={t('tracker.back')}
             onPress={() => go(prevStep)}
+            style={{ alignSelf: 'flex-start' }}
             testID={`app-back-${programId}`}
           />
         ) : null}
-      </HStack>
+      </VStack>
     </VStack>
   );
 }
@@ -296,16 +280,17 @@ function RenewSection({ program, application }: { program: Program; application:
     AccessibilityInfo.announceForAccessibility(formatDate(next, lang, 'long'));
   };
 
+  /** Lock-screen text never names the program or medicine unless the person turned that off. */
   const texts = () => {
     if (privateNotifications) {
-      return { title: t('tracker.reminderTitlePrivate'), body: t('tracker.reminderBodyPrivate') };
+      const title = t('tracker.reminderTitlePrivate');
+      return { title, body: t('tracker.reminderBodyPrivate'), calendarTitle: t('tracker.calendarTitlePrivate'), calendarNotes: title };
     }
-    return {
-      title: t('tracker.reminderTitle', { program: program.name }),
-      body: program.phone
-        ? t('tracker.reminderBody', { program: program.name, phone: formatPhone(program.phone) })
-        : t('tracker.reminderBodyNoPhone', { program: program.name }),
-    };
+    const title = t('tracker.reminderTitle', { program: program.name });
+    const body = program.phone
+      ? t('tracker.reminderBody', { program: program.name, phone: formatPhone(program.phone) })
+      : t('tracker.reminderBodyNoPhone', { program: program.name });
+    return { title, body, calendarTitle: title, calendarNotes: body };
   };
 
   const remind = async () => {
@@ -328,14 +313,14 @@ function RenewSection({ program, application }: { program: Program; application:
 
   const addToCalendar = async () => {
     if (!date) return;
-    const { title, body } = texts();
-    const ok = await addCalendarEvent(title, date, body);
+    const { calendarTitle, calendarNotes } = texts();
+    const ok = await addCalendarEvent(calendarTitle, date, calendarNotes);
     if (ok) {
       update(id, { renewBy: date });
       haptic.success();
       showToast(t('tracker.calendarAdded'), 'success');
     } else {
-      showToast(IS_WEB ? t('tracker.webNote') : t('tracker.calendarFailed'), 'caution');
+      showToast(IS_WEB ? t('tracker.webNote') : t('tracker.calendarFailed'), 'info');
     }
   };
 
@@ -410,7 +395,7 @@ function RenewSection({ program, application }: { program: Program; application:
           </Text>
         </HStack>
       ) : (
-        <HStack gap="xs" align="stretch">
+        <VStack gap="xs">
           {application.reminderId ? null : (
             <Button
               variant="secondary"
@@ -418,7 +403,6 @@ function RenewSection({ program, application }: { program: Program; application:
               icon={Bell}
               label={t('tracker.remind')}
               onPress={() => void remind()}
-              style={styles.grow}
               testID={`app-remind-${id}`}
             />
           )}
@@ -428,10 +412,9 @@ function RenewSection({ program, application }: { program: Program; application:
             icon={CalendarPlus}
             label={t('tracker.calendar')}
             onPress={() => void addToCalendar()}
-            style={styles.grow}
             testID={`app-calendar-${id}`}
           />
-        </HStack>
+        </VStack>
       )}
     </VStack>
   );
@@ -488,7 +471,6 @@ function RoundButton({
 }
 
 const styles = StyleSheet.create({
-  grow: { flexGrow: 1, flexBasis: 150 },
   link: { minHeight: minTap, flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: spacing.xxs },
   dateRow: {
     flexDirection: 'row',

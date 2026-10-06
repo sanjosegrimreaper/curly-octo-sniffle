@@ -72,8 +72,8 @@
     "offConfirm": "Clear and turn off helper mode"
   },
   "lowData": {
-    "label": "Low-data mode",
-    "description": "Don't download new price updates. The app keeps working with the data it already has."
+    "label": "Save mobile data",
+    "description": "Skips price updates when you're on cellular data."
   },
   "privateNotifications": {
     "label": "Private reminders",
@@ -187,8 +187,8 @@
     },
     "privacy": {
       "title": "Your privacy",
-      "body": "No account. No tracking. Your answers stay on this phone.",
-      "detail": "We don't ask for your name, Social Security number or immigration status. You can delete everything in Settings."
+      "body": "No account. No tracking.",
+      "detail": "We don't collect your answers. They're saved only in this app on this phone. Anyone who uses this phone could see them — you can lock the app in Settings. Read-aloud may use your phone's voice service."
     },
     "honesty": {
       "title": "Our honesty rules",
@@ -200,7 +200,7 @@
     },
     "affiliation": {
       "title": "Not affiliated",
-      "body": "Not affiliated with GoodRx, SingleCare, Cost Plus Drugs, Covered California, Medi-Cal, or any drug maker — names are used only to describe where to look."
+      "body": "RxBridge is not part of, or paid by, Medi-Cal, Covered California, Medicare, any county, GoodRx, SingleCare, Cost Plus Drugs, or any drug company. RxBridge does not give medical advice."
     },
     "licenses": {
       "title": "Fonts and licenses",
@@ -237,5 +237,9 @@
     "info": "Info banner",
     "caution": "Caution banner",
     "success": "Success banner"
+  },
+  "privacyNote": {
+    "title": "Your privacy",
+    "body": "We don't collect your answers. They're saved only in this app on this phone. Anyone who uses this phone could see them — you can lock the app in Settings. Read-aloud may use your phone's voice service."
   }
 }

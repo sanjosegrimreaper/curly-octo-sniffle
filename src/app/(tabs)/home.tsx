@@ -18,11 +18,11 @@ import { describeStep, type StepView } from '@/components/home/planSteps';
 import { SavedStrip } from '@/components/home/SavedStrip';
 import { SectionHeader } from '@/components/home/SectionHeader';
 import { usePlanData } from '@/components/home/usePlanData';
+import { wipeEverything } from '@/components/home/wipe';
 import { getPack } from '@/data/pack';
 import { Button, EmptyState, HeaderButton, motion, ReadAloud, Screen, spacing, Text, useTheme } from '@/design';
 import { LANGUAGES } from '@/i18n/languages';
 import { useMedicines } from '@/state/medicines';
-import { wipePersonalData } from '@/state/session';
 import { useUi } from '@/state/ui';
 
 /** Stagger entrance: ~40ms apart, each ≤320ms. Nothing animates with Reduce Motion. */
@@ -62,7 +62,7 @@ export default function HomeScreen() {
       danger: true,
       testID: 'start-over-confirm',
       onConfirm: async () => {
-        await wipePersonalData();
+        await wipeEverything();
         useUi.getState().showToast(t('startOver.done'), 'success');
         router.replace('/');
       },

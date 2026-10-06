@@ -77,26 +77,24 @@ export async function cancelReminder(id: string | null | undefined) {
   }
 }
 
-/** Adds an all-day event to the default calendar. Returns false when unavailable or denied. */
+/**
+ * Opens the phone's own "new event" screen, pre-filled (all-day). The person reviews and saves it;
+ * no calendar permission is needed and we never read their calendar. Callers should pass a
+ * neutral title (no medicine or program names) unless the person chose to show names.
+ */
 export async function addCalendarEvent(title: string, isoDate: string, notes: string): Promise<boolean> {
   if (Platform.OS === 'web') return false;
+  const [y, m, d] = isoDate.split('-').map(Number);
+  if (!y || !m || !d) return false;
   try {
-    const perm = await Calendar.requestCalendarPermissionsAsync();
-    if (!perm.granted) return false;
-    const [y, m, d] = isoDate.split('-').map(Number);
-    if (!y || !m || !d) return false;
-    const start = new Date(y, m - 1, d);
-    const end = new Date(y, m - 1, d + 1);
-    let calendarId: string | undefined;
-    if (Platform.OS === 'ios') {
-      calendarId = (await Calendar.getDefaultCalendarAsync()).id;
-    } else {
-      const cals = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT);
-      calendarId = cals.find((c) => c.allowsModifications && c.isPrimary)?.id ?? cals.find((c) => c.allowsModifications)?.id;
-    }
-    if (!calendarId) return false;
-    await Calendar.createEventAsync(calendarId, { title, startDate: start, endDate: end, allDay: true, notes });
-    return true;
+    const result = await Calendar.createEventInCalendarAsync({
+      title,
+      notes,
+      allDay: true,
+      startDate: new Date(y, m - 1, d),
+      endDate: new Date(y, m - 1, d + 1),
+    });
+    return result.action === 'saved' || result.action === 'done';
   } catch {
     return false;
   }

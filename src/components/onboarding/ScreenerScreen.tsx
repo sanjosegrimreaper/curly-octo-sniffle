@@ -7,7 +7,7 @@ import { ReadAloud, Screen, spacing, Text } from '@/design';
 import { useScreener } from '@/state/screener';
 
 import { BridgeProgress } from './BridgeProgress';
-import { PREVIOUS_ROUTE, STEP_OF_ROUTE, type ScreenerRoute } from './steps';
+import { PREVIOUS_ROUTE, stepFor, type ScreenerRoute } from './steps';
 
 /**
  * Remembers this screen as the place to resume after a restart, and returns a back handler
@@ -24,6 +24,13 @@ export function useScreenerRoute(route: ScreenerRoute) {
     if (router.canGoBack()) router.back();
     else router.replace(PREVIOUS_ROUTE[route] as Href);
   }, [route]);
+}
+
+/** The Bridge for a route; the total follows the current path (it changes when the coverage answer does). */
+export function ScreenerBridge({ route }: { route: ScreenerRoute }) {
+  const coverage = useScreener((s) => s.coverage);
+  const { now, total, name } = stepFor(route, coverage);
+  return <BridgeProgress now={now} total={total} name={name} />;
 }
 
 /** Every screener screen: back button, the Bridge, the question (with Listen), content and one footer action. */
@@ -49,7 +56,7 @@ export function ScreenerScreen({
     <Screen
       back={back}
       right={<ReadAloud text={spoken} label={t('listen')} />}
-      top={<BridgeProgress step={STEP_OF_ROUTE[route]} />}
+      top={<ScreenerBridge route={route} />}
       footer={footer}
       testID={testID}>
       <View style={{ gap: spacing.xs }}>

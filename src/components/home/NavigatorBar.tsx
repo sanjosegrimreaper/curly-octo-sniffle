@@ -5,11 +5,11 @@ import { StyleSheet, View } from 'react-native';
 import { Button, radius, spacing, Text, useTheme } from '@/design';
 import { i18next } from '@/i18n';
 import { LANGUAGES } from '@/i18n/languages';
-import { wipePersonalData } from '@/state/session';
 import { useSettings } from '@/state/settings';
 import { useUi } from '@/state/ui';
 
 import { confirmAction } from './confirm';
+import { wipeEverything } from './wipe';
 
 /** Asks, then clears everything about the current client. */
 export function confirmNewClient() {
@@ -21,7 +21,7 @@ export function confirmNewClient() {
     danger: true,
     testID: 'navigator-confirm',
     onConfirm: async () => {
-      await wipePersonalData();
+      await wipeEverything();
       useUi.getState().showToast(t('navigator.done'), 'success');
     },
   });

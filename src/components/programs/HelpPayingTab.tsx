@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { AccessibilityInfo, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn } from 'react-native-reanimated';
 
-import { loc } from '@/data/localize';
 import {
   Banner,
   Button,
@@ -23,13 +22,13 @@ import {
 import { isStale, todayISO, type ProgramMatch } from '@/domain';
 import { useProfile, useProgramMatches } from '@/hooks/useProfile';
 
-import { findMedication } from './helpers';
+import { findMedication, shortMedicineName } from './helpers';
 import { ProgramCard } from './ProgramCard';
 
 /** The "Help paying" tab of Results: assistance programs for one medicine, honestly grouped. */
 export function HelpPayingTab({ medicationId }: { medicationId: string }) {
   const { t } = useTranslation('programs');
-  const { palette, lang, reduceMotion } = useTheme();
+  const { palette, reduceMotion } = useTheme();
   const matches = useProgramMatches(medicationId);
   const profile = useProfile();
   const medication = findMedication(medicationId);
@@ -59,7 +58,7 @@ export function HelpPayingTab({ medicationId }: { medicationId: string }) {
   const today = todayISO();
   const stale = [...likely, ...worthChecking, ...closed].some((m) => isStale(m.program.verifiedAsOf, today));
   const needsProfile = profile.income === null || profile.householdSize === null;
-  const medName = loc(medication.displayName, lang);
+  const medName = shortMedicineName(medication);
 
   const cards = (list: ProgramMatch[], base: number) =>
     list.map((m, i) => <ProgramCard key={m.program.id} match={m} medicationId={medicationId} index={base + i} />);
@@ -103,6 +102,14 @@ export function HelpPayingTab({ medicationId }: { medicationId: string }) {
           title={t('tab.emptyTitle')}
           body={medication.marketStatus === 'genericAvailable' ? t('tab.emptyGeneric') : t('tab.emptyOther')}
           testID="help-paying-empty"
+          action={
+            <Button
+              icon={HeartHandshake}
+              label={t('tab.emptyHelp')}
+              onPress={() => router.push('/help' as Href)}
+              testID="help-paying-empty-help"
+            />
+          }
         />
       ) : null}
 
@@ -174,10 +181,16 @@ function Section({
           <Icon size={20} color={s.ink} />
         </View>
         <VStack gap="xxs" style={{ flex: 1 }}>
-          <Text variant="subheading">
-            {title}
-            <Text variant="subheading" tone="muted">{`  ${count}`}</Text>
-          </Text>
+          <HStack gap="xs">
+            <Text variant="subheading" style={{ flexShrink: 1 }}>
+              {title}
+            </Text>
+            <View style={[styles.count, { backgroundColor: s.tint, borderColor: s.solid }]}>
+              <Text variant="caption" bold tabular style={{ color: s.ink }}>
+                {String(count)}
+              </Text>
+            </View>
+          </HStack>
           <Text variant="label" tone="muted">
             {explain}
           </Text>
@@ -197,6 +210,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  count: { minWidth: 28, paddingHorizontal: 8, paddingVertical: 2, borderRadius: 14, borderWidth: 1, alignItems: 'center' },
   sectionIcon: {
     width: 36,
     height: 36,

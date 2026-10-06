@@ -8,6 +8,7 @@ import {
   CircleX,
   ClipboardCheck,
   ClipboardList,
+  ExternalLink,
   HandHeart,
   Info,
   Phone,
@@ -186,9 +187,7 @@ export function ProgramCard({
           <PhoneRow name={program.name} phone={program.phone} />
 
           {program.applicationUrl ? (
-            <Button
-              variant="ghost"
-              compact
+            <LinkRow
               external
               label={
                 isPdf(program.applicationUrl)
@@ -205,7 +204,7 @@ export function ProgramCard({
           )}
 
           {showActions ? (
-            <HStack gap="xs" align="stretch">
+            <VStack gap="xs">
               <Button
                 variant="secondary"
                 compact
@@ -213,7 +212,6 @@ export function ProgramCard({
                 label={t('card.callCoach')}
                 hint={t('card.callCoachHint')}
                 onPress={() => router.push(`/call-coach/${program.id}${drugQuery}` as Href)}
-                style={styles.action}
                 testID={`program-coach-${program.id}`}
               />
               <Button
@@ -222,24 +220,18 @@ export function ProgramCard({
                 icon={tracked ? ClipboardCheck : ClipboardList}
                 label={tracked ? t('card.tracking') : t('card.track')}
                 onPress={onTrack}
-                style={styles.action}
                 testID={`program-track-${program.id}`}
               />
-            </HStack>
+            </VStack>
           ) : null}
 
           {!expanded ? (
-            <Tappable
+            <LinkRow
+              label={t('card.details')}
+              a11yLabel={t('card.detailsA11y', { name: program.name })}
               onPress={() => router.push(`/program/${program.id}${drugQuery}` as Href)}
-              accessibilityRole="link"
-              accessibilityLabel={t('card.detailsA11y', { name: program.name })}
-              style={styles.details}
-              testID={`program-details-${program.id}`}>
-              <Text variant="label" bold tone="accent">
-                {t('card.details')}
-              </Text>
-              <ChevronRight size={20} color={palette.accentInk} />
-            </Tappable>
+              testID={`program-details-${program.id}`}
+            />
           ) : null}
 
           {/* source chip */}
@@ -371,6 +363,39 @@ function DocsPreview({ documents }: { documents: string[] }) {
   );
 }
 
+/** A left-aligned text link with a chevron (in-app) or a link-out icon (website). */
+function LinkRow({
+  label,
+  a11yLabel,
+  onPress,
+  external,
+  testID,
+}: {
+  label: string;
+  a11yLabel?: string;
+  onPress: () => void;
+  external?: boolean;
+  testID?: string;
+}) {
+  const { t } = useTranslation('common');
+  const { palette } = useTheme();
+  const Icon = external ? ExternalLink : ChevronRight;
+  return (
+    <Tappable
+      onPress={onPress}
+      accessibilityRole="link"
+      accessibilityLabel={a11yLabel ?? label}
+      accessibilityHint={external ? t('opensWebsite') : undefined}
+      style={styles.details}
+      testID={testID}>
+      <Text variant="label" bold tone="accent" style={{ flexShrink: 1 }}>
+        {label}
+      </Text>
+      <Icon size={18} color={palette.accentInk} />
+    </Tappable>
+  );
+}
+
 /** Tap-to-call row. Shows "Phone number not listed" when the pack has none (never a guess). */
 export function PhoneRow({ name, phone }: { name: string; phone: string | null }) {
   const { t } = useTranslation('programs');
@@ -413,7 +438,6 @@ const styles = StyleSheet.create({
   well: { borderRadius: radius.sm, borderWidth: 1, padding: spacing.sm, gap: spacing.sm },
   divider: { height: 1, width: '100%' },
   bullet: { width: 8, height: 8, borderRadius: 4, marginTop: 8 },
-  action: { flexGrow: 1, flexBasis: 150 },
   details: {
     minHeight: minTap,
     flexDirection: 'row',

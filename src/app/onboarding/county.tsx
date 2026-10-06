@@ -52,7 +52,6 @@ export default function CountyScreen() {
             title={o.title}
             subtitle={o.subtitle}
             icon={o.icon}
-            signal="sky"
             selected={county === o.id}
             onPress={() => update({ county: o.id })}
             testID={`county-${o.id}`}

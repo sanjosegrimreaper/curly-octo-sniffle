@@ -18,8 +18,8 @@
     "subtitle": "Tap one to pick a strength and see prices."
   },
   "empty": {
-    "title": "No match — try the generic name",
-    "body": "It's on your pill bottle label.",
+    "title": "We can't find that",
+    "body": "Try the medicine name on your pill bottle label.",
     "request": "Ask us to add this medicine",
     "requestHint": "Opens our request page on GitHub"
   },

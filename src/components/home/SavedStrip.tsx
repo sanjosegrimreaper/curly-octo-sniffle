@@ -1,16 +1,18 @@
-import { router } from 'expo-router';
+import { router, type Href } from 'expo-router';
+import { Search, Trash2 } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import Animated, { FadeInRight } from 'react-native-reanimated';
 
 import type { PriceSummary } from '@/data/prices';
-import { minTap, motion, radius, SourceChip, spacing, Tappable, Text, useTheme } from '@/design';
+import { Button, minTap, motion, radius, SourceChip, spacing, Tappable, Text, useTheme } from '@/design';
 import { formatMoney } from '@/i18n/format';
 import type { SavedMedicine } from '@/state/medicines';
 
 import { packageLabel, resultsHref, shortName } from './format';
+import { removeMedicine } from './medicineActions';
 
-const CARD_WIDTH = 232;
+const CARD_WIDTH = 272;
 
 /** Saved medicines as a horizontal strip, each with its lowest Buy-now price (or "No price loaded yet"). */
 export function SavedStrip({ saved, summaries }: { saved: SavedMedicine[]; summaries: (PriceSummary | null)[] }) {
@@ -27,7 +29,38 @@ export function SavedStrip({ saved, summaries }: { saved: SavedMedicine[]; summa
       accessibilityRole="list">
       {saved.map((m, i) => {
         const summary = summaries[i];
-        if (!summary) return null;
+        if (!summary) {
+          return (
+            <Animated.View
+              key={m.key}
+              entering={reduceMotion ? undefined : FadeInRight.delay(i * 40).duration(motion.slow)}
+              style={[
+                styles.card,
+                styles.missing,
+                { width, backgroundColor: palette.surface, borderColor: palette.signals.sunflower.solid },
+              ]}>
+              <Text variant="subheading">{t('saved.missing')}</Text>
+              <Text variant="caption" tone="muted">
+                {m.drugId} · {m.strengthId} × {m.quantity}
+              </Text>
+              <Button
+                compact
+                icon={Search}
+                label={t('saved.missingSearch')}
+                onPress={() => router.push('/find' as Href)}
+                testID={`saved-missing-search-${m.drugId}`}
+              />
+              <Button
+                compact
+                variant="ghost"
+                icon={Trash2}
+                label={t('saved.remove', { name: m.drugId })}
+                testID={`saved-missing-remove-${m.drugId}`}
+                onPress={() => void removeMedicine(m)}
+              />
+            </Animated.View>
+          );
+        }
         const lowest = summary.lowest;
         const name = shortName(summary.medication, lang);
         const pkg = packageLabel(summary.strength, m.quantity, lang);
@@ -103,4 +136,5 @@ const styles = StyleSheet.create({
   },
   tap: { padding: spacing.md, gap: spacing.xxs, minHeight: minTap, flexGrow: 1 },
   chip: { paddingHorizontal: spacing.sm, paddingBottom: spacing.sm },
+  missing: { padding: spacing.md, gap: spacing.xs, borderWidth: 2, borderStyle: 'dashed' },
 });

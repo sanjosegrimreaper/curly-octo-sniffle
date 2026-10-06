@@ -1,11 +1,11 @@
-import { Calculator, Info, RotateCcw, ShoppingBag } from 'lucide-react-native';
+import { Calculator, Info, RotateCcw, ShoppingBag, Truck } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 
 import type { BuyNowOption } from '@/data/prices';
 import type { CostPlusSnapshot, Strength } from '@/data/schemas';
 import { per30DaysCentsFromDaily } from '@/domain';
-import { Button, Card, SourceChip, spacing, Tappable, Text, useTheme } from '@/design';
+import { Button, Card, SourceChip, spacing, Text, useTheme } from '@/design';
 import { formatDate, formatMoney, formatNumber, formatUnitPrice } from '@/i18n/format';
 import type { Lang } from '@/i18n/languages';
 import { openExternal } from '@/services/links';
@@ -20,7 +20,19 @@ type Props = {
   perDay: number | null;
   /** The Cost Plus formula (fees from data) — shown on Cost Plus quotes. */
   formula: CostPlusSnapshot['formula'];
+  /** Options are different versions of the medicine (biologics): lead with the product name. */
+  versions?: boolean;
 };
+
+/** Cost Plus Drugs is a mail-order pharmacy: its cards say so (snapshot quotes and direct listings). */
+export function isCostPlusSeller(option: Pick<BuyNowOption, 'source' | 'url'>): boolean {
+  if (option.source === 'costPlus') return true;
+  try {
+    return /(^|\.)costplusdrugs\.com$/.test(new URL(option.url).hostname);
+  } catch {
+    return false;
+  }
+}
 
 /** "60 tablets" for a fixed quantity, or the pack's "30-day supply" for monthly prices. */
 export function packageText(t: ResultsT, option: BuyNowOption, strength: Strength, lang: Lang): string {
@@ -62,31 +74,42 @@ export function mathLines(t: ResultsT, option: BuyNowOption, strength: Strength,
 
 /**
  * One Buy-now option (a real checkout price): solid mint card, label → big price →
- * package → note → source chip. Tapping the price flips it to show the math.
+ * package → note → source chip. A visible "Show the math" button flips it to the arithmetic
+ * (the card itself is not pressable: it holds buttons and a source chip).
  */
-export function BuyNowCard({ option, strength, perDay, formula }: Props) {
+export function BuyNowCard({ option, strength, perDay, formula, versions }: Props) {
   const { t } = useTranslation('results');
   const { palette, lang } = useTheme();
   const mint = palette.signals.mint;
   const price = formatMoney(option.priceCents, lang);
   const pkg = packageText(t, option, strength, lang);
   const isCostPlus = option.source === 'costPlus';
+  const mailOrder = isCostPlusSeller(option);
 
   const front = (flip: () => void) => (
     <Card signal="mint" treatment="solid" testID={`buy-now-${option.id}`} style={styles.card}>
-      <View style={styles.labelRow}>
-        <ShoppingBag size={18} color={mint.ink} />
-        <Text variant="label" bold tone="mint" style={styles.flex}>
-          {t('buyNow.label', { seller: option.seller })}
-        </Text>
-      </View>
+      {versions ? (
+        <View style={styles.product}>
+          <View style={styles.labelRow}>
+            <ShoppingBag size={18} color={mint.ink} />
+            <Text variant="label" bold tone="mint" style={styles.flex}>
+              {t('buyNow.product')}
+            </Text>
+          </View>
+          <Text variant="heading" testID={`buy-now-product-${option.id}`}>
+            {option.seller}
+          </Text>
+        </View>
+      ) : (
+        <View style={styles.labelRow}>
+          <ShoppingBag size={18} color={mint.ink} />
+          <Text variant="label" bold tone="mint" style={styles.flex}>
+            {t('buyNow.label', { seller: option.seller })}
+          </Text>
+        </View>
+      )}
 
-      <Tappable
-        feedback="tick"
-        onPress={flip}
-        accessibilityLabel={`${option.priceKind === 'maximum' ? `${t('buyNow.upTo')} ` : ''}${price}, ${pkg}`}
-        accessibilityHint={t('buyNow.flipHint')}
-        style={styles.priceBlock}>
+      <View style={styles.priceBlock}>
         {option.priceKind === 'maximum' ? (
           <Text variant="label" bold tone="mint">
             {t('buyNow.upTo')}
@@ -98,13 +121,21 @@ export function BuyNowCard({ option, strength, perDay, formula }: Props) {
             {pkg}
           </Text>
         ) : null}
-      </Tappable>
+      </View>
 
       {option.priceKind === 'maximum' ? (
         <View style={styles.noteRow}>
           <Info size={18} color={palette.signals.sunflower.ink} />
           <Text variant="label" bold tone="sunflower" style={styles.flex}>
             {t('buyNow.maximum')}
+          </Text>
+        </View>
+      ) : null}
+      {mailOrder ? (
+        <View style={styles.noteRow}>
+          <Truck size={18} color={mint.ink} />
+          <Text variant="label" bold style={styles.flex}>
+            {t('buyNow.costPlusNote')}
           </Text>
         </View>
       ) : null}
@@ -181,7 +212,8 @@ const styles = StyleSheet.create({
   card: { gap: spacing.sm },
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
   flex: { flex: 1 },
-  priceBlock: { alignSelf: 'flex-start', gap: 2, paddingVertical: spacing.xxs, borderRadius: 12 },
+  priceBlock: { alignSelf: 'flex-start', gap: 2 },
+  product: { gap: 2 },
   noteRow: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.xs },
   formula: { gap: spacing.xs, borderLeftWidth: 3, paddingLeft: spacing.sm },
   actions: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: spacing.xs },

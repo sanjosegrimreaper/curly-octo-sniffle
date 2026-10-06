@@ -2,6 +2,7 @@ import { router, type Href } from 'expo-router';
 import { Lock, Search } from 'lucide-react-native';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Platform } from 'react-native';
 import Animated, { FadeInDown, LinearTransition } from 'react-native-reanimated';
 
 import { DraftBanner } from '@/components/DraftBanner';
@@ -52,7 +53,7 @@ export default function MedicinesScreen() {
           <Animated.View entering={enter(0)} layout={layout}>
             <BudgetCard view={view} />
           </Animated.View>
-          {!appLock && !navigatorMode ? (
+          {!appLock && !navigatorMode && Platform.OS !== 'web' ? (
             <Animated.View entering={enter(1)} layout={layout}>
               <Banner icon={Lock} title={t('lock.title')} body={t('lock.body')} testID="medicines-lock-hint">
                 <Button

@@ -35,9 +35,11 @@
     "per30": "{{price}} per 30 days",
     "noPrice": "No checkout price loaded yet",
     "noPriceBody": "Open the medicine to see coupon links and programs that may help.",
-    "missing": "This medicine is not in the current data. You can remove it.",
-    "genericWatch": "Generic watch",
-    "programAvailable": "Program available",
+    "missing": "No longer in our list — search again",
+    "missingBody": "This medicine or strength is not in the current data. Search for it again, or remove it.",
+    "missingSearch": "Search again",
+    "genericMayCome": "Generic may come {{year}}",
+    "hasProgram": "Has a help program",
     "lastsQuestion": "How long does one fill last?",
     "lastsHint": "Pick one to add this medicine to your monthly budget.",
     "days_one": "{{count}} day",
@@ -47,6 +49,7 @@
     "remindOn_one": "Reminder every {{count}} day",
     "remindOn_other": "Reminder every {{count}} days",
     "remindOff": "Tap to turn off the reminder",
+    "remindWeb": "Refill reminders work in the phone app, not on the web.",
     "remove": "Remove {{name}}"
   },
   "remove": {

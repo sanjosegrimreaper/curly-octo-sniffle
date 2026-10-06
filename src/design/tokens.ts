@@ -84,7 +84,8 @@ export const lightPalette: Palette = {
   surface: '#FFFFFF',
   surfaceSunken: '#F5F9FE',
   border: '#D5E1EF',
-  borderStrong: '#94A3B8',
+  /** Boundaries of inputs, unselected chips and steppers (WCAG 1.4.11: >= 3:1). */
+  borderStrong: '#64748B',
   text: '#0F172A',
   textMuted: '#475569',
   accent: '#4F46E5',
@@ -104,7 +105,7 @@ export const darkPalette: Palette = {
   surface: '#131A2E',
   surfaceSunken: '#0F1526',
   border: '#2A3654',
-  borderStrong: '#64748B',
+  borderStrong: '#8090AB',
   text: '#F1F5F9',
   textMuted: '#A7B3C7',
   accent: '#A5B4FC',

@@ -11,7 +11,7 @@
     "saved_other": "You have {{count}} saved medicines. Here is what could help next."
   },
   "steps": {
-    "title": "Your next best steps",
+    "title": "Things you can do next",
     "hint": "Start with number 1. Each step opens the place where you can do it.",
     "a11yStep": "Step {{n}} of {{total}}",
     "finishScreener": {
@@ -82,7 +82,10 @@
     "noPrice": "No price loaded yet",
     "lowest": "Lowest price today",
     "upTo": "Up to {{price}}",
-    "open": "Opens prices for {{name}}"
+    "open": "Opens prices for {{name}}",
+    "missing": "No longer in our list — search again",
+    "missingSearch": "Search again",
+    "remove": "Remove {{name}}"
   },
   "freshness": {
     "section": "Your data",

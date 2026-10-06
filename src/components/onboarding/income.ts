@@ -1,12 +1,26 @@
 /**
  * Pure helpers for the Income and Result screens: bracket labels in one consistent format,
- * and the income edges of a benefit rule for a household. No React, no i18n.
+ * the income edges of a benefit rule for a household, and "close to / a little over a limit".
+ * No React, no i18n.
  */
 import type { BenefitRule, FplTable, RuleCondition } from '@/data/schemas';
-import { cleanFloat, displayLimit, thresholdDollars, type Bracket, type RuleResult } from '@/domain';
+import {
+  cleanFloat,
+  displayLimit,
+  NEAR_LIMIT_FRACTION,
+  thresholdDollars,
+  type Bracket,
+  type RuleResult,
+} from '@/domain';
 import type { IncomeUnit } from '@/state/screener';
 
-/** "Under $X" / "$X to $Y" / "Over $X" (or "Any income" when the pack uses no thresholds). */
+/**
+ * A whole-dollar income range for labels:
+ * - under: "$X or less"          (the first bracket; limits are inclusive)
+ * - range: "$X to $Y"            (X is the lower edge + $1, because the edge belongs to the bracket below)
+ * - over:  "More than $X"        (the last bracket)
+ * - any:   no thresholds at all
+ */
 export type RangeParts =
   | { kind: 'under'; max: number }
   | { kind: 'range'; min: number; max: number }
@@ -14,28 +28,25 @@ export type RangeParts =
   | { kind: 'any' };
 
 /**
- * A monthly edge in whole dollars: the exact annual limit / 12, rounded DOWN, so an
- * "Under $X a month" label never promises more room than the real limit.
+ * A monthly edge in whole dollars: the exact annual limit / 12, rounded DOWN, so a
+ * "$X or less a month" label never promises more room than the real limit.
  */
 export function monthlyEdge(annualExact: number): number {
   return Math.floor(cleanFloat(annualExact / 12));
 }
 
-function parts(min: number | null, max: number | null): RangeParts {
-  if (min === null && max === null) return { kind: 'any' };
-  if (min === null && max !== null) return { kind: 'under', max };
-  if (min !== null && max === null) return { kind: 'over', min };
-  return { kind: 'range', min: min as number, max: max as number };
-}
-
 /**
- * Label parts for an income bracket in the chosen unit. Yearly edges are the bracket's
- * `minDollars` / `maxDollars` (already floored by the domain); monthly edges are
- * `monthlyEdge` of the exact annual edges. Adjacent brackets share the same edge number.
+ * Label parts for an income bracket in the chosen unit. Bracket i covers (lower edge, upper edge],
+ * so in whole dollars it starts at lower edge + 1. Yearly edges are the bracket's `minDollars` /
+ * `maxDollars` (already floored by the domain); monthly edges are `monthlyEdge` of the exact edges.
  */
 export function bracketParts(b: Bracket, unit: IncomeUnit): RangeParts {
-  if (unit === 'year') return parts(b.minDollars, b.maxDollars);
-  return parts(b.minExact === null ? null : monthlyEdge(b.minExact), b.maxExact === null ? null : monthlyEdge(b.maxExact));
+  const lo = unit === 'year' ? b.minDollars : b.minExact === null ? null : monthlyEdge(b.minExact);
+  const hi = unit === 'year' ? b.maxDollars : b.maxExact === null ? null : monthlyEdge(b.maxExact);
+  if (lo === null && hi === null) return { kind: 'any' };
+  if (lo === null && hi !== null) return { kind: 'under', max: hi };
+  if (lo !== null && hi === null) return { kind: 'over', min: lo };
+  return { kind: 'range', min: (lo as number) + 1, max: hi as number };
 }
 
 /** i18n key suffix for a range in a unit, e.g. "under_year". */
@@ -52,8 +63,9 @@ export function ruleUsesIncome(rule: BenefitRule): boolean {
 }
 
 /**
- * The rule's income edges for a household in whole dollars (floored, via `displayLimit`):
- * the highest minimum and the lowest maximum. A 0% minimum is not an edge.
+ * The rule's income limits for a household in whole dollars: the lowest maximum, floored
+ * ("up to $X" never promises more), and the highest minimum, rounded up (the first whole
+ * dollar that meets it). A 0% minimum is not a limit.
  */
 export function ruleIncomeEdges(
   rule: BenefitRule,
@@ -74,23 +86,51 @@ export function ruleIncomeEdges(
     }
   }
   return {
-    min: mins.length ? displayLimit(Math.max(...mins)) : null,
+    min: mins.length ? Math.ceil(cleanFloat(Math.max(...mins))) : null,
     max: maxes.length ? displayLimit(Math.min(...maxes)) : null,
   };
 }
 
-/** Rule-limit parts for the result card ("Up to $X", "$X to $Y", "Over $X"); null when there is no income limit. */
+/** Rule-limit parts for the result card ("Up to $X", "$X to $Y", "$X or more"); null when there is no income limit. */
 export function limitParts(edges: { min: number | null; max: number | null }): RangeParts | null {
-  const p = parts(edges.min, edges.max);
-  return p.kind === 'any' ? null : p;
+  const { min, max } = edges;
+  if (min === null && max === null) return null;
+  if (min === null && max !== null) return { kind: 'under', max };
+  if (min !== null && max === null) return { kind: 'over', min };
+  return { kind: 'range', min: min as number, max: max as number };
 }
 
 /**
- * "You're close to an income limit": an exact income within ±5% of a limit of a rule that
- * could still apply (no non-income condition fails).
+ * A rule the person misses only because their exact income is a little (≤ 5%) over one of its
+ * income maximums — every other condition passes or is unknown. "Some income may not count."
  */
-export function closeToALimit(results: readonly RuleResult[]): boolean {
-  return results.some(
-    (r) => r.nearLimit && r.conditions.every((c, i) => c !== 'fail' || isIncomeCondition(r.rule.when.all[i])),
-  );
+export function isJustOverLimit(r: RuleResult, table: FplTable, size: number | null, annual: number | null): boolean {
+  if (r.tier !== 'notLikely' || size === null || annual === null) return false;
+  let overAny = false;
+  for (let i = 0; i < r.rule.when.all.length; i++) {
+    if (r.conditions[i] !== 'fail') continue;
+    const c = r.rule.when.all[i];
+    if (!c || !('incomePctFplMax' in c)) return false;
+    const limit = thresholdDollars(table, r.fplYear, size, c.incomePctFplMax);
+    if (limit === null) return false;
+    if (!(annual > limit && annual <= cleanFloat(limit * (1 + NEAR_LIMIT_FRACTION)))) return false;
+    overAny = true;
+  }
+  return overAny;
+}
+
+/**
+ * For an exact income: `close` = within 5% of a limit of a rule that could still apply;
+ * `over` = a little over the maximum of a rule that would otherwise apply.
+ */
+export function incomeProximity(
+  results: readonly RuleResult[],
+  table: FplTable,
+  size: number | null,
+  annual: number | null,
+): { close: boolean; over: boolean } {
+  return {
+    close: results.some((r) => r.tier !== 'notLikely' && r.nearLimit),
+    over: results.some((r) => isJustOverLimit(r, table, size, annual)),
+  };
 }

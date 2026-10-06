@@ -41,7 +41,7 @@ export function AmountField({
   const { palette, fonts, textScale } = useTheme();
   const [focused, setFocused] = useState(false);
   const fontSize = typeScale.heading.size * textScale;
-  const borderColor = error ? palette.signals.coral.solid : focused ? palette.focus : palette.border;
+  const borderColor = error ? palette.signals.coral.solid : focused ? palette.focus : palette.borderStrong;
 
   return (
     <View style={styles.wrap}>

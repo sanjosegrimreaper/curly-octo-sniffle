@@ -1,31 +1,30 @@
-import { BadgeCheck, Droplet, Droplets, Gauge, HeartPulse, Pill, Tag, TrendingDown, type LucideIcon } from 'lucide-react-native';
+import { Activity, BadgeCheck, Droplet, Droplets, Gauge, HeartPulse, Pill, Tag, type LucideIcon } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 
 import type { Medication } from '@/data/schemas';
-import { Badge, radius, spacing, Text, useTheme, type SignalName } from '@/design';
+import { Badge, radius, spacing, Text, useTheme } from '@/design';
 
 type Category = Medication['category'];
 
-/** Category → signal hue + icon. Always shown with its text label, never color alone. */
-export const CATEGORY_STYLE: Record<Category, { signal: SignalName; icon: LucideIcon }> = {
-  diabetes: { signal: 'sky', icon: Droplet },
-  'blood-thinner': { signal: 'lilac', icon: Droplets },
-  heart: { signal: 'coral', icon: HeartPulse },
-  'blood-pressure': { signal: 'mint', icon: Gauge },
-  cholesterol: { signal: 'tangerine', icon: TrendingDown },
-  other: { signal: 'slate', icon: Pill },
+/** Category → icon. Category chips stay neutral: bright signal colors are reserved for meaning. */
+export const CATEGORY_ICON: Record<Category, LucideIcon> = {
+  diabetes: Droplet,
+  'blood-thinner': Droplets,
+  heart: HeartPulse,
+  'blood-pressure': Gauge,
+  cholesterol: Activity,
+  other: Pill,
 };
 
 export function CategoryChip({ category }: { category: Category }) {
   const { palette } = useTheme();
   const { t } = useTranslation('search');
-  const { signal, icon: Icon } = CATEGORY_STYLE[category];
-  const s = palette.signals[signal];
+  const Icon = CATEGORY_ICON[category];
   return (
-    <View style={[styles.chip, { backgroundColor: s.tint }]}>
-      <Icon size={14} color={s.ink} />
-      <Text variant="caption" bold style={{ color: s.ink }}>
+    <View style={[styles.chip, { backgroundColor: palette.surfaceSunken, borderColor: palette.border }]}>
+      <Icon size={14} color={palette.textMuted} />
+      <Text variant="caption" bold tone="muted">
         {t(`category.${category}`)}
       </Text>
     </View>
@@ -48,5 +47,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xs,
     paddingVertical: 3,
     borderRadius: radius.pill,
+    borderWidth: 1,
   },
 });

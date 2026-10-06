@@ -57,7 +57,6 @@ export default function AgeScreen() {
             title={o.title}
             subtitle={o.subtitle}
             icon={o.icon}
-            signal="tangerine"
             selected={age65 === o.value}
             onPress={() => update({ age65: o.value })}
             testID={`age-${o.value}`}

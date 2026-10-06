@@ -14,7 +14,7 @@ import Svg, { Circle, Line, Path, Rect } from 'react-native-svg';
 
 import { motion, Text, useTheme } from '@/design';
 
-import { SCREENER_STEPS, TOTAL_STEPS } from './steps';
+import type { StepName } from './steps';
 
 const APath = Animated.createAnimatedComponent(Path);
 const ARect = Animated.createAnimatedComponent(Rect);
@@ -31,9 +31,8 @@ const DECK_Y = 62;
 /** Control point of the arch; the arch peaks at (DECK_Y + CTRL_Y) / 2. */
 const CTRL_Y = -6;
 const ARC_D = `M${LEFT} ${DECK_Y} Q${(LEFT + RIGHT) / 2} ${CTRL_Y} ${RIGHT} ${DECK_Y}`;
-const PLANKS_PER_STEP = 3;
-const PLANK_COUNT = PLANKS_PER_STEP * TOTAL_STEPS;
-const PLANK_PITCH = SPAN / PLANK_COUNT;
+/** About this many planks span the deck, whatever the number of steps. */
+const TARGET_PLANKS = 12;
 const PLANK_H = 8;
 const PLANK_Y = DECK_Y - PLANK_H / 2;
 const DOT_Y = DECK_Y - 12;
@@ -64,31 +63,43 @@ function arcLengthTo(f: number) {
 
 const ARC_LENGTH = Math.ceil(arcLengthTo(1)) + 2;
 /** Share of the arch's length drawn when the deck is built to fraction `f` of the span. */
-const drawnShare = (f: number) => (f >= 1 ? 1 : arcLengthTo(f) / ARC_LENGTH);
+const drawnShare = (f: number) => (f >= 1 ? 1 : arcLengthTo(Math.max(0, f)) / ARC_LENGTH);
 
-const plankX = (k: number) => LEFT + k * PLANK_PITCH + 1.5;
-const plankCenter = (k: number) => LEFT + (k + 0.5) * PLANK_PITCH;
+/** Planks for one step, so a 3-step path and a 6-step path both fill the deck evenly. */
+export function planksPerStep(total: number) {
+  return Math.max(1, Math.round(TARGET_PLANKS / Math.max(1, total)));
+}
 
 export type BridgeProgressProps = {
-  /** 1-based step (1..5). Step 5 completes the arch and walks the glowing dot across. */
-  step: number;
+  /** 1-based step on the current path. The last step completes the arch and walks the glowing dot across. */
+  now: number;
+  /** Steps on the current path (changes when the path changes). */
+  total: number;
+  /** Shown after "Step N of M". */
+  name: StepName;
 };
 
 /**
  * The Bridge: an arch bridge that builds plank by plank across the top of the screener.
- * It is also the accessible progress bar ("Step 3 of 5").
+ * It is also the accessible progress bar ("Step 3 of 6").
  */
-export function BridgeProgress({ step: rawStep }: BridgeProgressProps) {
+export function BridgeProgress({ now: rawNow, total: rawTotal, name }: BridgeProgressProps) {
   const { palette, reduceMotion } = useTheme();
   const { t } = useTranslation('onboarding');
-  const step = Math.min(TOTAL_STEPS, Math.max(1, Math.round(rawStep)));
-  const stepKey = SCREENER_STEPS[step - 1] ?? 'coverage';
-  const stepName = t(`steps.${stepKey}`);
-  const label = t('steps.label', { now: step, total: TOTAL_STEPS });
-  const isFinal = step === TOTAL_STEPS;
+  const total = Math.max(1, Math.round(rawTotal));
+  const now = Math.min(total, Math.max(1, Math.round(rawNow)));
+  const label = t('steps.label', { now, total });
+  const isFinal = now === total;
 
-  const from = drawnShare((step - 1) / TOTAL_STEPS);
-  const to = drawnShare(step / TOTAL_STEPS);
+  const perStep = planksPerStep(total);
+  const plankCount = perStep * total;
+  const pitch = SPAN / plankCount;
+  const plankX = (k: number) => LEFT + k * pitch + 1.5;
+  const plankCenter = (k: number) => LEFT + (k + 0.5) * pitch;
+  const plankW = pitch - 3;
+
+  const from = drawnShare((now - 1) / total);
+  const to = drawnShare(now / total);
   const arc = useSharedValue(reduceMotion ? to : from);
   const walk = useSharedValue(0);
   const glow = useSharedValue(0);
@@ -103,6 +114,7 @@ export function BridgeProgress({ step: rawStep }: BridgeProgressProps) {
     arc.value = withTiming(to, { duration: motion.slow, easing: ease });
     if (isFinal) {
       const start = motion.slow;
+      walk.value = 0;
       walk.value = withDelay(start, withTiming(1, { duration: WALK_MS, easing: Easing.inOut(Easing.quad) }));
       glow.value = withDelay(
         start,
@@ -118,7 +130,7 @@ export function BridgeProgress({ step: rawStep }: BridgeProgressProps) {
   const dotProps = useAnimatedProps(() => ({ cx: LEFT + walk.value * SPAN, opacity: glow.value }));
   const haloProps = useAnimatedProps(() => ({ cx: LEFT + walk.value * SPAN, opacity: glow.value * 0.28 }));
 
-  const builtBefore = (step - 1) * PLANKS_PER_STEP;
+  const builtBefore = (now - 1) * perStep;
   const ghost = palette.borderStrong;
   const water = palette.signals.sky.fill;
 
@@ -127,11 +139,11 @@ export function BridgeProgress({ step: rawStep }: BridgeProgressProps) {
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={t('steps.progressLabel')}
-      accessibilityValue={{ min: 1, max: TOTAL_STEPS, now: step, text: label }}
+      accessibilityValue={{ min: 1, max: total, now, text: label }}
       style={styles.wrap}
       testID="bridge-progress">
-      <Text variant="label" tone="accent" bold importantForAccessibility="no" accessibilityElementsHidden>
-        {t('steps.labelWithName', { now: step, total: TOTAL_STEPS, name: stepName })}
+      <Text variant="label" tone="accent" bold importantForAccessibility="no" accessibilityElementsHidden testID="bridge-label">
+        {t('steps.labelWithName', { now, total, name: t(`steps.${name}`) })}
       </Text>
       <View style={styles.art} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
         <Svg width="100%" height="100%" viewBox={`0 0 ${VB_W} ${VB_H}`}>
@@ -174,11 +186,19 @@ export function BridgeProgress({ step: rawStep }: BridgeProgressProps) {
             />
           ))}
           {Array.from({ length: builtBefore }, (_, k) => (
-            <Rect key={`p${k}`} x={plankX(k)} y={PLANK_Y} width={PLANK_PITCH - 3} height={PLANK_H} rx={2.5} fill={palette.accent} />
+            <Rect key={`p${k}`} x={plankX(k)} y={PLANK_Y} width={plankW} height={PLANK_H} rx={2.5} fill={palette.accent} />
           ))}
           {/* this step's planks spring in */}
-          {Array.from({ length: PLANKS_PER_STEP }, (_, i) => (
-            <NewPlank key={`n${i}`} k={builtBefore + i} order={i} color={palette.accent} reduceMotion={reduceMotion} />
+          {Array.from({ length: perStep }, (_, i) => (
+            <NewPlank
+              key={`n${total}-${now}-${i}`}
+              x={plankX(builtBefore + i)}
+              cx={plankCenter(builtBefore + i)}
+              width={plankW}
+              order={i}
+              color={palette.accent}
+              reduceMotion={reduceMotion}
+            />
           ))}
           {/* the arch draws as far as the current step */}
           <APath
@@ -193,7 +213,14 @@ export function BridgeProgress({ step: rawStep }: BridgeProgressProps) {
           {isFinal && !reduceMotion ? (
             <>
               <ACircle cy={DOT_Y} r={11} fill={palette.accent} animatedProps={haloProps} />
-              <ACircle cy={DOT_Y} r={5} fill={palette.signals.sunflower.fill} stroke={palette.surface} strokeWidth={2} animatedProps={dotProps} />
+              <ACircle
+                cy={DOT_Y}
+                r={5}
+                fill={palette.signals.sunflower.fill}
+                stroke={palette.surface}
+                strokeWidth={2}
+                animatedProps={dotProps}
+              />
             </>
           ) : null}
         </Svg>
@@ -202,8 +229,22 @@ export function BridgeProgress({ step: rawStep }: BridgeProgressProps) {
   );
 }
 
-/** One plank of the current step: drops onto the deck with a spring; its hanger fades in after it. */
-function NewPlank({ k, order, color, reduceMotion }: { k: number; order: number; color: string; reduceMotion: boolean }) {
+/** One plank of the current step: drops onto the deck with a spring; its hanger fades in with it. */
+function NewPlank({
+  x,
+  cx,
+  width,
+  order,
+  color,
+  reduceMotion,
+}: {
+  x: number;
+  cx: number;
+  width: number;
+  order: number;
+  color: string;
+  reduceMotion: boolean;
+}) {
   const p = useSharedValue(reduceMotion ? 1 : 0);
 
   useEffect(() => {
@@ -219,12 +260,11 @@ function NewPlank({ k, order, color, reduceMotion }: { k: number; order: number;
     opacity: Math.min(1, Math.max(0, p.value * 1.6)),
   }));
   const hangerProps = useAnimatedProps(() => ({ strokeOpacity: Math.max(0, Math.min(1, p.value)) * 0.4 }));
-  const cx = plankCenter(k);
 
   return (
     <>
       <ALine x1={cx} y1={arcY(cx) + 2} x2={cx} y2={PLANK_Y} stroke={color} strokeWidth={1.5} animatedProps={hangerProps} />
-      <ARect x={plankX(k)} width={PLANK_PITCH - 3} height={PLANK_H} rx={2.5} fill={color} animatedProps={plankProps} />
+      <ARect x={x} width={width} height={PLANK_H} rx={2.5} fill={color} animatedProps={plankProps} />
     </>
   );
 }

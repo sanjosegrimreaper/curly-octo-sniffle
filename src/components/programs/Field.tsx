@@ -49,7 +49,7 @@ export function Field({
             fontFamily: fonts.body,
             color: palette.text,
             backgroundColor: palette.surfaceSunken,
-            borderColor: focused ? palette.accent : palette.border,
+            borderColor: focused ? palette.accent : palette.borderStrong,
             borderWidth: focused ? 2 : 1,
           },
         ]}

@@ -61,6 +61,11 @@ export function coveredNames(program: Program, lang: Lang): string[] {
     .map((m) => loc(m.displayName, lang));
 }
 
+/** Short name for headings: the brand for brand-only medicines ("Eliquis"), else the generic name. */
+export function shortMedicineName(med: Medication): string {
+  return med.brand && med.marketStatus === 'brandOnly' ? med.brand : med.generic;
+}
+
 export function findProgram(id: string | undefined): Program | undefined {
   if (!id) return undefined;
   return getPack().programs.find((p) => p.id === id);

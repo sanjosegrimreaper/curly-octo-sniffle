@@ -1,7 +1,5 @@
 {
   "CFBundleDisplayName": "RxBridge",
   "NSFaceIDUsageDescription": "RxBridge आपकी दवाओं की सूची को निजी रखने के लिए Face ID का उपयोग कर सकता है।",
-  "NSLocationWhenInUseUsageDescription": "RxBridge आपकी लोकेशन का उपयोग सिर्फ़ पास की फ़ार्मेसियों को दूरी के हिसाब से दिखाने के लिए करता है। यह आपके फ़ोन से बाहर नहीं जाती।",
-  "NSCalendarsUsageDescription": "RxBridge आपके कैलेंडर में सहायता कार्यक्रम को रिन्यू करने का रिमाइंडर जोड़ सकता है।",
-  "NSCalendarsFullAccessUsageDescription": "RxBridge आपके कैलेंडर में सहायता कार्यक्रम को रिन्यू करने का रिमाइंडर जोड़ सकता है।"
+  "NSLocationWhenInUseUsageDescription": "RxBridge आपकी लोकेशन का उपयोग सिर्फ़ पास की फ़ार्मेसियों को दूरी के हिसाब से दिखाने के लिए करता है। यह आपके फ़ोन से बाहर नहीं जाती।"
 }

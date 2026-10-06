@@ -33,7 +33,7 @@ export function Chip({
         styles.chip,
         {
           backgroundColor: selected ? palette.accentSoft : palette.surface,
-          borderColor: selected ? palette.accent : palette.border,
+          borderColor: selected ? palette.accent : palette.borderStrong,
         },
       ]}>
       {selected ? <Check size={18} color={palette.accentInk} /> : null}

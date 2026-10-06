@@ -8,9 +8,17 @@ import { motion, radius, spacing, Tappable, Text, useTheme } from '@/design';
 import { PeopleRow } from './PeopleRow';
 
 export const STEPPER_MIN = 1;
-/** The buttons go up to 8; larger households type the number (9–20). */
+/** The buttons go up to 8 ("8 or more"); then the exact number (8–20) is required. */
 export const STEPPER_MAX = 8;
 export const TYPED_MAX = 20;
+
+/** The exact size typed for "8 or more" (8..20), else null. */
+export function parseLargeHousehold(text: string): number | null {
+  const s = text.trim();
+  if (!/^\d{1,2}$/.test(s)) return null;
+  const n = Number(s);
+  return n >= STEPPER_MAX && n <= TYPED_MAX ? n : null;
+}
 
 /** Big household stepper with the People row. Screen readers get one adjustable control ("3 people"). */
 export function HouseholdStepper({ value, onChange }: { value: number; onChange: (n: number) => void }) {

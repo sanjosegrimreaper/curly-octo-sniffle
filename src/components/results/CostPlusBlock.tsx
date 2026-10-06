@@ -1,4 +1,4 @@
-import { CircleSlash, CloudOff, ListOrdered } from 'lucide-react-native';
+import { CircleSlash, CloudOff, ListOrdered, Truck } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 
@@ -33,6 +33,14 @@ export function CostPlusBlock({
   const { t } = useTranslation('results');
   const { palette, lang } = useTheme();
   const snap = getPack().costPlus;
+  const note = (
+    <View style={styles.noteRow}>
+      <Truck size={18} color={palette.textMuted} />
+      <Text variant="label" tone="muted" style={styles.flex}>
+        {t('costPlus.note')}
+      </Text>
+    </View>
+  );
   const chip = <SourceChip sources={snap.sources} verifiedAsOf={snap.verifiedAsOf} recordId="costplus:snapshot" title={t('costPlus.title')} />;
 
   if (status.status === 'quote') return null;
@@ -47,6 +55,7 @@ export function CostPlusBlock({
             {t('costPlus.title')}
           </Text>
         </HStack>
+        {note}
         <Text>{t('costPlus.otherQuantities', { list })}</Text>
         <View accessibilityRole="radiogroup" style={styles.chips}>
           {status.quantities.map((q) => (
@@ -66,15 +75,16 @@ export function CostPlusBlock({
   }
 
   if (status.status === 'notListed') {
-    const note = snap.notListed.find(
+    const listedNote = snap.notListed.find(
       (n) => n.medicationId === medicationId && (n.strengthId === null || n.strengthId === strength.id),
     )?.note;
     return (
       <Card testID="costplus-not-listed">
         <Text variant="subheading">{t('costPlus.title')}</Text>
+        {note}
         <Badge label={t('costPlus.notListed')} signal="slate" icon={CircleSlash} />
         <Text variant="label" tone="muted">
-          {note ? loc(note, lang) : t('costPlus.notListedBody')}
+          {listedNote ? loc(listedNote, lang) : t('costPlus.notListedBody')}
         </Text>
         {chip}
       </Card>
@@ -84,6 +94,7 @@ export function CostPlusBlock({
   return (
     <Card testID="costplus-not-loaded">
       <Text variant="subheading">{t('costPlus.title')}</Text>
+      {note}
       <Badge label={t('costPlus.notLoaded')} signal="sunflower" icon={CloudOff} />
       <Text variant="label" tone="muted">
         {t('costPlus.notLoadedBody')}
@@ -104,6 +115,7 @@ export function CostPlusBlock({
 
 const styles = StyleSheet.create({
   flex: { flex: 1 },
+  noteRow: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.xs },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
   button: { alignSelf: 'flex-start' },
 });

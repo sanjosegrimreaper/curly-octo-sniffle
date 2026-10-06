@@ -18,7 +18,7 @@ export function trackPosition(step: ApplicationStep): number {
 
 /**
  * Horizontal step selector with an animated progress line:
- * Not started → Gathering documents → Sent → Waiting → Decision (Accepted / Denied).
+ * Not started → Getting papers ready → Sent → Waiting → Decision (they said yes / no).
  * The first four dots are tappable; the decision is set with the "They said yes / no" buttons.
  */
 export function StepTrack({

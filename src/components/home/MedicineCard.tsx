@@ -1,7 +1,7 @@
-import { router } from 'expo-router';
-import { Bell, BellRing, HandHeart, Hourglass, Trash2 } from 'lucide-react-native';
+import { router, type Href } from 'expo-router';
+import { Bell, BellRing, HandHeart, Hourglass, Search, Trash2 } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 
 import { getPack } from '@/data/pack';
 import type { PriceSummary } from '@/data/prices';
@@ -14,6 +14,8 @@ import { fillDays } from './budgetView';
 import { confirmAction } from './confirm';
 import { medicineName, packageLabel, resultsHref, shortName } from './format';
 import { removeMedicine, setFillDays, turnOffRefill, turnOnRefill } from './medicineActions';
+
+const isWeb = Platform.OS === 'web';
 
 export const FILL_DAY_CHOICES = [30, 60, 90] as const;
 
@@ -28,16 +30,8 @@ export function MedicineCard({ medicine, summary }: { medicine: SavedMedicine; s
   const { palette, lang } = useTheme();
 
   if (!summary) {
-    // The medicine is no longer in this data version: say so, and let the person remove it.
-    return (
-      <Card testID={`medicine-${medicine.key}`}>
-        <Text variant="subheading">{medicine.drugId}</Text>
-        <Text variant="label" tone="muted">
-          {t('card.missing')}
-        </Text>
-        <RemoveButton medicine={medicine} name={medicine.drugId} />
-      </Card>
-    );
+    // The medicine or strength is no longer in this data version: never drop it silently.
+    return <MissingMedicineCard medicine={medicine} />;
   }
 
   const name = medicineName(summary.medication, lang);
@@ -45,7 +39,7 @@ export function MedicineCard({ medicine, summary }: { medicine: SavedMedicine; s
   const pkg = packageLabel(summary.strength, medicine.quantity, lang);
   const lowest = summary.lowest;
   const days = fillDays(medicine, summary);
-  const genericWatch = summary.outlook.tier === 'within12' || summary.outlook.tier === 'oneToThree';
+  const genericYear = genericYearOf(summary);
   const program = hasOpenProgram(summary.medication.id);
   const money = lowest ? formatMoney(lowest.priceCents, lang) : null;
   const mint = palette.signals.mint;
@@ -63,10 +57,10 @@ export function MedicineCard({ medicine, summary }: { medicine: SavedMedicine; s
       <Text variant="label" tone="muted">
         {pkg}
       </Text>
-      {genericWatch || program ? (
+      {genericYear || program ? (
         <HStack gap="xs">
-          {genericWatch ? <Badge label={t('card.genericWatch')} signal="tangerine" icon={Hourglass} /> : null}
-          {program ? <Badge label={t('card.programAvailable')} signal="lilac" icon={HandHeart} /> : null}
+          {genericYear ? <Badge label={t('card.genericMayCome', { year: genericYear })} signal="tangerine" icon={Hourglass} /> : null}
+          {program ? <Badge label={t('card.hasProgram')} signal="lilac" icon={HandHeart} /> : null}
         </HStack>
       ) : null}
 
@@ -138,7 +132,7 @@ export function MedicineCard({ medicine, summary }: { medicine: SavedMedicine; s
           onPress={() => router.push(resultsHref(medicine))}
           testID={`medicine-open-${medicine.key}`}
         />
-        {medicine.refill ? (
+        {isWeb ? null : medicine.refill ? (
           <Button
             compact
             variant="secondary"
@@ -160,8 +154,44 @@ export function MedicineCard({ medicine, summary }: { medicine: SavedMedicine; s
         )}
         <RemoveButton medicine={medicine} name={brand} />
       </HStack>
+      {isWeb ? (
+        <Text variant="caption" tone="muted">
+          {t('card.remindWeb')}
+        </Text>
+      ) : null}
     </Card>
   );
+}
+
+/** A saved medicine or strength that is no longer in the pack: say so, offer Search and Remove. */
+export function MissingMedicineCard({ medicine }: { medicine: SavedMedicine }) {
+  const { t } = useTranslation('medicines');
+  return (
+    <Card signal="sunflower" treatment="dashed" testID={`medicine-missing-${medicine.key}`}>
+      <Text variant="subheading">{t('card.missing')}</Text>
+      <Text variant="label" tone="muted">
+        {medicine.drugId} · {medicine.strengthId} × {medicine.quantity}
+      </Text>
+      <Text variant="label">{t('card.missingBody')}</Text>
+      <HStack gap="xs" style={{ marginTop: spacing.xs }}>
+        <Button
+          compact
+          icon={Search}
+          label={t('card.missingSearch')}
+          onPress={() => router.push('/find' as Href)}
+          testID={`medicine-missing-search-${medicine.key}`}
+        />
+        <RemoveButton medicine={medicine} name={medicine.drugId} />
+      </HStack>
+    </Card>
+  );
+}
+
+/** "2028" when a generic may come within about 3 years (outlook tiers within12 / oneToThree), else null. */
+export function genericYearOf(summary: PriceSummary): string | null {
+  if (summary.outlook.tier !== 'within12' && summary.outlook.tier !== 'oneToThree') return null;
+  const o = getPack().outlooks.find((x) => x.medicationId === summary.medication.id);
+  return o?.earliestDate ? o.earliestDate.slice(0, 4) : null;
 }
 
 function RemoveButton({ medicine, name }: { medicine: SavedMedicine; name: string }) {

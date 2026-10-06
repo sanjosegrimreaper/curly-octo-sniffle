@@ -7,10 +7,14 @@ import type { TFunction } from 'i18next';
 import { loc } from '@/data/localize';
 import type { Medication, Strength } from '@/data/schemas';
 import { perDayCentsFromDaily } from '@/domain';
+import { i18next } from '@/i18n';
 import { formatNumber } from '@/i18n/format';
 import type { Lang } from '@/i18n/languages';
 
 export type ResultsT = TFunction<'results'>;
+
+/** A fixed-language `t` for the results namespace (like `tFor(lang)`), for bilingual screens and handouts. */
+export const resultsT = (lang: Lang): ResultsT => i18next.getFixedT(lang, 'results');
 
 /** Count units the pack uses for `countLabel.en`, with real singular/plural strings. */
 const COUNT_UNITS = ['tablets', 'capsules', 'boxes', 'vials', 'pens'] as const;

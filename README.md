@@ -1,6 +1,6 @@
 # RxBridge
 
-**The lowest honest price for your medicine.**
+**Honest ways to pay less for your medicine.**
 
 RxBridge is a free, private app (iOS, Android and web preview) for people who struggle to afford prescriptions. It helps them:
 - find the lowest legitimate way to buy their medicine;

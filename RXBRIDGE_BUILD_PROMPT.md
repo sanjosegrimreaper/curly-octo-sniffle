@@ -1,6 +1,18 @@
-# RxBridge — Master Build Prompt
+# RxBridge — Master Build Prompt (v2)
 
-> **How to use this file:** edit the **Knobs** block and anything marked `[TWEAK]`, delete what you don't want, then start a fresh Claude Code session on this repo and say: *"Build the app described in RXBRIDGE_BUILD_PROMPT.md."*
+> **How to use this file**
+> 1. Edit the **Knobs** block (§0) and anything marked `[TWEAK]`. Delete what you don't want.
+> 2. Fix the environment first (§0.1). Without network access to official sites, every fact ships as "Not yet confirmed".
+> 3. Start a Claude Code session on this repo and say: *"Build (or continue building) the app described in RXBRIDGE_BUILD_PROMPT.md."*
+>
+> **v2 changes:** this version folds in research done on 2026-10-06 (§9.4) and two independent reviews (engineering; product, honesty and accessibility). The biggest changes:
+> - The region is defined by county.
+> - The price classes are new.
+> - Generic outlook needs a market-entry basis, not just patent dates.
+> - Formulation variants and unit math are explicit.
+> - A draft/release data workflow is added.
+> - There is a privacy and app-store section.
+> - The web-based verification loop for agents without simulators is spelled out.
 
 ---
 
@@ -8,646 +20,833 @@
 
 ```yaml
 app_name: RxBridge
-tagline: "The lowest honest price for your medicine."
-first_region: ca-south-bay            # CA-17 + CA-19: Santa Clara County, South Bay, Gilroy, Salinas area
-launch_languages: [en, es, zh-Hans, hi]
-next_languages: [vi, tl]              # the architecture must support these; they don't ship at launch
-slice_drugs:                          # vertical slice: one of each kind (check each "why" during research)
-  - metformin ER                      # cheap, common generic
-  - apixaban (Eliquis)                # brand, generic not on market yet (check), manufacturer PAP
-  - insulin glargine                  # biologic with biosimilars + insulin-specific programs
+tagline: "Honest ways to pay less for your medicine."   # never promise "lowest"
+first_region: ca-south-bay            # Santa Clara County + Monterey County. COUNTY is the unit — never congressional
+                                      # districts (after Prop 50, Gilroy/Morgan Hill/Salinas are in CA-18, not CA-17/19)
+launch_languages: [en, es, zh-Hans, hi]   # [TWEAK] decide with Census ACS table C16001 ("speaks English less than very
+                                      # well") for both counties + DHCS threshold languages. Vietnamese (large in San José)
+                                      # and Tagalog may outrank Hindi; many older Chinese readers prefer Traditional (zh-Hant).
+next_languages: [vi, tl, zh-Hant]     # architecture must support these; fonts: system font for vi (see §5.3)
+slice_drugs:                          # vertical slice: one of each kind
+  - metformin ER                      # cheap generic — with formulation variants (regular ER vs osmotic vs modified)
+  - apixaban (Eliquis)                # brand; no US generic until ≥ 2028-04-01 per settlements; maker's direct price;
+                                      # sold by Cost Plus since Apr 2026; BMS Patient Assistance Foundation
+  - insulin glargine                  # biologic; interchangeable biosimilars; CalRx/Civica price cap; $35/month programs
 full_drug_list_size: 40               # only after the slice is approved
-expo_go_compatible: true              # core features use no custom native modules
-dev_build_only_features: [label_scan] # behind a feature flag, never required
 medicare_branch: true
-age_question: optional                # "Is anyone 65 or older?" — used only to show Medicare info
+age_question: true                    # "Is the medicine for someone 65 or older?" (Medicare help + Medi-Cal rule set)
+county_question: true                 # needed for county programs (Santa Clara PCAP), clinics, helpers
 navigator_mode: true
 read_aloud: true
 app_lock: true
-simple_view: false                    # P2: an "essentials only" layout for low digital literacy
-mascot: false                         # the brand motif is the bridge, not a character
-accent: indigo                        # see §5.1
 pause_for_review_after_slice: true
-web_preview: true                     # needed for screenshots in a cloud container
+feeds_base_url: null                  # e.g. https://<user>.github.io/rxbridge-feeds — hosts nadac.json (+ schemaVersion)
+feedback_url: null                    # issue form / web form for "Report a problem" and "Ask us to add a medicine"
+feedback_email: null                  # if both feedback_* are null, hide those buttons and show free local help instead
+bundle_id: null                       # e.g. org.example.rxbridge — required before store builds
+eas_owner: null
+share_base_url: null                  # optional https page that a shared QR code opens for people without the app
 ```
+
+**Where each knob is used:**
+
+| Knob | Used in |
+|---|---|
+| `app_name`, `tagline` | Welcome screen, app.json, store listing |
+| `first_region` | `data/packs/<first_region>/` |
+| `launch_languages` | `LAUNCH_LANGUAGES` in `src/i18n/languages.ts` (§10) |
+| `medicare_branch`, `age_question`, `county_question`, `navigator_mode`, `read_aloud`, `app_lock` | `src/config/flags.ts`. When a flag is off, its entry points are hidden. |
+| `feeds_base_url` | app.json `extra.feeds` |
+| `feedback_*` | `region.json` (`reportProblemUrl` / `reportProblemEmail`) |
+| `bundle_id`, `eas_owner` | app.json, eas.json |
+| `share_base_url` | the PDF/QR (§7.15) |
+
+### 0.1 Environment prerequisites (do this before building) `[TWEAK]`
+The build agent must be able to open official pages, or no fact can be confirmed.
+
+In Claude Code on the web, open the environment's settings, then **Network access**. Choose a broader level, or Custom with these domains allowed:
+- **Federal:** federalregister.gov, govinfo.gov, aspe.hhs.gov, data.medicaid.gov, download.medicaid.gov, medicaid.gov, cms.gov, medicare.gov, ssa.gov, fda.gov, accessdata.fda.gov, purplebooksearch.fda.gov, findahealthcenter.hrsa.gov, data.hrsa.gov, api.census.gov.
+- **California state:** dhcs.ca.gov, medi-calrx.dhcs.ca.gov, benefitscal.com, coveredca.com, hbex.coveredca.com, aging.ca.gov, calrx.ca.gov, gov.ca.gov, leginfo.legislature.ca.gov, pharmacy.ca.gov.
+- **Counties:** santaclaracounty.gov (and its subdomains), scvh.org, countyofmonterey.gov, natividad.com.
+- **Drug programs and pharmacies:** costplusdrugs.com, costplusdrugs.github.io, goodrx.com, singlecare.com, bmspaf.org, eliquis.bmscustomerconnect.com, lillycares.com, insulins.lilly.com, sanofipatientconnection.com, lantus.com, civicainsulin.org, rxassist.org, needymeds.org, and the chain store locators (cvs.com, walgreens.com, safeway.com, costco.com, walmart.com).
+
+Keep the default package-manager list allowed. If web search has a per-session budget, raise it (`CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`).
+
+If official pages are still unreachable, do not stall. Ship facts as `unconfirmed` in a `draft` pack (§2.9) and list what's blocked.
 
 ---
 
 ## 1. Your role and the bar
 
-You are a senior mobile engineer, product designer and motion designer. Build **RxBridge** from an empty repo. It is a cross-platform Expo app (iOS and Android, plus a web preview) for people who struggle to afford prescriptions. It helps them find the lowest legitimate way to get their medicine and see whether they may qualify for public coverage or free-medicine programs.
+You are a senior mobile engineer, product designer and motion designer. Build **RxBridge**: a cross-platform Expo app (iOS and Android, plus a web preview) for people who struggle to afford prescriptions. It helps them find honest ways to pay less for their medicine and see whether they may qualify for public coverage, county programs or free-medicine programs.
 
-**The bar:** it should feel like an Apple Design Award finalist that happens to be a public-good tool. It should be bright, warm, fluid and delightful. It must also stay calm, honest and very simple for a 70-year-old on a cracked Android phone with spotty data. Every screen should be good enough to proudly screenshot.
+**The bar:** an Apple Design Award finalist that happens to be a public-good tool.
+- **Delight:** bright, warm, fluid and delightful.
+- **Simplicity:** calm, honest and dead simple for a 70-year-old on a cracked Android phone with spotty data.
+- **Craft:** every screen good enough to proudly screenshot.
 
-It is **not** a storefront, a marketing site or a coupon funnel. No ads, no affiliate links, no subscriptions, no accounts, and no AI chatbot inside the app.
+It is **not** a storefront, a marketing site or a coupon funnel. No ads, no affiliate links, no subscriptions, no accounts, no analytics, and no AI chatbot inside the app.
 
-Start fresh. There is no prior code to reuse.
+**Existing code:** if this repo already contains the RxBridge scaffold (Expo SDK 57, `src/app`, `src/domain`, `data/packs`, `scripts/`), read `AGENTS.md`, `docs/ARCHITECTURE.md` and `README.md` first. Extend the scaffold; don't rewrite it. Where this file and the code disagree, this file wins, and you update the code. If the repo is empty, build from scratch following §14.
 
 ### Failure modes to avoid (seen in earlier attempts)
-- Flat, generic UI with no personality or motion.
-- An ad-hoc screen state machine instead of real navigation, which breaks back gestures and deep links.
-- Hard-coded UI strings and hard-coded income brackets.
-- Household size capped at 5. FPL years that don't match the program using them.
-- Income ranges labeled inconsistently. Buttons labeled with one program's name that open another program's site.
-- Placeholder copy ("APP NAME", "Lorem", "TODO").
-- Facts with no source or date.
+- **UI and copy**
+  - Flat, generic UI with no personality or motion.
+  - Placeholder copy ("APP NAME", "Lorem", "TODO").
+  - Income ranges labeled inconsistently. Buttons labeled with one program's name that open another program's site.
+- **Structure**
+  - An ad-hoc screen state machine instead of real navigation, which breaks back gestures and deep links.
+  - Hard-coded UI strings and hard-coded income brackets.
+  - Household size capped at 5. FPL years that don't match the program using them.
+- **Honesty**
+  - Facts with no source or date.
+  - "Verifying" facts from memory.
+  - A "generic within 12 months" message based on a patent date when settlements block launch.
+  - Ranking a different product (biosimilar, other formulation) as "the lowest price" for the person's medicine.
 
 ---
 
 ## 2. The Honesty Contract (non-negotiable; overrides everything else)
 
-1. **Never invent anything.** That covers prices, pharmacies, addresses, hours, phone numbers, URLs, programs, eligibility rules, patent or exclusivity dates, statistics and translations of legal terms. If you can't verify a fact, don't ship it. List it in `VERIFICATION.md` under "Unverified — not shipped".
-2. **Every fact on screen carries a source chip** with the source name, link and verified-as-of date. Tapping the chip opens a sheet showing the verification method and a "Report a problem with this" button.
-3. **Unknown is a first-class state.** Use "Not listed", "Call to confirm" and "Hours not published — see store locator". An honest empty state beats a filled-in guess.
-4. **There are three price classes.** Never blend them. Each has its own visual treatment, copy and type in code:
-   - **Buy now:** a real checkout price, such as a Cost Plus Drugs quote for the exact strength × quantity. Shown as a solid mint card.
-   - **Coupon:** a link to a partner site. We never display its amount. Shown as a sky-outline card with a link-out icon and no dollar figure, ever. We never scrape coupon sites.
-   - **Reference:** a benchmark nobody can buy at (CMS NADAC). Shown as a slate card with a diagonal hatch and the sentence *"What pharmacies pay wholesalers — you can't check out at this number."*
-5. **Use hedged language** for anything predictive or about eligibility: "may qualify", "may face generic competition", "could drop". Never say "you qualify", "guaranteed", "will save" or "approved". The honesty linter (§11) enforces this.
-6. **No medical advice.** Never suggest switching drugs, changing a dose, splitting pills or stopping a medicine. The app may only suggest questions to ask a doctor or pharmacist.
-7. **Show the math** wherever a number is computed, such as unit price × quantity or % FPL → dollars.
-8. **Ask only for what's needed.** Never ask about immigration status, SSN or identity. Answers stay on the phone.
+1. **Never invent anything.**
+   - That covers prices, pharmacies, addresses, hours, phones, URLs, programs, eligibility rules, market-entry dates, statistics and translations of legal terms.
+   - Facts recalled from training data are not verified.
+   - Can't confirm it? Don't ship it as confirmed. List it in `data/packs/<id>/unverified.json` and in VERIFICATION.md.
+2. **Every fact on screen carries a source chip.** It shows the source name, link and "Checked on {date}". Tapping it opens a sheet with how it was checked and a "Report a problem with this" action. Any sentence that states a fact about a program, law or price lives in the pack (`facts.json`, `notices.json`, ...) with sources. Locale files hold only UI wording.
+3. **Unknown is a first-class state.** Use "Not listed", "Price not loaded yet" and "Call to confirm". An honest empty state beats a filled-in guess.
+4. **Price classes are never blended.** Each has its own type, visual treatment and copy:
 
-Encode the contract in types. UI components that render facts accept only `Sourced<T>`:
+   | Class | What it is | Treatment |
+   |---|---|---|
+   | **buyNow** | An exact checkout price anyone with a prescription can pay, for this exact product and quantity. `seller: 'pharmacy' \| 'manufacturer'` plus a required `restrictions[]` that is always shown (e.g. `notWithMedicarePartD`, `mailOrderOnly`, `soldInPacksOf`). | Mint tint card with a mint border |
+   | **priceCap** | A published maximum, e.g. state-label insulin "up to $55 for 5 pens". | Always "Up to $X". Never ranked, never called lowest. Mint outline. |
+   | **programPrice** | A price you get only if you sign up and qualify, e.g. a $35/month insulin program. | Always "If you sign up and qualify: $35 a month". Lilac. Lives in Help paying; may appear in the Price Ladder as a row with no bar. |
+   | **coupon** | A link to GoodRx / SingleCare. **No amount field exists in the type.** | Sky outline card, link-out icon |
+   | **reference** | CMS NADAC: what pharmacies pay on average. Nobody can buy at it. | Slate card with a hatched leading band; "What pharmacies pay (for comparison)" |
+
+   Medicare negotiated prices (what plans pay) are **reference-like facts**, never a price the person pays.
+5. **Hedged language only:** "may", "could", "might". Never "you qualify", "likely qualify", "eligible" (unhedged), "guaranteed", "will save", "approved", "lowest price", "best price" or "cheapest". The honesty linter (§11) enforces this in every language.
+6. **No medical advice.**
+   - Never suggest switching products, changing a dose, splitting pills, shorter fills or stopping a medicine.
+   - Only "Ask your doctor or pharmacist ..." questions.
+   - Outlook copy ends with "Keep taking your medicine as your doctor told you."
+7. **Show the math** wherever a number is computed (unit price × quantity, % FPL → dollars).
+8. **Ask only for what's needed.** Never ask about immigration status, SSN or identity. Don't say "your answers stay on this phone" (backups and other users exist). Say what's true (§11).
+9. **Never present a different product as the person's product.** Biosimilars, other formulations and other brands are grouped as "Different versions of this medicine — ask your pharmacist if your prescription allows them". They get no ribbon and no "lowest".
+10. **Never imply cash beats the person's coverage.** People with Medicare or Medi-Cal see a coverage banner first (§7.8).
+11. **Draft vs release.** Each source has a `method`. Confirmed methods: `http-200` (URL facts only), `browser-confirmed`, `official-pdf`, `official-data-file`, `official-api`, `phone-confirmed`.
+    - A method may be recorded only for a source actually opened in this session (record what you saw). `browser-confirmed` and `phone-confirmed` are recorded by humans.
+    - For non-URL facts, a confirmed source also needs `excerpt` (a short verbatim quote) and `locator` (section or heading).
+    - Anything else is `unconfirmed`, with a `note` saying why (e.g. "seen only in search results; network blocked").
+    - The pack manifest has `status: 'draft' | 'release'`. In a draft pack, unconfirmed facts render with a sunflower "Not yet confirmed — call to confirm" chip and a persistent Preview-data banner. `validate-packs --release` fails on any unconfirmed source.
+12. **Time-bound facts carry a window:** `effectiveFrom`, `effectiveTo?`, `planYear?`. Examples are the Part D cap, state subsidy bands, FPL years and enrollment dates. Show the fact whose window contains today. CI fails when a fact's `effectiveTo` is before the build date. No current fact → show the latest with its year label and a stale chip.
+
+Encode the contract in types:
 
 ```ts
-type VerificationMethod = 'http-200' | 'browser-confirmed' | 'official-data-file' | 'official-pdf' | 'phone-confirmed';
-type SourceRef = { name: string; url: string; method: VerificationMethod; checkedOn: ISODate; edition?: string };
-type Sourced<T> = { value: T; sources: [SourceRef, ...SourceRef[]]; verifiedAsOf: ISODate };
-type PriceClass = 'buyNow' | 'coupon' | 'reference';
+type ISODate = string & { readonly __brand: 'ISODate' }; // YYYY-MM-DD, a calendar date with no time zone
+type VerificationMethod = 'http-200' | 'browser-confirmed' | 'official-data-file' | 'official-pdf' | 'official-api' | 'phone-confirmed' | 'unconfirmed';
+type SourceRef = { name: string; url: string; method: VerificationMethod; checkedOn: ISODate; edition?: string; excerpt?: string; locator?: string; note?: string };
+type Sourced<T> = { value: T; sources: [SourceRef, ...SourceRef[]]; verifiedAsOf: ISODate; effectiveFrom?: ISODate; effectiveTo?: ISODate };
+
+type BuyNow = { class: 'buyNow'; seller: 'pharmacy' | 'manufacturer'; sellerName: string; productId: string; amountCents: number; quantity: number; restrictions: Restriction[]; shippingExtra: boolean };
+type PriceCap = { class: 'priceCap'; productId: string; maxCents: number; per: Localized };
+type ProgramPrice = { class: 'programPrice'; programId: string; amountCents: number; per: Localized; whoCanUse: Localized };
+type Coupon = { class: 'coupon'; partner: 'goodrx' | 'singlecare'; url: string }; // no amount, by design
+type Reference = { class: 'reference'; perUnitE5: number; pricingUnit: 'EA' | 'ML' | 'GM'; units: number; asOf: ISODate; effective: ISODate };
 ```
 
 ---
 
 ## 3. People we're designing for
 
-- **Rosa, 62, Salinas.** Reads Spanish first. Uninsured. Takes metformin and lisinopril. Has an Android phone with limited data. Reads English slowly and is slow to trust an app.
-- **Wei, 74, San José.** Reads Mandarin first. On Medicare. A daughter set up the phone, but Wei uses it alone. Needs large text and sometimes uses VoiceOver.
-- **Anjali, 38, Gilroy.** Caregiver for a parent. Switches between Hindi and English. Needs to share a summary with a sibling.
-- **Marcus, community health worker.** Sees 12–15 clients a day in several languages. Needs speed, needs no data left behind between clients, and needs a printable bilingual handout.
+| Person | Situation and needs |
+|---|---|
+| **Rosa, 62, Salinas** | Reads Spanish first, uninsured, does seasonal farm work (monthly income varies). Takes metformin ER. Android phone with limited data; slow to trust an app. |
+| **Wei, 74, San José** | Reads Chinese first (may prefer Traditional `[TWEAK]`); on Medicare. A daughter set up the phone; Wei uses it alone, with large text and sometimes VoiceOver. |
+| **Anjali, 38, Gilroy** | Caregiver for a parent; switches between Hindi and English. Needs to share a summary with a sibling. `[TWEAK]` Replace with a Vietnamese-speaking persona if ACS data says so. |
+| **Marcus, community health worker** | Sees 12–15 clients a day in several languages. Needs speed, no data left behind, and a bilingual handout. |
 
 **Design principles**
-1. **One job per screen.** Each screen asks one question or makes one decision, with one primary button.
-2. **Never a dead end.** Every empty or error state offers a next step.
-3. **Show your work.** Math and sources are always one tap away.
-4. **Calm first, delight second.** Animation explains a change. It never delays the user or decorates for its own sake.
-5. **Same answer in every language.** Switching language mid-flow changes the words, never the state.
-6. **Built for the worst phone.** Assume a small screen, 200% text, no data and TalkBack on.
+1. **One job per screen.** One question or decision, one primary button.
+2. **Never a dead end.** Every empty or error state offers a next step, and "Get free help" is always reachable (WCAG 3.2.6).
+3. **Show your work.** Math and sources are one tap away.
+4. **Calm first, delight second.** Animation explains change. Nothing flashes; no sparkles.
+5. **Same answer in every language.** Switching language changes words, never state.
+6. **Built for the worst phone.** Small screen, 200% text, no data, TalkBack on, a shared phone.
+7. **Never ask twice** (WCAG 3.3.7). Prefill every repeated answer.
 
 ---
 
-## 4. Platform and stack
+## 4. Platform and stack (pinned)
 
-Use the **latest stable Expo SDK at build time** (check it; don't assume) with the New Architecture. Use strict TypeScript: no `any` in app code, with `noUncheckedIndexedAccess` on.
+**Pinned versions:** **Expo SDK 57** (expo ~57.0.x, React Native 0.86, React 19.2, New Architecture, Hermes), TypeScript 6 strict with `noUncheckedIndexedAccess`.
+- Versions are pinned in package.json. Add packages only with `npx expo install` (use `EXPO_OFFLINE=1` if expo.dev is blocked; it uses the bundled version table).
+- Never write Expo API shapes from memory. Read the installed `node_modules/<pkg>/build/*.d.ts`, or the versioned docs if reachable.
 
 | Concern | Choice | Notes |
 |---|---|---|
-| Navigation | Expo Router, typed routes | Real stacks, OS back gestures, Android hardware back, deep links `rxbridge://drug/{id}?strength=&qty=` |
-| Animation | react-native-reanimated (version matched to the SDK) + react-native-gesture-handler | Layout animations, worklets on the UI thread, `useReducedMotion` |
-| Custom drawing | @shopify/react-native-skia | Graph-paper background, Bridge progress, Price Ladder, Freshness Ring. Set up CanvasKit for the web preview |
-| Lists | @shopify/flash-list | Every long list |
-| Session state | Zustand + persist through a storage adapter | Default adapter is Expo-Go-safe (expo-sqlite kv-store or AsyncStorage). MMKV adapter for dev builds only |
-| Remote data | TanStack Query + persisted cache | NADAC feed and data-pack updates |
-| Validation | Zod | All packs, remote JSON and deep-link params |
-| i18n | i18next + react-i18next, ICU plurals, typed keys | expo-localization for defaults |
-| Search | Custom multilingual fuzzy matcher (or Fuse.js) | See §7.6 |
-| Icons | lucide-react-native (react-native-svg) | Line icons, always paired with text |
-| Fonts | @expo-google-fonts: Fredoka + Atkinson Hyperlegible Next (fall back to Atkinson Hyperlegible) | System fonts for CJK and Devanagari (§5.3) |
-| Device | expo-haptics, expo-speech, expo-print, expo-sharing, expo-location, expo-notifications (local only), expo-calendar, expo-web-browser, expo-local-authentication, expo-keep-awake, expo-brightness, expo-network | Confirm each works in Expo Go on the chosen SDK |
-| QR | react-native-qrcode-svg (in app), `qrcode` (SVG string for PDFs) | |
-| Testing | Jest + React Native Testing Library, fast-check (property tests), Maestro (E2E) | |
-| Quality | ESLint flat config + eslint-plugin-react-native-a11y, Prettier, `tsc --noEmit` | |
-| Builds | EAS: development / preview / production profiles | Bundle IDs, icons, splash, permission strings in every launch language |
+| Navigation | Expo Router 57, typed routes, routes in `src/app/` | Root native Stack; tabs = **headless tabs from `expo-router/ui`** (TabList/TabTrigger/TabSlot) with a custom floating bar. Never `Tabs` from 'expo-router' (deprecated; `expo-router/js-tabs` if a stock bar is needed). No NativeTabs (unstable). |
+| Animation | react-native-reanimated 4.5 + react-native-worklets | Don't add a Babel plugin (babel-preset-expo configures `react-native-worklets/plugin`). React Compiler is on: prefer `sv.get()`/`sv.set()`. Layout animations (`entering`/`exiting`), `useAnimatedProps` for SVG. No `sharedTransitionTag` (needs a native flag; not in Expo Go) — use a 200 ms fade-through. |
+| Custom drawing | **react-native-svg** + Reanimated | Graph paper (SVG `<Pattern>`), Bridge, Price Ladder, Freshness Ring, illustrations. No Skia: CanvasKit wasm complicates web, Jest and bundle size. |
+| Lists | @shopify/flash-list 2 (or plain `map` for short lists) | |
+| State | Zustand + `persist(createJSONStorage(() => AsyncStorage))` | AsyncStorage = localStorage on web. No SQLite, no MMKV. Each store: `name 'rxb.<store>.v1'`, `version`, `migrate`. |
+| Remote data | A small feed client (no TanStack Query) | Only remote feed: NADAC. `fetchJson` with 6 s timeout + retries; keep the last valid feed. |
+| Validation | Zod 4 | Packs, feeds, deep-link params |
+| i18n | i18next 26 + react-i18next 17, JSON v4 plural suffixes, `{{name}}` interpolation | No i18next-icu. Intl polyfills only if feature detection fails (§10). |
+| Icons | lucide-react-native | Always paired with text, except the documented icon-only set (§12) |
+| Fonts | @expo-google-fonts/fredoka (headings, Latin), @expo-google-fonts/atkinson-hyperlegible-next (body, prices) | System fonts for zh/hi/vi (§5.3) |
+| Device | expo-haptics, expo-speech, expo-print, expo-sharing, expo-location, expo-notifications (local only), expo-calendar (**`expo-calendar/legacy`** + `createEventInCalendarAsync`, which needs no permission), expo-web-browser, expo-local-authentication, expo-keep-awake, expo-brightness, expo-network, expo-localization | Each `src/services/*` exports `isAvailable()` and degrades on web (hide unavailable actions; the web export must not throw on any screen). |
+| QR | `qrcode` (SVG string) | |
+| Testing | jest-expo + @testing-library/react-native + fast-check; **Playwright against the web export** (runs in the container); Maestro flows authored for devices | §13 |
+| Quality | ESLint 9 flat (`eslint-config-expo/flat` + prettier), Prettier, `tsc --noEmit` | eslint-plugin-react-native-a11y only if it loads under flat config; otherwise use a11y assertions in component tests. |
+| Builds | EAS (development / preview / production) | iOS permission strings localized via app.json `locales` |
 
-Any feature that needs a custom native module (for example, on-device OCR) goes behind a feature flag and ships only in dev/EAS builds. It must never be required for a core flow.
+**Feature flags:** they live in `src/config/flags.ts`. A native-only feature (e.g. label scan) turns on only outside Expo Go (`Constants.executionEnvironment !== 'storeClient'`) and when `requireOptionalNativeModule(...)` exists. It is loaded with `require()` inside the flagged branch, never as a top-level import in a route.
 
 ---
 
 ## 5. Design language — "Daybreak"
 
-**The concept is sunlight through a pharmacy window:** bright, optimistic and clean, but every color has to earn its place. Surfaces stay big and calm. Saturated color appears only in small doses: chips, icons, progress, illustrations and the one primary button. **Every bright color carries a meaning.**
+**The concept is sunlight through a pharmacy window:** bright, optimistic and clean, but every color has to earn its place. Big calm surfaces; saturated color only in small doses. **Every bright color carries a meaning.**
 
 ### 5.1 Color tokens
-These are starting values. The contrast script in CI has the final say; adjust values until it passes.
+These are validated by `scripts/contrast-check.ts` over an explicit `contrastPairs` list exported from `tokens.ts`.
+- **Text:** ≥ 4.5:1.
+- **Non-text UI and graphics:** ≥ 3:1 (WCAG 1.4.11).
+- **High contrast:** ≥ 7:1.
 
 **Light theme**
 
 | Token | Value | Use |
 |---|---|---|
-| `bg` | `#EEF6FF` | Sky wash behind everything |
-| `gridMinor` / `gridMajor` | `#3B82F6` @ 6% / 11% | Graph paper: 24dp minor, 96dp major |
-| `surface` | `#FFFFFF` | Cards |
-| `surfaceSunken` | `#F5F9FE` | Inputs, wells |
-| `border` | `#D5E1EF` | 1dp card borders |
-| `text` | `#0F172A` | Body and headings |
-| `textMuted` | `#475569` | Secondary text |
-| `accent` | `#4F46E5` | Primary button, links, selection |
-| `accentSoft` | `#E0E7FF` | Selected chip background |
-| `onAccent` | `#FFFFFF` | Text on accent |
-| `focus` | 3dp ring | Must clear 3:1 against both `bg` and `surface` |
+| bg | `#EEF6FF` | Sky wash |
+| grid / gridMajor | `#3B82F6` @ 7% / 12% | Graph paper (decorative) |
+| surface / surfaceSunken | `#FFFFFF` / `#F5F9FE` | Cards / wells |
+| border | `#D5E1EF` | Decorative card edges only |
+| **borderStrong** | `#64748B` (4.76:1) | Inputs, unselected chips, steppers (must be ≥ 3:1) |
+| text / textMuted | `#0F172A` / `#475569` | |
+| accent / accentSoft / accentInk / onAccent | `#4F46E5` / `#E0E7FF` / `#3730A3` / `#FFFFFF` | Primary actions |
+| focus | `#1D4ED8` 3dp ring | ≥ 3:1 on bg and surface |
 
-**Signal palette.** Each signal has a `fill` (shapes and illustration only), a `tint` (backgrounds) and an `ink` (text and icons; must pass AA on white and on its own tint).
+**Signals:** each has `fill` (decorative only), `solid` (bars, rings, progress: ≥ 3:1 on surface), `tint` (backgrounds) and `ink` (text and icons: ≥ 4.5:1 on surface and tint).
 
-| Signal | Meaning | fill | tint | ink |
-|---|---|---|---|---|
-| mint | Buy now, success, savings | `#20C997` | `#E6FCF5` | `#087F5B` |
-| sky | Coupons, info | `#339AF0` | `#E7F5FF` | `#1864AB` |
-| lilac | Programs, coverage | `#9775FA` | `#F3F0FF` | `#6741D9` |
-| tangerine | Generic outlook | `#FF922B` | `#FFF4E6` | `#C2410C` |
-| sunflower | Stale data, caution | `#FCC419` | `#FFF9DB` | `#8A5A00` |
-| coral | Closed to new patients, errors | `#FF6B6B` | `#FFF5F5` | `#C92A2A` |
-| slate | Reference-only prices | `#94A3B8` | `#F1F5F9` | `#334155` |
+| Signal | Meaning | fill | solid | tint | ink |
+|---|---|---|---|---|---|
+| mint | buy now, success | #20C997 | #0CA678 | #E6FCF5 | #087F5B |
+| sky | coupons, info | #339AF0 | #1C7ED6 | #E7F5FF | #1864AB |
+| lilac | programs, coverage | #9775FA | #7950F2 | #F3F0FF | #6741D9 |
+| tangerine | generic outlook | #FF922B | #E8590C | #FFF4E6 | #C2410C |
+| sunflower | caution, stale, unconfirmed | #FCC419 | #D97706 | #FFF9DB | #8A5A00 |
+| coral | closed, error | #FF6B6B | #FA5252 | #FFF5F5 | #C92A2A |
+| slate | reference | #94A3B8 | #64748B | #F1F5F9 | #334155 |
 
-**Dark theme:** a deep navy background (about `#0B1020`) with a fainter grid, surfaces around `#131A2E` and lighter inks. Keep the same hierarchy and the same meanings. Derive and validate the values; don't eyeball them.
+**Dark and high contrast:**
+- **Dark:** bg `#0B1020`, surface `#131A2E`, borderStrong `#8090AB`, lighter inks (validated).
+- **High contrast:** no grid, no tints behind text, 2dp borders, inks ≥ 7:1, darker accent (`#1E1B6E` on white).
 
-**High-contrast mode:** no grid, no tints behind text, 2dp borders, text and ink at 7:1 or better, and a pattern plus a label on every status.
-
-**Color is never the only signal.** Every status has a text label and an icon. Reference prices also get the hatch pattern.
+**Never by color alone.** Every status has text and an icon. Selected chips get a check plus a 2dp accent border.
 
 ### 5.2 Shape, depth, spacing
-- Spacing: 4 / 8 / 12 / 16 / 24 / 32 / 48. Radius: 12 for inputs and chips, 20 for cards, 28 for sheets and hero cards, pill for buttons and chips.
-- Cards are white with a 1dp border and a soft accent-tinted shadow (y 4, blur 16, ~6% opacity). Hero cards may add a subtle top-edge gradient in their signal tint.
-- The primary button is 56dp tall, full width on phones, accent fill, with a Fredoka label. Every tap target is at least 48×48dp.
-- **Card anatomy is always the same:** label → big value → package (e.g. "20 mg × 30 tablets") → note → source chip.
+- **Spacing:** 4/8/12/16/24/32/48.
+- **Radius:** 12, 20, 28, pill.
+- **Cards:** white, decorative border and soft accent-tinted shadow.
+- **Primary button:** 56dp.
+- **Tap targets:** ≥ 48dp with non-overlapping hit areas.
+- **Card anatomy:** label → big value → package → note → source chip.
+- **Hatch:** the reference hatch sits only in a 12dp leading band (and the ladder mark), never behind text.
 
 ### 5.3 Typography
-- Headings and display text use **Fredoka 600**. Body and UI text use **Atkinson Hyperlegible Next**. Prices use **tabular numerals** (`fontVariant: ['tabular-nums']`); if the body font lacks `tnum`, use a numeric face that has it.
-- Fredoka has no CJK or Devanagari glyphs, so use per-locale font stacks. zh-Hans and hi use system fonts for headings and body. Don't bundle multi-megabyte Noto files unless glyphs actually break; test on Android. Hindi body text needs a line-height of at least 1.6 for matras.
-- The type scale follows Dynamic Type / `fontScale` up to 200%. Nothing that contains text gets a fixed height. Layouts reflow, for example two columns become one at large scales.
+- **Families:** headings Fredoka 600; body Atkinson Hyperlegible Next.
+- **Prices and numerals:** Atkinson Hyperlegible Next with `fontVariant: ['tabular-nums']` in every locale (it has `tnum`; Fredoka doesn't).
+- **Font stacks per locale** (config in one place):
+  - en/es/tl: Fredoka for headings, Atkinson for body.
+  - zh-Hans/zh-Hant/hi/**vi**: system fonts (Fredoka and Atkinson lack CJK, Devanagari and Vietnamese diacritics).
+  - Hindi line-height ≥ 1.6.
+- **Text size:** effective scale = `min(OS fontScale × in-app textSize, 2.0)`, applied via one `useType()` hook. No fixed heights on text.
 
 ### 5.4 Illustration and brand
-- **App icon:** a bridge arc spanning a capsule pill, accent on sky. Include an Android adaptive icon and a monochrome themed-icon variant.
-- **Spot illustrations:** a small set of flat, geometric SVGs in the signal colors, with no photos of people: pill bottle, bridge, pharmacy storefront, phone call, documents folder, map pin, calendar and magnifier. Every empty state gets one.
-- **Graph-paper background:** drawn once with Skia (static and cheap), disabled in high contrast.
+- **App icon:** an indigo bridge arcing over a mint/lilac capsule on a daybreak sky (peach → sky gradient, faint graph paper). Adaptive and monochrome variants.
+- **Spot illustrations:** flat geometric SVGs in the signal palette: pill bottle, bridge, storefront, phone, folder, map pin, calendar, magnifier, shield. No people, no real-looking pills or brand logos.
 
 ### 5.5 Motion system
-- **Tokens:** `fast 120ms`, `base 200ms`, `slow 320ms`, `celebrate 600ms` (the maximum). One standard easing, `cubic-bezier(.2, 0, 0, 1)`. One spring (damping ~18, stiffness ~180) for presses and sheets.
-- **Rules:** motion shows where things came from. Nothing loops except a loading shimmer. No animation blocks input. Screen transitions take 300ms or less. All animation runs on the UI thread.
-- **Reduce Motion** follows the system setting by default and can be overridden in Settings. With it on, slides, scales and flips become crossfades of 150ms or less. The Bridge renders in its final state, count-ups jump to the final value, and there are no sparkles.
-- **Press feedback:** every tappable element scales to 0.97 with a haptic tick (respecting the haptics setting).
+- **Tokens:** `fast 120`, `base 200`, `slow 320`, `celebrate 600` ms; easing `cubic-bezier(.2,0,0,1)`; one spring.
+- **Rules:**
+  - Motion explains where things came from.
+  - Nothing flashes more than 3 times a second.
+  - No sparkles, no 3D rotations, no parallax.
+  - A loading shimmer stops after 5 s and shows "Still loading…".
+  - Native stack transitions are exempt from timing rules.
+- **Reduce Motion** (follows the OS; overridable): crossfades ≤ 150ms, final states rendered directly.
+- **Press feedback:** scale 0.97 + a haptic tick (respects the setting; none on web).
 
-### 5.6 Signature moments (what makes it unforgettable)
-1. **The Bridge.** Across the top of the onboarding screener, a Skia bridge builds plank by plank as each question is answered: language → coverage → household → income → result. On the result screen the arc completes and a small glowing dot walks across it. It doubles as the accessible progress bar ("Step 3 of 5").
-2. **People row.** On the household screen, the stepper adds and removes small person glyphs that pop in with a spring, so the count is visible. At "8 or more" the user can optionally type an exact number.
-3. **Price Ladder.** At the top of Results, one Skia chart puts every option on the same scale:
-   - Buy-now bars grow in sequence.
-   - The reference bar is hatched slate.
-   - Coupon rows get **no bar**, because we don't know the amount. They get a dashed outline and "Check price on GoodRx / SingleCare".
-   - The lowest Buy-now option gets a mint "Lowest you can pay today" ribbon with a brief sparkle.
-   - Screen readers get the whole chart as a list.
-4. **Odometer prices.** Dollar amounts roll into place in tabular digits when they first appear and whenever strength or quantity changes.
-5. **Show-the-math flip.** Tapping any price card flips it to show the arithmetic and the formula. Examples: NADAC `$0.02792 × 30 = $0.84`; Cost Plus = acquisition cost + markup + pharmacy fee, shipping extra, with the fee values taken from data. With Reduce Motion on, this becomes a crossfade.
-6. **Freshness Ring.** A small ring next to each date that drains as data ages toward 6 months, shifting mint → sunflower → coral. It always has text, such as "Checked 12 days ago".
-7. **Save burst.** Saving a medicine fills the star with a tiny radial burst and a success haptic.
-8. **Animated splash.** The icon's bridge arc draws in, then the home screen rises beneath it. The whole thing takes 700ms or less and is skipped with Reduce Motion.
-9. **Shared transition** from a search result row into the Results header. Use Reanimated shared transitions only if they're stable on the chosen SDK; otherwise use a fade-through.
+### 5.6 Signature moments
+1. **The Bridge.** A progress bar across the screener, built from SVG planks. It has one plank per step **on the person's current path**, and "Step N of M" is recomputed when the path changes. On the result, the arc completes and a small dot walks across once. Exposed as `accessibilityRole="progressbar"`.
+2. **People row.** On the household screen, the stepper adds and removes person glyphs with a spring.
+3. **Price Ladder.** One chart on a shared scale.
+   - **buyNow:** options for the person's exact product as bars in `solid` mint.
+   - **Reference:** a hatched slate tick labeled "What pharmacies pay".
+   - **Rows with no bar:** coupons ("See prices on GoodRx / SingleCare"), program prices ("If you sign up: $35 a month") and price caps ("Up to $55").
+   - **Ribbon:** "Lowest listed online price — checked {date}. Coupons or insurance may cost less." It appears only when there are ≥ 2 comparable buyNow options for the same product with different prices, the snapshot is ≤ 30 days old, and the person doesn't have Medicare or Medi-Cal.
+   - A text equivalent is always provided.
+4. **Odometer prices.** Rolling tabular digits, hidden from screen readers, which hear the final price once.
+5. **Show the math.** A "Show the math" text button expands the arithmetic below the price (exposed as expanded state). The card itself is never pressable, so there are no nested controls.
+6. **Freshness Ring.** Drains as data ages relative to that data type's stale threshold (§9.5). Always has text.
+7. **Save burst.** The save star fills with a small radial burst plus a success haptic. No flashing.
+8. **Splash.** The bridge arc draws in over the first screen (≤ 700ms); any tap skips it; Reduce Motion skips it.
 
 ---
 
 ## 6. Information architecture
 
-```
-First launch (stack):
-  Welcome + Language → Coverage → [Coverage type] → [Insurance checklist | Household → Income] → Coverage result
-  ("Just search for a medicine" skips straight to the tabs)
+**Paths:**
 
-Tabs:
-  1. My Plan        personalized next steps, saved medicines, reminders, data freshness, changes since last visit
-  2. Find medicine  search → strength & quantity → Results (Prices | Help paying)
-  3. My medicines   saved list, monthly budget, refill reminders
-  4. Get help       coverage check, programs, applications tracker, call coach, clinics, free human help, glossary
+| Answer | Path |
+|---|---|
+| No / Not sure | Welcome → Coverage → Where (county) → Age → Household → Income → Result |
+| Job / Covered CA / Other | Welcome → Coverage → Type → Checklist → (offer "Check if you can get more help — 2 questions") → Find |
+| Medi-Cal | Welcome → Coverage → Type → Medi-Cal explainer (+ notices) → Find |
+| Medicare | Welcome → Coverage → Type → Medicare panel (+ "Check if you can get Extra Help") → Find |
+| "Just search for a medicine" | Welcome → Find (Help paying then shows every open program as "to check", with "Answer 3 questions to sort these") |
 
-Header gear → Settings.
-Sheets: Source, Glossary term, Share, Pharmacy Counter Card.
-```
+**Tabs** (headless, custom bar):
+- **My Plan:** next steps, saved medicines, reminders, freshness.
+- **Find:** search, then strength & quantity, then Results (Prices | Help paying).
+- **My medicines:** saved list, per-fill budget, reminders.
+- **Get help:** coverage check, applications, Medicare, clinics, free help, glossary, rule changes.
 
-Persist progress so a restart resumes exactly where the user was. "Start over" lives in My Plan and in Settings.
+**Root stack** (above the tabs):
+- `drug/[id]` and `drug/[id]/results`;
+- `program/[id]`, `call-coach/[id]`, `applications`;
+- `medicare`, `clinics`, `helpers`, `glossary`, `settings/*`;
+- `counter-card` (`fullScreenModal`) and `share` (modal).
+
+**Sheets** (Source, Glossary) close with a Close button, Android back and Escape.
+
+**Resume:** persist the answers and `lastRoute`. After every store has hydrated (keep the splash until then), `router.replace` to it. Don't persist the stack or scroll position. "Start over" appears in My Plan and Settings.
 
 ---
 
 ## 7. Screens
-For each screen, the spec covers its job, content, states, motion and accessibility.
+For each screen, the spec covers its job, copy, states, motion and accessibility. Copy is grade 6–8, and the replacement wording below is binding.
 
 ### 7.1 Welcome + Language
-- Four large language buttons, each labeled in its own script, with no flags: English · Español · 中文（简体） · हिन्दी. The region pack can add more.
-- A one-line purpose statement in the selected language, plus "Your answers stay on this phone." with a lock icon.
-- Two buttons: **Get started** (primary) and **Just search for a medicine** (secondary).
-- Changing the language re-renders instantly with a crossfade. The choice is remembered and can be changed anytime.
+- Language buttons in their own script, no flags. The list shown is `region.languages ∩ bundled locales`.
+- **Purpose line:** "{tagline}". **Privacy line:** "We don't collect your answers. They're saved only in this app, on this phone."
+- **Get started** (primary); **Just search for a medicine** (secondary).
+- Language changes re-render instantly with a crossfade.
+- **Device-locale mapping:** zh-TW/zh-HK/zh-Hant* → zh-Hant if shipped, else zh-Hans with a one-time notice.
 
 ### 7.2 Coverage
-- "Do you have health insurance right now?" **Yes / No / Not sure.**
-- **Yes** → "What kind?" with four options: Job or Covered California · Medi-Cal · Medicare · Other / don't know.
-  - **Job / Covered CA / Other** → **Insurance checklist** with items to check off: member card and services number, formulary tier, deductible, copay, preferred or mail-order pharmacy. Then a **Copay Check**: the user enters their copay, and Results compares it with the Buy-now price. The caveat uses verified wording along the lines of "Cash may be lower, but cash payments may not count toward your deductible. Ask your plan."
-  - **Medi-Cal** → a plain explanation of how Medi-Cal prescriptions work (Medi-Cal Rx), with verified wording and a link. Then search.
-  - **Medicare** → Medicare panel (§7.10). Then search.
-- **No / Not sure** → Household.
-- `[TWEAK]` Optional question: "Is anyone in your household 65 or older?" It is used only to show Medicare information and can be skipped.
+- **Question:** "Do you have Medi-Cal, Medicare, or other health coverage right now?" Yes / No / Not sure.
+- **Yes** → "What kind? (choose all that apply)": Medi-Cal · Medicare · From a job · Covered California · County program (like PCAP) · Other / not sure. Multi-select handles dual Medicare + Medi-Cal.
+- **Job / Covered CA / Other** → a plain checklist:
+  - "Call the member phone number on your insurance card. Ask: Do you cover {medicine}? How much will I pay? Which pharmacies can I use?"
+  - Glossary chips: copay, deductible, formulary.
+  - The Copay Check lives in Results, per medicine, not here.
+  - "Other / not sure" → "Find out what coverage you have" with verified phone numbers.
+- **Medi-Cal** → explainer with no unverified claims:
+  - "If you have full Medi-Cal, most prescriptions may be covered through Medi-Cal Rx. Not sure what your Medi-Cal covers? Ask your pharmacy." (Add the Medi-Cal Rx phone once verified.)
+  - Plus the Medi-Cal notices.
+- **Medicare** → Medicare panel (§7.10).
 
-### 7.3 Household
-- A big stepper with the People row (1 through 8+).
-- A "Who counts in my household?" glossary chip with a verified explanation, because the household rules (MAGI) aren't intuitive.
+### 7.3 Where, Age, Household
+- **Where:** "Where do you live?" with region counties (each with example cities) + "Somewhere else".
+- **Age:** "Is the medicine for someone 65 or older?" Yes / No / Skip. "We ask so we can show Medicare help and the right Medi-Cal rules."
+- **Household:**
+  - Big stepper with the People row.
+  - Helper: "Count you, your husband or wife, and anyone you claim on your taxes." `[verify the non-filer rule with DHCS]`
+  - "8 or more" requires the exact number, prefilled with 8, range 8–20.
 
 ### 7.4 Income
-- A **Monthly / Yearly** toggle, defaulting to yearly; many people think in monthly income. The other unit appears in muted text underneath.
-- Bracket cards, 3–4 visible at a time:
-  - Computed at runtime from `fpl.json` for this household size and the thresholds that active rules and programs actually use.
-  - Labeled in exactly one format everywhere: "Under $X a year" · "$X to $Y a year" · "Over $Y a year", localized with Intl.
-  - Shown with exact dollar edges. Never round in a way that changes meaning.
-- **"Type my exact income instead"** (it stays on the device). If the exact income is within about 5% of a threshold, show: "You're close to the limit. Apply anyway — the program decides."
-- **"Prefer not to say"** skips eligibility; everything else keeps working.
-- A "What counts as income?" glossary chip.
+- **Default unit is Monthly.** Toggle Monthly / Yearly; the other unit shows below.
+- **Question:** "How much money does your household get each month, before taxes?" Helper: "If your pay changes a lot, use what you expect this month. Covered California uses what you expect for the whole year."
+- **Brackets** are (lo, hi] in dollars, computed per rule with that rule's FPL year (or the program's published chart, §8). Edges within $1 merge. Show at most 5, relevant to this person's path.
+- **Labels:** "$X or less a month" · "$X+1 to $Y a month" · "More than $Y a month" (and "a year").
+- **"Type my exact income"** is equally prominent.
+- **Near a limit** (|income − limit| ≤ 5% of the limit):
+  - Under: "You're close to an income limit. Apply anyway — the program decides."
+  - Over: "You're a little over the limit we show. Some income may not count. You can still apply — the program decides."
+- **"Skip this question"** skips sorting; everything else still works.
 
 ### 7.5 Coverage result
-- The Bridge completes. Show one to three plain-language cards with a lilac tint:
-  - **"You may be eligible for Medi-Cal"**, with buttons labeled exactly "Apply on BenefitsCal" and "Learn about Medi-Cal (DHCS)".
-  - **"You may qualify for help paying for Covered California"**, with a button labeled "Open Covered California".
-  - **"Standard coverage options"** when neither applies.
-- Each card shows the threshold in dollars for this household, plus a source chip. A button's label always names where it goes.
-- "This is an estimate, not a decision."
-- A data-driven **"Rules changed recently"** notice when `notices.json` has one for this region, with its source and date.
-- "What happens next" mini-steps: how long applying takes and what to have ready (verified items only).
-- Primary button: **Compare prices for my medicine.**
+The Bridge completes (calmly if no card applies).
+
+**Cards:** each has a dollar limit for this household and its FPL year, next steps, link buttons named for their destination, notices inline and source chips.
+
+| Card | Copy and links |
+|---|---|
+| **Medi-Cal** | Title: "You may be able to get Medi-Cal". Inline 2026 notice: "New rules started in 2026. Some adults 19 and older can't sign up for full Medi-Cal right now. We don't ask about this — the county decides. You can still apply." 65+: "Medi-Cal may also count your savings and property." Buttons: "Apply on BenefitsCal" · "Apply by phone" (verified) · "Get free help applying". |
+| **Covered California** | Title: "For coverage in {planYear}: you may be able to get help paying for a Covered California plan". Notes: "If you can get insurance from a job, you may not get this help." "You can sign up from {start} to {end}. Other times, only after a big life change." Above 400% FPL (cliff): "People earning more than $X a year may not get help with monthly costs." |
+| **County (Santa Clara PCAP)** | Title: "Santa Clara County may help you pay for care and medicine". Monterey: only verified programs; otherwise "Clinics that charge less if you earn less". |
+| **Other ways to get coverage** | When nothing applies: Covered California link (no help claim) plus free helpers. |
+
+- Never render `notLikely` for public programs. Say "Other ways to qualify may apply. You can still apply."
+- Always end with: "This is not a decision. Only the program can say yes or no."
+- **Primary:** "Compare prices for my medicine". **Secondary:** "Go to My Plan".
 
 ### 7.6 Find medicine
-- A large, autofocused search field with a clear button, recent searches (each deletable) and a "Common prescriptions" grid with category color chips.
-- **Matching works across languages and scripts.** It covers brand names, generic names, every per-language alias in the pack, and transliterations. For example, "metformina", "二甲双胍", "मेटफॉर्मिन" and the typo "metfromin" all find metformin. Normalize accents, case and character width. Rank exact matches first, then prefix matches, then fuzzy matches.
-- **Each result row shows:** the brand (bold) · generic name, a summary of forms and strengths, a category chip, and a "Generic available" / "Biosimilar available" / "Brand only" badge.
-- **Empty state:** an illustration, "No match — try the generic name (it's on your pill bottle label)", and "Ask us to add this medicine" (a mailto or form link from the pack).
-- The screen reader announces the result count.
+- **Search field:** no autofocus (it hides the grid and confuses TalkBack).
+- **Lists:** recent searches with a "Clear all" (off in navigator mode); "Common prescriptions" with **neutral** category chips (icon + text).
+- **Matching:** across languages and scripts (Traditional aliases too) and typos.
+- **Results** list each product variant separately when variants exist.
+- **Not found:** "We can't find that. Try the medicine name on your pill bottle label." Offer "See prices on GoodRx" (search link) · "Questions for your pharmacist" · "Get free help" · "Ask us to add this medicine" (only if `feedback_*` is set).
 
-### 7.7 Strength & quantity
-- Strength chips (from the pack), form, and quantity presets of 30 / 60 / 90 plus a custom amount, with a live "about N days" helper.
-- A **cost-per-day preview** when a Buy-now price exists for the selection, plus a 30-vs-90 comparison ("90-day supply: $X a day vs $Y"). Buy-now prices only.
-- A save star with the Save burst. Primary button: **See prices.**
+### 7.7 Product, strength & quantity
+- **Variant step:** asked only when variants exist, e.g. "Does your label say OSM or osmotic?" or Lantus / unbranded / CalRx glargine-yfgn / Basaglar …
+- **Labels as printed** on the bottle, e.g. "500 mg ER (generic for Glucophage XR)".
+- **Quantity presets** come from the pack for that package (insulin: boxes of 5 pens, vials), plus a custom amount. Buy-now prices show **only for quantities a seller lists**: "Cost Plus lists 30 and 90 — see their site for 45". Never prorate.
+- **Per-day math:**
+  - Ask "How many a day? (from your label)" (optional; tablets/capsules only; never for pens, vials or inhalers).
+  - Per-day and per-month math appear only after it's answered.
+  - Otherwise show unit prices: "90 tablets: $X each · 30 tablets: $Y each".
+- **Save star** with Save burst.
 
-### 7.8 Results — a header and two tabs: **Prices** | **Help paying**
-**Header:** drug name and strength × quantity (tap to edit inline; everything below updates with the odometer), save star, share, and a **Counter card** button.
+### 7.8 Results — Prices | Help paying
+**Header:** product variant + quantity (tap to change), save, Share, "Card for the pharmacist".
 
-**Prices tab, in this order:**
-1. **Context banner** if the user is insured: "Also check your copay", plus the Copay Check result if they entered a copay.
-2. **Price Ladder** (§5.6.3) as the at-a-glance summary.
-3. **Buy now — Cost Plus Drugs.**
-   - Quote for the exact strength × quantity from the dated snapshot, with a formula note (fee amounts from data), "shipping extra", the snapshot date, and an "Open on Cost Plus" button.
-   - If the drug isn't in the catalog: "Not listed on Cost Plus". Never guess.
-   - If only a biosimilar or an alternative is listed, say exactly that.
-4. **Coupons — amount shown on partner site.**
-   - Side-by-side "Open GoodRx coupon" and "Compare on SingleCare" buttons, each deep-linking to that drug's verified page.
-   - Note that amounts vary by pharmacy and ZIP code. GoodRx may show paid-membership prices at the top, so compare its free coupon price; SingleCare shows free coupon prices.
-   - No dollar figures, ever.
-5. **Fair-price reference — CMS NADAC.**
-   - Per-unit price × package size with the math shown, the as-of and effective dates, the hatch pattern, and the "can't check out at this number" sentence.
-   - `[TWEAK]` An optional trend sparkline from the weekly history (reference only).
-6. **Generic outlook (tangerine).** Shown only for brand drugs with no generic or biosimilar on the market. Drugs that already have alternatives get a single info line instead.
-   - Earliest relevant verified expiry within 12 months: "May face generic competition within about 12 months — prices could drop. You could ask about shorter fills."
-   - Earliest expiry in 1–3 years: "Generic competition is possible in the coming years."
-   - Otherwise: show nothing.
-   - If the date has already passed, don't show the 12-month message; flag the record for re-verification instead.
-   - Always say "not a promised launch date" and show the source edition. Where relevant, add a one-line explanation of generic vs. biosimilar.
-7. **Ask your doctor or pharmacist.** Questions only: "Is there a generic?", "Can you write a 90-day prescription?", "Can you send it to the pharmacy I choose?"
-8. **Nearby pharmacies.**
-   - Verified addresses from official chain locators, a district tag, and no prices attached to stores.
-   - Hours only if they're published; otherwise "See store locator".
-   - Buttons: Call · Directions · Store page.
-   - Sorted by distance if location is granted; ask only on this screen, with a plain reason. Otherwise sorted by district.
-   - Optional map toggle.
+**Prices tab**, in this order:
+1. **Coverage banner** (from the screener):
+   - Medicare: "Paying cash outside your Medicare drug plan may not count toward your yearly limit. Ask your plan first." Cash and coupon sections collapse under "If your plan won't pay for it".
+   - Medi-Cal: "Medi-Cal may pay for this medicine. Ask the pharmacy to bill Medi-Cal first."
+   - Job / Covered CA: "Also check your copay" + Copay Check ("Your copay: $X. Lowest listed online price here: $Y.").
+2. **Price Ladder** (§5.6.3), shown only when there are ≥ 2 price rows.
+3. **Order online or buy direct** (buyNow):
+   - One card per option, with restrictions always visible.
+   - Cost Plus: "Online pharmacy. Ships by mail. Not the price at local stores." plus the formula from the pack ("their cost + 15% + $5 pharmacy fee; shipping extra") with its source.
+   - Ordering steps once verified.
+   - Not in catalog → "Not listed on Cost Plus". Not loaded → "Price not loaded yet — check on Cost Plus".
+4. **Price caps and program prices** (with who can use them).
+5. **Different versions of this medicine** (other products in the group): their prices, no ribbon, "ask your pharmacist if your prescription allows them".
+6. **Discount coupons — see the price on their website:**
+   - "See prices on GoodRx" / "See prices on SingleCare".
+   - "Prices change by pharmacy and ZIP code. GoodRx may show paid-membership prices first — you don't need to pay to see free coupon prices. Coupons usually can't be combined with insurance."
+   - A one-time "You're leaving RxBridge…" notice.
+7. **What pharmacies pay (for comparison):** collapsed by default.
+   - "This is about what pharmacies pay for this medicine on average. You can't buy it at this price."
+   - Math using the unrounded product (`$0.02792 × 30 = $0.8376 → $0.84`), as-of and effective dates.
+   - Not loaded → "Not loaded yet. It updates weekly when the app is online."
+8. **Generic outlook** (§8.4):
+   - "A generic version may come out around {month year}. Prices could go down after that. This date is not a promise. Keep taking your medicine as your doctor told you."
+   - Or "A generic version may come out in the next few years. We don't know exactly when."
+   - Or nothing.
+9. **Questions for your doctor or pharmacist:** "Is there a generic or lower-cost version?", "Can you write a 90-day prescription?", "Can you send it to the pharmacy I choose?"
+10. **Where to fill it:**
+    - Verified store records only, tagged by city, with hours only if published.
+    - Call / Directions (opens the Maps app) / Store page.
+    - "about X mi (straight line)" only from sourced coordinates after the person taps "Sort by distance".
+    - No map view.
+    - If none are verified: "We haven't confirmed store addresses yet", "Find pharmacies near you" (Maps search), plus county health-center pharmacies from the pack.
 
 **Help paying tab:**
-- **Matching inputs:** coverage status, household size, income bracket (or exact income), and each program's published FPL cap and insurance rule.
-- **Two groups:** "Programs you likely qualify for" and "Other programs worth checking". A program counts as "likely" only if all three are true:
-  - the user's entire bracket is under the cap;
-  - the insurance rule fits;
-  - the program is open to new patients.
-- **Each program card shows:**
-  - name, sponsor, and what it covers (only drugs in this app);
-  - the income cap as % FPL **and** in dollars for this household;
-  - the insurance rule, with a coral "Closed to new patients" badge where it applies;
-  - a documents checklist, plus where and how to send the application;
-  - tap-to-call, the application link and the verified-as-of date;
-  - a **Call coach** button.
-- **Honest empty states:** "No verified manufacturer program enrolls new patients for this medicine." / "Generics often have no brand assistance program — the Buy-now price may be your best option."
-- A sunflower **staleness banner** when listings are more than 6 months old.
-- **Track this application** → Applications tracker.
+- **Group titles:** "Programs that may fit you" and "Other programs to check" (closed ones last: "Not taking new people right now"), plus a collapsed "Probably not a match" with reasons.
+- **Program cards** show:
+  - the limit in dollars for the household first (the % only in the math), or "Income limit not published — call to confirm";
+  - the insurance rule and a fit badge (text + icon);
+  - documents, phone, "Open application", "Help me make the call", "Track this application";
+  - a source chip.
+- **Empty states:**
+  - "We didn't find a drug company program taking new people for this medicine." + "Get free help".
+  - Generics: "Most generic medicines don't have a drug company help program."
+- **Staleness:** programs older than their threshold show a sunflower banner.
 
-### 7.9 Program detail, Applications tracker, Call coach
-- **Applications tracker.** Each program moves through: Not started → Gathering documents → Sent → Waiting → Approved / Denied → Renew by {date}.
-  - The documents checklist persists.
-  - An optional local reminder to renew (by notification or calendar event) uses the program's verified term length.
-- **Call coach.**
-  - A before-you-call checklist and a big **Call** button.
-  - A call script pre-filled with the user's situation (household, coverage, medicine, strength), in their language with an English toggle.
-  - "You can ask for an interpreter" appears only when the program data says so.
-  - Notes and reference-number fields, saved locally.
-  - Read aloud.
+### 7.9 Program detail, Call coach ("Help me make the call"), Application tracker
+- **Program detail:** documents checklist with progress, where to send, the renewal term (only if published).
+- **Call coach:**
+  - Before-you-call checklist, then a giant Call button.
+  - A script pre-filled from the person's answers, in their language with an English toggle.
+  - The interpreter line appears only if the program publishes interpreter help.
+  - Notes + reference number, stored on device only.
+- **Tracker steps:** Not started → Getting papers ready → Sent → Waiting to hear back → They said yes / They said no.
+- **"Renew by":** suggested only from a published term.
+- **Reminders:** a local notification at 09:00 local time, and "Add to calendar", which opens the phone's own event editor (no calendar permission).
+- **Reminder and calendar text:** "RxBridge reminder", with no medicine or program names unless the person turns names on.
 
-### 7.10 Medicare panel (if `medicare_branch`)
-Data-driven, verified and in plain language:
-- the Part D out-of-pocket cap for the current year;
-- Extra Help (the Low-Income Subsidy), with its limits for this household;
-- the Medicare Prescription Payment Plan;
-- free local counseling (California HICAP).
+### 7.10 Medicare panel
+All year-scoped and sourced:
+- **Part D cap:** the current year's cap, and next year's once published.
+- **Extra Help:** limits as published for an individual and for a married couple (never scaled by household).
+- **Medicare Savings Programs.**
+- **Prescription Payment Plan:** "Lets you pay your drug costs in monthly parts. It does not lower the total."
+- **$35 insulin cap.**
+- **Negotiated prices:** "what Medicare plans pay, not your copay".
+- **HICAP:** the statewide line and the local office.
 
-Each item gets a source chip. No number appears without verification.
+"Check if you can get Extra Help" asks: married and living together? monthly income? Savings limits are shown as text.
 
-### 7.11 My Plan (home tab)
-- **"Your next best steps."** A pure, tested rules engine generates these from the user's answers and saved medicines, and every step links to where it gets done. An example of the *shape* (not real data):
-  1. Apply for Medi-Cal (about N minutes online).
-  2. Meanwhile, {drug strength × qty} is {Buy-now price} on Cost Plus.
-  3. Call {program} about {brand drug}.
-- **Changes since your last visit**, for example "The Cost Plus snapshot for metformin ER changed from $X to $Y (snapshot date)". Buy-now prices only.
-- A saved-medicines strip with the best known Buy-now price per fill.
-- Upcoming reminders (refills and renewals).
-- A data-freshness row with the Freshness Ring and the pack version.
+### 7.11 My Plan
+- **"Things you can do next"**: rules-engine steps, each with a clear destination. No time estimates unless sourced.
+- **"Changes since your last visit"**: compared against `lastSeen`, then updated.
+- **Saved medicines strip:** items whose ids vanished show "No longer in our list — search again". Never drop them silently.
+- **Freshness row:** pack version and status.
 - **Start over.**
 
 ### 7.12 My medicines
-- The saved list (FlashList). Each entry shows strength × quantity, the best known Buy-now price, cost per month, and badges: **Generic watch** and **Program available**.
-- **Monthly budget:** the sum of verified Buy-now prices only, e.g. "$23.40 a month for 3 medicines + 1 without a listed price". Never estimate the unknown.
-- Refill reminders (local notifications).
-- Optional **app lock** (Face ID, fingerprint or device PIN), because a medicine list is sensitive.
+- **Saved list:** "Has a help program" badge; "Generic may come {year}" only under §8.4.
+- **Budget:** "per fill" (known prices only, "+ N without a listed price", "plus shipping"). Per month only when the daily count is known.
+- **Refill reminders:** "When will you need more? Check your label." The person picks the date. Neutral text.
+- **App lock hint.**
 
 ### 7.13 Get help hub
-- Coverage check (re-runs the screener).
-- Programs for my medicines.
-- Applications tracker.
-- Sliding-fee community clinics in the region, verified through the HRSA health-center finder.
-- Glossary.
-- **"People who help for free":** Covered California certified enrollers, county social services, HICAP and 211 — only the ones that are verified.
+- Coverage check (prefilled re-run), applications, Medicare, county programs.
+- "Clinics that charge less if you earn less".
+- "People who help for free" (Covered California certified enrollers, HICAP, county offices, 211 — verified only).
+- Words explained; recent rule changes (notices).
 
-### 7.14 Pharmacy Counter Card
-- A full-screen, high-contrast card to show at the pharmacy counter: English on top, the user's language below.
-- Swipeable cards:
-  - "What is your cash price for {drug} {strength} × {qty}?"
-  - "Can you check the price with a discount coupon?"
-  - "Is there a generic?"
-- Keeps the screen awake and optionally raises app brightness while open, restoring it on close.
-- Read-aloud button.
+### 7.14 Card for the pharmacist
+- **Layout:** full-screen modal, high contrast. English on top, the person's language below; each block gets `accessibilityLanguage`.
+- **Paging:** Previous / Next buttons with "Card 2 of 3". Swipe is optional, never the only way.
+- **Cards:** "What is your cash price for {product} {strength} × {qty}?" · "Can you check the price with a discount coupon?" · "Is there a generic or lower-cost version?"
+- **Screen:**
+  - Keep-awake.
+  - Brightness boost: save the current value on open; restore it on unmount and on background; re-raise it on active; app-level only; hidden on web.
+- **Read aloud:** each block in its own language.
 
 ### 7.15 Share & print
-- A one-page bilingual summary, with the user's language and English side by side. It includes:
-  - the medicine and strength × quantity;
-  - the Buy-now price and coupon links;
-  - the NADAC reference with its math;
-  - programs with phone numbers, and pharmacies;
-  - sources and dates;
-  - a QR code that deep-links to the same drug, strength and quantity.
-- Generated as HTML → PDF with expo-print and shared through the share sheet. It must also look right printed in black and white.
+- **Content:** a 1–2 page bilingual summary (the person's or client's language + English).
+  - Buy-now and caps with restrictions; coupon links; the comparison price with math or "not loaded"; programs with phones.
+  - "Not yet confirmed" marks; sources with dates; generated date.
+  - A QR code for `share_base_url` if set (else the deep link), plus a plain-text summary.
+- **Privacy:**
+  - File named "RxBridge-summary.pdf".
+  - "Include my household and income" is **off** by default.
+  - Warning before sharing: "Anyone you send this to will see your medicine."
+  - Delete the cached file after sharing; `lang` attributes on each block.
+- **Also offer "Share as text".**
 
-### 7.16 Navigator mode
-- Turned on in Settings ("I'm helping someone else").
-- It separates the **app language** (the navigator's) from the **client language**, which is used for handouts, the counter card and the call script.
-- Nothing persists between clients. A big **New client** button wipes the session after a confirmation.
-- A quick-jump layout, with the handout as the main output.
+### 7.16 Navigator mode ("I'm helping someone else")
+- **Storage:** client data lives in memory only.
+- **"New client" and "Clear my data" wipe:**
+  - screener answers, saved medicines, tracker, notes, recents;
+  - cached PDFs and scheduled notifications;
+  - calendar events the app created (track their ids where the OS returns them, and say what can't be removed);
+  - deep-link state;
+  - and stop speech.
+- **Never schedule client reminders.**
+- **Optional auto-wipe** after 15 minutes idle.
+- **Languages:** the app language (navigator) is separate from the client language (handouts, card, scripts via `getFixedT(clientLang)`).
 
-### 7.17 Settings / About
-- **Language & display:** language; text size with a live preview; theme (system / light / dark); high contrast; reduce motion (follow system / on / off); haptics; read-aloud speed.
-- **Modes & privacy:** app lock; navigator mode; low-data mode (skips remote feeds on metered connections); notifications; clear my data (asks to confirm, then shows a confirmation toast).
-- **Data & trust:** data sources and dates; how we verify; report a problem (mailto or form with the record ID and pack version, and no personal data).
-- **About:** app version and data pack version; licenses.
+### 7.17 Settings / About / Sources
+- **Display:** Language; Text size (buttons, not sliders) with preview; Theme; High contrast; Reduce motion; Haptics.
+- **Read-aloud speed:** buttons, not a slider.
+- **App lock:**
+  - OS authentication with passcode fallback; no custom PIN.
+  - If the phone has no screen lock, explain that and don't enable it.
+  - Lock on cold start and after 60 s in the background.
+  - Cover the app switcher snapshot when locked.
+  - Hidden on web.
+- **Modes:** Navigator mode; "Save mobile data" (skips feed refresh on cellular); "Show medicine names in reminders" (off by default).
+- **Clear my data:** also cancels notifications.
+- **Sources:** pack status, counts confirmed vs not, the not-shipped list, "How we checked".
+- **About:**
+  - The privacy text from §11.
+  - Honesty rules.
+  - Not affiliated: "RxBridge is not part of, or paid by, Medi-Cal, Covered California, Medicare, any county, GoodRx, SingleCare, Cost Plus Drugs, or any drug company. RxBridge does not give medical advice."
+  - Font licenses.
 
-### 7.18 Read aloud (everywhere)
-- A speaker button on every card heading and on each screen's main text, using expo-speech in the current language.
-- It picks a matching device voice. If none is installed, it says "No voice installed for this language" with a hint about OS settings.
-- Speech stops on navigation.
+### 7.18 Read aloud
+- **Where:** one "Read this page" control in each screen header, plus a speaker on the pharmacist card and call script.
+- **Screen readers:** hidden when one is running (avoid talking over VoiceOver/TalkBack).
+- **Language:** each block is spoken in its own language.
+- **Missing voice:** "Your phone has no voice for this language".
 
-### 7.19 Label scan (P2; feature flag; dev builds only)
-- The user points the camera at the pill-bottle label; on-device text recognition suggests the drug and strength.
-- The image never leaves the device. The feature is never required, and manual search is always available.
+### 7.19 Label scan (P2, flag, dev builds only)
+- Camera + on-device text recognition suggests the product; the image never leaves the device.
+- Needs a dev-build config override (CAMERA is blocked in the default app.json).
 
 ---
 
-## 8. Eligibility and matching engine (pure TypeScript, fully unit-tested)
+## 8. Eligibility, matching and outlook engine (pure TypeScript, fully tested)
 
-- **FPL data.** `fpl.json` holds several guideline years. Every rule and program declares **which FPL year it uses**; programs don't all use the same year, so verify each one.
-  - Threshold = guideline for the household size × percent / 100. Derive guidelines for large households from the published per-additional-person amount.
-  - Verify the formula against the source.
-- **Eligibility rules are data.** `benefits.json` holds them; nothing is hard-coded in components:
-  ```json
-  {
-    "id": "medi-cal-adult",
-    "when": { "all": [ { "insurance": ["none", "unsure"] }, { "incomePctFplMax": 138 } ] },
-    "fplYear": 0,
-    "links": [],
-    "sources": [],
-    "verifiedAsOf": ""
-  }
-  ```
-  (Shape only. Every value comes from research.)
-- **Outputs are tiers:** `mayQualify` / `worthChecking` / `notLikely`. There is never a boolean called `eligible`.
-- **PAP ranking:** likely (whole bracket under the cap + insurance fits + open to new patients) → worth checking (partial overlap, unpublished cap or unclear insurance rule) → closed to new patients (shown last, with a badge).
-- **More pure modules:** outlook tiers, staleness (6 months), feed resolution (newer wins, with a fallback chain), price math (unit × quantity, rounded to cents only at display time) and My Plan steps.
-- **Property tests** (fast-check) cover bracket edges, household sizes 1–20, and date boundaries such as leap years, expired dates and timezones.
+### 8.1 Income limits
+- **FPL table:** `fpl.json` holds guideline years with an effective date. Each rule or program declares `fplYear`. Researched in 2026:
+  - Medi-Cal MAGI uses the 2026 guidelines from 2026-01-01; the Aged & Disabled FPL program switches 2026-04-01.
+  - Covered California uses the prior year's guidelines (2025 for plan year 2026).
+- **Published charts win.** If a program publishes its own chart (e.g. the DHCS monthly limits), store `publishedLimits` with its source and use it instead of computing. A property test asserts computed values equal published charts.
+- **Computing:**
+  - Yearly limits are computed in exact cents, displayed floored to whole dollars.
+  - Monthly = yearly / 12, floored.
+  - `incomePctFplMax` is inclusive.
+
+### 8.2 Profile and rules
+- **Profile:**
+  - `coverage: Set<'none'|'unsure'|'mediCal'|'medicare'|'job'|'coveredCa'|'county'|'other'>`
+  - `age: 'under19'|'19to64'|'65plus'|null`, `county`, `householdSize`, `income: IncomeRange|null` (lo, hi]
+  - Optional: married couple (Medicare panel), pregnancy (optional, Medi-Cal path only; never in notifications, PDFs or calendars).
+- **Rules are data:** `{ all: Condition[] }` with insurance / coverage, income min/max % FPL, age, and county.
+- **Rule tiers:** `mayQualify | worthChecking | notLikely`. `notLikely` is never rendered for public programs.
+- **Household and income basis:** each program declares `householdDefinition` (`magi | extraHelpCouple | program`) and `incomeBasis` (`monthly | annual | program`). Non-MAGI programs can't reach a better tier than worthChecking.
+
+### 8.3 Program matching
+- **Insurance rules:** `uninsuredOnly | uninsuredOrUnderinsured | medicareAllowed | commercialOnly | any | unknown`, with a published fit table (unknown → maybe).
+- **Groups:**
+  - "may fit": the whole income range is under the cap, insurance fits, and the program is open.
+  - "to check": everything else that's open.
+  - "closed".
+  - "Probably not a match": insurance doesn't fit, or the income range is entirely over the cap; collapsed, with reasons.
+
+### 8.4 Generic outlook
+- **Data:** `outlook.json` stores `orangeBookEarliest` (incl. pediatric exclusivity; ignore delisted patents) and an optional sourced `earliestMarketEntry: { date, basis: 'settlement' | 'courtRuling' | 'announcedLaunch' }`.
+- **Effective date:** the later of the two.
+- **When to show the 12-month message:** only when the basis is settlement, court ruling or announced launch. With patent or exclusivity dates only, say "We don't know when a generic will come out" or nothing. If sources conflict, show nothing and list it as unverified.
+- **Windows:** [today, +12 mo) → the "around {month year}" message; [+12 mo, +36 mo] → "next few years".
+- **Past date:** show nothing, emit a `OUTLOOK_EXPIRED:<id>` validator warning and a "Needs re-verification" entry.
+- **Market status** comes from marketed NDCs (present in NADAC, or the NDC Directory marketing start), never from approval alone.
+- **Required test fixture:** Eliquis on 2026-10-06 must give "next few years" (settlement date 2028-04-01), not "within 12 months", even though a key patent expires 2026-11-21.
+
+### 8.5 Price math
+- **Integers only:**
+  - NADAC per-unit prices are stored as integer 1e-5 dollars (`perUnitE5`).
+  - Cost Plus and other prices are integer cents.
+  - Multiply as integers; round half-up to cents once, at display.
+- **Never mix pricing units** (EA/ML/GM) and never price one variant with another's data.
+- **Dates:**
+  - `ISODate` is a calendar date. Never call `new Date('YYYY-MM-DD')`; parse it to `{y,m,d}` instead.
+  - Diff with `Date.UTC`. "Today" is the device's local date.
+  - `addMonths` clamps month ends.
+  - Domain tests run under `TZ=America/Los_Angeles` and `TZ=Asia/Kolkata`.
 
 ---
 
 ## 9. Data architecture
 
-### 9.1 Packs
-Packs live in `data/packs/{regionId}/`. They are versioned JSON, validated with Zod at build time and again at load time. The Zod schemas are also exported to JSON Schema for contributors.
+### 9.1 Pack files (`data/packs/<regionId>/`)
+| File | Holds |
+|---|---|
+| `manifest.json` | id, version, `status: draft\|release`, minAppVersion, generatedAt, SHA-256 per file (checked in CI), `renamedIds` |
+| `region.json` | counties `{id, name, cities}`, languages, partner domains, feedback links |
+| `fpl.json` | guideline years |
+| `benefits.json` | coverage rules |
+| `medications.json` | medicine → **products/variants** `{variantId, label (as printed), formulation ('ir'\|'er'\|'er-osmotic'\|'er-modified'\|…), relationship ('reference'\|'unbranded'\|'generic'\|'interchangeableBiosimilar'\|'biosimilar'\|'differentFormulation'), form, pricingUnit, unitsPerPackage, packageLabel, quantityPresets, ndcs[], costPlusProductPath?, goodRxUrl?, singleCareUrl?}`, aliases per language (incl. Traditional Chinese), category, kind |
+| `programs.json` | PAPs, foundations, county programs: fplMax, fplYear, insuranceRule, householdDefinition, incomeBasis, closedToNew, documents, phone, interpreterAvailable, termMonths |
+| `prices/costplus.json` | snapshot of Cost Plus **quotes** by product and quantity, via their public API only |
+| `prices/direct.json` | manufacturer buyNow prices, price caps, program prices |
+| `prices/nadac.json` | the weekly feed |
+| `outlook.json` | §8.4 |
+| `pharmacies.json`, `clinics.json`, `helpers.json` | city-tagged; lat/lng only if sourced |
+| `notices.json`, `facts.json`, `glossary.json` | year-scoped where relevant |
+| `unverified.json` | `{item, reason, lastTried}` |
 
-**Core files**
-- **`manifest.json`:** pack id, version, minAppVersion, generatedAt, and file checksums (SHA-256).
-- **`region.json`:** id, name, districts, languages, benefit programs with links, and the partner-link domain allowlist.
-- **`fpl.json`:** contiguous-US guidelines by year and household size, plus the per-additional-person amount.
-- **`benefits.json`:** eligibility rules (§8).
+**Pack rules:**
+- **Localized text:** `{ en } & Partial<Record<Lang,string>>`. Missing languages show English tagged "(English)", and validate-packs warns.
+- **Sources:** every fact record has `sources[]` + `verifiedAsOf`; validate-packs enforces this plus cross-references.
+- **New region:** zero screen or domain changes. Registration is one generated line (`src/data/packs.generated.ts`).
 
-**Medicines and places**
-- **`medications.json`**, per drug:
-  - id, brand, generic, category;
-  - aliases per language, including transliterations;
-  - forms, strengths and typical quantities;
-  - partner links: `costPlusUrl` per strength (or null), `goodRxUrl`, `singleCareUrl` (or null);
-  - program ids, `hasManufacturerPap`, and `marketStatus` (`brandOnly | genericAvailable | biosimilarAvailable`).
-- **`pharmacies.json`:** name, chain, address, lat/lng, phone, district, hours (structured, or `{ "seeLocator": true }`), locator URL, `addressVerified` and `verifiedAsOf`.
+### 9.2 Remote feed and updates
+- **Pack updates:** packs change only with app releases (store or EAS Update).
+- **The one remote feed:** NADAC, at `{feeds_base_url}/v1/{regionId}/nadac.json`. Host it on GitHub Pages or a `feeds` branch, not `raw.githubusercontent.com/main` (private repos return 404).
+- **Feed metadata:** each feed carries `schemaVersion` + `minAppVersion`. The app ignores an unknown major version or a too-new minAppVersion.
+- **Validation:** checksums are verified over the raw response text.
 
-**Programs and outlook**
-- **`programs.json`**, per program:
-  - kind (`manufacturerPap | nonprofit | state | county`), sponsor, and covered medication ids;
-  - income: `fplMax` (null when unpublished) and `fplYear`;
-  - rules: `insuranceRule` enum, `closedToNew`, `termMonths` and cutoff text;
-  - contact: `applicationUrl`, phone and `interpreterAvailable` (nullable);
-  - applying: `documents[]`, `sendWhere` and a call-script template id;
-  - `sources[]` and `verifiedAsOf`.
-- **`outlook.json`**, per drug: kind (`prediction | alreadyHasAlternative`), earliest relevant expiry, a label (patent or exclusivity number), the source (Orange Book edition or Purple Book BLA) and `verifiedAsOf`.
-
-**Supporting files:** `clinics.json`, `helpers.json` (free human help), `notices.json` (rule changes), `glossary.json`, `scripts.json` (call and counter scripts with ICU placeholders), `prices/costplus-snapshot.json` and `prices/nadac.json`.
-
-**Pack rules**
-- Every record has `sources` and `verifiedAsOf`. CI fails if either is missing or if `verifiedAsOf` is in the future.
-- A new region is a new pack folder plus locale strings for its program names, with zero code changes. Prove it with a small second **test-only** fixture pack that is clearly fake, never shipped, and loaded by the test suite.
-
-### 9.2 Prices
-- **NADAC**
-  - A scheduled GitHub Action (weekly) queries the current CMS NADAC dataset on data.medicaid.gov. Find the current dataset ID; it changes by year.
-  - It keeps only this app's drugs, writes `nadac.json` with as-of and effective dates, validates the file and commits it.
-  - On launch, the app fetches the hosted JSON (6s timeout, retry with backoff) and validates it. It uses the file only if it's newer than the cache or the bundled copy.
-  - On any failure the app silently falls back: cache, then bundled snapshot. The as-of date is always shown.
+### 9.3 Price sources
+- **NADAC (weekly GitHub Action)**
+  - Find the current-year dataset in the data.medicaid.gov metastore (2026: `fbb83258-11c7-47f5-8b18-5f8e79f7e704`).
+  - Query DKAN `/api/1/datastore/query/{id}/0`, ≤ 500 rows per page, paging with offset.
+  - Match by each variant's `ndcs` (or exact description), newest `as_of_date`, then `effective_date`. When NDCs differ, show the min–max range.
+  - Store `ndc, ndcDescription, perUnitE5, pricingUnit, effectiveDate, asOfDate, classification` (G, B, B-ANDA, B-BIO).
+  - Support `--from-csv` for offline tests.
+  - The job regenerates the manifest and VERIFICATION.md in the same commit (`contents: write`; open a PR if main is protected).
 - **Cost Plus**
-  - A script builds a dated snapshot per strength and quantity from Cost Plus's public pricing source.
-  - First confirm that such a source exists and that its terms allow this. If not, document a manual snapshot method.
-  - Fee amounts are stored as data, with sources.
-- **Coupons:** links only. Never scrape. Strip tracking and affiliate parameters from partner URLs.
+  - Use only their documented public pricing API (costplusdrugs.github.io/apidocs; params `ndc`, `quantity_units`; `requested_quote` includes the pharmacy fee, not shipping). Their Terms forbid scraping.
+  - If the API is gone, the snapshot is manual, with evidence in `docs/evidence/costplus/YYYY-MM-DD/`.
+- **Coupons:** links only, never fetched. Strip tracking parameters.
 
-### 9.3 Verification workflow (document it in `docs/VERIFYING.md`)
-- **Methods:** `http-200`, `browser-confirmed` (for bot-protected pages), `official-data-file`, `official-pdf`, `phone-confirmed`.
-- **URLs:** a link-checker script (weekly Action) reports broken links as a GitHub issue; it never auto-deletes data.
-- **Programs:** check the official application page, then cross-check with RxAssist and NeedyMeds.
-- **Patents and exclusivity:** use the FDA Orange Book data files (products, patent, exclusivity) or the Purple Book. Ignore delisted patents and record the edition.
-- **Report:** `scripts/gen-verification.ts` generates `VERIFICATION.md` from the packs. It lists every fact with its source, method and date, plus an "Unverified — not shipped" section.
+### 9.4 Research snapshot (gathered 2026-10-06; all **unconfirmed**)
+These were seen only in web-search results, because the network policy blocked the official pages. They ship labeled "Not yet confirmed" in a `draft` pack. Re-check each on its official page before `release`.
 
-### 9.4 Research leads `[TWEAK]`
-**Verify each of these before using it. None of them is a fact yet.** Use parallel research subagents. Each one returns facts with a URL, method and date, or "could not verify".
+| Topic | Value (as seen) | Where |
+|---|---|---|
+| HHS poverty guidelines 2026 | $15,960 / 21,640 / 27,320 / 33,000 / 38,680 / 44,360 / 50,040 / 55,720 (1–8), +$5,680 each; effective 2026-01-13 | federalregister.gov 91 FR 1797 |
+| HHS poverty guidelines 2025 | $15,650 … $54,150 (1–8), +$5,500 each | federalregister.gov 90 FR 5917 |
+| Medi-Cal FPL year | 2026 guidelines from 2026-01-01 (MAGI); 2026-04-01 (Aged & Disabled FPL program) | dhcs.ca.gov ACWDL 26-01 |
+| Medi-Cal adults | ≤ 138% FPL; 2026 monthly ≈ $1,836 (1), $3,795 (4) | dhcs.ca.gov ACWDL 26-01 enclosures |
+| Medi-Cal 2026 changes | Enrollment freeze for some adults 19+ (unsatisfactory immigration status; children and pregnant people exempt); asset test back for non-MAGI only ($130,000 + $65,000 each); GLP-1 weight-loss coverage ended | dhcs.ca.gov, medi-calrx.dhcs.ca.gov, ssa.santaclaracounty.gov |
+| Covered California | Enhanced federal credits expired 2025-12-31 (400% cliff back); state help to 165% FPL (2026) and 200% (2027); open enrollment for 2027 runs 2026-11-01 → 2027-01-31; federal help limited by immigration status from 2027-01-01; prior-year FPL | coveredca.com, hbex.coveredca.com |
+| Medicare | Part D cap $2,100 (2026); Extra Help ≈ $23,940 income / $18,090 resources (single); Payment Plan auto-renews in 2026; $35 insulin; Eliquis negotiated price $231 per 30 days (what plans pay); HICAP 1-800-434-0222 | cms.gov, ssa.gov, medicare.gov, aging.ca.gov |
+| Santa Clara PCAP | Uninsured adults 19+, ≤ 650% FPL, county residents, includes prescriptions; 1-888-363-3394 | vhpn.santaclaracounty.gov |
+| Region | Gilroy, Morgan Hill and Salinas are in CA-18 after Prop 50 → use counties | vote.santaclaracounty.gov |
+| Eliquis | No US generic; settlements allow launch ≥ 2028-04-01 (patent 6,967,208 expires 2026-11-21; 9,326,945 in 2031). Maker's direct price $345 / 60 tabs (not for Medicare Part D); Cost Plus sells brand Eliquis since 2026-04-27; BMS PAF covers it (income cap unclear) | pfizer.com, eliquis.bmscustomerconnect.com, news.bms.com, bmspaf.org/rxassist.org |
+| Insulin glargine | Interchangeable biosimilars glargine-yfgn / glargine-aglr. CalRx/Civica glargine-yfgn pens: suggested max $55 per box of 5 (pharmacies set the price; uneven availability). Sanofi Insulins Valyou and the Lilly Insulin Value Program: $35/month (eligibility differs). Lilly Cares and Sanofi Patient Connection: 400% FPL | accessdata.fda.gov, civicainsulin.org, gov.ca.gov, lantus.com, insulins.lilly.com, lillycares.com, sanofipatientconnection.com |
+| Cost Plus | 15% markup + $5 pharmacy fee (since 2023-09); shipping extra; public API; prescribers e-prescribe to "Mark Cuban Cost Plus Drug Company" | costplusdrugs.com, costplusdrugs.github.io |
+| NADAC | 2026 dataset `fbb83258-…`; DKAN API; units EA/ML/GM | data.medicaid.gov (catalog mirrors) |
 
-**Coverage and benefits**
-- Which HHS poverty-guideline year each program uses for the current benefit or plan year. ACA subsidies and Medi-Cal may differ.
-- Recent Medi-Cal rule changes affecting new enrollment, asset tests and phased-in federal requirements. Surface them through `notices.json` if verified.
-- Covered California financial help for the current plan year: the status of enhanced federal premium tax credits, state subsidies and open-enrollment dates.
-- Medicare: the Part D out-of-pocket cap for the current year, Extra Help limits, the Medicare Prescription Payment Plan and California HICAP.
-- Insulin: manufacturer $35 programs, California's CalRx insulin and state copay caps. Use only what is verified and current.
+**Still unknown (nothing ships about these):**
+- pharmacy store records;
+- NADAC values and Cost Plus quotes (filled by the weekly job);
+- the Medi-Cal Rx phone and copays;
+- H.R. 1 Medicaid start dates;
+- SB 40 insulin copay cap details;
+- California pharmacy-law details (cash-price disclosure, emergency supply, translated labels);
+- Census language data;
+- public-charge guidance;
+- the 2027 Part D cap (secondary sources say $2,400);
+- the Monterey HICAP office.
 
-**Local help**
-- County programs for uninsured residents in Santa Clara and Monterey counties.
-- HRSA health centers with sliding-fee pharmacies in the region.
+### 9.5 Staleness thresholds (per data type)
+- NADAC: 21 days.
+- Cost Plus snapshot: 60 days. The ribbon hides after 30.
+- Programs, rules and places: 180 days.
+- Year-scoped facts: their `effectiveTo`.
 
-**Drugs and prices**
-- Cost Plus fee structure and catalog coverage for each slice drug and strength.
-- GoodRx and SingleCare drug-page URLs.
-- The current NADAC dataset.
-- Orange Book / Purple Book entries for the slice drugs.
-- Manufacturer PAPs for the slice brand drugs: status, FPL cap and insurance rules.
+### 9.6 Verification workflow (`docs/VERIFYING.md`)
+1. Open each source.
+2. For non-URL facts, record `excerpt` + `locator`.
+3. Set the method and dates.
+4. Run `refresh:nadac`, `snapshot:costplus`, `pack:manifest` and `gen:verification`.
+5. Once nothing is unconfirmed, set `status: release`; `check:packs -- --release` must pass.
+
+**Link checker:** reports "blocked by network" separately from "bot-protected (403/429)" and from broken (404/410). It never deletes data.
 
 ---
 
 ## 10. Internationalization
-- **Languages:** en, es, zh-Hans and hi at launch.
-- **RTL-ready:** use logical start/end properties everywhere, plus a pseudo-RTL test pass.
+- **Languages:** see the knob. RTL-ready (logical start/end); a pseudo-RTL pass.
 - **Translation quality:**
-  - Write translations natively, not literally, at a grade 6–8 reading level in each language.
-  - Keep a consistent per-language term glossary (how "copay", "deductible" and "income" are said).
-  - Brand and program names stay in Latin script: GoodRx, SingleCare, Cost Plus, Medi-Cal, Covered California.
-- **Formatting:** Intl for numbers, currency, dates and relative time ("12 days ago"); ICU plurals.
-- **Checks:**
-  - key parity across locales;
-  - ICU placeholder parity;
-  - a lint rule against hard-coded UI strings;
-  - a pseudo-locale `en-XA` (accented, +40% length) to catch clipping.
-- **Review list:** list machine-assisted strings in `src/i18n/REVIEW.md` for native-speaker review before store release.
+  - Native-quality, grade 6–8, per-language term glossary.
+  - Program and legal terms use the agency's published translation when one exists; otherwise keep the English name + a plain gloss ("Extra Help (Ayuda Adicional)").
+  - Brand and program names stay in Latin script.
+  - Machine-assisted strings are listed in `src/i18n/REVIEW.md`. Eligibility and legal strings need native-speaker review before a store release.
+  - Run usability sessions with ≥ 5 target users per language.
+- **Formatting:**
+  - Money uses `Intl.NumberFormat(tag, {style:'currency', currency:'USD', currencyDisplay:'narrowSymbol'})` with tags en-US, es-US, zh-Hans-US, and **US digit grouping for Hindi** (hi-IN prints $1,23,456).
+  - Dates use each language's own format, from a UTC-noon Date with `timeZone: 'UTC'`.
+  - Table tests check the expected strings per language.
+- **Intl:** at startup, feature-detect `Intl.PluralRules`, `RelativeTimeFormat` and `String.prototype.normalize('NFKC')`. Load `@formatjs` polyfills only if they're missing. A test deletes `Intl.PluralRules` and asserts plurals still render.
+- **Checks:** key parity (plural-aware via `Intl.PluralRules(lang).resolvedOptions().pluralCategories`; zh needs only `other`), placeholder parity, no hard-coded JSX strings, pseudo-locale `en-XA` (+40%).
+- **Links per language:** when an official page exists only in English, say so on the button: "Open Covered California (English)".
 
 ---
 
 ## 11. Robustness, privacy, security
-- **Offline-first.** The app is fully usable with bundled data; remote feeds only enhance it. Low-data mode respects metered connections.
-- **Network calls.** Every call has a timeout of 6s or less, retries with backoff, and Zod validation. Bad JSON never crashes the app and never replaces good data.
-- **Error boundaries.** Each route has one, with a friendly illustration and a Retry button. Never show a white screen.
-- **Deep links.** Parameters are validated. An unknown drug gets a friendly not-found screen with search.
-- **External links** open with expo-web-browser, and only if the domain is on the pack allowlist.
-- **No account, no backend, no analytics by default.** If analytics are ever added, they must be opt-in, anonymous and documented.
-- **Honesty linter** (`scripts/honesty-lint.ts`). It scans every locale for forbidden absolute claims using a per-language list ("guaranteed", "you qualify", "will save", "garantizado", …) and fails CI on a match.
-- **Contrast checker** (`scripts/contrast-check.ts`). Every text/background token pair in every theme must meet AA: 4.5:1 for body text, 3:1 for large text and UI, 7:1 in high contrast.
-- **Local and CI parity.** The data validator, link checker, i18n parity check and verification generator all run both locally and in CI.
+- **Offline-first:** the app works fully with bundled data. Feeds use a 6 s timeout, retries and validation, and a bad feed never replaces good data.
+- **Error boundaries:** one per route (Expo Router `export function ErrorBoundary`); never a white screen.
+- **Deep links:**
+  - Formats: `rxbridge://drug/{drugId}?v={variantId}&qty={1..999}` and `rxbridge://program/{programId}`.
+  - Validated with Zod against the pack: unknown variant → default variant + notice; unknown drug → not-found with search.
+  - Deep links never force onboarding and wait behind app lock.
+- **Links out:** only to pack-allowlisted https hosts via expo-web-browser. `tel:`, `mailto:` and Maps URLs are built only from pack data.
+- **Privacy:**
+  - Copy: "We don't collect your answers. They're saved only in this app on this phone. Anyone who uses this phone could see them — you can lock the app in Settings."
+  - **Backups:** `android.allowBackup: false`; exclude app storage from iCloud backup (dev build) or disclose it.
+  - **Notifications:** Android visibility private; no medicine or program names by default.
+  - **Calendar:** the system event editor, neutral titles.
+  - **PDF:** see §7.15.
+  - **Screens:** cover the app switcher when locked; block screen capture on sensitive screens where supported.
+  - **Disclosures:** read-aloud may use the phone's voice service; "This opens your email app. We will see your email address."
+- **No account, no backend, no analytics.**
+- **Linters in CI:**
+  - honesty-lint covers every language and pack text, with a per-key allowlist with justification (`scripts/honesty-allow.json`).
+  - contrast-check, validate-packs, i18n-parity, and gen-verification `--check`.
 
----
-
-## 12. Accessibility (WCAG 2.2 AA minimum)
-- **Basics:** contrast as in §11, 48×48dp tap targets, and color is never the only signal.
+## 12. Accessibility (WCAG 2.2 AA)
+- **Contrast:** text 4.5:1; non-text 3:1 (bars use `solid`, inputs use `borderStrong`).
+- **Targets and gestures:**
+  - Targets ≥ 48dp, non-overlapping (2.5.8).
+  - No gesture-only actions; buttons for everything (2.5.7 / 2.5.1).
+- **Focus and help:**
+  - Focus never hidden behind the tab bar, sticky footer, toasts or keyboard (2.4.11): content insets cover them, and toasts appear at the top.
+  - Consistent "Get free help" in the same place on every screen (3.2.6).
+- **Entry and authentication:**
+  - No redundant entry (3.3.7).
+  - OS authentication only (3.3.8).
 - **Screen readers:**
-  - label, role and hint on everything; a logical focus order; headings marked as headings;
-  - announcements for tab changes, result counts and price updates;
-  - text equivalents for the Price Ladder and the Bridge.
-- **Font scaling:** up to 200% without clipping, and prices are never truncated. Test every screen at 200%.
-- **Settings:** Reduce Motion and high contrast as specified; haptics are optional.
-- **Glossary chips:** tap-to-explain "?" chips for NADAC, PAP, FPL, biosimilar, formulary, deductible, copay, MAGI household and other jargon.
-- **Manual testing:** `docs/A11Y_CHECKLIST.md` for VoiceOver and TalkBack passes.
+  - Labels and roles on everything; headings marked.
+  - Announce result counts, tab changes and price updates once.
+  - Language of each part is set (3.1.2) on the pharmacist card, PDF and scripts.
+  - The Price Ladder and Bridge have text equivalents.
+- **Icon-only controls** are limited to Settings gear, Share, Save star, Close, Clear search and Remove recent. Each has a label.
+- **Text:** 200% text without clipping (checked in Playwright via `scrollWidth > clientWidth`).
+- **Manual testing:** `docs/A11Y_CHECKLIST.md` for VoiceOver, TalkBack, Switch Access and Full Keyboard Access.
 
----
-
-## 13. Testing and quality
-- **Unit tests:** every domain module (§8) with property tests; data loaders; feed resolution; search ranking, including multi-script cases.
-- **Component tests:**
-  - Every price card and program card in each of its states: normal, Not listed, unknown, stale, closed and error.
-  - Each rendered in all four languages and at 200% font scale.
-- **E2E flows (Maestro)**
-  1. Uninsured → household → income → result → search → results → help paying.
-  2. Insured path with Copay Check.
-  3. Offline launch.
-  4. Language switch mid-flow keeps state.
-  5. Deep link to a drug with strength and quantity.
-  6. Navigator mode "New client" wipe.
-  7. Save a medicine → My Plan reflects it.
-- **Design gallery:** a dev-only route that renders every component in every state, theme and language. Use it for review screenshots.
-- **Performance**
-  - Cold start under 2s on a mid-range Android: Hermes, lazy routes, preloaded fonts, a small bundle and no bundled CJK fonts.
-  - Long lists are virtualized.
-  - Animations run at 60fps on the UI thread.
-- **CI (GitHub Actions):** typecheck, lint, unit and component tests, i18n parity, honesty lint, contrast check, pack validation, and a check that the verification report is up to date. Separate scheduled workflows run the weekly NADAC refresh and the weekly link check.
-
----
+## 13. Testing and quality (works in a no-simulator container)
+- **Unit tests:** domain with property tests, TZ matrix and the Eliquis outlook fixture; Intl polyfill test; currency table tests; store migrations (v1 → v2 fixture).
+- **Component tests:** every card state (normal, not listed, unconfirmed, stale, closed, error) in 4 languages, with mocked `fontScale: 2` (assert no fixed heights). Reanimated and worklets are mocked per their testing docs.
+- **E2E in the container:** Playwright against `npx expo export --platform web`, served by `scripts/shoot.mjs` (SPA fallback).
+  - Setup:
+    - Chromium from `/opt/pw-browsers` (don't run `playwright install`).
+    - Contexts 390×844 and 360×800; light and dark; `reducedMotion: 'reduce'` for deterministic states.
+    - Seed zustand keys via `addInitScript`; wait for fonts and a `screen-ready` testID.
+  - The same 7 flows as below.
+- **Maestro:** flows are authored in `e2e/` (appId `host.exp.exponent`, `openLink: exp://…/--/…`) but run only on devices.
+- **The 7 flows:**
+  1. uninsured → result → search → results → help paying;
+  2. insured + copay check;
+  3. offline launch;
+  4. language switch mid-flow keeps state;
+  5. deep link;
+  6. navigator wipe;
+  7. save → My Plan.
+- **Screenshot matrix:**
+  - Every screen and state: 390×844, light, en.
+  - Each screen once more: dark, 360×800 at 200% text, high contrast, and es / zh-Hans / hi.
+- **Design gallery:** `/dev/gallery`, rendered when `EXPO_PUBLIC_GALLERY=1` at export time.
+- **CI:** typecheck, lint, unit, i18n parity, honesty, contrast, packs, verification `--check`, web export, Playwright E2E.
+- **On a device (not in the container):** cold start < 2 s on a mid-range Android. List anything untested on a device in the README.
 
 ## 14. Repo layout
-
 ```
-app/                        Expo Router routes (onboarding stack, tabs, drug/[id], program/[id], sheets)
-src/design/                 tokens, themes, typography, motion, components:
-                            Button, Card, PriceCard, SourceChip, GlossaryChip, BridgeProgress, PeopleRow,
-                            PriceLadder, FreshnessRing, Odometer, Sheet, EmptyState, ErrorBoundary
-src/domain/                 pure logic: fpl, brackets, eligibility, papMatch, outlook, staleness,
-                            priceMath, feedResolution, plan, search
-src/data/                   zod schemas, pack loader, remote feed client
-src/state/                  zustand stores + storage adapters
-src/services/               speech, print, share, location, notifications, calendar, links, haptics
-src/i18n/                   setup + locales/{en,es,zh-Hans,hi}.json
-data/packs/ca-south-bay/    the region pack
-scripts/                    refresh-nadac, snapshot-costplus, check-links, i18n-parity, honesty-lint,
-                            contrast-check, validate-packs, gen-verification
-e2e/                        Maestro flows
-docs/                       VERIFYING.md, A11Y_CHECKLIST.md, screens/ (review screenshots)
-README.md  VERIFICATION.md  eas.json  app.config.ts
+src/app/                 routes: welcome, onboarding/*, (tabs)/{home,find,medicines,help}, drug/[id]/{index,results},
+                         program/[id], call-coach/[id], applications, medicare, clinics, helpers, glossary,
+                         settings/{index,sources,about}, counter-card, share, dev/gallery, +not-found
+src/components/          feature components (onboarding/, results/, programs/, home/, settings/, help/), AppLockGate,
+                         AnimatedSplash, DraftBanner
+src/design/              tokens, theme, Text, primitives (Button, Card, Chip, Badge, Banner, ListRow, Segmented, Screen,
+                         Sheet, SheetHost, SourceChip, GlossaryChip, ReadAloud, EmptyState, Illustration, FreshnessRing)
+src/domain/              pure logic + tests
+src/data/                schemas.ts, pack.ts, prices.ts, feeds.ts, localize.ts
+src/hooks/               useProfile, usePrices, useLang
+src/state/               settings, screener, medicines, applications, ui, session, storage
+src/services/            haptics, speech, links, notifications, print (+ .web.ts variants)
+src/config/flags.ts
+src/i18n/                languages, resources, format, locales/<lang>/<namespace>.json, REVIEW.md
+data/packs/<region>/     pack JSON (+ unverified.json)
+scripts/                 validate-packs, pack-manifest, i18n-parity, honesty-lint (+ honesty-allow.json), contrast-check,
+                         gen-verification, check-links, refresh-nadac, snapshot-costplus, shoot.mjs, lib/, __tests__/
+.github/workflows/       ci.yml, data-weekly.yml, links-weekly.yml
+locales-native/          iOS permission strings per language (app.json "locales")
+e2e/                     Maestro flows (device) + web/ Playwright specs
+docs/                    ARCHITECTURE.md, VERIFYING.md, A11Y_CHECKLIST.md, screens/, evidence/
+README.md  VERIFICATION.md  AGENTS.md  app.json  eas.json
 ```
 
----
-
-## 15. How to work (phases and checkpoints)
-
-- **Commits and help:** work in small, logical commits. Use parallel subagents for research and for independent modules.
-- **Questions and assumptions:** don't ask questions you can answer with the defaults in this file. State your assumptions in the README.
-- **No simulators in the cloud container.**
-  - Verify the UI by running the web preview and capturing screenshots with Playwright.
-  - Capture at phone sizes (390×844 and 360×800) in light and dark mode, and at 200% text where possible.
-  - Say clearly what was not tested on a real device.
-
-**Phases**
-1. **Research and verify the slice:** §9.4 for the three slice drugs plus the region basics. Output: draft packs and `VERIFICATION.md`.
-2. **Foundation:** scaffold, tokens, themes, fonts, i18n, storage, navigation, error boundaries, CI and scripts.
-3. **Vertical slice:** onboarding → coverage result → search → strength and quantity → Results (both tabs) for the three slice drugs, with every state, every signature moment and all four languages.
-   - **Checkpoint** (if `pause_for_review_after_slice`): stop and show me screenshots of every screen and state (from the gallery), the Zod schemas and any open questions. Wait for my go-ahead before scaling data.
-4. **The rest:** My Plan, My medicines, Get help, the tracker, call coach, counter card, share/print, the Medicare panel, navigator mode, settings, read aloud and reminders.
-5. **Scale the data** to `full_drug_list_size`: pharmacies, programs, clinics and the scheduled Actions.
-6. **Polish:**
-   - accessibility, 200%-text and performance passes;
-   - E2E tests and EAS config;
-   - store metadata (name, description and permission strings in every launch language);
-   - README.
-
-**At the end of each phase, report:** what was built, screenshots, what's verified vs. not shipped, any deviations from this prompt and why, and next steps.
-
----
+## 15. How to work
+- **Research first, in parallel.** Every fact is recorded with method, URL and date, or `unconfirmed` with a note. Never from memory.
+- **Several agents in parallel** need strict file ownership (one owner per route / component folder / i18n namespace). The lead owns `src/design`, `src/data`, `src/domain`, `src/state`, `src/services` and the shared hooks, and commits.
+- **Verify every UI change through the web loop (§13)** and look at every screenshot. Say what wasn't tested on a device.
+- **Phases:**
+  1. Research the slice.
+  2. Foundation.
+  3. **Vertical slice:** onboarding (all branches), result, search, variant/strength/quantity, and Results (both tabs) for 3 drugs; en + es complete, zh-Hans + hi complete but in REVIEW.md. Signature moments: Bridge, People row, Price Ladder, Odometer, Show the math, Freshness Ring. Phase-4 buttons are hidden behind a `phase4` flag, not disabled.
+     - **Checkpoint:** stop and show screenshots, schemas and open questions.
+  4. The rest of §7.
+  5. Scale the data.
+  6. Polish, store prep (§18).
+- **Each phase ends with a report:** what was built, screenshots, verified vs not, deviations and why, next steps.
 
 ## 16. Definition of done
-- [ ] `npx expo start` runs in Expo Go on iOS and Android, and the web preview renders.
-- [ ] Zero placeholder text, zero hard-coded UI strings, zero `any`.
-- [ ] Every fact on screen has a source chip, and `VERIFICATION.md` is generated and current.
-- [ ] All CI checks are green.
-- [ ] Every screen is checked at 200% text, in dark mode, in high contrast, with Reduce Motion, and in all four languages.
-- [ ] Offline launch works with bundled data.
-- [ ] The README covers: purpose; how to run (device and web); how to refresh data; how to add a region, language or drug; data sources with links and dates; the honesty rules; and assumptions.
-
----
+- [ ] The native export (`npx expo export --platform ios --platform android`) and the web export (`--platform web`) succeed, and the web preview renders every screen without console errors. Expo Go was tested on real devices, or it is listed as untested.
+- [ ] Zero placeholder text, hard-coded UI strings and `any`.
+- [ ] Every fact shows a source chip; VERIFICATION.md is current.
+- [ ] Pack status is `release` (or the README explains why it's still `draft`).
+- [ ] CI is green, including Playwright E2E.
+- [ ] The screenshot matrix (§13) has been reviewed.
+- [ ] README covers purpose, run, checks, data refresh, adding a region/language/drug, honesty rules, assumptions, and what's untested on devices.
 
 ## 17. Never
-- Never show a coupon dollar amount, an unverified fact, or a price attached to a specific pharmacy store.
-- Never say someone qualifies, will save money, or that a generic will launch on a specific date.
-- Never give medical advice.
-- Never collect immigration status, SSN or identity information. Never send personal data off the device.
-- Never add an LLM chatbot or generated advice inside the app.
-- Never use flags for languages, icon-only buttons or color-only status.
-- Never ship placeholder copy ("APP NAME", "Lorem", "TODO") or a button whose label doesn't name where it goes.
+- Never show a coupon dollar amount, an unconfirmed fact as confirmed, or a price attached to a local store location.
+- Never say someone qualifies, will save, or that a generic will launch on a date. Never call any price "lowest" without "listed" and a date.
+- Never rank a different product as the person's product, or imply cash beats their coverage.
+- Never give medical advice (including shorter fills).
+- Never collect immigration status, SSN or identity. Never send personal data off the device. Never name medicines in notifications, calendar events or file names by default.
+- Never add an LLM chatbot or generated advice.
+- Never use flags for languages, gesture-only actions or color-only status. Icon-only controls only from the §12 list.
+- Never ship placeholder copy, or a button whose label doesn't name where it goes.
 - Never hard-code FPL years, thresholds, fees or program rules in components.
+
+## 18. Compliance and store policy (verify each before submitting)
+- **Publisher:** publish under a legal entity (Apple guideline 5.1.1(ix) for health-adjacent apps — verify).
+- **Store listing:** carries the not-affiliated text from §7.17. No third-party or drug logos. No brand drug names in the app name, subtitle or keywords. Run a trademark check on the app name.
+- **Google Play:** complete the Health apps declaration and the Data safety form ("no data collected"). Follow the rules for apps that present government-program information (disclaimer + source links).
+- **Apple:** privacy nutrition label ("Data Not Collected") and a privacy policy URL, even though nothing is collected.
+- **Health-privacy law:** consider California CMIA (Civil Code 56.06) and the FTC Health Breach Notification Rule. On-device-only storage with no sharing keeps the exposure small. Document it.
+- **Accessibility:** WCAG 2.2 AA conformance notes in `docs/A11Y_CHECKLIST.md`.

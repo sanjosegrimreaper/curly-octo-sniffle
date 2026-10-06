@@ -69,8 +69,7 @@
   "ladder": {
     "title": "Prices at a glance",
     "subtitle": "For {{selection}}. A longer bar means a higher price.",
-    "lowest": "Lowest you can pay today",
-    "lowestListed": "Lowest listed for this amount",
+    "ribbon": "Lowest listed online price — checked {{date}}. Coupons or insurance may cost less.",
     "upTo": "up to {{price}}",
     "reference": "Reference: what pharmacies pay (NADAC)",
     "referenceTag": "Not for sale",
@@ -84,14 +83,15 @@
     "noExact": "No price for this exact amount yet.",
     "a11yIntro": "Price ladder for {{selection}}.",
     "a11yBuy": "{{seller}}: {{price}}.",
-    "a11yLowest": "{{label}}.",
+    "a11yLowest": "{{label}}",
     "a11yReference": "Reference price, not for sale: {{price}}.",
     "a11yCoupon": "{{site}} coupon: the price is shown on {{site}}.",
     "a11yMonthly": "{{seller}}: {{price}} per {{per}}.",
-    "a11yEmpty": "No checkout price loaded yet for this exact amount."
+    "a11yEmpty": "No checkout price loaded yet for this exact amount.",
+    "versions": "Different versions of this medicine — ask your pharmacist if your prescription allows them."
   },
   "buyNow": {
-    "title": "Buy now",
+    "title": "Order online or buy direct",
     "subtitle": "Real prices you can pay at checkout.",
     "label": "Buy now — {{seller}}",
     "upTo": "Up to",
@@ -99,7 +99,7 @@
     "open": "Open {{seller}}",
     "snapshot": "Cost Plus price list from {{date}}",
     "showMath": "Show the math",
-    "showPrice": "Show the price",
+    "showPrice": "Back to price",
     "mathTitle": "The math",
     "mathPrice": "{{price}} for {{qty}}",
     "mathEach": "{{price}} ÷ {{count}} = {{each}} each",
@@ -110,9 +110,10 @@
     "mathMonthly": "This price is per {{per}}. It is not per box or per tablet, so it is not on the same scale as the others.",
     "mathMaximum": "This is a suggested maximum. The pharmacy sets the final price.",
     "formula": "Price = their cost + {{markup}}% + {{fee}} pharmacy fee. Shipping extra.",
-    "flipHint": "Shows how this price is worked out",
     "mathShown": "Showing the math",
-    "priceShown": "Showing the price"
+    "priceShown": "Showing the price",
+    "costPlusNote": "Online pharmacy. Ships by mail. Not the price at local stores.",
+    "product": "Buy now"
   },
   "costPlus": {
     "title": "Cost Plus Drugs price list",
@@ -122,13 +123,14 @@
     "notListedBody": "Cost Plus Drugs does not list this medicine or strength.",
     "notLoaded": "Cost Plus price not loaded yet",
     "notLoadedBody": "We never guess a price. You can check today's price on their site.",
-    "check": "Check on Cost Plus"
+    "check": "Check on Cost Plus",
+    "note": "Online pharmacy. Ships by mail. Not the price at local stores."
   },
   "coupons": {
-    "title": "Coupons — amount shown on partner site",
+    "title": "Discount coupons — see the price on their website",
     "subtitle": "We never show coupon amounts. Open the site to see its price.",
-    "goodRx": "Open GoodRx coupon",
-    "singleCare": "Compare on SingleCare",
+    "goodRx": "See prices on GoodRx",
+    "singleCare": "See prices on SingleCare",
     "notListedSite": "{{site}}: Not listed",
     "noteVaries": "Amounts vary by pharmacy and ZIP code.",
     "noteGoodRx": "GoodRx may show paid-membership prices first — compare the free coupon price.",
@@ -136,7 +138,7 @@
     "noteInsurance": "Coupons usually can't be combined with insurance."
   },
   "nadac": {
-    "title": "Fair-price reference — NADAC",
+    "title": "What pharmacies pay (for comparison)",
     "label": "Reference price",
     "math": "{{perUnit}} per {{unit}} × {{units}} = {{total}}",
     "unit": {
@@ -147,14 +149,16 @@
     "asOf": "As of {{date}}",
     "effective": "Price effective {{date}}",
     "cantBuy": "What pharmacies pay wholesalers — you can't check out at this number",
-    "notLoaded": "Reference price not loaded yet. It updates weekly when the app is online."
+    "notLoaded": "Reference price not loaded yet. It updates weekly when the app is online.",
+    "body": "This is about what pharmacies pay for this medicine on average. You can't buy it at this price.",
+    "showDetails": "Show the math and dates",
+    "hideDetails": "Hide the math and dates"
   },
   "outlook": {
     "title": "Generic outlook",
-    "within12": "May face generic competition within about 12 months — prices could drop. You could ask about shorter fills.",
-    "oneToThree": "Generic competition is possible in the coming years.",
-    "notPromised": "Not a promised launch date.",
-    "earliest": "Earliest date: {{date}}",
+    "within12": "A generic version may come out around {{date}}. Prices could go down after that. This date is not a promise. Keep taking your medicine as your doctor told you.",
+    "oneToThree": "A generic version may come out in the next few years. We don't know exactly when.",
+    "earliest": "Earliest date we know of: {{date}} (not a promised launch date)",
     "alreadyTitle": "Lower-cost versions",
     "biosimilar": "A generic copies a regular medicine. A biosimilar is a very close copy of a biologic medicine, like insulin."
   },
@@ -204,7 +208,10 @@
     "brighter": "Brighter screen",
     "normal": "Normal brightness",
     "listenIn": "Listen in {{language}}",
-    "swipe": "Swipe for more questions"
+    "previous": "Previous",
+    "next": "Next",
+    "previousLabel": "Previous question",
+    "nextLabel": "Next question"
   },
   "share": {
     "title": "Share a summary",
@@ -232,6 +239,25 @@
     "checked": "checked {{date}}",
     "generated": "Made with RxBridge on {{date}}",
     "scan": "Scan to open this medicine in RxBridge",
-    "preview": "Preview"
+    "preview": "Preview",
+    "fileTitle": "RxBridge-summary",
+    "includeProfile": "Include my household and income",
+    "includeProfileHint": "Off by default. Turn on only if the person you send this to needs it.",
+    "warning": "Anyone you send this to will see your medicine.",
+    "profile": "Household and income",
+    "household_one": "Household: {{count}} person",
+    "household_other": "Household: {{count}} people",
+    "incomeUnder": "Income: under {{max}} a year",
+    "incomeRange": "Income: {{min}} to {{max}} a year",
+    "incomeOver": "Income: over {{min}} a year",
+    "incomeExact": "Income: {{amount}} a year",
+    "incomeUnknown": "Income: not shared",
+    "noProfile": "No household or income answers saved."
+  },
+  "coverage": {
+    "medicareTitle": "You have Medicare",
+    "medicare": "Paying cash outside your Medicare drug plan may not count toward your yearly limit. Ask your plan first.",
+    "mediCalTitle": "You have Medi-Cal",
+    "mediCal": "Medi-Cal may pay for this medicine. Ask the pharmacy to bill Medi-Cal first."
   }
 }

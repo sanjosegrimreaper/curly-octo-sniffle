@@ -1,12 +1,15 @@
 /**
- * The screener's routes and how they map onto the five Bridge steps
- * (Coverage → Where → Household → Income → Result).
+ * The screener's routes and the Bridge steps on each path.
+ *
+ * - No / Not sure path: Coverage → Where → Age → Household → Income → Result (6 steps)
+ * - Insured path:       Coverage → Kind of coverage → Checklist | Medi-Cal (3 steps)
+ *
+ * The Coverage screen belongs to both; its "of M" follows the current answer, so the
+ * total changes as soon as the person picks Yes or No.
  */
 import type { Href } from 'expo-router';
 
-export const SCREENER_STEPS = ['coverage', 'where', 'household', 'income', 'result'] as const;
-export type ScreenerStep = (typeof SCREENER_STEPS)[number];
-export const TOTAL_STEPS = SCREENER_STEPS.length;
+import type { CoverageAnswer } from '@/state/screener';
 
 export const ROUTES = {
   welcome: '/welcome',
@@ -30,18 +33,56 @@ export type ScreenerRoute = Exclude<
   '/welcome' | '/find' | '/home' | '/medicare?from=onboarding'
 >;
 
-/** 1-based Bridge step for each screener route. Insured branches end on the last step. */
-export const STEP_OF_ROUTE: Record<ScreenerRoute, number> = {
-  '/onboarding/coverage': 1,
-  '/onboarding/coverage-type': 1,
-  '/onboarding/county': 2,
-  '/onboarding/age': 3,
-  '/onboarding/household': 3,
-  '/onboarding/income': 4,
-  '/onboarding/result': 5,
-  '/onboarding/checklist': 5,
-  '/onboarding/medi-cal': 5,
+/** Step names (i18n keys under `steps.`). */
+export type StepName =
+  | 'coverage'
+  | 'coverageType'
+  | 'where'
+  | 'age'
+  | 'household'
+  | 'income'
+  | 'result'
+  | 'checklist'
+  | 'mediCal';
+
+export const UNINSURED_PATH: readonly ScreenerRoute[] = [
+  ROUTES.coverage,
+  ROUTES.county,
+  ROUTES.age,
+  ROUTES.household,
+  ROUTES.income,
+  ROUTES.result,
+];
+/** The last insured step is either the checklist or the Medi-Cal screen (same position). */
+export const INSURED_PATH: readonly ScreenerRoute[] = [ROUTES.coverage, ROUTES.coverageType, ROUTES.checklist];
+
+const NAME: Record<ScreenerRoute, StepName> = {
+  '/onboarding/coverage': 'coverage',
+  '/onboarding/coverage-type': 'coverageType',
+  '/onboarding/checklist': 'checklist',
+  '/onboarding/medi-cal': 'mediCal',
+  '/onboarding/county': 'where',
+  '/onboarding/age': 'age',
+  '/onboarding/household': 'household',
+  '/onboarding/income': 'income',
+  '/onboarding/result': 'result',
 };
+
+const INSURED_ONLY: readonly ScreenerRoute[] = [ROUTES.coverageType, ROUTES.checklist, ROUTES.mediCal];
+
+/** Which path a route is on. The Coverage screen follows the answer (no answer yet → the longer path). */
+export function pathFor(route: ScreenerRoute, coverage: CoverageAnswer | null): readonly ScreenerRoute[] {
+  if (INSURED_ONLY.includes(route)) return INSURED_PATH;
+  if (route === ROUTES.coverage && coverage === 'yes') return INSURED_PATH;
+  return UNINSURED_PATH;
+}
+
+/** "Step `now` of `total`" for a route, given the coverage answer. */
+export function stepFor(route: ScreenerRoute, coverage: CoverageAnswer | null): { now: number; total: number; name: StepName } {
+  const path = pathFor(route, coverage);
+  const position = route === ROUTES.mediCal ? path.indexOf(ROUTES.checklist) : path.indexOf(route);
+  return { now: Math.max(0, position) + 1, total: path.length, name: NAME[route] };
+}
 
 /**
  * Where the back button goes when there is no history to pop (e.g. the app restarted and

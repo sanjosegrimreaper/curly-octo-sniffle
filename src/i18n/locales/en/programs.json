@@ -19,8 +19,8 @@
     "limitNotPublished": "Not published — call to confirm",
     "math_one": "How we got this: {{pct}} × {{guideline}} (the {{year}} poverty level for {{count}} person) = {{amount}}",
     "math_other": "How we got this: {{pct}} × {{guideline}} (the {{year}} poverty level for {{count}} people) = {{amount}}",
-    "closed": "Closed to new patients",
-    "closedNote": "This program is not taking new patients right now. You can call to ask if that changes.",
+    "closed": "Not taking new people right now",
+    "closedNote": "This program is not taking new people right now. You can call to ask if that changes.",
     "documents": "What you'll need",
     "moreDocs_one": "+{{count}} more",
     "moreDocs_other": "+{{count}} more",
@@ -61,15 +61,15 @@
     "introBody": "Drug companies and nonprofits run programs that may give this medicine for free or at low cost. Only the program can decide who it helps.",
     "found_one": "{{count}} program may help with this medicine",
     "found_other": "{{count}} programs may help with this medicine",
-    "likelyTitle": "Programs you likely qualify for",
-    "likelyExplain": "“Likely” means all three: your whole income range is under the limit, your coverage fits, and the program is open to new patients. Only the program can decide.",
-    "worthTitle": "Other programs worth checking",
+    "likelyTitle": "Programs that may fit you",
+    "likelyExplain": "“May fit” means all three: your whole income range is under the limit, your coverage fits, and it's open to new people. Only the program can decide.",
+    "worthTitle": "Other programs to check",
     "worthExplain": "Something doesn't match yet, or the program doesn't publish its rules. A phone call can clear it up.",
-    "closedTitle": "Closed to new patients",
+    "closedTitle": "Not taking new people right now",
     "closedExplain": "We show these so you know they exist. Call to ask if they open again.",
-    "allClosed": "No verified manufacturer program enrolls new patients for this medicine right now.",
-    "emptyTitle": "No verified manufacturer program for this medicine",
-    "emptyGeneric": "Generics often have no brand assistance program — the Buy-now price may be your best option.",
+    "allClosed": "We didn't find a drug company program taking new people for this medicine.",
+    "emptyTitle": "We didn't find a drug company program taking new people for this medicine.",
+    "emptyGeneric": "Most generic medicines don't have a drug company help program. The Buy-now price may be your best option.",
     "emptyOther": "We only list programs we could check. A local helper may know other ways to pay less.",
     "staleTitle": "Some program details may be out of date",
     "staleBody": "We last checked them more than 6 months ago. Call to confirm before you apply.",
@@ -80,7 +80,8 @@
     "moreHelpBody": "Free helpers and clinics near you can help with forms and other ways to pay less.",
     "moreHelpButton": "Open Get help",
     "unknownMedicine": "We couldn't find this medicine",
-    "unknownMedicineBody": "Search again to see programs for it."
+    "unknownMedicineBody": "Search again to see programs for it.",
+    "emptyHelp": "Get free help"
   },
   "detail": {
     "eyebrow": "Assistance program",
@@ -165,11 +166,11 @@
   },
   "steps": {
     "notStarted": "Not started",
-    "gathering": "Gathering documents",
+    "gathering": "Getting papers ready",
     "sent": "Sent",
     "waiting": "Waiting to hear back",
-    "approved": "Accepted",
-    "denied": "Denied",
+    "approved": "They said yes",
+    "denied": "They said no",
     "decision": "Decision"
   },
   "tracker": {
@@ -210,11 +211,11 @@
     "reminderCanceled": "Reminder canceled",
     "calendar": "Add to my calendar",
     "calendarAdded": "Added to your calendar",
-    "calendarFailed": "We couldn't add it to your calendar. Check that RxBridge may use your calendar in your phone's settings.",
+    "calendarFailed": "Nothing was added to your calendar.",
     "reminderFailed": "We couldn't set a reminder. Check that RxBridge may send notifications in your phone's settings.",
     "reminderPast": "Pick a date in the future first.",
     "webNote": "Reminders and calendar events work in the phone app. In a web browser, please write this date down.",
-    "reminderTitlePrivate": "Time to renew a medicine assistance program",
+    "reminderTitlePrivate": "Time to renew an assistance program",
     "reminderBodyPrivate": "Open RxBridge to see which one.",
     "reminderTitle": "Time to renew {{program}}",
     "reminderBody": "Your help from {{program}} may end soon. Call {{phone}} to renew.",
@@ -228,9 +229,7 @@
     "untrackKeep": "Keep it",
     "untracked": "Stopped tracking {{program}}",
     "unknownProgram": "A program that is no longer in our data",
-    "unknownProgramBody": "We can't show details for it anymore. You can stop tracking it."
-  },
-  "preview": {
-    "title": "Programs preview (dev only)"
+    "unknownProgramBody": "We can't show details for it anymore. You can stop tracking it.",
+    "calendarTitlePrivate": "RxBridge reminder"
   }
 }

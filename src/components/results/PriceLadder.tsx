@@ -1,20 +1,13 @@
-import { ExternalLink, Sparkles, Ticket } from 'lucide-react-native';
+import { BadgeCheck, ExternalLink, Info, Ticket } from 'lucide-react-native';
 import { useEffect, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
-import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useSharedValue,
-  withDelay,
-  withSequence,
-  withTiming,
-} from 'react-native-reanimated';
-import Svg, { Defs, Line, Path, Pattern, Rect } from 'react-native-svg';
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withDelay, withTiming, ZoomIn } from 'react-native-reanimated';
+import Svg, { Defs, Line, Pattern, Rect } from 'react-native-svg';
 
 import type { PriceSummary } from '@/data/prices';
 import { Card, Illustration, motion, radius, spacing, Tappable, Text, useTheme } from '@/design';
-import { formatMoney } from '@/i18n/format';
+import { formatDate, formatMoney } from '@/i18n/format';
 import type { Lang } from '@/i18n/languages';
 import { openExternal } from '@/services/links';
 
@@ -26,8 +19,14 @@ const BAR_STAGGER = 110;
 
 export type LadderModel = {
   buys: { id: string; seller: string; priceCents: number; priceKind: 'fixed' | 'maximum'; lowest: boolean }[];
-  /** Whether the ribbon may say "today" (fixed price, nothing priced per month next to it). */
-  ribbon: 'lowest' | 'lowestListed';
+  /**
+   * The "lowest listed" ribbon, only when it is a fair comparison: two or more options for the
+   * same product (never for biologics, whose options are different products) and the lowest
+   * price is strictly lower than the next one (a tie gets no ribbon).
+   */
+  ribbon: { id: string; date: string } | null;
+  /** Options are different versions of the medicine (biologics): never ranked against each other. */
+  versions: boolean;
   reference: { totalCents: number } | null;
   coupons: { site: 'GoodRx' | 'SingleCare'; url: string }[];
   monthly: { id: string; seller: string; priceCents: number; per: string }[];
@@ -35,20 +34,26 @@ export type LadderModel = {
 
 /** Everything the ladder shows, straight from the price summary (no estimates). */
 export function ladderModel(summary: PriceSummary): LadderModel {
-  const lowestCents = summary.lowest?.priceCents ?? null;
+  const versions = summary.medication.kind === 'biologic';
+  const [first, second] = summary.comparable;
+  const ribbon =
+    !versions && first && second && first.priceCents < second.priceCents
+      ? { id: first.id, date: first.snapshotDate ?? first.verifiedAsOf }
+      : null;
   const buys = summary.comparable.map((o) => ({
     id: o.id,
     seller: o.seller,
     priceCents: o.priceCents,
     priceKind: o.priceKind,
-    lowest: lowestCents !== null && o.priceCents === lowestCents,
+    lowest: ribbon?.id === o.id,
   }));
   const coupons: LadderModel['coupons'] = [];
   if (summary.coupons.goodRxUrl) coupons.push({ site: 'GoodRx', url: summary.coupons.goodRxUrl });
   if (summary.coupons.singleCareUrl) coupons.push({ site: 'SingleCare', url: summary.coupons.singleCareUrl });
   return {
     buys,
-    ribbon: summary.monthly.length > 0 || summary.lowest?.priceKind === 'maximum' ? 'lowestListed' : 'lowest',
+    ribbon,
+    versions,
     reference: summary.nadacFeedLoaded && summary.nadac ? { totalCents: summary.nadac.total.totalCents } : null,
     coupons,
     monthly: summary.monthly.map((o) => ({ id: o.id, seller: o.seller, priceCents: o.priceCents, per: o.per })),
@@ -64,13 +69,14 @@ export function ladderA11yLabel(model: LadderModel, t: ResultsT, lang: Lang, sel
   if (model.buys.length === 0 && model.monthly.length === 0) parts.push(t('ladder.a11yEmpty'));
   for (const b of model.buys) {
     parts.push(t('ladder.a11yBuy', { seller: b.seller, price: priceText(t, b.priceCents, b.priceKind, lang) }));
-    if (b.lowest) parts.push(t('ladder.a11yLowest', { label: t(`ladder.${model.ribbon}`) }));
+    if (b.lowest && model.ribbon) parts.push(t('ladder.ribbon', { date: formatDate(model.ribbon.date, lang) }));
   }
   if (model.reference) parts.push(t('ladder.a11yReference', { price: formatMoney(model.reference.totalCents, lang) }));
   for (const m of model.monthly) {
     parts.push(t('ladder.a11yMonthly', { seller: m.seller, price: formatMoney(m.priceCents, lang), per: m.per }));
   }
   for (const c of model.coupons) parts.push(t('ladder.a11yCoupon', { site: c.site }));
+  if (model.versions && model.buys.length + model.monthly.length > 1) parts.push(t('ladder.versions'));
   return parts.join(' ');
 }
 
@@ -97,6 +103,15 @@ export function PriceLadder({ summary, selection }: { summary: PriceSummary; sel
           </Text>
         </View>
 
+        {model.versions && model.buys.length + model.monthly.length > 1 ? (
+          <View style={styles.versions} testID="ladder-versions">
+            <Info size={18} color={palette.signals.sky.ink} />
+            <Text variant="label" bold style={styles.flexText}>
+              {t('ladder.versions')}
+            </Text>
+          </View>
+        ) : null}
+
         {empty ? (
           <View style={[styles.empty, { backgroundColor: palette.surfaceSunken, borderColor: palette.border }]} testID="ladder-empty">
             <Illustration name="pillBottle" size={72} />
@@ -117,7 +132,9 @@ export function PriceLadder({ summary, selection }: { summary: PriceSummary; sel
 
         {model.buys.map((b, i) => (
           <View key={b.id} style={styles.row} testID={`ladder-buy-${b.id}`}>
-            {b.lowest ? <Ribbon label={t(`ladder.${model.ribbon}`)} delay={i * BAR_STAGGER + motion.slow} /> : null}
+            {b.lowest && model.ribbon ? (
+              <Ribbon label={t('ladder.ribbon', { date: formatDate(model.ribbon.date, lang) })} delay={(i + 1) * BAR_STAGGER + motion.slow} />
+            ) : null}
             <View style={styles.labelRow}>
               <Text variant="label" bold style={styles.flexText}>
                 {b.seller}
@@ -220,7 +237,7 @@ function Bar({ fraction, index, kind }: { fraction: number; index: number; kind:
         style={[
           styles.bar,
           kind === 'buy'
-            ? { backgroundColor: mint.fill, borderColor: mint.solid }
+            ? { backgroundColor: mint.solid, borderColor: mint.solid }
             : { backgroundColor: slate.tint, borderColor: slate.solid },
           style,
         ]}>
@@ -239,44 +256,19 @@ function Bar({ fraction, index, kind }: { fraction: number; index: number; kind:
   );
 }
 
-/** Mint "Lowest you can pay today" ribbon with one brief sparkle (≤600 ms, none with Reduce Motion). */
+/** Mint "lowest listed" ribbon: a gentle fade and scale in. No sparkle, no flashing. */
 function Ribbon({ label, delay }: { label: string; delay: number }) {
   const { palette, reduceMotion } = useTheme();
   const mint = palette.signals.mint;
   return (
-    <View style={styles.ribbonWrap}>
-      <View style={[styles.ribbon, { backgroundColor: mint.tint, borderColor: mint.solid }]}>
-        <Sparkles size={16} color={mint.ink} />
-        <Text variant="caption" bold tone="mint">
-          {label}
-        </Text>
-      </View>
-      {reduceMotion ? null : (
-        <>
-          <Sparkle delay={delay} size={14} style={{ left: -6, top: -6 }} color={palette.signals.sunflower.fill} />
-          <Sparkle delay={delay + 90} size={10} style={{ right: -4, top: -2 }} color={mint.fill} />
-          <Sparkle delay={delay + 160} size={8} style={{ right: 18, bottom: -6 }} color={palette.signals.sunflower.fill} />
-        </>
-      )}
-    </View>
-  );
-}
-
-function Sparkle({ delay, size, color, style }: { delay: number; size: number; color: string; style: object }) {
-  const s = useSharedValue(0);
-  useEffect(() => {
-    s.value = withDelay(
-      delay,
-      withSequence(withTiming(1, { duration: 220, easing: Easing.out(Easing.cubic) }), withTiming(0, { duration: 300 })),
-    );
-  }, [delay, s]);
-  const anim = useAnimatedStyle(() => ({ opacity: s.value, transform: [{ scale: s.value }, { rotate: `${s.value * 45}deg` }] }));
-  const h = size / 2;
-  return (
-    <Animated.View pointerEvents="none" style={[styles.sparkle, style, anim]}>
-      <Svg width={size} height={size}>
-        <Path d={`M${h} 0 L${h * 1.25} ${h * 0.75} L${size} ${h} L${h * 1.25} ${h * 1.25} L${h} ${size} L${h * 0.75} ${h * 1.25} L0 ${h} L${h * 0.75} ${h * 0.75} Z`} fill={color} />
-      </Svg>
+    <Animated.View
+      entering={reduceMotion ? undefined : ZoomIn.delay(delay).duration(motion.slow)}
+      style={[styles.ribbon, { backgroundColor: mint.tint, borderColor: mint.solid }]}
+      testID="lowest-ribbon">
+      <BadgeCheck size={16} color={mint.ink} />
+      <Text variant="caption" bold tone="mint" style={styles.ribbonText}>
+        {label}
+      </Text>
     </Animated.View>
   );
 }
@@ -303,15 +295,16 @@ const styles = StyleSheet.create({
     borderStyle: 'dashed',
   },
   empty: { gap: spacing.xs, padding: spacing.md, borderRadius: radius.md, borderWidth: 1, alignItems: 'stretch' },
-  ribbonWrap: { alignSelf: 'flex-start' },
   ribbon: {
+    alignSelf: 'flex-start',
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     gap: spacing.xxs,
     paddingHorizontal: spacing.sm,
     paddingVertical: 4,
     borderRadius: radius.pill,
     borderWidth: 1.5,
   },
-  sparkle: { position: 'absolute' },
+  ribbonText: { flexShrink: 1 },
+  versions: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.xs },
 });
