@@ -8,11 +8,13 @@
       ],
       "title": {
         "en": "Medi-Cal sign-up rules changed in 2026",
-        "zh-Hans": "2026年 Medi-Cal 申请规定有变化"
+        "zh-Hans": "2026年 Medi-Cal 申请规定有变化",
+        "es": "Las reglas para inscribirse en Medi-Cal cambiaron en 2026"
       },
       "body": {
         "en": "Since January 1, 2026, some adults 19 and older may not be able to newly sign up for full Medi-Cal because of immigration rules. Children and pregnant people can still sign up. If you already have Medi-Cal, renew on time to keep it. This app never asks about immigration status.",
-        "zh-Hans": "从2026年1月1日起，因为移民规定，部分19岁及以上的成年人可能无法新申请全面福利 Medi-Cal。儿童和孕妇仍然可以申请。如果您已经有 Medi-Cal，请按时续期，以保留您的保险。本应用从不询问移民身份。"
+        "zh-Hans": "从2026年1月1日起，因为移民规定，部分19岁及以上的成年人可能无法新申请全面福利 Medi-Cal。儿童和孕妇仍然可以申请。如果您已经有 Medi-Cal，请按时续期，以保留您的保险。本应用从不询问移民身份。",
+        "es": "Desde el 1 de enero de 2026, es posible que algunos adultos de 19 años o más no puedan inscribirse por primera vez en Medi-Cal completo debido a las reglas de inmigración. Los niños y las personas embarazadas todavía pueden inscribirse. Si ya tiene Medi-Cal, renueve a tiempo para no perderlo. Esta aplicación nunca pregunta sobre su estatus migratorio."
       },
       "effectiveDate": "2026-01-01",
       "sources": [
@@ -41,11 +43,13 @@
       ],
       "title": {
         "en": "Savings may count again for some people",
-        "zh-Hans": "对部分人来说，储蓄可能会重新计入"
+        "zh-Hans": "对部分人来说，储蓄可能会重新计入",
+        "es": "Es posible que los ahorros vuelvan a contar para algunas personas"
       },
       "body": {
         "en": "Since January 1, 2026, Medi-Cal may count savings and property for people 65 and older or with a disability. The limit is $130,000 for 1 person, plus $65,000 for each extra person. Your home and one car do not count. Most adults under 65 have no asset limit.",
-        "zh-Hans": "从2026年1月1日起，对于65岁及以上或有残障的人，Medi-Cal 可能会计算储蓄和财产。上限是1人 $130,000，每多1人再加 $65,000。您的房子和一辆车不计算在内。大多数65岁以下的成年人没有资产限制。"
+        "zh-Hans": "从2026年1月1日起，对于65岁及以上或有残障的人，Medi-Cal 可能会计算储蓄和财产。上限是1人 $130,000，每多1人再加 $65,000。您的房子和一辆车不计算在内。大多数65岁以下的成年人没有资产限制。",
+        "es": "Desde el 1 de enero de 2026, Medi-Cal puede contar los ahorros y los bienes de las personas de 65 años o más o con una discapacidad. El límite es $130,000 para 1 persona, más $65,000 por cada persona adicional. Su casa y un carro no cuentan. La mayoría de los adultos menores de 65 años no tienen límite de bienes."
       },
       "effectiveDate": "2026-01-01",
       "sources": [
@@ -67,11 +71,13 @@
       ],
       "title": {
         "en": "Weight-loss medicines are no longer covered",
-        "zh-Hans": "减肥药物不再承保"
+        "zh-Hans": "减肥药物不再承保",
+        "es": "Los medicamentos para bajar de peso ya no están cubiertos"
       },
       "body": {
         "en": "Since January 1, 2026, Medi-Cal does not pay for GLP-1 medicines for weight loss. They may still be covered for diabetes, heart or kidney problems. If Medi-Cal says no to a medicine, you can ask for a State Hearing, usually within 90 days.",
-        "zh-Hans": "从2026年1月1日起，Medi-Cal 不再为减肥用途的 GLP-1 类药物付费。用于糖尿病、心脏或肾脏问题时，可能仍然承保。如果 Medi-Cal 拒绝承保某种药，您可以申请州听证会（State Hearing），通常要在90天内申请。"
+        "zh-Hans": "从2026年1月1日起，Medi-Cal 不再为减肥用途的 GLP-1 类药物付费。用于糖尿病、心脏或肾脏问题时，可能仍然承保。如果 Medi-Cal 拒绝承保某种药，您可以申请州听证会（State Hearing），通常要在90天内申请。",
+        "es": "Desde el 1 de enero de 2026, Medi-Cal no paga los medicamentos GLP-1 para bajar de peso. Es posible que todavía estén cubiertos para la diabetes o para problemas del corazón o de los riñones. Si Medi-Cal le niega un medicamento, puede pedir una Audiencia Estatal (State Hearing), normalmente dentro de 90 días."
       },
       "effectiveDate": "2026-01-01",
       "sources": [
@@ -93,11 +99,13 @@
       ],
       "title": {
         "en": "Extra federal help ended",
-        "zh-Hans": "额外的联邦补助已经结束"
+        "zh-Hans": "额外的联邦补助已经结束",
+        "es": "Terminó la ayuda federal adicional"
       },
       "body": {
         "en": "Extra federal help paying for Covered California plans ended on December 31, 2025. In 2026, there is no federal help above 400% of the poverty level. Congress could still change this.",
-        "zh-Hans": "帮助支付 Covered California 保险计划费用的额外联邦补助，已于2025年12月31日结束。2026年，收入高于联邦贫困线400%的人没有联邦补助。国会仍有可能改变这一点。"
+        "zh-Hans": "帮助支付 Covered California 保险计划费用的额外联邦补助，已于2025年12月31日结束。2026年，收入高于联邦贫困线400%的人没有联邦补助。国会仍有可能改变这一点。",
+        "es": "La ayuda federal adicional para pagar los planes de Covered California terminó el 31 de diciembre de 2025. En 2026 no hay ayuda federal para ingresos de más del 400% del nivel federal de pobreza (FPL). El Congreso todavía podría cambiar esto."
       },
       "effectiveDate": "2026-01-01",
       "sources": [
@@ -119,11 +127,13 @@
       ],
       "title": {
         "en": "More California help planned for 2027",
-        "zh-Hans": "加州计划在2027年提供更多帮助"
+        "zh-Hans": "加州计划在2027年提供更多帮助",
+        "es": "California planea más ayuda para 2027"
       },
       "body": {
         "en": "For 2027 coverage, California plans extra help paying for plans for people with income up to 200% of the poverty level.",
-        "zh-Hans": "对于2027年的保险，加州计划为收入在联邦贫困线200%以内的人，提供额外的保费补助。"
+        "zh-Hans": "对于2027年的保险，加州计划为收入在联邦贫困线200%以内的人，提供额外的保费补助。",
+        "es": "Para la cobertura de 2027, California planea dar ayuda adicional para pagar los planes a personas con ingresos de hasta el 200% del nivel federal de pobreza (FPL)."
       },
       "effectiveDate": "2027-01-01",
       "sources": [
@@ -145,11 +155,13 @@
       ],
       "title": {
         "en": "Open enrollment for 2027",
-        "zh-Hans": "2027年公开投保期"
+        "zh-Hans": "2027年公开投保期",
+        "es": "Inscripción abierta para 2027"
       },
       "body": {
         "en": "You can sign up for 2027 coverage from November 1, 2026 to January 31, 2027. Sign up by December 31 for coverage starting January 1.",
-        "zh-Hans": "您可以在2026年11月1日至2027年1月31日期间投保2027年的保险。如想从1月1日开始有保险，请在12月31日前投保。"
+        "zh-Hans": "您可以在2026年11月1日至2027年1月31日期间投保2027年的保险。如想从1月1日开始有保险，请在12月31日前投保。",
+        "es": "Puede inscribirse para la cobertura de 2027 del 1 de noviembre de 2026 al 31 de enero de 2027. Inscríbase a más tardar el 31 de diciembre para tener cobertura desde el 1 de enero."
       },
       "effectiveDate": "2026-11-01",
       "sources": [
@@ -171,11 +183,13 @@
       ],
       "title": {
         "en": "Federal help rules change in 2027",
-        "zh-Hans": "2027年联邦补助规定有变化"
+        "zh-Hans": "2027年联邦补助规定有变化",
+        "es": "Las reglas de la ayuda federal cambian en 2027"
       },
       "body": {
         "en": "Starting January 1, 2027, federal help paying for Covered California will be limited to certain immigration statuses. A free certified enroller can tell you what applies to you.",
-        "zh-Hans": "从2027年1月1日起，帮助支付 Covered California 保费的联邦补助，将只提供给具有某些移民身份的人。免费的认证注册顾问可以告诉您哪些规定适用于您。"
+        "zh-Hans": "从2027年1月1日起，帮助支付 Covered California 保费的联邦补助，将只提供给具有某些移民身份的人。免费的认证注册顾问可以告诉您哪些规定适用于您。",
+        "es": "A partir del 1 de enero de 2027, la ayuda federal para pagar Covered California será solo para ciertos estatus migratorios. Un consejero de inscripción certificado, sin costo, puede decirle qué se aplica en su caso."
       },
       "effectiveDate": "2027-01-01",
       "sources": [

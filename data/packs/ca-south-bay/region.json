@@ -2,11 +2,13 @@
   "id": "ca-south-bay",
   "name": {
     "en": "Santa Clara County and Monterey County, California",
-    "zh-Hans": "加州圣塔克拉拉县和蒙特雷县"
+    "zh-Hans": "加州圣塔克拉拉县和蒙特雷县",
+    "es": "Condado de Santa Clara y Condado de Monterey, California"
   },
   "description": {
     "en": "San José, Gilroy, Morgan Hill, Salinas and nearby towns",
-    "zh-Hans": "圣何塞（San José）、吉尔罗伊（Gilroy）、摩根山（Morgan Hill）、萨利纳斯（Salinas）及附近城镇"
+    "zh-Hans": "圣何塞（San José）、吉尔罗伊（Gilroy）、摩根山（Morgan Hill）、萨利纳斯（Salinas）及附近城镇",
+    "es": "San José, Gilroy, Morgan Hill, Salinas y pueblos cercanos"
   },
   "counties": [
     {
@@ -20,7 +22,8 @@
   ],
   "districtsNote": {
     "en": "Congressional district maps changed after Proposition 50 (2025), so this app uses counties, not districts.",
-    "zh-Hans": "第50号提案（2025年）通过后，国会选区地图有了变化，所以本应用使用县，而不是选区。"
+    "zh-Hans": "第50号提案（2025年）通过后，国会选区地图有了变化，所以本应用使用县，而不是选区。",
+    "es": "Los mapas de los distritos del Congreso cambiaron después de la Proposición 50 (2025); por eso esta aplicación usa condados, no distritos."
   },
   "languages": [
     "en",
