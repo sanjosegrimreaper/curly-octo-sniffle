@@ -1,1 +1,39 @@
-{}
+{
+  "title": "查找药品",
+  "subtitle": "输入品牌名或通用名，任何语言都可以。",
+  "inputLabel": "搜索药品",
+  "placeholder": "药品名称",
+  "clear": "清除搜索",
+  "resultsCount_other": "找到 {{count}} 种药",
+  "matched": "与“{{term}}”相符",
+  "openHint": "打开这种药的剂量和数量",
+  "recents": {
+    "title": "最近的搜索",
+    "search": "再次搜索 {{term}}",
+    "remove": "从最近的搜索中删除 {{term}}"
+  },
+  "common": {
+    "title": "常见处方药",
+    "subtitle": "点击一种药，选择剂量并查看价格。"
+  },
+  "empty": {
+    "title": "找不到这种药",
+    "body": "试试您药瓶标签上的药名。",
+    "request": "请我们添加这种药",
+    "requestHint": "打开我们在 GitHub 上的请求页面"
+  },
+  "category": {
+    "diabetes": "糖尿病",
+    "heart": "心脏",
+    "blood-pressure": "血压",
+    "cholesterol": "胆固醇",
+    "blood-thinner": "抗凝血药",
+    "other": "其他"
+  },
+  "market": {
+    "genericAvailable": "有仿制药",
+    "biosimilarAvailable": "有生物类似药",
+    "brandOnly": "只有品牌药"
+  },
+  "moreStrengths_other": "+{{count}} 种"
+}

@@ -6,7 +6,7 @@
   },
   "openSettings": "Abrir configuración",
   "intro": {
-    "fresh": "Demos juntos el primer paso. Todo lo que nos diga se queda en este teléfono.",
+    "fresh": "Demos juntos el primer paso. No recopilamos sus respuestas — solo se guardan en esta aplicación.",
     "saved_one": "Tiene {{count}} medicamento guardado. Esto es lo que podría ayudarle ahora.",
     "saved_other": "Tiene {{count}} medicamentos guardados. Esto es lo que podría ayudarle ahora.",
     "saved_many": "Tiene {{count}} medicamentos guardados. Esto es lo que podría ayudarle ahora.",
@@ -21,7 +21,7 @@
     "finishScreener": {
       "kind": "Cobertura",
       "title": "Conteste unas preguntas sobre su cobertura",
-      "body": "Sus respuestas nos ayudan a mostrarle programas que podrían ayudarle a pagar. Se quedan en este teléfono.",
+      "body": "Sus respuestas nos ayudan a mostrarle programas que podrían ayudarle a pagar. No las recopilamos.",
       "cta": "Contestar preguntas de cobertura"
     },
     "applyBenefit": {
@@ -37,11 +37,11 @@
     "findMedicine": {
       "kind": "Precios",
       "title": "Busque su primer medicamento",
-      "body": "Vea precios que puede pagar hoy y programas que podrían ayudarle.",
+      "body": "Vea precios publicados y programas que podrían ayudarle.",
       "cta": "Buscar un medicamento"
     },
     "buyNow": {
-      "kind": "Precio que puede pagar hoy",
+      "kind": "Precio publicado",
       "upTo": "Hasta {{price}}",
       "at": "en {{seller}}",
       "cta": "Ver todos los precios de {{name}}"
@@ -76,7 +76,7 @@
   },
   "changes": {
     "title": "Cambios desde su última visita",
-    "note": "Solo comparamos precios que puede pagar hoy.",
+    "note": "Solo comparamos precios de compra publicados.",
     "priceChanged": "El precio de {{name}} cambió de {{from}} a {{to}}",
     "lower": "Más bajo que antes",
     "higher": "Más alto que antes"
@@ -85,7 +85,7 @@
     "title": "Medicamentos guardados",
     "seeAll": "Abrir Mis medicamentos",
     "noPrice": "Todavía no se cargó un precio",
-    "lowest": "Precio más bajo hoy",
+    "lowest": "Precio más bajo publicado",
     "upTo": "Hasta {{price}}",
     "open": "Abre los precios de {{name}}",
     "missing": "Ya no está en nuestra lista — busque de nuevo",

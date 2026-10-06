@@ -1,1 +1,43 @@
-{}
+{
+  "title": "Buscar un medicamento",
+  "subtitle": "Escriba el nombre de marca o el genérico. Puede escribir en cualquier idioma.",
+  "inputLabel": "Buscar un medicamento",
+  "placeholder": "Nombre del medicamento",
+  "clear": "Borrar búsqueda",
+  "resultsCount_one": "Se encontró {{count}} medicamento",
+  "resultsCount_other": "Se encontraron {{count}} medicamentos",
+  "resultsCount_many": "Se encontraron {{count}} medicamentos",
+  "matched": "Coincide con “{{term}}”",
+  "openHint": "Abre la dosis y la cantidad de este medicamento",
+  "recents": {
+    "title": "Búsquedas recientes",
+    "search": "Buscar {{term}} de nuevo",
+    "remove": "Quitar {{term}} de las búsquedas recientes"
+  },
+  "common": {
+    "title": "Recetas comunes",
+    "subtitle": "Toque una para elegir la dosis y ver precios."
+  },
+  "empty": {
+    "title": "No lo encontramos",
+    "body": "Pruebe con el nombre del medicamento que aparece en la etiqueta del frasco.",
+    "request": "Pídanos agregar este medicamento",
+    "requestHint": "Abre nuestra página de solicitudes en GitHub"
+  },
+  "category": {
+    "diabetes": "Diabetes",
+    "heart": "Corazón",
+    "blood-pressure": "Presión arterial",
+    "cholesterol": "Colesterol",
+    "blood-thinner": "Anticoagulante",
+    "other": "Otros"
+  },
+  "market": {
+    "genericAvailable": "Hay genérico",
+    "biosimilarAvailable": "Hay biosimilar",
+    "brandOnly": "Solo de marca"
+  },
+  "moreStrengths_one": "+{{count}} más",
+  "moreStrengths_other": "+{{count}} más",
+  "moreStrengths_many": "+{{count}} más"
+}

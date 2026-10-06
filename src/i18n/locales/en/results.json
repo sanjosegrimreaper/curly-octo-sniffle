@@ -92,7 +92,7 @@
   },
   "buyNow": {
     "title": "Order online or buy direct",
-    "subtitle": "Real prices you can pay at checkout.",
+    "subtitle": "Checkout prices that sellers list.",
     "label": "Buy now — {{seller}}",
     "upTo": "Up to",
     "maximum": "Suggested maximum price — the pharmacy sets the final price",

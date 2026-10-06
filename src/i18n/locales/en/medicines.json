@@ -66,7 +66,7 @@
     "sheetBody": "We will remind you on this phone when it's time to refill.",
     "every_one": "Every {{count}} day",
     "every_other": "Every {{count}} days",
-    "privacy": "Reminders stay on this phone. Nothing is sent anywhere.",
+    "privacy": "Reminders are set on this phone only. Nothing is sent to us.",
     "title": "RxBridge",
     "privateBody": "Time to refill a medicine",
     "namedBody": "Time to refill {{name}}",

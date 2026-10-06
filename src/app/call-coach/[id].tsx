@@ -257,7 +257,7 @@ export default function CallCoachScreen() {
             <Banner
               icon={Languages}
               title={t('coach.interpreter')}
-              body={lang !== 'en' ? enT('coach.interpreterSay', { language: LANGUAGES[lang].englishName }) : undefined}
+              body={lang !== 'en' ? t('coach.interpreterSay', { language: LANGUAGES[lang].englishName }) : undefined}
               testID="coach-interpreter"
             />
           ) : lang !== 'en' ? (

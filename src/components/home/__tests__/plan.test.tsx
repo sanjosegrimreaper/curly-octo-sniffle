@@ -63,7 +63,7 @@ describe('describeStep', () => {
     if (!view) throw new Error('expected a step');
     await renderUi(<PlanStepCard view={view} index={0} total={1} />);
     expect(screen.getByText('Up to $55')).toBeTruthy();
-    expect(screen.getByText('Price you can pay today')).toBeTruthy();
+    expect(screen.getByText('Listed price')).toBeTruthy();
     expect(screen.getByText(/Not yet confirmed — call to confirm/)).toBeTruthy();
   });
 

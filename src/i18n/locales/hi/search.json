@@ -1,1 +1,41 @@
-{}
+{
+  "title": "दवा खोजें",
+  "subtitle": "ब्रांड या जेनेरिक नाम लिखें। कोई भी भाषा चलेगी।",
+  "inputLabel": "दवा खोजें",
+  "placeholder": "दवा का नाम",
+  "clear": "खोज साफ़ करें",
+  "resultsCount_one": "{{count}} दवा मिली",
+  "resultsCount_other": "{{count}} दवाएँ मिलीं",
+  "matched": "“{{term}}” से मेल खाती है",
+  "openHint": "इस दवा की स्ट्रेंथ और मात्रा खोलता है",
+  "recents": {
+    "title": "हाल की खोजें",
+    "search": "{{term}} फिर से खोजें",
+    "remove": "{{term}} को हाल की खोजों से हटाएँ"
+  },
+  "common": {
+    "title": "आम प्रिस्क्रिप्शन",
+    "subtitle": "स्ट्रेंथ चुनने और कीमतें देखने के लिए किसी एक पर टैप करें।"
+  },
+  "empty": {
+    "title": "हमें यह नहीं मिला",
+    "body": "अपनी दवा की बोतल के लेबल पर लिखा नाम आज़माएँ।",
+    "request": "हमसे यह दवा जोड़ने को कहें",
+    "requestHint": "GitHub पर हमारा अनुरोध पेज खोलता है"
+  },
+  "category": {
+    "diabetes": "डायबिटीज़ (शुगर)",
+    "heart": "दिल",
+    "blood-pressure": "ब्लड प्रेशर",
+    "cholesterol": "कोलेस्ट्रॉल",
+    "blood-thinner": "खून पतला करने वाली दवा",
+    "other": "दूसरी"
+  },
+  "market": {
+    "genericAvailable": "जेनेरिक दवा मिलती है",
+    "biosimilarAvailable": "बायोसिमिलर मिलता है",
+    "brandOnly": "सिर्फ़ ब्रांड वाली"
+  },
+  "moreStrengths_one": "+{{count}} और",
+  "moreStrengths_other": "+{{count}} और"
+}

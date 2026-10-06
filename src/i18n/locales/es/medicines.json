@@ -1,6 +1,6 @@
 {
   "title": "Mis medicamentos",
-  "intro": "Sus medicamentos guardados, sus precios más bajos hoy y su total al mes.",
+  "intro": "Sus medicamentos guardados, sus precios más bajos publicados y su total al mes.",
   "budget": {
     "label": "Presupuesto mensual",
     "perMonth": "{{price}} al mes",
@@ -15,7 +15,7 @@
     "needDays_other": "+ {{count}} más cuando nos diga cuánto le dura cada surtido",
     "needDays_many": "+ {{count}} más cuando nos diga cuánto le dura cada surtido",
     "noneYet": "Todavía no hay total mensual",
-    "explain": "Solo sumamos precios que puede pagar hoy y que aparecen en esta aplicación. Nunca adivinamos un precio. Un medicamento cuenta cuando sabemos su precio y cuántos días le dura cada surtido.",
+    "explain": "Solo sumamos precios de compra publicados en esta aplicación. Nunca adivinamos un precio. Un medicamento cuenta cuando sabemos su precio y cuántos días le dura cada surtido.",
     "upToNote": "Algunos precios son lo máximo que una farmacia puede cobrar, así que su total podría ser menor.",
     "showMath": "Ver el cálculo",
     "hideMath": "Ocultar el cálculo",
@@ -34,7 +34,7 @@
     "cta": "Buscar un medicamento"
   },
   "card": {
-    "lowestLabel": "Precio más bajo que puede pagar hoy",
+    "lowestLabel": "Precio más bajo publicado",
     "upTo": "Hasta {{price}}",
     "maxNote": "Esto es lo máximo que la farmacia puede cobrar. Llame para confirmar.",
     "at": "en {{seller}}",
@@ -72,7 +72,7 @@
     "every_one": "Cada {{count}} día",
     "every_other": "Cada {{count}} días",
     "every_many": "Cada {{count}} días",
-    "privacy": "Los recordatorios se quedan en este teléfono. No se envía nada a ningún lado.",
+    "privacy": "Los recordatorios se programan solo en este teléfono. No se nos envía nada.",
     "title": "RxBridge",
     "privateBody": "Es hora de resurtir un medicamento",
     "namedBody": "Es hora de resurtir {{name}}",

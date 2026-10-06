@@ -83,8 +83,9 @@ describe('nadacTotal', () => {
           expect(many.units).toBe(one.units * k);
           expect(many.totalDollars).toBeCloseTo(one.totalDollars * k, 6);
           // Rounding happens once, so k separately rounded totals can differ by at most k/2 cents.
-          expect(Math.abs(many.totalCents - one.totalCents * k)).toBeLessThanOrEqual(k / 2 + 1e-9);
-          expect(Math.abs(many.totalCents - many.totalDollars * 100)).toBeLessThanOrEqual(0.5 + 1e-9);
+          expect(Math.abs(many.totalCents - one.totalCents * k)).toBeLessThanOrEqual(k / 2 + 1e-6);
+          // Float noise at large magnitudes (e.g. $99.99842 × 5,250) can sit a hair past .5 of a cent.
+          expect(Math.abs(many.totalCents - many.totalDollars * 100)).toBeLessThanOrEqual(0.5 + 1e-6);
         },
       ),
     );

@@ -70,7 +70,7 @@
     "staleTitle": "部分计划信息可能已经过时",
     "staleBody": "我们上次核实这些信息已是6个多月前。申请前请先打电话确认。",
     "profileTitle": "添加您的家庭人数和收入，看看哪些计划适合",
-    "profileBody": "各计划按家庭人数设定收入限额。您的回答只保存在这部手机上。",
+    "profileBody": "各计划按家庭人数设定收入限额。我们不会收集您的回答。",
     "profileButton": "添加家庭人数和收入",
     "moreHelpTitle": "更多本地帮助",
     "moreHelpBody": "您附近的免费帮助人员和诊所可以帮您填表，也可以帮您找到其他省钱的办法。",
@@ -120,7 +120,7 @@
     "scriptNote": "这是根据您的回答填写的。不会发送到任何地方。",
     "listenLabel": "朗读通话稿",
     "interpreter": "您可以要求提供口译员。",
-    "interpreterSay": "请说：“我需要{{language}}口译员，谢谢。”",
+    "interpreterSay": "请用英文说：“I need an interpreter in {{language}}, please.”",
     "englishTip": "有些电话线路可能只说英语。您可以把通话稿换成英文，或请家人或帮助人员和您一起打电话。",
     "script": {
       "hello": "您好，我想问一下，有没有补助可以帮我支付 {{medicine}} 的费用。",

@@ -17,7 +17,7 @@
     "mediCal": "Medi-Cal tips"
   },
   "welcome": {
-    "purpose": "Find the lowest honest price for your medicine, and see what help you may get.",
+    "purpose": "Honest ways to pay less for your medicine, and help you may be able to get.",
     "chooseLanguage": "Choose your language",
     "languageA11y": "{{native}}, {{english}}",
     "languageHint": "Changes the app's language right away",
@@ -135,7 +135,7 @@
     "hideExact": "Pick a range instead",
     "exactLabel_year": "Household income a year",
     "exactLabel_month": "Household income a month",
-    "exactHint": "Before taxes. It stays on this phone.",
+    "exactHint": "Before taxes. We don't collect this number.",
     "exactInvalid": "Type an amount in dollars, like 2400.",
     "exactInRange": "That's in this range: {{range}}",
     "nearLimitTitle": "You're close to an income limit.",

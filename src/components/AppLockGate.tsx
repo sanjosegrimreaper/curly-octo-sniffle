@@ -13,10 +13,16 @@ const RELOCK_AFTER_MS = 60_000;
 export function AppLockGate({ children }: { children: ReactNode }) {
   const appLock = useSettings((s) => s.appLock);
   const { t } = useTranslation('common');
-  const [locked, setLocked] = useState(appLock && Platform.OS !== 'web');
+  const enabled = appLock && Platform.OS !== 'web';
+  // Starts locked when the lock is on; the effective state also requires the setting to stay on.
+  const [lockedState, setLocked] = useState(enabled);
+  const locked = enabled && lockedState;
   const backgroundedAt = useRef<number | null>(null);
+  const prompting = useRef(false);
 
   const unlock = useCallback(async () => {
+    if (prompting.current) return;
+    prompting.current = true;
     try {
       const res = await LocalAuthentication.authenticateAsync({
         promptMessage: t('lock.prompt'),
@@ -26,26 +32,31 @@ export function AppLockGate({ children }: { children: ReactNode }) {
       if (res.success) setLocked(false);
     } catch {
       // keep locked; the button stays available
+    } finally {
+      prompting.current = false;
     }
   }, [t]);
 
   useEffect(() => {
-    if (!appLock || Platform.OS === 'web') {
-      setLocked(false);
-      return;
-    }
+    if (!enabled) return;
     const sub = AppState.addEventListener('change', (state) => {
       if (state === 'background') backgroundedAt.current = Date.now();
       if (state === 'active' && backgroundedAt.current && Date.now() - backgroundedAt.current > RELOCK_AFTER_MS) {
         setLocked(true);
+        void unlock();
       }
     });
     return () => sub.remove();
-  }, [appLock]);
+  }, [enabled, unlock]);
 
+  // Ask once right away on a cold start (deferred so it never runs during render).
   useEffect(() => {
-    if (locked) void unlock();
-  }, [locked, unlock]);
+    if (!locked) return;
+    const id = setTimeout(() => void unlock(), 0);
+    return () => clearTimeout(id);
+    // Only on mount: later prompts come from the AppState listener or the Unlock button.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!locked) return <>{children}</>;
   return (
