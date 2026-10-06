@@ -1,1 +1,87 @@
-{}
+{
+  "appName": "RxBridge",
+  "back": "Atrás",
+  "close": "Cerrar",
+  "cancel": "Cancelar",
+  "continue": "Continuar",
+  "skip": "Omitir",
+  "done": "Listo",
+  "save": "Guardar",
+  "edit": "Cambiar",
+  "startOver": "Empezar de nuevo",
+  "call": "Llamar",
+  "directions": "Cómo llegar",
+  "website": "Sitio web",
+  "opensWebsite": "Abre un sitio web",
+  "notTranslated": "Esta parte todavía no está traducida, por eso se muestra en inglés.",
+  "notListed": "No se indica",
+  "callToConfirm": "Llame para confirmar",
+  "unknown": "No se sabe",
+  "mayLabel": "Esto es una estimación, no una decisión.",
+  "tabs": {
+    "plan": "Mi plan",
+    "find": "Buscar",
+    "medicines": "Mis medicamentos",
+    "help": "Pedir ayuda"
+  },
+  "readAloud": {
+    "start": "Leer en voz alta",
+    "stop": "Dejar de leer en voz alta",
+    "short": "Escuchar",
+    "stopShort": "Parar",
+    "noVoice": "Su teléfono no tiene una voz para este idioma. Puede agregar una en la configuración de su teléfono."
+  },
+  "source": {
+    "verified": "Revisado",
+    "snapshot": "Precio del",
+    "sheetTitle": "De dónde viene esta información",
+    "hint": "Muestra la fuente, la fecha en que la revisamos y cómo",
+    "verifiedOn": "Lo revisamos el {{date}}",
+    "checkedOn": "revisado el {{date}}",
+    "edition": "Edición: {{edition}}",
+    "openSource": "Abrir la fuente: {{name}}",
+    "howWeVerify": "Solo mostramos datos que pudimos revisar en una página o un archivo oficial. Si algo parece estar mal, por favor avísenos.",
+    "report": "Reportar un problema con esto",
+    "reportSubject": "RxBridge: problema con {{id}}",
+    "reportBody": "Registro: {{id}}\nVersión de los datos: {{version}}\n\n¿Qué parece estar mal?\n",
+    "packVersion": "Versión de los datos {{version}}",
+    "freshness": {
+      "fresh_one": "Revisado hace {{count}} día",
+      "fresh_other": "Revisado hace {{count}} días",
+      "aging_one": "Revisado hace {{count}} día — ya no es tan reciente",
+      "aging_other": "Revisado hace {{count}} días — ya no es tan reciente",
+      "stale_one": "Revisado hace {{count}} día — hace más de 6 meses. Llame para confirmar.",
+      "stale_other": "Revisado hace {{count}} días — hace más de 6 meses. Llame para confirmar."
+    },
+    "method": {
+      "http-200": "Página web oficial",
+      "browser-confirmed": "Página web oficial (revisada en un navegador)",
+      "official-data-file": "Archivo de datos oficial",
+      "official-pdf": "Documento oficial",
+      "official-api": "Servicio de datos oficial",
+      "phone-confirmed": "Confirmado por teléfono",
+      "unconfirmed": "Aún no confirmado"
+    },
+    "unconfirmedChip": "Aún no confirmado — llame para confirmar",
+    "unconfirmedTitle": "Aún no confirmado en la página oficial",
+    "unconfirmedBody": "Todavía no pudimos revisar esto en la página oficial (por ejemplo, solo lo vimos en resultados de búsqueda). Llame o visite la fuente para confirmarlo antes de confiar en esta información."
+  },
+  "glossary": {
+    "whatIs": "¿Qué significa {{term}}?"
+  },
+  "error": {
+    "title": "Algo salió mal en esta pantalla",
+    "body": "Sus respuestas están a salvo. Intente de nuevo.",
+    "retry": "Intentar de nuevo"
+  },
+  "lock": {
+    "title": "RxBridge está bloqueada",
+    "body": "Su lista de medicamentos es privada. Desbloquee para continuar.",
+    "unlock": "Desbloquear",
+    "prompt": "Desbloquear RxBridge"
+  },
+  "draft": {
+    "title": "Datos preliminares",
+    "body": "Algunos datos de esta aplicación aún no están confirmados en páginas oficiales. Están marcados como \"Aún no confirmado\". Llame para confirmar antes de confiar en ellos."
+  }
+}
