@@ -1,5 +1,5 @@
 import * as Location from 'expo-location';
-import { Building2, Clock, ExternalLink, LocateFixed, MapPin, Navigation, Phone, Store } from 'lucide-react-native';
+import { Building2, Clock, LocateFixed, MapPin, Navigation, Phone, Store } from 'lucide-react-native';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AccessibilityInfo, StyleSheet, View } from 'react-native';
@@ -8,13 +8,22 @@ import { getPack } from '@/data/pack';
 import type { Clinic, Pharmacy } from '@/data/schemas';
 import { Button, Card, Illustration, SourceChip, spacing, Text, useTheme } from '@/design';
 import { formatNumber } from '@/i18n/format';
+import { LANGUAGES, type Lang } from '@/i18n/languages';
 import { call, directions, openExternal } from '@/services/links';
 
 import { siteName } from './labels';
 import { sortPlaces } from './geo';
 
 const fullAddress = (p: { address: string; city: string; zip: string | null }) =>
-  [p.address, p.city, p.zip ? `CA ${p.zip}` : 'CA'].join(', ');
+  [p.address, p.city, p.zip].filter(Boolean).join(', ');
+
+/** Localized short weekday ("Mon", "lun", "周一") for published store hours. */
+const WEEKDAY_INDEX = { mon: 0, tue: 1, wed: 2, thu: 3, fri: 4, sat: 5, sun: 6 } as const;
+function weekdayName(day: keyof typeof WEEKDAY_INDEX, lang: Lang) {
+  // 2024-01-01 was a Monday.
+  const date = new Date(Date.UTC(2024, 0, 1 + WEEKDAY_INDEX[day], 12));
+  return new Intl.DateTimeFormat(LANGUAGES[lang].intlTag, { weekday: 'short', timeZone: 'UTC' }).format(date);
+}
 
 /**
  * Where to fill it. Store addresses are listed only when the pack has checked ones; until
@@ -191,7 +200,7 @@ function PharmacyList({ pharmacies }: { pharmacies: Pharmacy[] }) {
             <View>
               {place.hours.weekly.map((h) => (
                 <Text key={`${h.day}${h.open}`} variant="label" tabular>
-                  {`${h.day} ${h.open}–${h.close}` /* i18n-ignore: published hours, as data */}
+                  {`${weekdayName(h.day, lang)} ${h.open}–${h.close}` /* i18n-ignore: published hours, as data */}
                 </Text>
               ))}
             </View>
@@ -218,7 +227,7 @@ function PharmacyList({ pharmacies }: { pharmacies: Pharmacy[] }) {
             <Button
               variant="ghost"
               compact
-              icon={ExternalLink}
+              external
               label={t('fill.storePage')}
               hint={t('fill.storePageFor', { name: place.name })}
               onPress={() => void openExternal(place.locatorUrl)}
