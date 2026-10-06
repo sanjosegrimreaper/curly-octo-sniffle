@@ -50,7 +50,13 @@ export default function ProgramDetailScreen() {
           title={t('detail.notFoundTitle')}
           body={t('detail.notFoundBody')}
           testID="program-not-found"
-          action={<Button label={t('detail.findMedicine')} onPress={() => router.replace('/find' as Href)} testID="program-find" />}
+          action={
+            <Button
+              label={t('detail.findMedicine')}
+              onPress={() => router.replace('/find' as Href)}
+              testID="program-find"
+            />
+          }
         />
       </Screen>
     );
@@ -106,7 +112,10 @@ export default function ProgramDetailScreen() {
                     </Text>
                   ) : null}
                 </HStack>
-                <ProgressBar value={total ? ready / total : 0} accessibilityLabel={t('detail.readyCount', { ready, total })} />
+                <ProgressBar
+                  value={total ? ready / total : 0}
+                  accessibilityLabel={t('detail.readyCount', { ready, total })}
+                />
                 <VStack gap="xs">
                   {program.documents.map((d, i) => (
                     <CheckRow
@@ -122,7 +131,12 @@ export default function ProgramDetailScreen() {
             ) : (
               <Text>{t('detail.noDocs')}</Text>
             )}
-            <SourceChip sources={program.sources} verifiedAsOf={program.verifiedAsOf} recordId={`program:${program.id}`} title={program.name} />
+            <SourceChip
+              sources={program.sources}
+              verifiedAsOf={program.verifiedAsOf}
+              recordId={`program:${program.id}`}
+              title={program.name}
+            />
           </VStack>
         </Card>
       </Animated.View>
@@ -134,7 +148,12 @@ export default function ProgramDetailScreen() {
             <SectionTitle icon={Send} signal="sky" title={t('detail.sendTitle')} />
             <Text tone={sendWhere ? 'default' : 'muted'}>{sendWhere || t('detail.sendUnknown')}</Text>
             {sendWhere ? (
-              <SourceChip sources={program.sources} verifiedAsOf={program.verifiedAsOf} recordId={`program:${program.id}`} title={program.name} />
+              <SourceChip
+                sources={program.sources}
+                verifiedAsOf={program.verifiedAsOf}
+                recordId={`program:${program.id}`}
+                title={program.name}
+              />
             ) : null}
           </VStack>
         </Card>
@@ -148,7 +167,12 @@ export default function ProgramDetailScreen() {
             {program.termMonths !== null ? (
               <>
                 <Text>{t('detail.renewMonths', { count: program.termMonths })}</Text>
-                <SourceChip sources={program.sources} verifiedAsOf={program.verifiedAsOf} recordId={`program:${program.id}`} title={program.name} />
+                <SourceChip
+                  sources={program.sources}
+                  verifiedAsOf={program.verifiedAsOf}
+                  recordId={`program:${program.id}`}
+                  title={program.name}
+                />
               </>
             ) : (
               <Text tone="muted">{t('detail.renewUnknown')}</Text>

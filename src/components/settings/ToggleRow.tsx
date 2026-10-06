@@ -64,7 +64,7 @@ export function ToggleRow({
         </View>
       ) : null}
       <View style={styles.text}>
-        <Text variant="subheading" style={{ fontSize: undefined }}>
+        <Text variant="subheading" accessibilityRole="text">
           {label}
         </Text>
         {description ? (

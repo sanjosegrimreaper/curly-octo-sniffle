@@ -53,8 +53,8 @@ export default function WelcomeScreen() {
           />
         </>
       }>
-      <View style={{ paddingTop: spacing.md }}>
-        <WelcomeHero width={Math.min(300, width - spacing.xl * 2)} />
+      <View style={{ paddingTop: spacing.xs }}>
+        <WelcomeHero width={Math.min(oneColumn ? 200 : 250, width - spacing.xl * 2)} />
       </View>
 
       {/* Crossfades whenever the language changes. */}
@@ -68,6 +68,29 @@ export default function WelcomeScreen() {
         <Text variant="subheading" center tone="muted" testID="welcome-purpose">
           {t('welcome.purpose')}
         </Text>
+        <View
+          accessible
+          accessibilityLabel={t('welcome.privacy')}
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: spacing.xs,
+            alignSelf: 'center',
+            marginTop: spacing.xs,
+            paddingVertical: spacing.xs,
+            paddingHorizontal: spacing.md,
+            borderRadius: radius.md,
+            backgroundColor: palette.signals.mint.tint,
+          }}
+          testID="welcome-privacy">
+          <View style={{ flexShrink: 0 }}>
+            <Lock size={20} color={palette.signals.mint.ink} />
+          </View>
+          <Text variant="label" bold tone="mint" style={{ flexShrink: 1 }}>
+            {t('welcome.privacy')}
+          </Text>
+        </View>
       </Animated.View>
 
       <Animated.View
@@ -94,27 +117,6 @@ export default function WelcomeScreen() {
           {t('welcome.changeLater')}
         </Text>
       </Animated.View>
-
-      <View
-        accessible
-        accessibilityLabel={t('welcome.privacy')}
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: spacing.xs,
-          alignSelf: 'center',
-          paddingVertical: spacing.xs,
-          paddingHorizontal: spacing.md,
-          borderRadius: radius.md,
-          backgroundColor: palette.signals.mint.tint,
-        }}
-        testID="welcome-privacy">
-        <Lock size={18} color={palette.signals.mint.ink} />
-        <Text variant="label" bold tone="mint" style={{ flexShrink: 1 }}>
-          {t('welcome.privacy')}
-        </Text>
-      </View>
     </Screen>
   );
 }

@@ -79,7 +79,7 @@ export function WelcomeHero({ width = 260 }: { width?: number }) {
   }));
 
   const sunSize = 34 * scale;
-  const glowSize = 196 * scale;
+  const glowSize = 160 * scale;
 
   return (
     <View
@@ -94,7 +94,7 @@ export function WelcomeHero({ width = 260 }: { width?: number }) {
           styles.abs,
           {
             left: (width - glowSize) / 2,
-            top: height - glowSize * 0.78,
+            top: (height - glowSize) / 2 - 2 * scale,
             width: glowSize,
             height: glowSize,
             borderRadius: glowSize / 2,
@@ -142,7 +142,16 @@ export function WelcomeHero({ width = 260 }: { width?: number }) {
           pillStyle,
         ]}>
         <Svg width={PILL.w * scale} height={PILL.h * scale} viewBox={`0 0 ${PILL.w} ${PILL.h}`}>
-          <Rect x={1.5} y={1.5} width={PILL.w - 3} height={PILL.h - 3} rx={(PILL.h - 3) / 2} fill={palette.surface} stroke={palette.accent} strokeWidth={3} />
+          <Rect
+            x={1.5}
+            y={1.5}
+            width={PILL.w - 3}
+            height={PILL.h - 3}
+            rx={(PILL.h - 3) / 2}
+            fill={palette.surface}
+            stroke={palette.accent}
+            strokeWidth={3}
+          />
           <Path
             d={`M${PILL.w / 2} 1.5 H${(PILL.h - 3) / 2 + 1.5} a${(PILL.h - 3) / 2} ${(PILL.h - 3) / 2} 0 0 0 0 ${PILL.h - 3} H${PILL.w / 2} Z`}
             fill={palette.accent}
@@ -154,7 +163,16 @@ export function WelcomeHero({ width = 260 }: { width?: number }) {
       <Svg width={width} height={height} viewBox={`0 0 ${VB_W} ${VB_H}`} style={styles.abs}>
         <AG animatedProps={hangerProps}>
           {HANGERS.map((x) => (
-            <Line key={x} x1={x} y1={arcY(x) + 3} x2={x} y2={DECK_Y - 4} stroke={palette.accent} strokeWidth={3} strokeLinecap="round" />
+            <Line
+              key={x}
+              x1={x}
+              y1={arcY(x) + 3}
+              x2={x}
+              y2={DECK_Y - 4}
+              stroke={palette.accent}
+              strokeWidth={3}
+              strokeLinecap="round"
+            />
           ))}
         </AG>
         <APath

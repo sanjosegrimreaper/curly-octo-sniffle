@@ -36,9 +36,9 @@ export function isCostPlusSeller(option: Pick<BuyNowOption, 'source' | 'url'>): 
 
 /** "60 tablets" for a fixed quantity, or the pack's "30-day supply" for monthly prices. */
 export function packageText(t: ResultsT, option: BuyNowOption, strength: Strength, lang: Lang): string {
+  if (option.quantity === null) return option.per ? t('buyNow.perPeriod', { per: option.per }) : '';
   if (option.per) return option.per;
-  if (option.quantity !== null) return countText(t, strength, option.quantity, lang);
-  return '';
+  return countText(t, strength, option.quantity, lang);
 }
 
 export function formulaText(t: ResultsT, formula: CostPlusSnapshot['formula'], lang: Lang): string {
@@ -109,18 +109,29 @@ export function BuyNowCard({ option, strength, perDay, formula, versions }: Prop
         </View>
       )}
 
-      <View style={styles.priceBlock}>
-        {option.priceKind === 'maximum' ? (
-          <Text variant="label" bold tone="mint">
-            {t('buyNow.upTo')}
-          </Text>
-        ) : null}
-        <Odometer text={price} variant="price" testID={`buy-now-price-${option.id}`} />
-        {pkg ? (
-          <Text variant="subheading" tone="muted">
-            {pkg}
-          </Text>
-        ) : null}
+      <View style={styles.priceRow}>
+        <View style={styles.priceBlock}>
+          {option.priceKind === 'maximum' ? (
+            <Text variant="label" bold tone="mint">
+              {t('buyNow.upTo')}
+            </Text>
+          ) : null}
+          <Odometer text={price} variant="price" testID={`buy-now-price-${option.id}`} />
+          {pkg ? (
+            <Text variant="subheading" tone="muted">
+              {pkg}
+            </Text>
+          ) : null}
+        </View>
+        <Button
+          variant="ghost"
+          compact
+          icon={Calculator}
+          label={t('buyNow.showMath')}
+          onPress={flip}
+          testID={`show-math-${option.id}`}
+          style={[styles.mathButton, { backgroundColor: palette.surface, borderColor: mint.solid }]}
+        />
       </View>
 
       {option.priceKind === 'maximum' ? (
@@ -158,25 +169,15 @@ export function BuyNowCard({ option, strength, perDay, formula, versions }: Prop
         </View>
       ) : null}
 
-      <View style={styles.actions}>
-        <Button
-          variant="ghost"
-          compact
-          icon={Calculator}
-          label={t('buyNow.showMath')}
-          onPress={flip}
-          testID={`show-math-${option.id}`}
-          style={styles.mathButton}
-        />
-        <Button
-          variant="secondary"
-          compact
-          external
-          label={t('buyNow.open', { seller: option.seller })}
-          onPress={() => void openExternal(option.url)}
-          testID={`open-seller-${option.id}`}
-        />
-      </View>
+      <Button
+        variant="secondary"
+        compact
+        external
+        label={t('buyNow.open', { seller: option.seller })}
+        onPress={() => void openExternal(option.url)}
+        testID={`open-seller-${option.id}`}
+        style={styles.open}
+      />
       <SourceChip sources={option.sources} verifiedAsOf={option.verifiedAsOf} recordId={`price:${option.id}`} title={option.seller} />
     </Card>
   );
@@ -200,7 +201,15 @@ export function BuyNowCard({ option, strength, perDay, formula, versions }: Prop
       {isCostPlus ? (
         <SourceChip sources={formula.sources} verifiedAsOf={formula.verifiedAsOf} recordId="costplus:formula" title={t('costPlus.title')} />
       ) : null}
-      <Button variant="ghost" compact icon={RotateCcw} label={t('buyNow.showPrice')} onPress={flip} testID={`show-price-${option.id}`} style={styles.mathButton} />
+      <Button
+        variant="ghost"
+        compact
+        icon={RotateCcw}
+        label={t('buyNow.showPrice')}
+        onPress={flip}
+        testID={`show-price-${option.id}`}
+        style={[styles.mathButton, { backgroundColor: palette.surface, borderColor: mint.solid }]}
+      />
       <SourceChip sources={option.sources} verifiedAsOf={option.verifiedAsOf} recordId={`price:${option.id}`} title={option.seller} />
     </Card>
   );
@@ -216,7 +225,8 @@ const styles = StyleSheet.create({
   product: { gap: 2 },
   noteRow: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.xs },
   formula: { gap: spacing.xs, borderLeftWidth: 3, paddingLeft: spacing.sm },
-  actions: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: spacing.xs },
-  mathButton: { alignSelf: 'flex-start', paddingHorizontal: spacing.sm },
+  priceRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: spacing.xs },
+  mathButton: { alignSelf: 'flex-start', paddingHorizontal: spacing.sm, borderWidth: 1.5 },
+  open: { alignSelf: 'stretch' },
   mathBox: { gap: spacing.xs, padding: spacing.md, borderRadius: 16, borderWidth: 1 },
 });

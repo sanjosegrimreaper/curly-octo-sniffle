@@ -39,7 +39,11 @@ export function ChecklistItem({
         accessibilityState={{ checked }}
         accessibilityLabel={label}
         style={styles.row}>
-        <View style={[styles.box, { borderColor: checked ? mint.solid : palette.borderStrong, backgroundColor: palette.surface }]}>
+        <View
+          style={[
+            styles.box,
+            { borderColor: checked ? mint.solid : palette.borderStrong, backgroundColor: palette.surface },
+          ]}>
           {checked ? (
             <Animated.View
               entering={reduceMotion ? undefined : ZoomIn.springify().damping(motion.spring.damping).stiffness(280)}
@@ -96,5 +100,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: { flex: 1 },
-  chip: { paddingLeft: spacing.md + BOX + spacing.sm, paddingRight: spacing.md, paddingBottom: spacing.sm, marginTop: -spacing.xxs },
+  chip: {
+    paddingLeft: spacing.md + BOX + spacing.sm,
+    paddingRight: spacing.md,
+    paddingBottom: spacing.sm,
+    marginTop: -spacing.xxs,
+  },
 });

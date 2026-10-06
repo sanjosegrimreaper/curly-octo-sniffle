@@ -58,7 +58,8 @@ export default function FindScreen() {
         <Text tone="muted">{t('subtitle')}</Text>
       </View>
       <SearchField value={query} onChange={setQuery} onSubmit={() => results[0] && open(results[0].medication, true)} />
-      <DraftBanner />
+      {/* While typing, results come first and the draft notice follows them. */}
+      {!typing ? <DraftBanner /> : null}
 
       {typing ? (
         <View style={styles.list}>
@@ -98,6 +99,7 @@ export default function FindScreen() {
               />
             </Animated.View>
           ) : null}
+          <DraftBanner />
         </View>
       ) : (
         <>

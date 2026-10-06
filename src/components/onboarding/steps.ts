@@ -35,15 +35,7 @@ export type ScreenerRoute = Exclude<
 
 /** Step names (i18n keys under `steps.`). */
 export type StepName =
-  | 'coverage'
-  | 'coverageType'
-  | 'where'
-  | 'age'
-  | 'household'
-  | 'income'
-  | 'result'
-  | 'checklist'
-  | 'mediCal';
+  'coverage' | 'coverageType' | 'where' | 'age' | 'household' | 'income' | 'result' | 'checklist' | 'mediCal';
 
 export const UNINSURED_PATH: readonly ScreenerRoute[] = [
   ROUTES.coverage,
@@ -78,7 +70,10 @@ export function pathFor(route: ScreenerRoute, coverage: CoverageAnswer | null): 
 }
 
 /** "Step `now` of `total`" for a route, given the coverage answer. */
-export function stepFor(route: ScreenerRoute, coverage: CoverageAnswer | null): { now: number; total: number; name: StepName } {
+export function stepFor(
+  route: ScreenerRoute,
+  coverage: CoverageAnswer | null,
+): { now: number; total: number; name: StepName } {
   const path = pathFor(route, coverage);
   const position = route === ROUTES.mediCal ? path.indexOf(ROUTES.checklist) : path.indexOf(route);
   return { now: Math.max(0, position) + 1, total: path.length, name: NAME[route] };

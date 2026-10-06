@@ -101,7 +101,12 @@ export default function CallCoachScreen() {
   if (!program) {
     return (
       <Screen back testID="call-coach">
-        <EmptyState illustration="phone" title={t('coach.notFoundTitle')} body={t('coach.notFoundBody')} testID="coach-not-found" />
+        <EmptyState
+          illustration="phone"
+          title={t('coach.notFoundTitle')}
+          body={t('coach.notFoundBody')}
+          testID="coach-not-found"
+        />
       </Screen>
     );
   }
@@ -160,7 +165,10 @@ export default function CallCoachScreen() {
                 onPress={onCall}
                 feedback="none"
                 accessibilityRole="link"
-                accessibilityLabel={t('coach.callButtonA11y', { name: program.name, digits: phoneForSpeech(program.phone) })}
+                accessibilityLabel={t('coach.callButtonA11y', {
+                  name: program.name,
+                  digits: phoneForSpeech(program.phone),
+                })}
                 accessibilityHint={t('card.callHint')}
                 style={[styles.bigCall, { backgroundColor: palette.accent, shadowColor: palette.shadow }]}
                 testID="coach-call">
@@ -203,7 +211,12 @@ export default function CallCoachScreen() {
               ) : null}
             </VStack>
           )}
-          <SourceChip sources={program.sources} verifiedAsOf={program.verifiedAsOf} recordId={`program:${program.id}`} title={program.name} />
+          <SourceChip
+            sources={program.sources}
+            verifiedAsOf={program.verifiedAsOf}
+            recordId={`program:${program.id}`}
+            title={program.name}
+          />
         </CoachStep>
 
         {/* 3. What to say */}
@@ -241,7 +254,12 @@ export default function CallCoachScreen() {
             </Text>
           </HStack>
           {interpreter ? (
-            <Banner icon={Languages} title={t('coach.interpreter')} body={lang !== 'en' ? enT('coach.interpreterSay', { language: LANGUAGES[lang].englishName }) : undefined} testID="coach-interpreter" />
+            <Banner
+              icon={Languages}
+              title={t('coach.interpreter')}
+              body={lang !== 'en' ? enT('coach.interpreterSay', { language: LANGUAGES[lang].englishName }) : undefined}
+              testID="coach-interpreter"
+            />
           ) : lang !== 'en' ? (
             <Banner icon={Languages} title={t('coach.englishTip')} testID="coach-english-tip" />
           ) : null}

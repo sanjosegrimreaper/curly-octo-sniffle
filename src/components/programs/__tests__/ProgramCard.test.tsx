@@ -13,8 +13,9 @@ import { HelpPayingTab } from '../HelpPayingTab';
 import { ProgramCard } from '../ProgramCard';
 
 // lucide's ESM build isn't transformed by the jest preset; icons are decorative here.
-jest.mock('lucide-react-native', () =>
-  new Proxy({}, { get: (_t, name) => (name === '__esModule' ? true : () => null) }),
+jest.mock(
+  'lucide-react-native',
+  () => new Proxy({}, { get: (_t, name) => (name === '__esModule' ? true : () => null) }),
 );
 /* eslint-disable @typescript-eslint/no-require-imports -- jest.mock factories must require */
 jest.mock('react-native-worklets', () => require('react-native-worklets/src/mock'));
@@ -114,7 +115,9 @@ describe('ProgramCard', () => {
     ['uninsuredOnly', 'unsure', 'Check the coverage rules'],
     ['uninsuredOnly', 'medi-cal', 'Your coverage may not fit'],
   ] as const)('rule %s + %s → "%s"', async (rule, insurance, label) => {
-    await renderUi(<ProgramCard match={matchProgram(fakeProgram({ insuranceRule: rule }), profile({ insurance }), FPL)} />);
+    await renderUi(
+      <ProgramCard match={matchProgram(fakeProgram({ insuranceRule: rule }), profile({ insurance }), FPL)} />,
+    );
     expect(screen.getByText(label)).toBeTruthy();
   });
 
@@ -138,7 +141,9 @@ describe('HelpPayingTab', () => {
     expect(screen.getByTestId('help-paying-empty')).toBeTruthy();
     expect(screen.getByText("We didn't find a drug company program taking new people for this medicine.")).toBeTruthy();
     expect(
-      screen.getByText("Most generic medicines don't have a drug company help program. The Buy-now price may be your best option."),
+      screen.getByText(
+        "Most generic medicines don't have a drug company help program. The Buy-now price may be your best option.",
+      ),
     ).toBeTruthy();
     expect(screen.getByText('Get free help')).toBeTruthy();
   });
@@ -153,7 +158,20 @@ describe('HelpPayingTab', () => {
     // Only fake the clock's date: pack programs were checked in Oct 2026.
     jest.useFakeTimers({
       now: new Date(2027, 5, 1),
-      doNotFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'setImmediate', 'clearImmediate', 'nextTick', 'queueMicrotask', 'requestAnimationFrame', 'cancelAnimationFrame', 'performance', 'hrtime'],
+      doNotFake: [
+        'setTimeout',
+        'clearTimeout',
+        'setInterval',
+        'clearInterval',
+        'setImmediate',
+        'clearImmediate',
+        'nextTick',
+        'queueMicrotask',
+        'requestAnimationFrame',
+        'cancelAnimationFrame',
+        'performance',
+        'hrtime',
+      ],
     });
     try {
       await renderUi(<HelpPayingTab medicationId="insulin-glargine" />);

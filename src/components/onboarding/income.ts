@@ -54,8 +54,7 @@ export function rangeKey(p: RangeParts, unit: IncomeUnit) {
   return `${p.kind}_${unit}` as const;
 }
 
-const isIncomeCondition = (c: RuleCondition | undefined) =>
-  !!c && ('incomePctFplMax' in c || 'incomePctFplMin' in c);
+const isIncomeCondition = (c: RuleCondition | undefined) => !!c && ('incomePctFplMax' in c || 'incomePctFplMin' in c);
 
 /** True when a rule has any income condition (so it needs an income answer to be estimated). */
 export function ruleUsesIncome(rule: BenefitRule): boolean {

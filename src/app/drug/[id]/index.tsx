@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, TextInput, View } from 'react-native';
 
 import { DrugNotFound } from '@/components/results/DrugNotFound';
-import { asksPerDay, countText, daysLasting, medTitle } from '@/components/results/labels';
+import { asksPerDay, countText, daysLasting } from '@/components/results/labels';
 import { Odometer } from '@/components/results/Odometer';
 import { MAX_QTY, PER_DAY_OPTIONS, resolveSelection, resultsHref, type RawSelectionParams } from '@/components/results/params';
 import { SaveStar } from '@/components/results/SaveStar';
@@ -75,7 +75,6 @@ function Picker({ medication, initial }: { medication: Medication; initial: Sele
   );
   const compare = usePriceSummaries(compareSels);
 
-  const title = medTitle(medication, lang);
   const days = quantity ? daysLasting(quantity, daily) : null;
 
   const pickStrength = (nextId: string) => {
@@ -127,11 +126,6 @@ function Picker({ medication, initial }: { medication: Medication; initial: Sele
           <Text variant="title" testID="picker-title">
             {loc(medication.displayName, lang)}
           </Text>
-          {title.secondary ? (
-            <Text tone="muted">
-              <Text bold>{title.primary}</Text> · {title.secondary}
-            </Text>
-          ) : null}
           <HStack gap="xs">
             <MarketBadge status={medication.marketStatus} />
             <CategoryChip category={medication.category} />

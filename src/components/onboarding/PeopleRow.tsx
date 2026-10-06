@@ -21,7 +21,16 @@ export function PeopleRow({ count }: { count: number }) {
   const { palette, reduceMotion } = useTheme();
   const { drawn, extra } = peopleRowParts(count);
   const s = palette.signals;
-  const colors = [palette.accent, s.lilac.fill, s.sky.fill, s.mint.fill, s.tangerine.fill, s.sunflower.fill, s.coral.fill, s.sky.solid];
+  const colors = [
+    palette.accent,
+    s.lilac.fill,
+    s.sky.fill,
+    s.mint.fill,
+    s.tangerine.fill,
+    s.sunflower.fill,
+    s.coral.fill,
+    s.sky.solid,
+  ];
 
   return (
     <View

@@ -25,7 +25,12 @@ export default function CountyScreen() {
   const districtsNote = region.districtsNote ? loc(region.districtsNote, lang) : null;
 
   const options = [
-    ...region.counties.map((c) => ({ id: c.id, title: c.name, subtitle: undefined as string | undefined, icon: MapPin })),
+    ...region.counties.map((c) => ({
+      id: c.id,
+      title: c.name,
+      subtitle: undefined as string | undefined,
+      icon: MapPin,
+    })),
     { id: OTHER, title: t('county.other'), subtitle: t('county.otherSub'), icon: Map },
   ];
 
@@ -70,7 +75,12 @@ export default function CountyScreen() {
           <Text variant="caption" tone="muted">
             {districtsNote}
           </Text>
-          <SourceChip sources={region.sources} verifiedAsOf={region.verifiedAsOf} recordId={`region:${region.id}`} title={districtsNote} />
+          <SourceChip
+            sources={region.sources}
+            verifiedAsOf={region.verifiedAsOf}
+            recordId={`region:${region.id}`}
+            title={districtsNote}
+          />
         </View>
       ) : null}
     </ScreenerScreen>

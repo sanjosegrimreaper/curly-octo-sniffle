@@ -65,7 +65,7 @@ export function CouponCard({ medication }: { medication: Medication }) {
       </View>
       <GlossaryChip termId="coupon" />
       <SourceChip
-        sources={medication.sources}
+        sources={couponSources(medication)}
         verifiedAsOf={medication.verifiedAsOf}
         recordId={`medication:${medication.id}`}
         title={t('coupons.title')}
@@ -74,11 +74,30 @@ export function CouponCard({ medication }: { medication: Medication }) {
   );
 }
 
+/** The sources for the coupon links themselves (GoodRx / SingleCare pages), else the medication's. */
+function couponSources(medication: Medication) {
+  const hosts = [medication.goodRxUrl, medication.singleCareUrl].flatMap((u) => {
+    try {
+      return u ? [new URL(u).hostname] : [];
+    } catch {
+      return [];
+    }
+  });
+  const own = medication.sources.filter((s) => {
+    try {
+      return hosts.includes(new URL(s.url).hostname);
+    } catch {
+      return false;
+    }
+  });
+  return own.length > 0 ? own : medication.sources;
+}
+
 const styles = StyleSheet.create({
   card: { gap: spacing.sm },
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
   flex: { flex: 1 },
   buttons: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
-  button: { flexGrow: 1, flexBasis: 150 },
+  button: { flexGrow: 1, flexBasis: 220 },
   notes: { gap: spacing.xxs },
 });

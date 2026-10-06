@@ -69,7 +69,8 @@ export function HelpPayingTab({ medicationId }: { medicationId: string }) {
       <Animated.View entering={reduceMotion ? undefined : FadeIn.duration(motion.base)}>
         <Card signal="lilac" treatment="solid">
           <HStack gap="sm" wrap={false} align="flex-start">
-            <View style={[styles.heroIcon, { backgroundColor: palette.surface, borderColor: palette.signals.lilac.solid }]}>
+            <View
+              style={[styles.heroIcon, { backgroundColor: palette.surface, borderColor: palette.signals.lilac.solid }]}>
               <HandHeart size={26} color={palette.signals.lilac.ink} />
             </View>
             <VStack gap="xs" style={{ flex: 1 }}>
@@ -94,11 +95,13 @@ export function HelpPayingTab({ medicationId }: { medicationId: string }) {
         </Banner>
       ) : null}
 
-      {stale ? <Banner tone="caution" title={t('tab.staleTitle')} body={t('tab.staleBody')} testID="help-paying-stale" /> : null}
+      {stale ? (
+        <Banner tone="caution" title={t('tab.staleTitle')} body={t('tab.staleBody')} testID="help-paying-stale" />
+      ) : null}
 
       {total === 0 ? (
         <EmptyState
-          illustration="folder"
+          illustration="magnifier"
           title={t('tab.emptyTitle')}
           body={medication.marketStatus === 'genericAvailable' ? t('tab.emptyGeneric') : t('tab.emptyOther')}
           testID="help-paying-empty"
@@ -114,13 +117,23 @@ export function HelpPayingTab({ medicationId }: { medicationId: string }) {
       ) : null}
 
       {likely.length > 0 ? (
-        <Section icon={CircleCheck} signal="mint" title={t('tab.likelyTitle')} explain={t('tab.likelyExplain')} count={likely.length}>
+        <Section
+          icon={CircleCheck}
+          signal="mint"
+          title={t('tab.likelyTitle')}
+          explain={t('tab.likelyExplain')}
+          count={likely.length}>
           {cards(likely, 0)}
         </Section>
       ) : null}
 
       {worthChecking.length > 0 ? (
-        <Section icon={Search} signal="sky" title={t('tab.worthTitle')} explain={t('tab.worthExplain')} count={worthChecking.length}>
+        <Section
+          icon={Search}
+          signal="sky"
+          title={t('tab.worthTitle')}
+          explain={t('tab.worthExplain')}
+          count={worthChecking.length}>
           {cards(worthChecking, likely.length)}
         </Section>
       ) : null}
@@ -130,29 +143,36 @@ export function HelpPayingTab({ medicationId }: { medicationId: string }) {
       ) : null}
 
       {closed.length > 0 ? (
-        <Section icon={Ban} signal="coral" title={t('tab.closedTitle')} explain={t('tab.closedExplain')} count={closed.length}>
+        <Section
+          icon={Ban}
+          signal="coral"
+          title={t('tab.closedTitle')}
+          explain={t('tab.closedExplain')}
+          count={closed.length}>
           {cards(closed, openCount)}
         </Section>
       ) : null}
 
-      {/* More local help */}
-      <Card signal="lilac" treatment="solid" testID="help-paying-more-help">
-        <HStack gap="sm" wrap={false} align="flex-start">
-          <HeartHandshake size={26} color={palette.signals.lilac.ink} />
-          <VStack gap="xs" style={{ flex: 1 }}>
-            <Text variant="subheading">{t('tab.moreHelpTitle')}</Text>
-            <Text variant="label">{t('tab.moreHelpBody')}</Text>
-            <Button
-              compact
-              variant="secondary"
-              label={t('tab.moreHelpButton')}
-              onPress={() => router.push('/help' as Href)}
-              style={{ alignSelf: 'flex-start', marginTop: spacing.xxs }}
-              testID="help-paying-open-help"
-            />
-          </VStack>
-        </HStack>
-      </Card>
+      {/* More local help (the empty state already offers it) */}
+      {total === 0 ? null : (
+        <Card signal="lilac" treatment="solid" testID="help-paying-more-help">
+          <HStack gap="sm" wrap={false} align="flex-start">
+            <HeartHandshake size={26} color={palette.signals.lilac.ink} />
+            <VStack gap="xs" style={{ flex: 1 }}>
+              <Text variant="subheading">{t('tab.moreHelpTitle')}</Text>
+              <Text variant="label">{t('tab.moreHelpBody')}</Text>
+              <Button
+                compact
+                variant="secondary"
+                label={t('tab.moreHelpButton')}
+                onPress={() => router.push('/help' as Href)}
+                style={{ alignSelf: 'flex-start', marginTop: spacing.xxs }}
+                testID="help-paying-open-help"
+              />
+            </VStack>
+          </HStack>
+        </Card>
+      )}
     </VStack>
   );
 }
@@ -210,7 +230,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  count: { minWidth: 28, paddingHorizontal: 8, paddingVertical: 2, borderRadius: 14, borderWidth: 1, alignItems: 'center' },
+  count: {
+    minWidth: 28,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 14,
+    borderWidth: 1,
+    alignItems: 'center',
+  },
   sectionIcon: {
     width: 36,
     height: 36,

@@ -50,6 +50,7 @@ export function WhereToFill() {
           </Text>
           <Button
             variant="secondary"
+            compact
             icon={MapPin}
             label={t('fill.findNearby')}
             onPress={() => void directions('pharmacy')}

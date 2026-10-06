@@ -182,7 +182,9 @@ export function ProgramCard({
             </HStack>
           ) : null}
 
-          {!expanded && program.documents.length > 0 ? <DocsPreview documents={program.documents.map((d) => loc(d, lang))} /> : null}
+          {!expanded && program.documents.length > 0 ? (
+            <DocsPreview documents={program.documents.map((d) => loc(d, lang))} />
+          ) : null}
 
           <PhoneRow name={program.name} phone={program.phone} />
 
@@ -327,7 +329,12 @@ function IncomeBlock({
       {fitMeta ? (
         <HStack gap="xs" wrap={false} align="flex-start" style={{ marginTop: spacing.xxs }}>
           <fitMeta.icon size={18} color={palette.signals[fitMeta.signal].ink} style={{ marginTop: 2 }} />
-          <Text variant="label" bold tone={fitMeta.signal} style={{ flex: 1 }} testID={`program-income-fit-${program.id}`}>
+          <Text
+            variant="label"
+            bold
+            tone={fitMeta.signal}
+            style={{ flex: 1 }}
+            testID={`program-income-fit-${program.id}`}>
             {t(`fit.income.${income as Exclude<IncomeFit, 'unpublished'>}`)}
           </Text>
         </HStack>

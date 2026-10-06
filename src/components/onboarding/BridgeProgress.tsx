@@ -142,7 +142,13 @@ export function BridgeProgress({ now: rawNow, total: rawTotal, name }: BridgePro
       accessibilityValue={{ min: 1, max: total, now, text: label }}
       style={styles.wrap}
       testID="bridge-progress">
-      <Text variant="label" tone="accent" bold importantForAccessibility="no" accessibilityElementsHidden testID="bridge-label">
+      <Text
+        variant="label"
+        tone="accent"
+        bold
+        importantForAccessibility="no"
+        accessibilityElementsHidden
+        testID="bridge-label">
         {t('steps.labelWithName', { now, total, name: t(`steps.${name}`) })}
       </Text>
       <View style={styles.art} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
@@ -160,7 +166,15 @@ export function BridgeProgress({ now: rawNow, total: rawTotal, name }: BridgePro
           <Rect x={LEFT - 6} y={DECK_Y} width={12} height={VB_H - DECK_Y - 12} rx={3} fill={ghost} opacity={0.7} />
           <Rect x={RIGHT - 6} y={DECK_Y} width={12} height={VB_H - DECK_Y - 12} rx={3} fill={ghost} opacity={0.7} />
           {/* the whole bridge, faint, so people can see what is being built */}
-          <Path d={ARC_D} stroke={ghost} strokeOpacity={0.55} strokeWidth={2} strokeDasharray="3 6" fill="none" strokeLinecap="round" />
+          <Path
+            d={ARC_D}
+            stroke={ghost}
+            strokeOpacity={0.55}
+            strokeWidth={2}
+            strokeDasharray="3 6"
+            fill="none"
+            strokeLinecap="round"
+          />
           <Line
             x1={LEFT}
             y1={DECK_Y}
@@ -186,7 +200,15 @@ export function BridgeProgress({ now: rawNow, total: rawTotal, name }: BridgePro
             />
           ))}
           {Array.from({ length: builtBefore }, (_, k) => (
-            <Rect key={`p${k}`} x={plankX(k)} y={PLANK_Y} width={plankW} height={PLANK_H} rx={2.5} fill={palette.accent} />
+            <Rect
+              key={`p${k}`}
+              x={plankX(k)}
+              y={PLANK_Y}
+              width={plankW}
+              height={PLANK_H}
+              rx={2.5}
+              fill={palette.accent}
+            />
           ))}
           {/* this step's planks spring in */}
           {Array.from({ length: perStep }, (_, i) => (
@@ -263,7 +285,15 @@ function NewPlank({
 
   return (
     <>
-      <ALine x1={cx} y1={arcY(cx) + 2} x2={cx} y2={PLANK_Y} stroke={color} strokeWidth={1.5} animatedProps={hangerProps} />
+      <ALine
+        x1={cx}
+        y1={arcY(cx) + 2}
+        x2={cx}
+        y2={PLANK_Y}
+        stroke={color}
+        strokeWidth={1.5}
+        animatedProps={hangerProps}
+      />
       <ARect x={x} width={width} height={PLANK_H} rx={2.5} fill={color} animatedProps={plankProps} />
     </>
   );

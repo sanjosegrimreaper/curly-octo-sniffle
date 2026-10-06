@@ -65,7 +65,12 @@ export default function ChecklistScreen() {
       title={t('checklist.title')}
       subtitle={t('checklist.body')}
       footer={<Button label={t('checklist.compare')} onPress={compare} testID="checklist-compare" />}>
-      <Text variant="label" bold tone={done === ITEMS.length ? 'mint' : 'muted'} accessibilityLiveRegion="polite" testID="checklist-progress">
+      <Text
+        variant="label"
+        bold
+        tone={done === ITEMS.length ? 'mint' : 'muted'}
+        accessibilityLiveRegion="polite"
+        testID="checklist-progress">
         {t('checklist.progress', { count: done, total: ITEMS.length })}
       </Text>
       <View style={{ gap: spacing.sm }}>
@@ -107,7 +112,11 @@ export default function ChecklistScreen() {
           onChangeText={onCopay}
           placeholder={t('checklist.copayPlaceholder')}
           error={invalid ? t('checklist.copayInvalid') : null}
-          hint={copayCents !== null && !invalid ? t('checklist.copaySaved', { amount: formatMoney(copayCents, lang) }) : undefined}
+          hint={
+            copayCents !== null && !invalid
+              ? t('checklist.copaySaved', { amount: formatMoney(copayCents, lang) })
+              : undefined
+          }
           testID="copay-input"
         />
         {copayCents !== null ? (

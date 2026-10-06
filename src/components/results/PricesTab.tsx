@@ -1,11 +1,11 @@
-import { MapPin, ShoppingBag } from 'lucide-react-native';
+import { Info, MapPin, ShoppingBag } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 
 import { DraftBanner } from '@/components/DraftBanner';
 import { getPack } from '@/data/pack';
 import type { PriceSummary } from '@/data/prices';
-import { Banner, spacing } from '@/design';
+import { spacing, Text, useTheme } from '@/design';
 
 import { BuyNowCard } from './BuyNowCard';
 import { CostPlusBlock } from './CostPlusBlock';
@@ -31,6 +31,7 @@ export function PricesTab({
   onSwitchQuantity: (qty: number) => void;
 }) {
   const { t } = useTranslation('results');
+  const { palette } = useTheme();
   const formula = getPack().costPlus.formula;
   const options = [...summary.comparable, ...summary.monthly];
   const versions = summary.medication.kind === 'biologic' && options.length > 1;
@@ -51,7 +52,12 @@ export function PricesTab({
       <Reveal index={i++} testID="buy-now-section">
         <SectionHeading icon={ShoppingBag} signal="mint" title={t('buyNow.title')} subtitle={t('buyNow.subtitle')} />
         {versions ? (
-          <Banner title={t('ladder.versions')} testID="versions-note" />
+          <View style={styles.versions} testID="versions-note">
+            <Info size={18} color={palette.signals.sky.ink} />
+            <Text variant="label" bold style={styles.flex}>
+              {t('ladder.versions')}
+            </Text>
+          </View>
         ) : null}
         {options.map((o) => (
           <BuyNowCard key={`${o.id}:${key}`} option={o} strength={summary.strength} perDay={perDay} formula={formula} versions={versions} />
@@ -91,4 +97,6 @@ export function PricesTab({
 
 const styles = StyleSheet.create({
   stack: { gap: spacing.lg },
+  versions: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.xs },
+  flex: { flex: 1 },
 });

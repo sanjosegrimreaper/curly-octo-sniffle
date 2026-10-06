@@ -18,7 +18,7 @@ import Animated, { FadeIn } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DrugNotFound } from '@/components/results/DrugNotFound';
-import { countText, resultsT } from '@/components/results/labels';
+import { countText, hasResultsTranslation, resultsT } from '@/components/results/labels';
 import { resolveSelection } from '@/components/results/params';
 import { getPack } from '@/data/pack';
 import { loc } from '@/data/localize';
@@ -58,7 +58,9 @@ export default function CounterCardScreen() {
   const params = useLocalSearchParams<{ drug?: string; strength?: string; qty?: string }>();
   const resolved = resolveSelection(getPack(), { id: params.drug, strength: params.strength, qty: params.qty });
   const hc = scheme === 'dark' ? highContrastDarkPalette : highContrastLightPalette;
-  const second: Lang = navigatorMode && clientLanguage ? clientLanguage : appLang;
+  const wanted: Lang = navigatorMode && clientLanguage ? clientLanguage : appLang;
+  // Not translated yet → English only (never the same English twice).
+  const second: Lang = hasResultsTranslation(wanted) ? wanted : 'en';
 
   const scroller = useRef<ScrollView>(null);
   const [page, setPage] = useState(0);

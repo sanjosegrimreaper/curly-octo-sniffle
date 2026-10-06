@@ -113,7 +113,8 @@
     "mathShown": "Showing the math",
     "priceShown": "Showing the price",
     "costPlusNote": "Online pharmacy. Ships by mail. Not the price at local stores.",
-    "product": "Buy now"
+    "product": "Buy now",
+    "perPeriod": "per {{per}}"
   },
   "costPlus": {
     "title": "Cost Plus Drugs price list",

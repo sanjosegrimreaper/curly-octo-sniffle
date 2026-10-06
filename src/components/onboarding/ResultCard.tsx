@@ -87,7 +87,9 @@ export function ResultCard({
       <Text>{summary}</Text>
 
       {limitText ? (
-        <View style={[styles.well, { backgroundColor: palette.surface, borderColor: lilac.solid }]} testID={`result-limit-${rule.id}`}>
+        <View
+          style={[styles.well, { backgroundColor: palette.surface, borderColor: lilac.solid }]}
+          testID={`result-limit-${rule.id}`}>
           <Text variant="label" tone="muted">
             {t('result.limitLabel')}
           </Text>
@@ -109,9 +111,19 @@ export function ResultCard({
       ) : null}
 
       {overLimit ? (
-        <Banner tone="caution" title={t('result.overLimitTitle')} body={t('result.overLimitBody')} testID={`result-over-${rule.id}`} />
+        <Banner
+          tone="caution"
+          title={t('result.overLimitTitle')}
+          body={t('result.overLimitBody')}
+          testID={`result-over-${rule.id}`}
+        />
       ) : result.nearLimit ? (
-        <Banner tone="caution" title={t('result.nearLimitTitle')} body={t('result.nearLimitBody')} testID={`result-near-${rule.id}`} />
+        <Banner
+          tone="caution"
+          title={t('result.nearLimitTitle')}
+          body={t('result.nearLimitBody')}
+          testID={`result-near-${rule.id}`}
+        />
       ) : null}
 
       {steps.length > 0 ? (
@@ -157,10 +169,24 @@ export function ResultCard({
 
 const styles = StyleSheet.create({
   card: { gap: spacing.sm },
-  topRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: spacing.xs, flexWrap: 'wrap' },
+  topRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.xs,
+    flexWrap: 'wrap',
+  },
   well: { borderRadius: radius.sm, borderWidth: 1, padding: spacing.sm, gap: spacing.xxs },
   steps: { gap: spacing.xs },
   stepRow: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.xs },
-  stepNum: { minWidth: 24, minHeight: 24, paddingHorizontal: 4, borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
+  stepNum: {
+    minWidth: 24,
+    minHeight: 24,
+    paddingHorizontal: 4,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 1,
+  },
   links: { gap: spacing.xs },
 });

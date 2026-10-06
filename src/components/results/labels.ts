@@ -16,6 +16,14 @@ export type ResultsT = TFunction<'results'>;
 /** A fixed-language `t` for the results namespace (like `tFor(lang)`), for bilingual screens and handouts. */
 export const resultsT = (lang: Lang): ResultsT => i18next.getFixedT(lang, 'results');
 
+/**
+ * True when the results strings exist in `lang` (checked on one key that every translation
+ * has). Bilingual screens then show one language instead of the same English twice.
+ */
+export function hasResultsTranslation(lang: Lang, key = 'counter.q1'): boolean {
+  return lang === 'en' || i18next.getResource(lang, 'results', key) !== undefined;
+}
+
 /** Count units the pack uses for `countLabel.en`, with real singular/plural strings. */
 const COUNT_UNITS = ['tablets', 'capsules', 'boxes', 'vials', 'pens'] as const;
 type CountUnit = (typeof COUNT_UNITS)[number];

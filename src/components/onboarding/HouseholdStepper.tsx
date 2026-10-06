@@ -35,7 +35,11 @@ export function HouseholdStepper({ value, onChange }: { value: number; onChange:
   const canInc = value < STEPPER_MAX;
 
   return (
-    <View style={[styles.card, { backgroundColor: palette.surface, borderColor: palette.border, shadowColor: palette.shadow }]}>
+    <View
+      style={[
+        styles.card,
+        { backgroundColor: palette.surface, borderColor: palette.border, shadowColor: palette.shadow },
+      ]}>
       <PeopleRow count={value} />
       <View
         style={styles.row}
@@ -48,7 +52,13 @@ export function HouseholdStepper({ value, onChange }: { value: number; onChange:
           if (e.nativeEvent.actionName === 'increment' && canInc) set(value + 1);
           if (e.nativeEvent.actionName === 'decrement' && canDec) set(value - 1);
         }}>
-        <StepButton icon={Minus} label={t('household.fewer')} disabled={!canDec} onPress={() => set(value - 1)} testID="household-minus" />
+        <StepButton
+          icon={Minus}
+          label={t('household.fewer')}
+          disabled={!canDec}
+          onPress={() => set(value - 1)}
+          testID="household-minus"
+        />
         <View style={styles.value}>
           <Animated.View key={value} entering={reduceMotion ? undefined : FadeIn.duration(motion.base)}>
             <Text variant="price" center tabular testID="household-count">
@@ -59,7 +69,13 @@ export function HouseholdStepper({ value, onChange }: { value: number; onChange:
             {t('household.unit', { count: value })}
           </Text>
         </View>
-        <StepButton icon={Plus} label={t('household.more')} disabled={!canInc} onPress={() => set(value + 1)} testID="household-plus" />
+        <StepButton
+          icon={Plus}
+          label={t('household.more')}
+          disabled={!canInc}
+          onPress={() => set(value + 1)}
+          testID="household-plus"
+        />
       </View>
     </View>
   );

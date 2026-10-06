@@ -8,7 +8,9 @@
   "intro": {
     "fresh": "Let's take the first step together. Everything you tell us stays on this phone.",
     "saved_one": "You have {{count}} saved medicine. Here is what could help next.",
-    "saved_other": "You have {{count}} saved medicines. Here is what could help next."
+    "saved_other": "You have {{count}} saved medicines. Here is what could help next.",
+    "savedOnly_one": "You have {{count}} saved medicine.",
+    "savedOnly_other": "You have {{count}} saved medicines."
   },
   "steps": {
     "title": "Things you can do next",

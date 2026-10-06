@@ -30,7 +30,12 @@ export default function ApplicationsScreen() {
           body={t('tracker.emptyBody')}
           testID="applications-empty"
           action={
-            <Button icon={Search} label={t('tracker.find')} onPress={() => router.push('/find' as Href)} testID="applications-find" />
+            <Button
+              icon={Search}
+              label={t('tracker.find')}
+              onPress={() => router.push('/find' as Href)}
+              testID="applications-find"
+            />
           }
         />
       ) : (

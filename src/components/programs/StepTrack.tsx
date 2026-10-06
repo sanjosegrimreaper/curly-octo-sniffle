@@ -63,25 +63,34 @@ export function StepTrack({
         const done = i < pos;
         const current = i === pos;
         const s = isDecision && decisionSignal ? decisionSignal : lilac;
-        const dotStyle = done || (current && isDecision && decisionSignal)
-          ? { backgroundColor: s.solid, borderColor: s.solid }
-          : current
-            ? { backgroundColor: s.tint, borderColor: s.solid, borderWidth: 3 }
-            : { backgroundColor: palette.surface, borderColor: palette.borderStrong };
+        const dotStyle =
+          done || (current && isDecision && decisionSignal)
+            ? { backgroundColor: s.solid, borderColor: s.solid }
+            : current
+              ? { backgroundColor: s.tint, borderColor: s.solid, borderWidth: 3 }
+              : { backgroundColor: palette.surface, borderColor: palette.borderStrong };
         const content =
           isDecision && current && step === 'denied' ? (
             <X size={18} color={palette.surface} strokeWidth={3} />
           ) : done || (isDecision && current && step === 'approved') ? (
             <Check size={18} color={palette.surface} strokeWidth={3} />
           ) : (
-            <Text variant="label" bold style={{ color: current ? s.ink : palette.textMuted }} maxFontSizeMultiplier={1.3}>
+            <Text
+              variant="label"
+              bold
+              style={{ color: current ? s.ink : palette.textMuted }}
+              maxFontSizeMultiplier={1.3}>
               {String(i + 1)}
             </Text>
           );
         const dot = (
           <Animated.View
             key={`${i}-${current ? step : done ? 'done' : 'todo'}`}
-            entering={reduceMotion || !current ? undefined : ZoomIn.springify().damping(motion.spring.damping).stiffness(motion.spring.stiffness)}
+            entering={
+              reduceMotion || !current
+                ? undefined
+                : ZoomIn.springify().damping(motion.spring.damping).stiffness(motion.spring.stiffness)
+            }
             style={[styles.dot, dotStyle]}>
             {content}
           </Animated.View>
@@ -89,7 +98,12 @@ export function StepTrack({
         const a11y = t('tracker.stepA11y', { n: i + 1, step: label });
         if (isDecision) {
           return (
-            <View key="decision" style={styles.slot} accessible accessibilityLabel={a11y} accessibilityState={{ selected: current }}>
+            <View
+              key="decision"
+              style={styles.slot}
+              accessible
+              accessibilityLabel={a11y}
+              accessibilityState={{ selected: current }}>
               {dot}
             </View>
           );

@@ -1,5 +1,16 @@
 import { router } from 'expo-router';
-import { Compass, Info, MapPin, RotateCcw, ShieldQuestionMark, ShieldX, Sparkles, Users, Wallet, type LucideIcon } from 'lucide-react-native';
+import {
+  Compass,
+  Info,
+  MapPin,
+  RotateCcw,
+  ShieldQuestionMark,
+  ShieldX,
+  Sparkles,
+  Users,
+  Wallet,
+  type LucideIcon,
+} from 'lucide-react-native';
 import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AccessibilityInfo, StyleSheet, View } from 'react-native';
@@ -48,7 +59,9 @@ export default function ResultScreen() {
   // Rules missed only because an exact income is a little over the limit: "Some income may not count."
   const justOver = results.filter((r) => isJustOverLimit(r, getPack().fpl, size, exactAnnual));
   const standard =
-    incomeKnown && visible.length === 0 ? results.filter((r) => r.rule.programKey === 'standard' && !justOver.includes(r)) : [];
+    incomeKnown && visible.length === 0
+      ? results.filter((r) => r.rule.programKey === 'standard' && !justOver.includes(r))
+      : [];
   // Celebrate only when something may help; otherwise stay calm.
   const celebrate = visible.length > 0;
 
@@ -73,7 +86,8 @@ export default function ResultScreen() {
   const answers = useMemo(() => {
     const out: { key: string; icon: LucideIcon; text: string }[] = [];
     if (screener.coverage === 'no') out.push({ key: 'cov', icon: ShieldX, text: t('result.answers.noInsurance') });
-    if (screener.coverage === 'unsure') out.push({ key: 'cov', icon: ShieldQuestionMark, text: t('result.answers.unsureInsurance') });
+    if (screener.coverage === 'unsure')
+      out.push({ key: 'cov', icon: ShieldQuestionMark, text: t('result.answers.unsureInsurance') });
     if (screener.county) {
       const c = getPack().region.counties.find((x) => x.id === screener.county);
       out.push({ key: 'county', icon: MapPin, text: c ? c.name : t('result.answers.otherCounty') });
@@ -93,7 +107,11 @@ export default function ResultScreen() {
         });
       }
     } else if (income?.kind === 'exact') {
-      out.push({ key: 'income', icon: Wallet, text: t('result.answers.exactIncome', { amount: formatDollars(income.annual, lang) }) });
+      out.push({
+        key: 'income',
+        icon: Wallet,
+        text: t('result.answers.exactIncome', { amount: formatDollars(income.annual, lang) }),
+      });
     } else if (income?.kind === 'skip') {
       out.push({ key: 'income', icon: Wallet, text: t('result.answers.incomeSkipped') });
     }
@@ -112,7 +130,12 @@ export default function ResultScreen() {
       footer={
         <>
           <Button label={t('result.compare')} onPress={() => finish(ROUTES.find)} testID="result-compare" />
-          <Button variant="secondary" label={t('result.goPlan')} onPress={() => finish(ROUTES.home)} testID="result-go-plan" />
+          <Button
+            variant="secondary"
+            label={t('result.goPlan')}
+            onPress={() => finish(ROUTES.home)}
+            testID="result-go-plan"
+          />
         </>
       }>
       {/* The celebration: a badge pops in with a confetti burst, then everything settles. */}
@@ -133,7 +156,13 @@ export default function ResultScreen() {
           </View>
         )}
         <Animated.View
-          entering={reduceMotion ? undefined : FadeInDown.delay(motion.slow + 120).duration(motion.slow).easing(ease)}
+          entering={
+            reduceMotion
+              ? undefined
+              : FadeInDown.delay(motion.slow + 120)
+                  .duration(motion.slow)
+                  .easing(ease)
+          }
           style={{ gap: spacing.xxs, alignItems: 'center' }}>
           {celebrate ? (
             <Text variant="label" tone="accent" bold center>
@@ -153,13 +182,17 @@ export default function ResultScreen() {
 
       <Animated.View
         entering={reduceMotion ? undefined : FadeIn.delay(motion.slow + 220).duration(motion.slow)}
-        style={[styles.answers, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-        <Text variant="caption" tone="muted" bold>
+        style={styles.answers}
+        accessible
+        accessibilityLabel={[t('result.basedOn'), ...answers.map((a) => a.text)].join('. ')}>
+        <Text variant="caption" tone="muted" bold center>
           {t('result.basedOn')}
         </Text>
         <View style={styles.chips}>
           {answers.map((a) => (
-            <View key={a.key} style={[styles.answerChip, { backgroundColor: palette.surfaceSunken, borderColor: palette.border }]}>
+            <View
+              key={a.key}
+              style={[styles.answerChip, { backgroundColor: palette.surface, borderColor: palette.border }]}>
               <a.icon size={16} color={palette.textMuted} />
               <Text variant="label" style={{ flexShrink: 1 }} testID={`result-answer-${a.key}`}>
                 {a.text}
@@ -167,23 +200,33 @@ export default function ResultScreen() {
             </View>
           ))}
         </View>
-        <View style={styles.estimate}>
-          <Info size={18} color={palette.accentInk} />
-          <Text variant="label" bold tone="accent" style={{ flex: 1 }} testID="result-estimate">
-            {t('result.estimate')}
-          </Text>
-        </View>
       </Animated.View>
+
+      <View style={[styles.estimate, { backgroundColor: palette.accentSoft, borderColor: palette.accent }]}>
+        <Info size={20} color={palette.accentInk} />
+        <Text variant="label" bold tone="accent" style={{ flex: 1 }} testID="result-estimate">
+          {t('result.estimate')}
+        </Text>
+      </View>
 
       <DraftBanner />
 
       {!incomeKnown ? (
-        <Animated.View entering={reduceMotion ? undefined : FadeInDown.delay(motion.slow + 280).duration(motion.slow).easing(ease)}>
+        <Animated.View
+          entering={
+            reduceMotion
+              ? undefined
+              : FadeInDown.delay(motion.slow + 280)
+                  .duration(motion.slow)
+                  .easing(ease)
+          }>
           <EmptyState
             illustration="shield"
             title={income?.kind === 'skip' ? t('result.skippedTitle') : t('result.missingTitle')}
             body={income?.kind === 'skip' ? t('result.skippedBody') : t('result.missingBody')}
-            action={<Button variant="secondary" label={t('result.addIncome')} onPress={back} testID="result-add-income" />}
+            action={
+              <Button variant="secondary" label={t('result.addIncome')} onPress={back} testID="result-add-income" />
+            }
             testID="result-skipped"
           />
         </Animated.View>
@@ -192,7 +235,13 @@ export default function ResultScreen() {
       {visible.map((r, i) => (
         <Animated.View
           key={r.rule.id}
-          entering={reduceMotion ? undefined : FadeInDown.delay(motion.slow + 280 + i * 60).duration(motion.slow).easing(ease)}
+          entering={
+            reduceMotion
+              ? undefined
+              : FadeInDown.delay(motion.slow + 280 + i * 60)
+                  .duration(motion.slow)
+                  .easing(ease)
+          }
           style={styles.group}>
           <ResultCard result={r} householdSize={size} />
           <Notices programKey={r.rule.programKey} />
@@ -202,7 +251,13 @@ export default function ResultScreen() {
       {justOver.map((r) => (
         <Animated.View
           key={r.rule.id}
-          entering={reduceMotion ? undefined : FadeInDown.delay(motion.slow + 320).duration(motion.slow).easing(ease)}
+          entering={
+            reduceMotion
+              ? undefined
+              : FadeInDown.delay(motion.slow + 320)
+                  .duration(motion.slow)
+                  .easing(ease)
+          }
           style={styles.group}>
           <ResultCard result={r} householdSize={size} overLimit />
           <Notices programKey={r.rule.programKey} />
@@ -211,9 +266,20 @@ export default function ResultScreen() {
 
       {incomeKnown && visible.length === 0 ? (
         <Animated.View
-          entering={reduceMotion ? undefined : FadeInDown.delay(motion.slow + 280).duration(motion.slow).easing(ease)}
+          entering={
+            reduceMotion
+              ? undefined
+              : FadeInDown.delay(motion.slow + 280)
+                  .duration(motion.slow)
+                  .easing(ease)
+          }
           style={styles.group}>
-          <EmptyState illustration="bridge" title={t('result.standardTitle')} body={t('result.standardBody')} testID="result-standard" />
+          <EmptyState
+            illustration="bridge"
+            title={t('result.standardTitle')}
+            body={t('result.standardBody')}
+            testID="result-standard"
+          />
           {standard.map((r) => (
             <ResultCard key={r.rule.id} result={r} householdSize={size} showTier={false} />
           ))}
@@ -266,7 +332,12 @@ function StartOverConfirm() {
         }}
         testID="result-start-over-confirm"
       />
-      <Button variant="ghost" label={t('result.startOverCancel')} onPress={closeSheet} testID="result-start-over-cancel" />
+      <Button
+        variant="ghost"
+        label={t('result.startOverCancel')}
+        onPress={closeSheet}
+        testID="result-start-over-cancel"
+      />
     </View>
   );
 }
@@ -286,8 +357,8 @@ const styles = StyleSheet.create({
     shadowRadius: 18,
     elevation: 4,
   },
-  answers: { borderRadius: radius.md, borderWidth: 1, padding: spacing.md, gap: spacing.xs },
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
+  answers: { gap: spacing.xs, alignItems: 'center' },
+  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, justifyContent: 'center' },
   answerChip: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -298,6 +369,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     maxWidth: '100%',
   },
-  estimate: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs, marginTop: spacing.xxs },
+  estimate: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    padding: spacing.sm,
+    paddingHorizontal: spacing.md,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
   group: { gap: spacing.sm },
 });

@@ -35,7 +35,10 @@ export function CheckRow({
       <View
         style={[
           styles.box,
-          { borderColor: checked ? mint.solid : palette.borderStrong, backgroundColor: checked ? mint.solid : palette.surface },
+          {
+            borderColor: checked ? mint.solid : palette.borderStrong,
+            backgroundColor: checked ? mint.solid : palette.surface,
+          },
         ]}>
         {checked ? (
           <Animated.View entering={reduceMotion ? undefined : ZoomIn.duration(motion.base)}>

@@ -113,7 +113,8 @@ export default function IncomeScreen() {
   const canContinue = exactOpen ? exactAnnual !== null : selectedIndex !== null;
   const next = () => {
     if (!canContinue) return;
-    if (exactOpen && exactAnnual !== null) update({ householdSize: size, income: { kind: 'exact', annual: exactAnnual } });
+    if (exactOpen && exactAnnual !== null)
+      update({ householdSize: size, income: { kind: 'exact', annual: exactAnnual } });
     router.push(href(ROUTES.result));
   };
 
@@ -183,9 +184,19 @@ export default function IncomeScreen() {
           {proximity.over || proximity.close ? (
             <Animated.View entering={reduceMotion ? undefined : FadeIn.duration(motion.base)}>
               {proximity.over ? (
-                <Banner tone="caution" title={t('income.overLimitTitle')} body={t('income.overLimitBody')} testID="income-over-limit" />
+                <Banner
+                  tone="caution"
+                  title={t('income.overLimitTitle')}
+                  body={t('income.overLimitBody')}
+                  testID="income-over-limit"
+                />
               ) : (
-                <Banner tone="caution" title={t('income.nearLimitTitle')} body={t('income.nearLimitBody')} testID="income-near-limit" />
+                <Banner
+                  tone="caution"
+                  title={t('income.nearLimitTitle')}
+                  body={t('income.nearLimitBody')}
+                  testID="income-near-limit"
+                />
               )}
             </Animated.View>
           ) : null}

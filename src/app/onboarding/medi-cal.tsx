@@ -34,10 +34,19 @@ export default function MediCalScreen() {
       title={t('mediCal.title')}
       subtitle={t('mediCal.body')}
       footer={<Button label={t('mediCal.lookUp')} onPress={lookUp} testID="medi-cal-look-up" />}>
-      <Card signal="lilac" treatment="solid" style={{ gap: spacing.md, paddingVertical: spacing.lg }} testID="medi-cal-tips">
+      <Card
+        signal="lilac"
+        treatment="solid"
+        style={{ gap: spacing.md, paddingVertical: spacing.lg }}
+        testID="medi-cal-tips">
         <Tip icon={IdCard} text={t('mediCal.tipCard')} color={palette.signals.lilac.ink} bg={palette.surface} />
         <View style={{ height: 1, backgroundColor: palette.signals.lilac.solid, opacity: 0.25 }} />
-        <Tip icon={MessageCircleQuestionMark} text={t('mediCal.tipAsk')} color={palette.signals.lilac.ink} bg={palette.surface} />
+        <Tip
+          icon={MessageCircleQuestionMark}
+          text={t('mediCal.tipAsk')}
+          color={palette.signals.lilac.ink}
+          bg={palette.surface}
+        />
       </Card>
 
       <DraftBanner />
@@ -48,7 +57,13 @@ export default function MediCalScreen() {
           {notices.map((n, i) => (
             <Animated.View
               key={n.id}
-              entering={reduceMotion ? undefined : FadeInDown.delay(120 + i * 40).duration(motion.slow).easing(ease)}>
+              entering={
+                reduceMotion
+                  ? undefined
+                  : FadeInDown.delay(120 + i * 40)
+                      .duration(motion.slow)
+                      .easing(ease)
+              }>
               <NoticeBanner notice={n} />
             </Animated.View>
           ))}
@@ -61,7 +76,15 @@ export default function MediCalScreen() {
 function Tip({ icon: Icon, text, color, bg }: { icon: LucideIcon; text: string; color: string; bg: string }) {
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.sm }}>
-      <View style={{ width: 48, height: 48, borderRadius: 999, backgroundColor: bg, alignItems: 'center', justifyContent: 'center' }}>
+      <View
+        style={{
+          width: 48,
+          height: 48,
+          borderRadius: 999,
+          backgroundColor: bg,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
         <Icon size={24} color={color} />
       </View>
       <Text variant="subheading" style={{ flex: 1 }}>

@@ -11,7 +11,11 @@ export function NoticeBanner({ notice }: { notice: Notice }) {
   const title = pickLocalized(notice.title, lang);
   const body = pickLocalized(notice.body, lang);
   return (
-    <Banner tone={notice.severity === 'caution' ? 'caution' : 'info'} title={title.text} body={body.text} testID={`notice-${notice.id}`}>
+    <Banner
+      tone={notice.severity === 'caution' ? 'caution' : 'info'}
+      title={title.text}
+      body={body.text}
+      testID={`notice-${notice.id}`}>
       {title.fellBack || body.fellBack ? (
         <Text variant="caption" tone="muted">
           {t('notTranslated')}

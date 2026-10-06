@@ -91,7 +91,12 @@ export function ApplicationCard({
             }}
             testID={`app-untrack-confirm-${id}`}
           />
-          <Button variant="secondary" label={t('tracker.untrackKeep')} onPress={closeSheet} testID={`app-untrack-keep-${id}`} />
+          <Button
+            variant="secondary"
+            label={t('tracker.untrackKeep')}
+            onPress={closeSheet}
+            testID={`app-untrack-keep-${id}`}
+          />
         </VStack>
       ),
     });
@@ -109,7 +114,9 @@ export function ApplicationCard({
   );
 
   return (
-    <Animated.View entering={reduceMotion ? undefined : FadeInDown.delay(index * 40).duration(motion.slow)} testID={`app-card-${id}`}>
+    <Animated.View
+      entering={reduceMotion ? undefined : FadeInDown.delay(index * 40).duration(motion.slow)}
+      testID={`app-card-${id}`}>
       <Card signal={application.step === 'approved' ? 'mint' : 'lilac'} treatment="outline">
         <VStack gap="md">
           <VStack gap="xxs">
@@ -134,7 +141,12 @@ export function ApplicationCard({
               <NotesSection application={application} />
               <Divider />
               <RenewSection program={program} application={application} />
-              <SourceChip sources={program.sources} verifiedAsOf={program.verifiedAsOf} recordId={`program:${program.id}`} title={program.name} />
+              <SourceChip
+                sources={program.sources}
+                verifiedAsOf={program.verifiedAsOf}
+                recordId={`program:${program.id}`}
+                title={program.name}
+              />
             </>
           ) : null}
           {untrackButton}
@@ -188,8 +200,22 @@ function StepSection({ application, onStep }: { application: Application; onStep
       <VStack gap="xs">
         {step === 'waiting' ? (
           <>
-            <Button variant="secondary" compact icon={ThumbsUp} label={t('tracker.yes')} onPress={() => go('approved')} testID={`app-yes-${programId}`} />
-            <Button variant="secondary" compact icon={ThumbsDown} label={t('tracker.no')} onPress={() => go('denied')} testID={`app-no-${programId}`} />
+            <Button
+              variant="secondary"
+              compact
+              icon={ThumbsUp}
+              label={t('tracker.yes')}
+              onPress={() => go('approved')}
+              testID={`app-yes-${programId}`}
+            />
+            <Button
+              variant="secondary"
+              compact
+              icon={ThumbsDown}
+              label={t('tracker.no')}
+              onPress={() => go('denied')}
+              testID={`app-no-${programId}`}
+            />
           </>
         ) : nextStep ? (
           <Button
@@ -222,8 +248,13 @@ function DocsSection({ program, application }: { program: Program; application: 
   const { ready, total } = docsProgress(program, application.docs);
   return (
     <VStack gap="xs">
-      <SectionLabel icon={FileCheck2} text={total > 0 ? t('tracker.docsProgress', { ready, total }) : t('tracker.noDocsListed')} />
-      {total > 0 ? <ProgressBar value={ready / total} accessibilityLabel={t('tracker.docsProgress', { ready, total })} /> : null}
+      <SectionLabel
+        icon={FileCheck2}
+        text={total > 0 ? t('tracker.docsProgress', { ready, total }) : t('tracker.noDocsListed')}
+      />
+      {total > 0 ? (
+        <ProgressBar value={ready / total} accessibilityLabel={t('tracker.docsProgress', { ready, total })} />
+      ) : null}
       <LinkRow
         label={t('tracker.openChecklist')}
         onPress={() => router.push(`/program/${program.id}` as Href)}
@@ -284,7 +315,12 @@ function RenewSection({ program, application }: { program: Program; application:
   const texts = () => {
     if (privateNotifications) {
       const title = t('tracker.reminderTitlePrivate');
-      return { title, body: t('tracker.reminderBodyPrivate'), calendarTitle: t('tracker.calendarTitlePrivate'), calendarNotes: title };
+      return {
+        title,
+        body: t('tracker.reminderBodyPrivate'),
+        calendarTitle: t('tracker.calendarTitlePrivate'),
+        calendarNotes: title,
+      };
     }
     const title = t('tracker.reminderTitle', { program: program.name });
     const body = program.phone
@@ -364,7 +400,13 @@ function RenewSection({ program, application }: { program: Program; application:
           onPress={() => setDate(earlier)}
           testID={`app-renew-minus-${id}`}
         />
-        <Text variant="subheading" center tabular style={{ flex: 1 }} testID={`app-renew-date-${id}`} accessibilityLiveRegion="polite">
+        <Text
+          variant="subheading"
+          center
+          tabular
+          style={{ flex: 1 }}
+          testID={`app-renew-date-${id}`}
+          accessibilityLiveRegion="polite">
           {formatDate(date, lang, 'long')}
         </Text>
         <RoundButton
@@ -383,7 +425,14 @@ function RenewSection({ program, application }: { program: Program; application:
       {application.reminderId ? (
         <HStack gap="xs">
           <Badge signal="mint" icon={Bell} label={t('tracker.reminderSet', { date: formatDate(date, lang) })} />
-          <Button variant="ghost" compact icon={BellOff} label={t('tracker.cancelReminder')} onPress={cancel} testID={`app-cancel-reminder-${id}`} />
+          <Button
+            variant="ghost"
+            compact
+            icon={BellOff}
+            label={t('tracker.cancelReminder')}
+            onPress={cancel}
+            testID={`app-cancel-reminder-${id}`}
+          />
         </HStack>
       ) : null}
 

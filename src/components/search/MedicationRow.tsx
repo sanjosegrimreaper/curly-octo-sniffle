@@ -24,11 +24,9 @@ function NameLine({ med, lang }: { med: Medication; lang: Lang }) {
   const title = medTitle(med, lang);
   return (
     <Text variant="subheading">
-      <Text variant="subheading" bold style={{ fontWeight: '700' }}>
-        {title.primary}
-      </Text>
+      {title.primary}
       {title.secondary ? (
-        <Text variant="subheading" tone="muted">
+        <Text variant="body" tone="muted">
           {` · ${title.secondary}`}
         </Text>
       ) : null}

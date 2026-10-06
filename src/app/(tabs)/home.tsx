@@ -52,7 +52,12 @@ export default function HomeScreen() {
   }, [saved, summaries, setLastSeen]);
 
   const dateText = useMemo(() => longDate(today, lang), [today, lang]);
-  const intro = saved.length > 0 ? t('intro.saved', { count: saved.length }) : t('intro.fresh');
+  const intro =
+    saved.length === 0
+      ? t('intro.fresh')
+      : views.length > 0
+        ? t('intro.saved', { count: saved.length })
+        : t('intro.savedOnly', { count: saved.length });
 
   const startOver = () =>
     confirmAction({
@@ -113,7 +118,7 @@ export default function HomeScreen() {
         <Animated.View entering={enter(n++)}>
           <EmptyState
             testID="plan-empty"
-            illustration="bridge"
+            illustration="shield"
             title={t('steps.empty.title')}
             body={t('steps.empty.body')}
             action={<Button label={t('steps.empty.cta')} variant="secondary" onPress={() => router.push('/find' as Href)} />}

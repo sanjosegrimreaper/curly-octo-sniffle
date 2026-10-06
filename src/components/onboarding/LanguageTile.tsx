@@ -27,7 +27,7 @@ export function LanguageTile({
   const info = LANGUAGES[code];
   // Each name is set in its own script's face and line height (Devanagari matras need extra room).
   const own = fontsFor(code);
-  const lineFor = (v: 'heading' | 'subheading') =>
+  const lineFor = (v: 'subheading') =>
     Math.round(typeScale[v].size * textScale * typeScale[v].line * own.lineHeightBoost);
   const nameStyle = { fontFamily: own.heading, fontWeight: own.headingWeight };
 
@@ -49,22 +49,26 @@ export function LanguageTile({
           shadowColor: palette.shadow,
         },
       ]}>
-      <View
-        style={[
-          styles.badge,
-          { backgroundColor: selected ? palette.accent : palette.accentSoft },
-        ]}>
+      <View style={[styles.badge, { backgroundColor: selected ? palette.accent : palette.accentSoft }]}>
         <Text
           variant="subheading"
-          style={[nameStyle, { lineHeight: lineFor('subheading'), color: selected ? palette.onAccent : palette.accentInk }]}
+          style={[
+            nameStyle,
+            { lineHeight: lineFor('subheading'), color: selected ? palette.onAccent : palette.accentInk },
+          ]}
           importantForAccessibility="no"
           accessibilityElementsHidden>
           {SCRIPT_SAMPLE[code]}
         </Text>
       </View>
       <Text
-        variant="heading"
-        style={[nameStyle, styles.name, { lineHeight: lineFor('heading') }, selected ? { color: palette.accentInk } : null]}>
+        variant="subheading"
+        style={[
+          nameStyle,
+          styles.name,
+          { lineHeight: lineFor('subheading') },
+          selected ? { color: palette.accentInk } : null,
+        ]}>
         {info.nativeName}
       </Text>
       {selected ? (
@@ -92,8 +96,15 @@ const styles = StyleSheet.create({
   },
   half: { flexBasis: '45%', flexGrow: 1, alignItems: 'flex-start' },
   wide: { width: '100%', flexDirection: 'row', alignItems: 'center' },
-  badge: { minWidth: 44, minHeight: 44, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 6 },
-  name: { flexShrink: 1, paddingRight: spacing.lg },
+  badge: {
+    minWidth: 40,
+    minHeight: 40,
+    borderRadius: radius.pill,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 6,
+  },
+  name: { flexShrink: 1 },
   check: {
     position: 'absolute',
     top: spacing.sm,

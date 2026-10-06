@@ -2,7 +2,14 @@ import { Check } from 'lucide-react-native';
 import { useEffect, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
-import Animated, { Easing, FadeInDown, useAnimatedStyle, useSharedValue, withTiming, ZoomIn } from 'react-native-reanimated';
+import Animated, {
+  Easing,
+  FadeInDown,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+  ZoomIn,
+} from 'react-native-reanimated';
 
 import { motion, spacing, Text, useTheme, VStack } from '@/design';
 
@@ -33,7 +40,9 @@ export function CoachStep({
 
   useEffect(() => {
     const to = done ? 1 : 0;
-    fill.value = reduceMotion ? to : withTiming(to, { duration: motion.celebrate, easing: Easing.bezier(...motion.easing) });
+    fill.value = reduceMotion
+      ? to
+      : withTiming(to, { duration: motion.celebrate, easing: Easing.bezier(...motion.easing) });
   }, [done, reduceMotion, fill]);
 
   const railFill = useAnimatedStyle(() => ({ height: `${fill.value * 100}%` }));
@@ -54,7 +63,13 @@ export function CoachStep({
               : { backgroundColor: lilac.tint, borderColor: lilac.solid },
           ]}>
           {done ? (
-            <Animated.View key="done" entering={reduceMotion ? undefined : ZoomIn.springify().damping(motion.spring.damping).stiffness(motion.spring.stiffness)}>
+            <Animated.View
+              key="done"
+              entering={
+                reduceMotion
+                  ? undefined
+                  : ZoomIn.springify().damping(motion.spring.damping).stiffness(motion.spring.stiffness)
+              }>
               <Check size={22} color={palette.surface} strokeWidth={3} />
             </Animated.View>
           ) : (
