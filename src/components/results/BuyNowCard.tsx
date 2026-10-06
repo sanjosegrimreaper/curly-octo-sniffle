@@ -97,6 +97,9 @@ export function BuyNowCard({ option, strength, perDay, formula, versions }: Prop
             </Text>
           </View>
           <Text variant="heading" testID={`buy-now-product-${option.id}`}>
+            {option.product}
+          </Text>
+          <Text variant="label" tone="muted">
             {option.seller}
           </Text>
         </View>

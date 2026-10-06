@@ -35,11 +35,11 @@
     "findMedicine": {
       "kind": "Prices",
       "title": "Look up your first medicine",
-      "body": "See prices you can pay today and programs that may help.",
+      "body": "See listed prices and programs that may help.",
       "cta": "Find a medicine"
     },
     "buyNow": {
-      "kind": "Price you can pay today",
+      "kind": "Listed price",
       "upTo": "Up to {{price}}",
       "at": "at {{seller}}",
       "cta": "See all prices for {{name}}"
@@ -73,7 +73,7 @@
   },
   "changes": {
     "title": "Changes since your last visit",
-    "note": "Only prices you can pay today are compared.",
+    "note": "Only listed checkout prices are compared.",
     "priceChanged": "Price for {{name}} changed from {{from}} to {{to}}",
     "lower": "Lower than before",
     "higher": "Higher than before"
@@ -82,7 +82,7 @@
     "title": "Saved medicines",
     "seeAll": "Open My medicines",
     "noPrice": "No price loaded yet",
-    "lowest": "Lowest price today",
+    "lowest": "Lowest listed price",
     "upTo": "Up to {{price}}",
     "open": "Opens prices for {{name}}",
     "missing": "No longer in our list — search again",

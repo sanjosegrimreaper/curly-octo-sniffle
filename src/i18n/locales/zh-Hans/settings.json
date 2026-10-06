@@ -1,1 +1,243 @@
-{}
+{
+  "title": "设置",
+  "sections": {
+    "display": "语言和显示",
+    "sound": "声音和触感",
+    "privacy": "隐私和帮助者模式",
+    "data": "数据和可信度"
+  },
+  "on": "开",
+  "off": "关",
+  "language": {
+    "label": "语言",
+    "hint": "立即生效。您的回答不会改变。"
+  },
+  "textSize": {
+    "label": "字体大小",
+    "default": "默认",
+    "large": "大",
+    "larger": "更大",
+    "preview": "预览",
+    "previewHeading": "您接下来最好的几步",
+    "previewBody": "这是整个应用中文字的样子。请选一个读起来轻松的大小。"
+  },
+  "theme": {
+    "label": "颜色",
+    "system": "跟随手机",
+    "light": "浅色",
+    "dark": "深色"
+  },
+  "highContrast": {
+    "label": "高对比度",
+    "description": "颜色更鲜明，边框更粗。在强光下更容易看清。"
+  },
+  "reduceMotion": {
+    "label": "动画",
+    "system": "跟随手机",
+    "on": "减少动画",
+    "off": "完整动画",
+    "description": "“减少动画”会关闭滑动效果和动态图片。"
+  },
+  "haptics": {
+    "label": "点击时振动",
+    "description": "按下按钮时轻轻振动一下。",
+    "web": "网页版不能使用。"
+  },
+  "speech": {
+    "label": "朗读速度",
+    "slow": "慢",
+    "normal": "正常",
+    "fast": "快",
+    "sample": "这是 RxBridge 朗读的速度。您随时可以修改。",
+    "test": "试听朗读速度"
+  },
+  "appLock": {
+    "label": "应用锁",
+    "description": "打开 RxBridge 前，需要使用面容 ID、指纹或手机密码。您的药品清单是私密的。",
+    "web": "应用锁只能在手机应用中使用，网页版不能用。",
+    "noHardware": "这部手机无法用面容 ID、指纹或密码锁定应用。",
+    "notEnrolled": "请先在手机上设置屏幕锁，然后再打开这个功能。",
+    "prompt": "打开应用锁",
+    "failed": "应用锁没有打开。",
+    "turnedOn": "应用锁已打开。"
+  },
+  "navigatorMode": {
+    "label": "我在帮助别人",
+    "description": "供社区健康工作者和家人使用的帮助者模式。这部手机上不会保存任何内容。每换一个人，请点击“新服务对象”。",
+    "clientLanguage": "服务对象的语言",
+    "clientLanguageHint": "用于资料单、药房柜台卡片和通话稿。",
+    "sameAsApp": "与应用相同",
+    "offTitle": "关闭帮助者模式？",
+    "offBody": "这会清除当前服务对象的回答，这些回答不会保存在这部手机上。",
+    "offConfirm": "清除并关闭帮助者模式"
+  },
+  "lowData": {
+    "label": "节省移动数据",
+    "description": "使用移动数据时，跳过价格更新。"
+  },
+  "privateNotifications": {
+    "label": "隐私提醒",
+    "description": "提醒只显示“该续药了”，不显示药名，这样别人在您的锁屏上看不到。"
+  },
+  "clear": {
+    "button": "清除我的数据",
+    "hint": "从这部手机上删除您的回答、已保存的药和申请。",
+    "title": "清除您的数据？",
+    "body": "这会从这部手机上删除您的回答、已保存的药和申请。您的语言和设置会保留。",
+    "confirm": "是的，清除我的数据",
+    "done": "您的数据已清除。"
+  },
+  "links": {
+    "sources": "数据来源和日期",
+    "sourcesSub": "每条信息的来源，以及它有多新",
+    "about": "关于 RxBridge",
+    "aboutSub": "版本、隐私和许可证",
+    "report": "报告问题",
+    "reportSub": "打开我们在 github.com 上的公开问题列表",
+    "reportHint": "请不要在那里写个人或健康信息。"
+  },
+  "navigator": {
+    "barTitle": "正在帮助别人——不会保存任何内容",
+    "barBody": "帮助下一个人之前，请点击“新服务对象”。",
+    "clientLanguage": "服务对象的语言：{{language}}",
+    "newClient": "新服务对象",
+    "confirmTitle": "开始帮助新的服务对象？",
+    "confirmBody": "这会清除本次使用中的所有回答、药品和申请。",
+    "confirm": "是的，为新服务对象清除",
+    "done": "可以开始帮助新的服务对象了。"
+  },
+  "sources": {
+    "title": "数据来源和日期",
+    "intro": "RxBridge 只显示来自官方网页和文件的信息。下面是这个版本包含的内容，以及它有多新。",
+    "pack": {
+      "title": "这份数据",
+      "region": "地区：{{name}}",
+      "id": "数据 ID：{{id}}",
+      "version": "版本 {{version}}",
+      "generated": "生成于 {{date}}",
+      "statusDraft": "预览数据",
+      "statusDraftBody": "部分信息尚未在官方网页上确认。在应用中，它们标有“尚未确认——请打电话确认”。在依靠这些信息之前，请先打电话。",
+      "statusRelease": "已确认的数据",
+      "statusReleaseBody": "每条信息都在官方网页或文件上核实过。"
+    },
+    "files": {
+      "title": "包含哪些内容",
+      "hint": "每条信息要么已在官方来源上确认，要么标有“尚未确认”。",
+      "records_other": "{{count}} 条记录",
+      "confirmed": "{{count}} 条已确认",
+      "unconfirmed": "{{count}} 条尚未确认",
+      "none": "还没有列出内容",
+      "names": {
+        "region": "地区和县",
+        "fpl": "联邦贫困线标准",
+        "benefits": "保险规定",
+        "medications": "药品",
+        "programs": "援助计划",
+        "outlook": "仿制药前景",
+        "pharmacies": "药房",
+        "clinics": "社区诊所",
+        "helpers": "免费帮忙的人",
+        "notices": "规定变化",
+        "facts": "Medicare 知识",
+        "glossary": "词语解释",
+        "direct": "药厂和计划提供的价格",
+        "costPlus": "Cost Plus Drugs 价格快照",
+        "nadac": "批发价（NADAC）"
+      }
+    },
+    "prices": {
+      "title": "价格日期",
+      "nadac": "批发价（NADAC）",
+      "nadacAsOf": "截至 {{date}}",
+      "nadacNote": "这是药房向批发商支付的价格——您无法按这个价格购买。",
+      "costPlus": "Cost Plus Drugs 价格",
+      "costPlusDate": "{{date}} 的价格快照",
+      "notLoaded": "尚未载入"
+    },
+    "unverified": {
+      "title": "尚未确认——未收录",
+      "hint": "我们查找过这些信息，但无法确认，所以应用中不显示。",
+      "tried": "上次尝试：{{date}}"
+    },
+    "verify": {
+      "title": "我们如何核实",
+      "intro": "应用中的每条信息都有一个来源标签。点击它，可以看到信息来自哪里、我们何时核实以及如何核实。",
+      "stale": "超过6个月的信息会显示黄色警告。",
+      "methods": {
+        "http-200": "我们打开了官方网页，网页可以正常加载。",
+        "browser-confirmed": "有人打开了官方网页，并在网页上读到了这条信息。",
+        "official-data-file": "这个数字来自政府公布的数据文件。",
+        "official-pdf": "我们在官方来源的文件（PDF）中读到了它。",
+        "official-api": "我们从来源方自己的数据服务获取。",
+        "phone-confirmed": "我们拨打了官方电话号码询问。",
+        "unconfirmed": "我们只在搜索结果中看到过，或者无法打开网页。请打电话确认。"
+      }
+    },
+    "report": "在 github.com 上报告问题"
+  },
+  "about": {
+    "title": "关于 RxBridge",
+    "version": "应用版本 {{version}}",
+    "build": "构建版本 {{build}}",
+    "dataVersion": "数据版本 {{version}}",
+    "what": {
+      "title": "RxBridge 是什么",
+      "body": "RxBridge 是一个免费应用，帮您找到药品的真实价格，以及可能帮您付费的计划。它支持英文、西班牙文、中文和印地文。"
+    },
+    "privacy": {
+      "title": "您的隐私",
+      "body": "无需账户。不追踪。",
+      "detail": "我们不收集您的回答。它们只保存在这部手机上的这个应用中。任何使用这部手机的人都可能看到——您可以在“设置”中锁定应用。朗读功能可能会使用手机的语音服务。"
+    },
+    "honesty": {
+      "title": "我们的诚实原则",
+      "rule1": "我们从不编造价格、电话号码、地址或规定。如果不知道，我们会直说。",
+      "rule2": "每条信息都会显示来源和我们核实的日期。",
+      "rule3": "我们把三类价格分开：今天就能付的价格、折扣券链接（我们从不显示折扣金额），以及没有人能按此购买的批发价。",
+      "rule4": "我们会说“可能”和“也许”，因为只有计划本身能做决定。",
+      "rule5": "我们从不提供医疗建议。改变任何用药之前，请先问您的医生或药剂师。"
+    },
+    "affiliation": {
+      "title": "无隶属关系",
+      "body": "RxBridge 不隶属于 Medi-Cal、Covered California、Medicare、任何县政府、GoodRx、SingleCare、Cost Plus Drugs 或任何药厂，也不接受它们的资助。RxBridge 不提供医疗建议。"
+    },
+    "licenses": {
+      "title": "字体和许可证",
+      "fredoka": "Fredoka — SIL Open Font License",
+      "atkinson": "Atkinson Hyperlegible Next — SIL Open Font License"
+    }
+  },
+  "gallery": {
+    "title": "设计展示",
+    "devOnly": "此页面只在开发版本中显示。",
+    "cards": "卡片",
+    "badges": "徽章",
+    "banners": "横幅",
+    "chips": "标签和分段控件",
+    "buttons": "按钮",
+    "sourceChips": "来源标签",
+    "rings": "新鲜度圆环",
+    "empty": "空状态",
+    "illustrations": "插图",
+    "toggles": "开关行",
+    "sampleTitle": "示例标题",
+    "sampleBody": "用于设计审查的示例正文。",
+    "confirmed": "已确认来源",
+    "unconfirmed": "未确认来源",
+    "stale": "超过6个月",
+    "days_other": "{{count}} 天前",
+    "selected": "已选择",
+    "notSelected": "未选择",
+    "primary": "主要按钮",
+    "secondary": "次要按钮",
+    "ghost": "幽灵按钮",
+    "danger": "危险按钮",
+    "info": "信息横幅",
+    "caution": "警示横幅",
+    "success": "成功横幅"
+  },
+  "privacyNote": {
+    "title": "您的隐私",
+    "body": "我们不收集您的回答。它们只保存在这部手机上的这个应用中。任何使用这部手机的人都可能看到——您可以在“设置”中锁定应用。朗读功能可能会使用手机的语音服务。"
+  }
+}

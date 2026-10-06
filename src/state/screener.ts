@@ -41,7 +41,7 @@ export const emptyScreener: ScreenerValues = {
   age65: null,
   county: null,
   householdSize: null,
-  incomeUnit: 'year',
+  incomeUnit: 'month',
   income: null,
   copayCents: null,
   checklist: {},

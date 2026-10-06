@@ -11,6 +11,7 @@ import { Button, motion, radius, Screen, spacing, Text, useTheme } from '@/desig
 import { LAUNCH_LANGUAGES, type Lang } from '@/i18n/languages';
 import { useScreener } from '@/state/screener';
 import { useSettings } from '@/state/settings';
+import { startFresh } from '@/navigation';
 
 /** First launch: pick a language (the whole app switches instantly), then start the screener or go straight to search. */
 export default function WelcomeScreen() {
@@ -35,7 +36,7 @@ export default function WelcomeScreen() {
   const justSearch = () => {
     confirmLanguage();
     updateScreener({ skipped: true });
-    router.replace(href(ROUTES.find));
+    startFresh(href(ROUTES.find));
   };
 
   return (

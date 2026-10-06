@@ -1,1 +1,247 @@
-{}
+{
+  "title": "Configuración",
+  "sections": {
+    "display": "Idioma y pantalla",
+    "sound": "Sonido y vibración",
+    "privacy": "Privacidad y modo de ayudante",
+    "data": "Datos y confianza"
+  },
+  "on": "Activado",
+  "off": "Desactivado",
+  "language": {
+    "label": "Idioma",
+    "hint": "Cambia de inmediato. Sus respuestas no cambian."
+  },
+  "textSize": {
+    "label": "Tamaño del texto",
+    "default": "Normal",
+    "large": "Grande",
+    "larger": "Más grande",
+    "preview": "Vista previa",
+    "previewHeading": "Sus mejores próximos pasos",
+    "previewBody": "Así se ven las palabras en la aplicación. Elija un tamaño que le resulte fácil de leer."
+  },
+  "theme": {
+    "label": "Colores",
+    "system": "Igual que el teléfono",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  "highContrast": {
+    "label": "Alto contraste",
+    "description": "Colores más fuertes y bordes más gruesos. Más fácil de leer con mucha luz."
+  },
+  "reduceMotion": {
+    "label": "Movimiento",
+    "system": "Igual que el teléfono",
+    "on": "Menos movimiento",
+    "off": "Movimiento completo",
+    "description": "\"Menos movimiento\" apaga las transiciones y las imágenes en movimiento."
+  },
+  "haptics": {
+    "label": "Vibrar al tocar",
+    "description": "Una pequeña vibración cuando toca un botón.",
+    "web": "No disponible en la web."
+  },
+  "speech": {
+    "label": "Velocidad de lectura en voz alta",
+    "slow": "Lenta",
+    "normal": "Normal",
+    "fast": "Rápida",
+    "sample": "Así de rápido lee RxBridge en voz alta. Puede cambiarlo cuando quiera.",
+    "test": "Probar la velocidad de lectura"
+  },
+  "appLock": {
+    "label": "Bloqueo de la aplicación",
+    "description": "Pedir Face ID, huella digital o el código de su teléfono antes de abrir RxBridge. Su lista de medicamentos es privada.",
+    "web": "El bloqueo de la aplicación funciona en la aplicación del teléfono. No está disponible en la web.",
+    "noHardware": "Este teléfono no puede bloquear aplicaciones con Face ID, huella digital o código.",
+    "notEnrolled": "Primero configure un bloqueo de pantalla en su teléfono. Luego active esta opción.",
+    "prompt": "Activar el bloqueo de la aplicación",
+    "failed": "No se activó el bloqueo de la aplicación.",
+    "turnedOn": "El bloqueo de la aplicación está activado."
+  },
+  "navigatorMode": {
+    "label": "Estoy ayudando a otra persona",
+    "description": "Modo de ayudante para promotores de salud y familiares. No se guarda nada en este teléfono. Toque \"Nuevo cliente\" entre una persona y otra.",
+    "clientLanguage": "Idioma del cliente",
+    "clientLanguageHint": "Se usa para las hojas informativas, la tarjeta para el mostrador de la farmacia y los guiones de llamada.",
+    "sameAsApp": "Igual que la aplicación",
+    "offTitle": "¿Apagar el modo de ayudante?",
+    "offBody": "Esto borra las respuestas del cliente actual para que no se guarden en este teléfono.",
+    "offConfirm": "Borrar y apagar el modo de ayudante"
+  },
+  "lowData": {
+    "label": "Ahorrar datos móviles",
+    "description": "No descarga actualizaciones de precios cuando usa datos celulares."
+  },
+  "privateNotifications": {
+    "label": "Recordatorios privados",
+    "description": "Los recordatorios dicen \"Es hora de resurtir un medicamento\" sin el nombre del medicamento, para que otras personas no puedan leerlo en su pantalla de bloqueo."
+  },
+  "clear": {
+    "button": "Borrar mis datos",
+    "hint": "Borra de este teléfono sus respuestas, sus medicamentos guardados y sus solicitudes.",
+    "title": "¿Borrar sus datos?",
+    "body": "Esto borra de este teléfono sus respuestas, sus medicamentos guardados y sus solicitudes. Su idioma y su configuración se quedan igual.",
+    "confirm": "Sí, borrar mis datos",
+    "done": "Se borraron sus datos."
+  },
+  "links": {
+    "sources": "Fuentes y fechas de los datos",
+    "sourcesSub": "De dónde viene cada dato y qué tan actual es",
+    "about": "Acerca de RxBridge",
+    "aboutSub": "Versión, privacidad y licencias",
+    "report": "Reportar un problema",
+    "reportSub": "Abre nuestra lista pública de problemas en github.com",
+    "reportHint": "Por favor no escriba ahí datos personales ni de salud."
+  },
+  "navigator": {
+    "barTitle": "Ayudando a otra persona — no se guarda nada",
+    "barBody": "Toque \"Nuevo cliente\" antes de ayudar a la siguiente persona.",
+    "clientLanguage": "Idioma del cliente: {{language}}",
+    "newClient": "Nuevo cliente",
+    "confirmTitle": "¿Empezar con un nuevo cliente?",
+    "confirmBody": "Esto borra todas las respuestas, medicamentos y solicitudes de esta sesión.",
+    "confirm": "Sí, borrar para un nuevo cliente",
+    "done": "Listo para un nuevo cliente."
+  },
+  "sources": {
+    "title": "Fuentes y fechas de los datos",
+    "intro": "RxBridge solo muestra datos de páginas y archivos oficiales. Esto es lo que contiene esta versión y qué tan actual es.",
+    "pack": {
+      "title": "Estos datos",
+      "region": "Región: {{name}}",
+      "id": "ID de los datos: {{id}}",
+      "version": "Versión {{version}}",
+      "generated": "Creado el {{date}}",
+      "statusDraft": "Datos preliminares",
+      "statusDraftBody": "Algunos datos aún no están confirmados en la página oficial. En la aplicación dicen \"Aún no confirmado — llame para confirmar\". Por favor llame antes de confiar en ellos.",
+      "statusRelease": "Datos confirmados",
+      "statusReleaseBody": "Cada dato se revisó en una página o un archivo oficial."
+    },
+    "files": {
+      "title": "Qué contiene",
+      "hint": "Cada dato está confirmado en la fuente oficial o marcado como \"Aún no confirmado\".",
+      "records_one": "{{count}} registro",
+      "records_other": "{{count}} registros",
+      "records_many": "{{count}} registros",
+      "confirmed": "Confirmados: {{count}}",
+      "unconfirmed": "Aún no confirmados: {{count}}",
+      "none": "Todavía no hay nada",
+      "names": {
+        "region": "Región y condados",
+        "fpl": "Pautas federales de pobreza",
+        "benefits": "Reglas de cobertura",
+        "medications": "Medicamentos",
+        "programs": "Programas de ayuda",
+        "outlook": "Cuándo podría haber genéricos",
+        "pharmacies": "Farmacias",
+        "clinics": "Clínicas comunitarias",
+        "helpers": "Personas que ayudan gratis",
+        "notices": "Cambios en las reglas",
+        "facts": "Datos sobre Medicare",
+        "glossary": "Significado de palabras",
+        "direct": "Precios de fabricantes y programas",
+        "costPlus": "Precios guardados de Cost Plus Drugs",
+        "nadac": "Precios mayoristas (NADAC)"
+      }
+    },
+    "prices": {
+      "title": "Fechas de los precios",
+      "nadac": "Precios mayoristas (NADAC)",
+      "nadacAsOf": "Al {{date}}",
+      "nadacNote": "Lo que pagan las farmacias a los mayoristas — no puede comprar a este precio.",
+      "costPlus": "Precios de Cost Plus Drugs",
+      "costPlusDate": "Precios tomados el {{date}}",
+      "notLoaded": "Todavía no se cargaron"
+    },
+    "unverified": {
+      "title": "Aún no confirmado — no se incluye",
+      "hint": "Buscamos estos datos pero no pudimos confirmarlos, por eso la aplicación no los muestra.",
+      "tried": "Último intento: {{date}}"
+    },
+    "verify": {
+      "title": "Cómo revisamos los datos",
+      "intro": "Cada dato en la aplicación tiene una etiqueta de fuente. Tóquela para ver de dónde viene el dato, cuándo lo revisamos y cómo.",
+      "stale": "Los datos reciben un aviso amarillo cuando tienen más de 6 meses.",
+      "methods": {
+        "http-200": "Abrimos la página web oficial y cargó bien.",
+        "browser-confirmed": "Una persona abrió la página oficial y leyó el dato ahí.",
+        "official-data-file": "El número viene de un archivo de datos que publica el gobierno.",
+        "official-pdf": "Lo leímos en un documento (PDF) de la fuente oficial.",
+        "official-api": "Lo obtuvimos del servicio de datos de la propia fuente.",
+        "phone-confirmed": "Llamamos al número de teléfono oficial y preguntamos.",
+        "unconfirmed": "Solo lo vimos en resultados de búsqueda, o no pudimos abrir la página. Llame para confirmar."
+      }
+    },
+    "report": "Reportar un problema en github.com"
+  },
+  "about": {
+    "title": "Acerca de RxBridge",
+    "version": "Versión de la aplicación {{version}}",
+    "build": "Compilación {{build}}",
+    "dataVersion": "Versión de los datos {{version}}",
+    "what": {
+      "title": "Qué es RxBridge",
+      "body": "RxBridge es una aplicación gratuita que le ayuda a encontrar precios honestos para sus medicamentos y programas que podrían ayudarle a pagar. Funciona en inglés, español, chino e hindi."
+    },
+    "privacy": {
+      "title": "Su privacidad",
+      "body": "Sin cuenta. Sin rastreo.",
+      "detail": "No recopilamos sus respuestas. Solo se guardan en esta aplicación, en este teléfono. Cualquier persona que use este teléfono podría verlas — puede bloquear la aplicación en Configuración. La lectura en voz alta podría usar el servicio de voz de su teléfono."
+    },
+    "honesty": {
+      "title": "Nuestras reglas de honestidad",
+      "rule1": "Nunca inventamos un precio, un teléfono, una dirección ni una regla. Si no sabemos algo, lo decimos.",
+      "rule2": "Cada dato muestra de dónde viene y cuándo lo revisamos.",
+      "rule3": "Mantenemos separados tres tipos de precios: precios que puede pagar hoy, enlaces de cupones de descuento (nunca mostramos su monto) y precios mayoristas a los que nadie puede comprar.",
+      "rule4": "Decimos \"puede\", \"podría\" y \"es posible que\" porque solo el programa puede decidir.",
+      "rule5": "Nunca damos consejos médicos. Pregunte a su médico o farmacéutico antes de cambiar algo."
+    },
+    "affiliation": {
+      "title": "Sin afiliación",
+      "body": "RxBridge no es parte de Medi-Cal, Covered California, Medicare, ningún condado, GoodRx, SingleCare, Cost Plus Drugs ni ninguna compañía farmacéutica, ni recibe pagos de ellos. RxBridge no da consejos médicos."
+    },
+    "licenses": {
+      "title": "Tipos de letra y licencias",
+      "fredoka": "Fredoka — SIL Open Font License",
+      "atkinson": "Atkinson Hyperlegible Next — SIL Open Font License"
+    }
+  },
+  "gallery": {
+    "title": "Galería de diseño",
+    "devOnly": "Esta página solo está en las versiones para desarrolladores.",
+    "cards": "Tarjetas",
+    "badges": "Insignias",
+    "banners": "Avisos",
+    "chips": "Etiquetas y control segmentado",
+    "buttons": "Botones",
+    "sourceChips": "Etiquetas de fuente",
+    "rings": "Anillos de actualidad",
+    "empty": "Estado vacío",
+    "illustrations": "Ilustraciones",
+    "toggles": "Filas con interruptor",
+    "sampleTitle": "Título de ejemplo",
+    "sampleBody": "Texto de ejemplo para revisar el diseño.",
+    "confirmed": "Fuente confirmada",
+    "unconfirmed": "Fuente no confirmada",
+    "stale": "Más de 6 meses",
+    "days_one": "Hace {{count}} día",
+    "days_other": "Hace {{count}} días",
+    "days_many": "Hace {{count}} días",
+    "selected": "Seleccionado",
+    "notSelected": "No seleccionado",
+    "primary": "Botón principal",
+    "secondary": "Botón secundario",
+    "ghost": "Botón transparente",
+    "danger": "Botón de peligro",
+    "info": "Aviso informativo",
+    "caution": "Aviso de precaución",
+    "success": "Aviso de éxito"
+  },
+  "privacyNote": {
+    "title": "Su privacidad",
+    "body": "No recopilamos sus respuestas. Solo se guardan en esta aplicación, en este teléfono. Cualquier persona que use este teléfono podría verlas — puede bloquear la aplicación en Configuración. La lectura en voz alta podría usar el servicio de voz de su teléfono."
+  }
+}

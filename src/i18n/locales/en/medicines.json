@@ -1,6 +1,6 @@
 {
   "title": "My medicines",
-  "intro": "Your saved medicines, their lowest prices today and your monthly total.",
+  "intro": "Your saved medicines, their lowest listed prices and your monthly total.",
   "budget": {
     "label": "Monthly budget",
     "perMonth": "{{price}} a month",
@@ -12,7 +12,7 @@
     "needDays_one": "+ {{count}} more once you tell us how long a fill lasts",
     "needDays_other": "+ {{count}} more once you tell us how long a fill lasts",
     "noneYet": "No monthly total yet",
-    "explain": "We add up only prices you can pay today that are listed in this app. We never guess a price. A medicine counts when we know its price and how many days one fill lasts.",
+    "explain": "We add up only checkout prices listed in this app. We never guess a price. A medicine counts when we know its price and how many days one fill lasts.",
     "upToNote": "Some prices are the most a pharmacy may charge, so your total may be lower.",
     "showMath": "Show the math",
     "hideMath": "Hide the math",
@@ -31,7 +31,7 @@
     "cta": "Find a medicine"
   },
   "card": {
-    "lowestLabel": "Lowest price you can pay today",
+    "lowestLabel": "Lowest listed price",
     "upTo": "Up to {{price}}",
     "maxNote": "This is the most the pharmacy may charge. Call to confirm.",
     "at": "at {{seller}}",

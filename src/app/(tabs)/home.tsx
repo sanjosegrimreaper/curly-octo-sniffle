@@ -26,6 +26,7 @@ import { useApplications } from '@/state/applications';
 import { useMedicines } from '@/state/medicines';
 import { useScreener } from '@/state/screener';
 import { useUi } from '@/state/ui';
+import { startFresh } from '@/navigation';
 
 /** Stagger entrance: ~40ms apart, each ≤320ms. Nothing animates with Reduce Motion. */
 function useEnter() {
@@ -75,7 +76,7 @@ export default function HomeScreen() {
       onConfirm: async () => {
         await wipeEverything();
         useUi.getState().showToast(t('startOver.done'), 'success');
-        router.replace('/');
+        startFresh('/');
       },
     });
 

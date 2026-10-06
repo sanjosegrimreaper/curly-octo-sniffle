@@ -7,6 +7,7 @@
         "tab-2-5",
         "tab-5"
       ],
+      "product": "Eliquis",
       "seller": "Bristol Myers Squibb (Eliquis direct)",
       "description": {
         "en": "Cash price straight from the maker, shipped to you.",
@@ -48,6 +49,7 @@
         "tab-2-5",
         "tab-5"
       ],
+      "product": "Eliquis",
       "seller": "Bristol Myers Squibb (Eliquis direct)",
       "description": {
         "en": "Cash price straight from the maker, shipped to you.",
@@ -89,6 +91,7 @@
         "tab-2-5",
         "tab-5"
       ],
+      "product": "Eliquis",
       "seller": "Bristol Myers Squibb (Eliquis direct)",
       "description": {
         "en": "Cash price straight from the maker, shipped to you.",
@@ -130,6 +133,7 @@
         "tab-2-5",
         "tab-5"
       ],
+      "product": "Eliquis",
       "seller": "Mark Cuban Cost Plus Drugs",
       "description": {
         "en": "Brand Eliquis by mail from Cost Plus Drugs, as announced by the maker.",
@@ -170,6 +174,7 @@
       "strengthIds": [
         "pens-5x3"
       ],
+      "product": "Insulin glargine-yfgn (CalRx)",
       "seller": "CalRx / Civica (insulin glargine-yfgn)",
       "description": {
         "en": "California's state-label insulin, sold at pharmacies that carry it.",
@@ -188,10 +193,10 @@
       },
       "url": "https://civicainsulin.org/for-patients/",
       "eligibility": {
-        "en": "Suggested maximum price; the pharmacy sets the final price. Not every pharmacy has it yet — ask first. A current insulin glargine or Lantus prescription works.",
-        "zh-Hans": "这是建议的最高价格；最终价格由药房决定。目前不是每家药房都有——请先问清楚。使用有效的甘精胰岛素或 Lantus 处方即可。",
-        "es": "Precio máximo sugerido; la farmacia decide el precio final. Todavía no todas las farmacias la tienen — pregunte antes. Sirve una receta vigente de insulina glargina o de Lantus.",
-        "hi": "सुझाई गई ज़्यादा से ज़्यादा कीमत; आख़िरी कीमत फ़ार्मेसी तय करती है। अभी हर फ़ार्मेसी में यह नहीं मिलती — पहले पूछ लें। इंसुलिन ग्लार्जिन या Lantus का मौजूदा प्रिस्क्रिप्शन चल जाता है।"
+        "en": "Not every pharmacy has it yet — ask first. A current insulin glargine or Lantus prescription works.",
+        "zh-Hans": "目前不是每家药房都有——请先问清楚。使用有效的甘精胰岛素或 Lantus 处方即可。",
+        "es": "Todavía no todas las farmacias la tienen — pregunte antes. Sirve una receta vigente de insulina glargina o de Lantus.",
+        "hi": "अभी हर फ़ार्मेसी में यह नहीं मिलती — पहले पूछ लें। इंसुलिन ग्लार्जिन या Lantus का मौजूदा प्रिस्क्रिप्शन चल जाता है।"
       },
       "sources": [
         {
@@ -218,6 +223,7 @@
         "pens-5x3",
         "vial-10"
       ],
+      "product": "Lantus (and other Sanofi insulins)",
       "seller": "Sanofi Insulins Valyou (Lantus)",
       "description": {
         "en": "A fixed monthly price for Sanofi insulins, including Lantus.",
@@ -258,6 +264,7 @@
       "strengthIds": [
         "pens-5x3"
       ],
+      "product": "Basaglar or Rezvoglar",
       "seller": "Lilly Insulin Value Program (Basaglar, Rezvoglar)",
       "description": {
         "en": "A monthly price for Lilly insulins, including Basaglar and Rezvoglar.",

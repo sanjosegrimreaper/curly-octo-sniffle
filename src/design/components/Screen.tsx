@@ -39,7 +39,7 @@ export function Screen({ title, eyebrow, back, right, top, children, footer, scr
   const onBack = typeof back === 'function' ? back : () => (router.canGoBack() ? router.back() : router.replace('/'));
 
   const header =
-    back || right || title ? (
+    back || right ? (
       <View style={styles.headerRow}>
         {back ? (
           <Tappable

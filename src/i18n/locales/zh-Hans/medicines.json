@@ -1,1 +1,72 @@
-{}
+{
+  "title": "我的药",
+  "intro": "您保存的药、它们今天的最低价，以及您每月的总费用。",
+  "budget": {
+    "label": "每月预算",
+    "perMonth": "每月 {{price}}",
+    "perMonthUpTo": "每月最高 {{price}}",
+    "forCount_other": "共 {{count}} 种药",
+    "noPrice_other": "+ {{count}} 种没有列出价格",
+    "needDays_other": "+ 还有 {{count}} 种：告诉我们一次配的药能用几天后，就能算进去",
+    "noneYet": "还没有每月总费用",
+    "explain": "我们只把本应用中列出的、今天就能付的价格加起来。我们从不猜测价格。只有知道一种药的价格，以及一次配的药能用几天，才会把它算进去。",
+    "upToNote": "有些价格是药房最多可能收取的金额，所以您的总费用可能更低。",
+    "showMath": "显示计算过程",
+    "hideMath": "隐藏计算过程",
+    "mathLine": "{{name}}：{{price}} ÷ {{days}} 天 × 30 = {{monthly}}",
+    "mathLineUpTo": "{{name}}：最高 {{price}} ÷ {{days}} 天 × 30 = {{monthly}}",
+    "mathTotal": "30天总计：{{total}}"
+  },
+  "lock": {
+    "title": "保护这份清单的隐私",
+    "body": "您可以在“设置”中锁定这份清单。",
+    "cta": "打开设置"
+  },
+  "empty": {
+    "title": "还没有保存的药",
+    "body": "查找药品时，点击星号就能把它保存到这里。之后您可以查看每月总费用，并设定续药提醒。",
+    "cta": "查找药品"
+  },
+  "card": {
+    "lowestLabel": "今天就能付的最低价",
+    "upTo": "最高 {{price}}",
+    "maxNote": "这是药房最多可能收取的金额。请打电话确认。",
+    "at": "购买处：{{seller}}",
+    "per30": "每30天 {{price}}",
+    "noPrice": "还没有载入可直接购买的价格",
+    "noPriceBody": "打开这种药，查看折扣券链接和可能有帮助的计划。",
+    "missing": "已不在我们的列表中——请重新搜索",
+    "missingBody": "当前数据中没有这种药或这个剂量。请重新搜索，或把它删除。",
+    "missingSearch": "重新搜索",
+    "genericMayCome": "仿制药可能于 {{year}}年上市",
+    "hasProgram": "有援助计划",
+    "lastsQuestion": "一次配的药能用多久？",
+    "lastsHint": "选一个，把这种药加入您的每月预算。",
+    "days_other": "{{count}} 天",
+    "open": "打开 {{name}} 的价格",
+    "remind": "设定续药提醒",
+    "remindOn_other": "每 {{count}} 天提醒一次",
+    "remindOff": "点击关闭提醒",
+    "remindWeb": "续药提醒只能在手机应用中使用，网页版不能用。",
+    "remove": "删除 {{name}}"
+  },
+  "remove": {
+    "title": "删除 {{name}}？",
+    "body": "它将不再显示在“我的药”或“我的计划”中。它的续药提醒也会停止。",
+    "confirm": "是的，删除",
+    "done": "已删除 {{name}}。"
+  },
+  "refill": {
+    "sheetTitle": "一次配的药能用多久？",
+    "sheetBody": "到了该续药的时候，我们会在这部手机上提醒您。",
+    "every_other": "每 {{count}} 天",
+    "privacy": "提醒只保存在这部手机上，不会发送到任何地方。",
+    "title": "RxBridge",
+    "privateBody": "该续药了",
+    "namedBody": "该为 {{name}} 续药了",
+    "set_other": "已设定提醒：每 {{count}} 天一次。",
+    "off": "续药提醒已关闭。",
+    "web": "提醒只能在手机应用中使用，网页版不能用。",
+    "denied": "RxBridge 的提醒已关闭。您可以在手机设置中打开通知。"
+  }
+}

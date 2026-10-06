@@ -1,1 +1,86 @@
-{}
+{
+  "title": "Mis medicamentos",
+  "intro": "Sus medicamentos guardados, sus precios más bajos hoy y su total al mes.",
+  "budget": {
+    "label": "Presupuesto mensual",
+    "perMonth": "{{price}} al mes",
+    "perMonthUpTo": "Hasta {{price}} al mes",
+    "forCount_one": "para {{count}} medicamento",
+    "forCount_other": "para {{count}} medicamentos",
+    "forCount_many": "para {{count}} medicamentos",
+    "noPrice_one": "+ {{count}} sin precio indicado",
+    "noPrice_other": "+ {{count}} sin precio indicado",
+    "noPrice_many": "+ {{count}} sin precio indicado",
+    "needDays_one": "+ {{count}} más cuando nos diga cuánto le dura cada surtido",
+    "needDays_other": "+ {{count}} más cuando nos diga cuánto le dura cada surtido",
+    "needDays_many": "+ {{count}} más cuando nos diga cuánto le dura cada surtido",
+    "noneYet": "Todavía no hay total mensual",
+    "explain": "Solo sumamos precios que puede pagar hoy y que aparecen en esta aplicación. Nunca adivinamos un precio. Un medicamento cuenta cuando sabemos su precio y cuántos días le dura cada surtido.",
+    "upToNote": "Algunos precios son lo máximo que una farmacia puede cobrar, así que su total podría ser menor.",
+    "showMath": "Ver el cálculo",
+    "hideMath": "Ocultar el cálculo",
+    "mathLine": "{{name}}: {{price}} ÷ {{days}} días × 30 = {{monthly}}",
+    "mathLineUpTo": "{{name}}: hasta {{price}} ÷ {{days}} días × 30 = {{monthly}}",
+    "mathTotal": "Total para 30 días: {{total}}"
+  },
+  "lock": {
+    "title": "Mantenga esta lista privada",
+    "body": "Puede bloquear esta lista en Configuración.",
+    "cta": "Abrir Configuración"
+  },
+  "empty": {
+    "title": "Todavía no tiene medicamentos guardados",
+    "body": "Cuando busque un medicamento, toque la estrella para guardarlo aquí. Así podrá ver su total mensual y poner recordatorios para resurtir.",
+    "cta": "Buscar un medicamento"
+  },
+  "card": {
+    "lowestLabel": "Precio más bajo que puede pagar hoy",
+    "upTo": "Hasta {{price}}",
+    "maxNote": "Esto es lo máximo que la farmacia puede cobrar. Llame para confirmar.",
+    "at": "en {{seller}}",
+    "per30": "{{price}} por 30 días",
+    "noPrice": "Todavía no se cargó un precio de compra",
+    "noPriceBody": "Abra el medicamento para ver enlaces de cupones de descuento y programas que podrían ayudarle.",
+    "missing": "Ya no está en nuestra lista — busque de nuevo",
+    "missingBody": "Este medicamento o esta dosis no está en los datos actuales. Búsquelo de nuevo o quítelo.",
+    "missingSearch": "Buscar de nuevo",
+    "genericMayCome": "Podría haber genérico en {{year}}",
+    "hasProgram": "Tiene un programa de ayuda",
+    "lastsQuestion": "¿Cuánto le dura cada surtido?",
+    "lastsHint": "Elija una opción para sumar este medicamento a su presupuesto mensual.",
+    "days_one": "{{count}} día",
+    "days_other": "{{count}} días",
+    "days_many": "{{count}} días",
+    "open": "Abrir los precios de {{name}}",
+    "remind": "Poner recordatorio para resurtir",
+    "remindOn_one": "Recordatorio cada {{count}} día",
+    "remindOn_other": "Recordatorio cada {{count}} días",
+    "remindOn_many": "Recordatorio cada {{count}} días",
+    "remindOff": "Toque para apagar el recordatorio",
+    "remindWeb": "Los recordatorios para resurtir funcionan en la aplicación del teléfono, no en la web.",
+    "remove": "Quitar {{name}}"
+  },
+  "remove": {
+    "title": "¿Quitar {{name}}?",
+    "body": "Ya no aparecerá en Mis medicamentos ni en Mi plan. Se apaga cualquier recordatorio para resurtirlo.",
+    "confirm": "Sí, quitarlo",
+    "done": "Se quitó {{name}}."
+  },
+  "refill": {
+    "sheetTitle": "¿Cuánto le dura cada surtido?",
+    "sheetBody": "Le recordaremos en este teléfono cuando sea hora de resurtir.",
+    "every_one": "Cada {{count}} día",
+    "every_other": "Cada {{count}} días",
+    "every_many": "Cada {{count}} días",
+    "privacy": "Los recordatorios se quedan en este teléfono. No se envía nada a ningún lado.",
+    "title": "RxBridge",
+    "privateBody": "Es hora de resurtir un medicamento",
+    "namedBody": "Es hora de resurtir {{name}}",
+    "set_one": "Recordatorio puesto: cada {{count}} día.",
+    "set_other": "Recordatorio puesto: cada {{count}} días.",
+    "set_many": "Recordatorio puesto: cada {{count}} días.",
+    "off": "Se apagó el recordatorio para resurtir.",
+    "web": "Los recordatorios funcionan en la aplicación del teléfono. No están disponibles en la web.",
+    "denied": "Los recordatorios están apagados para RxBridge. Puede activar las notificaciones en la configuración de su teléfono."
+  }
+}

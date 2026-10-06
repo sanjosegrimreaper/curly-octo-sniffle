@@ -1,4 +1,3 @@
-import { router } from 'expo-router';
 import {
   Compass,
   Info,
@@ -32,6 +31,7 @@ import { haptic } from '@/services/haptics';
 import { wipePersonalData } from '@/state/session';
 import { useScreener } from '@/state/screener';
 import { useUi } from '@/state/ui';
+import { startFresh } from '@/navigation';
 
 const ROUTE = ROUTES.result;
 
@@ -81,7 +81,7 @@ export default function ResultScreen() {
 
   const finish = (to: string) => {
     useScreener.getState().update({ completedAt: new Date().toISOString() });
-    router.replace(href(to));
+    startFresh(href(to));
   };
 
   const startOver = () =>
@@ -345,7 +345,7 @@ function StartOverConfirm() {
         onPress={async () => {
           closeSheet();
           await wipePersonalData();
-          router.replace(href(ROUTES.coverage));
+          startFresh(href(ROUTES.coverage));
         }}
         testID="result-start-over-confirm"
       />

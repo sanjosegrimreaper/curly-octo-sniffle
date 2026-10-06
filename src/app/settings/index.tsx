@@ -39,6 +39,7 @@ import { LANGUAGES, LAUNCH_LANGUAGES, type Lang } from '@/i18n/languages';
 import { openExternal } from '@/services/links';
 import { useSettings, type MotionPref, type TextSize, type ThemeMode } from '@/state/settings';
 import { useUi } from '@/state/ui';
+import { startFresh } from '@/navigation';
 
 type Speed = 'slow' | 'normal' | 'fast';
 const SPEED_RATE: Record<Speed, number> = { slow: 0.8, normal: 0.95, fast: 1.1 };
@@ -117,7 +118,7 @@ export default function SettingsScreen() {
       onConfirm: async () => {
         await wipeEverything();
         toast(t('clear.done'), 'success');
-        router.replace('/welcome' as Href);
+        startFresh('/welcome' as Href);
       },
     });
 

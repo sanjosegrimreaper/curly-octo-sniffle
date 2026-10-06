@@ -1,1 +1,114 @@
-{}
+{
+  "hub": {
+    "title": "Pedir ayuda",
+    "intro": "Hay ayuda gratuita. Elija lo que necesita.",
+    "coverage": {
+      "title": "Revisar su cobertura",
+      "subtitle": "Conteste unas preguntas para ver qué podría ayudarle"
+    },
+    "applications": {
+      "title": "Mis solicitudes",
+      "subtitle": "Lleve el control de papeles, fechas y próximos pasos"
+    },
+    "medicare": {
+      "title": "Ayuda con Medicare",
+      "subtitle": "Límites de costos de medicamentos, Extra Help (Ayuda Adicional) y asesoría gratuita"
+    },
+    "clinics": {
+      "title": "Clínicas comunitarias",
+      "subtitle": "Atención médica y medicamentos de menor costo cerca de usted"
+    },
+    "helpers": {
+      "title": "Personas que ayudan gratis",
+      "subtitle": "Consejeros que pueden ayudarle a inscribirse y a presentar su solicitud"
+    },
+    "glossary": {
+      "title": "Palabras explicadas",
+      "subtitle": "El significado sencillo de palabras difíciles"
+    },
+    "notices": {
+      "title": "Cambios recientes en las reglas",
+      "hint": "Las reglas de cobertura cambian seguido. Esto es lo que cambió últimamente.",
+      "since": "Desde el {{date}}",
+      "starts": "Empieza el {{date}}",
+      "for": "Para: {{who}}",
+      "who": {
+        "medi-cal": "Medi-Cal",
+        "covered-california": "Covered California",
+        "medicare": "Medicare",
+        "pharmacy": "Farmacias",
+        "all": "Todos"
+      }
+    }
+  },
+  "contact": {
+    "call": "Llamar al {{phone}}",
+    "website": "Sitio web: {{host}}",
+    "directions": "Cómo llegar en Mapas",
+    "noPhone": "No se indica teléfono",
+    "callFailed": "Este teléfono no puede hacer llamadas. El número es {{phone}}."
+  },
+  "medicare": {
+    "title": "Ayuda con Medicare",
+    "intro": "Datos claros sobre los costos de medicamentos de Medicare, y personas que pueden ayudarle gratis a elegir un plan.",
+    "factsTitle": "Es bueno saber",
+    "helpersTitle": "Ayuda gratuita con Medicare",
+    "helpersHint": "Estos consejeros no venden planes. Su ayuda es gratuita.",
+    "noHelpers": "Todavía no tenemos un servicio de ayuda gratuita con Medicare para su condado.",
+    "lookUp": "Buscar un medicamento"
+  },
+  "clinics": {
+    "title": "Clínicas comunitarias",
+    "note": "Las clínicas podrían ofrecer atención médica y medicamentos de menor costo. Llame para confirmar lo que ofrecen.",
+    "countShown_one": "{{count}} clínica en {{county}}",
+    "countShown_other": "{{count}} clínicas en {{county}}",
+    "countShown_many": "{{count}} clínicas en {{county}}",
+    "countAll_one": "{{count}} clínica",
+    "countAll_other": "{{count}} clínicas",
+    "countAll_many": "{{count}} clínicas",
+    "pharmacy": "Farmacia en el lugar",
+    "pharmacyUnknown": "Farmacia: llame para confirmar",
+    "pharmacyNo": "No se indica farmacia",
+    "slidingFee": "Tarifa según sus ingresos (escala móvil)",
+    "slidingFeeUnknown": "Tarifas: llame para confirmar",
+    "slidingFeeNo": "No se indica tarifa según ingresos",
+    "pharmacyHours": "Horario de la farmacia: {{hours}}",
+    "languages": "Idiomas: {{languages}}",
+    "phoneNotListed": "No se indica teléfono — use el sitio web o vaya en persona",
+    "emptyTitle": "Todavía no hay clínicas para {{county}}",
+    "emptyBody": "Solo mostramos clínicas que encontramos en una lista oficial. Puede ver clínicas en el resto de la región o preguntar a un servicio de ayuda gratuito.",
+    "showAll": "Ver clínicas de todos los condados",
+    "showMine": "Ver solo {{county}}",
+    "helpers": "Ver servicios de ayuda gratuitos",
+    "unknownCounty": "Otros lugares"
+  },
+  "helpers": {
+    "title": "Personas que ayudan gratis",
+    "intro": "Estas personas y oficinas ayudan gratis. Pueden contestar sus preguntas y ayudarle a presentar su solicitud.",
+    "forYou": "Podrían ajustarse a su caso",
+    "others": "También disponibles",
+    "all": "Todos en la región",
+    "for": {
+      "everyone": "Para todos",
+      "medicare": "Para personas con Medicare",
+      "uninsured": "Para personas sin seguro",
+      "covered-california": "Para Covered California",
+      "medi-cal": "Para Medi-Cal"
+    },
+    "countyOnly": "Solo para {{county}}",
+    "empty": "Todavía no hay servicios de ayuda gratuitos para su condado."
+  },
+  "glossary": {
+    "title": "Palabras explicadas",
+    "intro": "Toque una palabra para ver qué significa. También puede escucharla.",
+    "search": "Buscar palabras",
+    "searchPlaceholder": "Escriba una palabra, como copago",
+    "clear": "Borrar búsqueda",
+    "count_one": "{{count}} palabra",
+    "count_other": "{{count}} palabras",
+    "count_many": "{{count}} palabras",
+    "none": "Ninguna palabra coincide con \"{{query}}\"",
+    "noneBody": "Pruebe con una palabra más corta, o borre la búsqueda para ver todas las palabras.",
+    "open": "Abre el significado de {{term}}"
+  }
+}

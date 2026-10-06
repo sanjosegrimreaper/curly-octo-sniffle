@@ -1,4 +1,3 @@
-import { router } from 'expo-router';
 import { IdCard, ListChecks, PiggyBank, Receipt, Store, Wallet, type LucideIcon } from 'lucide-react-native';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,6 +11,7 @@ import { Banner, Button, Card, spacing, Text, useTheme } from '@/design';
 import { roundCents } from '@/domain';
 import { formatMoney } from '@/i18n/format';
 import { useScreener } from '@/state/screener';
+import { startFresh } from '@/navigation';
 
 const ROUTE = ROUTES.checklist;
 
@@ -55,7 +55,7 @@ export default function ChecklistScreen() {
 
   const compare = () => {
     update({ completedAt: new Date().toISOString() });
-    router.replace(href(ROUTES.find));
+    startFresh(href(ROUTES.find));
   };
 
   return (

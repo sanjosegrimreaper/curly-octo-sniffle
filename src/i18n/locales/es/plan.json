@@ -1,1 +1,119 @@
-{}
+{
+  "greeting": {
+    "morning": "Buenos días",
+    "afternoon": "Buenas tardes",
+    "evening": "Buenas noches"
+  },
+  "openSettings": "Abrir configuración",
+  "intro": {
+    "fresh": "Demos juntos el primer paso. Todo lo que nos diga se queda en este teléfono.",
+    "saved_one": "Tiene {{count}} medicamento guardado. Esto es lo que podría ayudarle ahora.",
+    "saved_other": "Tiene {{count}} medicamentos guardados. Esto es lo que podría ayudarle ahora.",
+    "saved_many": "Tiene {{count}} medicamentos guardados. Esto es lo que podría ayudarle ahora.",
+    "savedOnly_one": "Tiene {{count}} medicamento guardado.",
+    "savedOnly_other": "Tiene {{count}} medicamentos guardados.",
+    "savedOnly_many": "Tiene {{count}} medicamentos guardados."
+  },
+  "steps": {
+    "title": "Lo que puede hacer ahora",
+    "hint": "Empiece con el número 1. Cada paso abre el lugar donde puede hacerlo.",
+    "a11yStep": "Paso {{n}} de {{total}}",
+    "finishScreener": {
+      "kind": "Cobertura",
+      "title": "Conteste unas preguntas sobre su cobertura",
+      "body": "Sus respuestas nos ayudan a mostrarle programas que podrían ayudarle a pagar. Se quedan en este teléfono.",
+      "cta": "Contestar preguntas de cobertura"
+    },
+    "applyBenefit": {
+      "kind": "Cobertura",
+      "cta": "Ver mis resultados de cobertura"
+    },
+    "checkMedicare": {
+      "kind": "Medicare",
+      "title": "Infórmese sobre Medicare",
+      "body": "Usted dijo que tiene 65 años o más. Medicare podría ayudarle a pagar sus medicamentos, y hay consejeros gratuitos que pueden ayudarle a elegir.",
+      "cta": "Abrir ayuda con Medicare"
+    },
+    "findMedicine": {
+      "kind": "Precios",
+      "title": "Busque su primer medicamento",
+      "body": "Vea precios que puede pagar hoy y programas que podrían ayudarle.",
+      "cta": "Buscar un medicamento"
+    },
+    "buyNow": {
+      "kind": "Precio que puede pagar hoy",
+      "upTo": "Hasta {{price}}",
+      "at": "en {{seller}}",
+      "cta": "Ver todos los precios de {{name}}"
+    },
+    "callProgram": {
+      "kind": "Programa que podría ayudarle",
+      "title": "Llamar a {{program}}",
+      "body": "Este programa podría ayudarle a pagar {{medicine}}. Una lista corta le ayuda a prepararse.",
+      "cta": "Prepararse para llamar a {{program}}"
+    },
+    "renew": {
+      "kind": "Fecha para renovar",
+      "title": "Renueve {{program}} a más tardar el {{date}}",
+      "daysLeft_one": "Queda {{count}} día.",
+      "daysLeft_other": "Quedan {{count}} días.",
+      "daysLeft_many": "Quedan {{count}} días.",
+      "dueToday": "Vence hoy.",
+      "overdue": "Esta fecha ya pasó. Llame al programa para preguntar qué hacer.",
+      "cta": "Abrir mis solicitudes"
+    },
+    "trackApplication": {
+      "kind": "Solicitud",
+      "title": "Siga avanzando con su solicitud de {{program}}",
+      "body": "Revise sus papeles, sus notas y el siguiente paso.",
+      "cta": "Abrir mis solicitudes"
+    },
+    "empty": {
+      "title": "Está al día",
+      "body": "Por ahora no hay nada pendiente. Puede buscar otro medicamento cuando quiera.",
+      "cta": "Buscar un medicamento"
+    }
+  },
+  "changes": {
+    "title": "Cambios desde su última visita",
+    "note": "Solo comparamos precios que puede pagar hoy.",
+    "priceChanged": "El precio de {{name}} cambió de {{from}} a {{to}}",
+    "lower": "Más bajo que antes",
+    "higher": "Más alto que antes"
+  },
+  "saved": {
+    "title": "Medicamentos guardados",
+    "seeAll": "Abrir Mis medicamentos",
+    "noPrice": "Todavía no se cargó un precio",
+    "lowest": "Precio más bajo hoy",
+    "upTo": "Hasta {{price}}",
+    "open": "Abre los precios de {{name}}",
+    "missing": "Ya no está en nuestra lista — busque de nuevo",
+    "missingSearch": "Buscar de nuevo",
+    "remove": "Quitar {{name}}"
+  },
+  "freshness": {
+    "section": "Sus datos",
+    "title": "¿Qué tan actual es esta información?",
+    "pack": "Versión de los datos {{version}}",
+    "statusDraft": "Versión preliminar: algunos datos aún no están confirmados",
+    "statusRelease": "Todos los datos están confirmados en fuentes oficiales",
+    "packDate": "Actualizado el {{date}}",
+    "nadac": "Precios mayoristas (NADAC) al {{date}}",
+    "nadacNotLoaded": "Precios mayoristas (NADAC): todavía no se cargaron",
+    "open": "Abre Fuentes y fechas de los datos"
+  },
+  "startOver": {
+    "button": "Empezar de nuevo",
+    "title": "¿Empezar de nuevo?",
+    "body": "Esto borra de este teléfono sus respuestas, sus medicamentos guardados y sus solicitudes. Su configuración no cambia.",
+    "confirm": "Sí, borrar y empezar de nuevo",
+    "done": "Se borraron sus respuestas."
+  },
+  "notFound": {
+    "title": "No encontramos esta página",
+    "body": "Es posible que el enlace sea viejo o esté mal escrito. No cambió nada de lo que guardó.",
+    "home": "Ir a Mi plan",
+    "search": "Buscar un medicamento"
+  }
+}

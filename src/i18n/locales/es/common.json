@@ -48,10 +48,13 @@
     "freshness": {
       "fresh_one": "Revisado hace {{count}} día",
       "fresh_other": "Revisado hace {{count}} días",
+      "fresh_many": "Revisado hace {{count}} días",
       "aging_one": "Revisado hace {{count}} día — ya no es tan reciente",
       "aging_other": "Revisado hace {{count}} días — ya no es tan reciente",
+      "aging_many": "Revisado hace {{count}} días — ya no es tan reciente",
       "stale_one": "Revisado hace {{count}} día — hace más de 6 meses. Llame para confirmar.",
-      "stale_other": "Revisado hace {{count}} días — hace más de 6 meses. Llame para confirmar."
+      "stale_other": "Revisado hace {{count}} días — hace más de 6 meses. Llame para confirmar.",
+      "stale_many": "Revisado hace {{count}} días — hace más de 6 meses. Llame para confirmar."
     },
     "method": {
       "http-200": "Página web oficial",

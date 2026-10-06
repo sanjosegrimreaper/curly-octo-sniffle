@@ -6,10 +6,10 @@
       "earliestDate": "2028-04-01",
       "label": "Earliest generic launch allowed by court settlements",
       "basis": {
-        "en": "Generic apixaban is FDA-approved, but legal settlements allow sales no earlier than April 1, 2028. This is not a promised launch date.",
-        "zh-Hans": "阿哌沙班仿制药已获 FDA 批准，但根据法律和解协议，最早要到2028年4月1日才能开始销售。这不是承诺的上市日期。",
-        "es": "El apixabán genérico está aprobado por la FDA, pero por acuerdos legales no se puede vender antes del 1 de abril de 2028. Esta no es una fecha de lanzamiento prometida.",
-        "hi": "जेनेरिक एपिक्साबैन (apixaban) को FDA की मंज़ूरी मिल चुकी है, लेकिन क़ानूनी समझौतों के मुताबिक़ इसे 1 अप्रैल 2028 से पहले नहीं बेचा जा सकता। इसका मतलब यह नहीं कि दवा इसी तारीख़ को बाज़ार में आ जाएगी।"
+        "en": "Generic apixaban is FDA-approved, but legal settlements allow sales no earlier than April 1, 2028.",
+        "zh-Hans": "阿哌沙班仿制药已获 FDA 批准，但根据法律和解协议，最早要到2028年4月1日才能开始销售。",
+        "es": "El apixabán genérico está aprobado por la FDA, pero por acuerdos legales no se puede vender antes del 1 de abril de 2028.",
+        "hi": "जेनेरिक एपिक्साबैन (apixaban) को FDA की मंज़ूरी मिल चुकी है, लेकिन क़ानूनी समझौतों के मुताबिक़ इसे 1 अप्रैल 2028 से पहले नहीं बेचा जा सकता।"
       },
       "sources": [
         {

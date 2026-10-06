@@ -22,6 +22,8 @@ import type { Selection } from '@/state/medicines';
 export type BuyNowOption = {
   id: string;
   source: 'costPlus' | 'direct';
+  /** The exact product the price is for. */
+  product: string;
   seller: string;
   priceCents: number;
   priceKind: 'fixed' | 'maximum';
@@ -72,6 +74,7 @@ function directOption(d: DirectPrice, lang: Lang): BuyNowOption {
   return {
     id: d.id,
     source: 'direct',
+    product: d.product,
     seller: d.seller,
     priceCents: d.priceCents,
     priceKind: d.priceKind,
@@ -111,6 +114,7 @@ export function priceSummary(pack: Pack, feed: NadacFeed, sel: Selection, lang: 
     options.push({
       id: `costplus:${medication.id}:${strength.id}:${sel.quantity}`,
       source: 'costPlus',
+      product: costPlus.quote.productName,
       seller: 'Mark Cuban Cost Plus Drugs',
       priceCents: costPlus.quote.priceCents,
       priceKind: 'fixed',

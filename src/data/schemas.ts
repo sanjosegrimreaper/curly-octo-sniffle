@@ -238,6 +238,8 @@ export const directPriceSchema = z.object({
   id: z.string(),
   medicationId: z.string(),
   strengthIds: z.array(z.string()),
+  /** The exact product this price is for, as printed (e.g. "Insulin glargine-yfgn (CalRx)"). */
+  product: z.string(),
   seller: z.string(),
   description: localized,
   /** 'maximum' = a suggested/maximum price; the pharmacy sets the final price. */

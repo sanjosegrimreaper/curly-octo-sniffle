@@ -1,4 +1,4 @@
-import { router, useLocalSearchParams, type Href } from 'expo-router';
+import { useLocalSearchParams, type Href } from 'expo-router';
 import { Search } from 'lucide-react-native';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,6 +12,7 @@ import { HelperCard } from '@/components/help/HelperCard';
 import { getPack } from '@/data/pack';
 import { Button, motion, Screen, Text, useTheme, VStack } from '@/design';
 import { useScreener } from '@/state/screener';
+import { startFresh } from '@/navigation';
 
 /** Medicare panel: verified facts (Part D cap, Extra Help, payment plan, HICAP) + free Medicare helpers. */
 export default function MedicareScreen() {
@@ -34,7 +35,7 @@ export default function MedicareScreen() {
   const lookUp = () => {
     const s = useScreener.getState();
     if (!s.completedAt) s.update({ completedAt: new Date().toISOString() });
-    router.replace('/find' as Href);
+    startFresh('/find' as Href);
   };
 
   return (

@@ -1,4 +1,3 @@
-import { router } from 'expo-router';
 import { IdCard, MessageCircleQuestionMark, type LucideIcon } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -11,6 +10,7 @@ import { href, ROUTES } from '@/components/onboarding/steps';
 import { getPack } from '@/data/pack';
 import { Button, Card, motion, spacing, Text, useTheme } from '@/design';
 import { useScreener } from '@/state/screener';
+import { startFresh } from '@/navigation';
 
 const ROUTE = ROUTES.mediCal;
 
@@ -24,7 +24,7 @@ export default function MediCalScreen() {
 
   const lookUp = () => {
     update({ completedAt: new Date().toISOString() });
-    router.replace(href(ROUTES.find));
+    startFresh(href(ROUTES.find));
   };
 
   return (

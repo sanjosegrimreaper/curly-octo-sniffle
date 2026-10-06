@@ -1,1 +1,113 @@
-{}
+{
+  "greeting": {
+    "morning": "早上好",
+    "afternoon": "下午好",
+    "evening": "晚上好"
+  },
+  "openSettings": "打开设置",
+  "intro": {
+    "fresh": "让我们一起迈出第一步。您告诉我们的一切都只保存在这部手机上。",
+    "saved_other": "您保存了 {{count}} 种药。下面是接下来可能有帮助的事。",
+    "savedOnly_other": "您保存了 {{count}} 种药。"
+  },
+  "steps": {
+    "title": "接下来可以做的事",
+    "hint": "从第 1 项开始。每一步都会打开可以完成这件事的页面。",
+    "a11yStep": "第 {{n}} 步，共 {{total}} 步",
+    "finishScreener": {
+      "kind": "保险",
+      "title": "回答几个关于您保险的问题",
+      "body": "您的回答能帮我们找出可能帮您付费的计划。回答只保存在这部手机上。",
+      "cta": "回答保险问题"
+    },
+    "applyBenefit": {
+      "kind": "保险",
+      "cta": "查看我的保险结果"
+    },
+    "checkMedicare": {
+      "kind": "Medicare",
+      "title": "了解 Medicare",
+      "body": "您说您65岁或以上。Medicare 可能会帮您支付药费，免费的顾问可以帮您选择。",
+      "cta": "打开 Medicare 帮助"
+    },
+    "findMedicine": {
+      "kind": "价格",
+      "title": "查找您的第一种药",
+      "body": "查看今天就能付的价格，以及可能有帮助的计划。",
+      "cta": "查找药品"
+    },
+    "buyNow": {
+      "kind": "今天就能付的价格",
+      "upTo": "最高 {{price}}",
+      "at": "购买处：{{seller}}",
+      "cta": "查看 {{name}} 的所有价格"
+    },
+    "callProgram": {
+      "kind": "可能有帮助的计划",
+      "title": "打电话给 {{program}}",
+      "body": "这个计划可能会帮您支付 {{medicine}} 的费用。一份简短的清单可以帮您做好准备。",
+      "cta": "准备打电话给 {{program}}"
+    },
+    "renew": {
+      "kind": "续期日期",
+      "title": "请在 {{date}} 前为 {{program}} 续期",
+      "daysLeft_other": "还剩 {{count}} 天。",
+      "dueToday": "今天到期。",
+      "overdue": "这个日期已经过了。请打电话问问计划该怎么办。",
+      "cta": "查看我的申请"
+    },
+    "trackApplication": {
+      "kind": "申请",
+      "title": "继续推进您的 {{program}} 申请",
+      "body": "查看您的材料、笔记和下一步。",
+      "cta": "查看我的申请"
+    },
+    "empty": {
+      "title": "您已经都处理好了",
+      "body": "现在没有需要您处理的事。您随时可以查找其他药。",
+      "cta": "查找药品"
+    }
+  },
+  "changes": {
+    "title": "自您上次使用以来的变化",
+    "note": "只比较今天就能付的价格。",
+    "priceChanged": "{{name}} 的价格从 {{from}} 变为 {{to}}",
+    "lower": "比以前低",
+    "higher": "比以前高"
+  },
+  "saved": {
+    "title": "已保存的药",
+    "seeAll": "打开“我的药”",
+    "noPrice": "还没有载入价格",
+    "lowest": "今天的最低价",
+    "upTo": "最高 {{price}}",
+    "open": "打开 {{name}} 的价格",
+    "missing": "已不在我们的列表中——请重新搜索",
+    "missingSearch": "重新搜索",
+    "remove": "删除 {{name}}"
+  },
+  "freshness": {
+    "section": "您的数据",
+    "title": "这些信息有多新？",
+    "pack": "数据版本 {{version}}",
+    "statusDraft": "预览：部分信息尚未确认",
+    "statusRelease": "所有信息都已在官方来源上确认",
+    "packDate": "更新于 {{date}}",
+    "nadac": "批发价（NADAC）截至 {{date}}",
+    "nadacNotLoaded": "批发价（NADAC）：尚未载入",
+    "open": "打开“数据来源和日期”"
+  },
+  "startOver": {
+    "button": "重新开始",
+    "title": "要重新开始吗？",
+    "body": "这会清除这部手机上您的回答、已保存的药和申请。您的设置保持不变。",
+    "confirm": "是的，清除并重新开始",
+    "done": "您的回答已清除。"
+  },
+  "notFound": {
+    "title": "找不到这个页面",
+    "body": "这个链接可能已过期或输入有误。您保存的内容没有任何改变。",
+    "home": "前往“我的计划”",
+    "search": "搜索药品"
+  }
+}
