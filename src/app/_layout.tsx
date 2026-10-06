@@ -1,8 +1,7 @@
-import { Fredoka_600SemiBold } from '@expo-google-fonts/fredoka';
-import {
-  AtkinsonHyperlegibleNext_400Regular,
-  AtkinsonHyperlegibleNext_700Bold,
-} from '@expo-google-fonts/atkinson-hyperlegible-next';
+// Per-weight imports: the package index would bundle every weight (megabytes of unused fonts).
+import { AtkinsonHyperlegibleNext_400Regular } from '@expo-google-fonts/atkinson-hyperlegible-next/400Regular';
+import { AtkinsonHyperlegibleNext_700Bold } from '@expo-google-fonts/atkinson-hyperlegible-next/700Bold';
+import { Fredoka_600SemiBold } from '@expo-google-fonts/fredoka/600SemiBold';
 import * as Font from 'expo-font';
 import * as Localization from 'expo-localization';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider as NavThemeProvider } from 'expo-router';

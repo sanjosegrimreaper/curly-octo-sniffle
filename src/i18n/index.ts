@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member -- i18next's default instance is the documented API */
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 

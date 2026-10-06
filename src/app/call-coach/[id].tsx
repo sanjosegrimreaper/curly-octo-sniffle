@@ -129,7 +129,6 @@ export default function CallCoachScreen() {
   };
 
   const interpreter = program.interpreterAvailable === true;
-  const enT = i18next.getFixedT('en', 'programs');
 
   return (
     <Screen back eyebrow={program.name} title={t('coach.title')} testID="call-coach">
