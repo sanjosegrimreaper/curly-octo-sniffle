@@ -34,11 +34,22 @@ if (!fs.existsSync(path.join(dist, 'index.html'))) {
   process.exit(1);
 }
 
-const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.ttf': 'font/ttf', '.json': 'application/json', '.ico': 'image/x-icon', '.wasm': 'application/wasm', '.svg': 'image/svg+xml' };
+const MIME = {
+  '.html': 'text/html',
+  '.js': 'text/javascript',
+  '.css': 'text/css',
+  '.png': 'image/png',
+  '.ttf': 'font/ttf',
+  '.json': 'application/json',
+  '.ico': 'image/x-icon',
+  '.wasm': 'application/wasm',
+  '.svg': 'image/svg+xml',
+};
 const server = http.createServer((req, res) => {
   const url = decodeURIComponent((req.url || '/').split('?')[0]);
   let file = path.join(dist, url);
-  if (!file.startsWith(dist) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) file = path.join(dist, 'index.html');
+  if (!file.startsWith(dist) || !fs.existsSync(file) || fs.statSync(file).isDirectory())
+    file = path.join(dist, 'index.html');
   res.writeHead(200, { 'content-type': MIME[path.extname(file)] || 'application/octet-stream' });
   fs.createReadStream(file).pipe(res);
 });

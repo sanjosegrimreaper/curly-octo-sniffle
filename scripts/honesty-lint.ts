@@ -113,7 +113,10 @@ function main(): number {
   let allowed = 0;
   for (const h of hits) {
     const entry = allow.find(
-      (a) => a.file === h.file && a.path === h.keyPath && (a.phrase === undefined || a.phrase.toLowerCase() === h.finding.phrase.toLowerCase()),
+      (a) =>
+        a.file === h.file &&
+        a.path === h.keyPath &&
+        (a.phrase === undefined || a.phrase.toLowerCase() === h.finding.phrase.toLowerCase()),
     );
     if (entry) {
       used.add(entry);
@@ -130,10 +133,17 @@ function main(): number {
       ),
   );
   for (const lang of noRules) {
-    console.log(color.yellow(`warn  no forbidden-phrase list for "${lang}" — only the English list was applied (add one in scripts/lib/honesty.ts)`));
+    console.log(
+      color.yellow(
+        `warn  no forbidden-phrase list for "${lang}" — only the English list was applied (add one in scripts/lib/honesty.ts)`,
+      ),
+    );
   }
   for (const a of allow) {
-    if (!used.has(a)) console.log(color.yellow(`warn  unused allow-list entry: ${a.file} ${a.path} — remove it from ${rel(ALLOW_FILE)}`));
+    if (!used.has(a))
+      console.log(
+        color.yellow(`warn  unused allow-list entry: ${a.file} ${a.path} — remove it from ${rel(ALLOW_FILE)}`),
+      );
   }
 
   if (blocked.length) {
@@ -159,7 +169,10 @@ function main(): number {
     );
     return 1;
   }
-  console.log(color.green(color.bold('✔ No absolute claims found')) + (allowed ? color.dim(` (${allowed} allowed by the allow-list)`) : '.'));
+  console.log(
+    color.green(color.bold('✔ No absolute claims found')) +
+      (allowed ? color.dim(` (${allowed} allowed by the allow-list)`) : '.'),
+  );
   return 0;
 }
 

@@ -83,7 +83,14 @@ export function matchListing(listing: readonly CostPlusRow[], costPlusUrl: strin
 }
 
 export function productName(row: CostPlusRow): string {
-  return [row.medication_name, row.strength, row.form].filter((s) => s && s.trim()).join(' ').trim() || row.slug || row.ndc;
+  return (
+    [row.medication_name, row.strength, row.form]
+      .filter((s) => s && s.trim())
+      .join(' ')
+      .trim() ||
+    row.slug ||
+    row.ndc
+  );
 }
 
 export const isPill = (row: CostPlusRow) => (row.pill_nonpill ?? '').toLowerCase() === 'pill';

@@ -1,1 +1,241 @@
-{}
+{
+  "title": "Settings",
+  "sections": {
+    "display": "Language and display",
+    "sound": "Sound and touch",
+    "privacy": "Privacy and helper mode",
+    "data": "Data and trust"
+  },
+  "on": "On",
+  "off": "Off",
+  "language": {
+    "label": "Language",
+    "hint": "Changes right away. Your answers stay the same."
+  },
+  "textSize": {
+    "label": "Text size",
+    "default": "Default",
+    "large": "Large",
+    "larger": "Larger",
+    "preview": "Preview",
+    "previewHeading": "Your next best steps",
+    "previewBody": "This is how words look across the app. Pick a size that feels easy to read."
+  },
+  "theme": {
+    "label": "Colors",
+    "system": "Match phone",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "highContrast": {
+    "label": "High contrast",
+    "description": "Stronger colors and thicker borders. Easier to read in bright light."
+  },
+  "reduceMotion": {
+    "label": "Motion",
+    "system": "Match phone",
+    "on": "Less motion",
+    "off": "Full motion",
+    "description": "\"Less motion\" turns off slides and moving pictures."
+  },
+  "haptics": {
+    "label": "Vibrate on tap",
+    "description": "A small buzz when you press a button.",
+    "web": "Not available on the web."
+  },
+  "speech": {
+    "label": "Read-aloud speed",
+    "slow": "Slow",
+    "normal": "Normal",
+    "fast": "Fast",
+    "sample": "This is how fast RxBridge reads aloud. You can change it any time.",
+    "test": "Test the read-aloud speed"
+  },
+  "appLock": {
+    "label": "App lock",
+    "description": "Ask for Face ID, fingerprint or your phone's passcode before RxBridge opens. Your medicine list is private.",
+    "web": "App lock works in the phone app. It is not available on the web.",
+    "noHardware": "This phone can't lock apps with Face ID, fingerprint or a passcode.",
+    "notEnrolled": "Set up a screen lock on your phone first. Then turn this on.",
+    "prompt": "Turn on app lock",
+    "failed": "App lock was not turned on.",
+    "turnedOn": "App lock is on."
+  },
+  "navigatorMode": {
+    "label": "I'm helping someone else",
+    "description": "Helper mode for community health workers and family. Nothing is saved on this phone. Tap \"New client\" between people.",
+    "clientLanguage": "Client's language",
+    "clientLanguageHint": "Used for handouts, the pharmacy counter card and call scripts.",
+    "sameAsApp": "Same as app",
+    "offTitle": "Turn off helper mode?",
+    "offBody": "This clears the current client's answers so they are not saved on this phone.",
+    "offConfirm": "Clear and turn off helper mode"
+  },
+  "lowData": {
+    "label": "Low-data mode",
+    "description": "Don't download new price updates. The app keeps working with the data it already has."
+  },
+  "privateNotifications": {
+    "label": "Private reminders",
+    "description": "Reminders say \"Time to refill a medicine\" without the medicine's name, so others can't read it on your lock screen."
+  },
+  "clear": {
+    "button": "Clear my data",
+    "hint": "Deletes your answers, saved medicines and applications from this phone.",
+    "title": "Clear your data?",
+    "body": "This deletes your answers, saved medicines and applications from this phone. Your language and settings stay.",
+    "confirm": "Yes, clear my data",
+    "done": "Your data was cleared."
+  },
+  "links": {
+    "sources": "Data sources and dates",
+    "sourcesSub": "Where each fact comes from and how fresh it is",
+    "about": "About RxBridge",
+    "aboutSub": "Version, privacy and licenses",
+    "report": "Report a problem",
+    "reportSub": "Opens our public problem list on github.com",
+    "reportHint": "Please don't write personal or health details there."
+  },
+  "navigator": {
+    "barTitle": "Helping someone else — nothing is saved",
+    "barBody": "Tap \"New client\" before you help the next person.",
+    "clientLanguage": "Client's language: {{language}}",
+    "newClient": "New client",
+    "confirmTitle": "Start with a new client?",
+    "confirmBody": "This clears all answers, medicines and applications from this session.",
+    "confirm": "Yes, clear for a new client",
+    "done": "Ready for a new client."
+  },
+  "sources": {
+    "title": "Data sources and dates",
+    "intro": "RxBridge shows only facts from official pages and files. Here is what this version holds and how fresh it is.",
+    "pack": {
+      "title": "This data",
+      "region": "Region: {{name}}",
+      "id": "Data ID: {{id}}",
+      "version": "Version {{version}}",
+      "generated": "Built on {{date}}",
+      "statusDraft": "Preview data",
+      "statusDraftBody": "Some facts are not confirmed on the official page yet. In the app they say \"Not yet confirmed — call to confirm\". Please call before you rely on them.",
+      "statusRelease": "Confirmed data",
+      "statusReleaseBody": "Every fact was checked on an official page or file."
+    },
+    "files": {
+      "title": "What's inside",
+      "hint": "Each fact is either confirmed on the official source or marked \"Not yet confirmed\".",
+      "records_one": "{{count}} record",
+      "records_other": "{{count}} records",
+      "confirmed": "{{count}} confirmed",
+      "unconfirmed": "{{count}} not yet confirmed",
+      "none": "Nothing listed yet",
+      "names": {
+        "region": "Region and counties",
+        "fpl": "Poverty guidelines",
+        "benefits": "Coverage rules",
+        "medications": "Medicines",
+        "programs": "Assistance programs",
+        "outlook": "Generic outlook",
+        "pharmacies": "Pharmacies",
+        "clinics": "Community clinics",
+        "helpers": "People who help for free",
+        "notices": "Rule changes",
+        "facts": "Medicare facts",
+        "glossary": "Word meanings",
+        "direct": "Prices from drug makers and programs",
+        "costPlus": "Cost Plus Drugs snapshot",
+        "nadac": "Wholesale prices (NADAC)"
+      }
+    },
+    "prices": {
+      "title": "Price dates",
+      "nadac": "Wholesale prices (NADAC)",
+      "nadacAsOf": "As of {{date}}",
+      "nadacNote": "What pharmacies pay wholesalers — you can't check out at this number.",
+      "costPlus": "Cost Plus Drugs prices",
+      "costPlusDate": "Snapshot from {{date}}",
+      "notLoaded": "Not loaded yet"
+    },
+    "unverified": {
+      "title": "Not confirmed yet — not shipped",
+      "hint": "We looked for these but could not confirm them, so the app does not show them.",
+      "tried": "Last tried {{date}}"
+    },
+    "verify": {
+      "title": "How we verify",
+      "intro": "Every fact in the app has a source chip. Tap it to see where the fact came from, when we checked it and how.",
+      "stale": "Facts get a yellow warning when they are more than 6 months old.",
+      "methods": {
+        "http-200": "We opened the official web page and it loaded.",
+        "browser-confirmed": "A person opened the official page and read the fact there.",
+        "official-data-file": "The number comes from a data file the government publishes.",
+        "official-pdf": "We read it in a document (PDF) from the official source.",
+        "official-api": "We got it from the source's own data service.",
+        "phone-confirmed": "We called the official phone number and asked.",
+        "unconfirmed": "We only saw it in search results, or could not open the page. Call to confirm."
+      }
+    },
+    "report": "Report a problem on github.com"
+  },
+  "about": {
+    "title": "About RxBridge",
+    "version": "App version {{version}}",
+    "build": "Build {{build}}",
+    "dataVersion": "Data version {{version}}",
+    "what": {
+      "title": "What RxBridge is",
+      "body": "RxBridge is a free app that helps you find honest prices for your medicines and programs that may help you pay. It works in English, Spanish, Chinese and Hindi."
+    },
+    "privacy": {
+      "title": "Your privacy",
+      "body": "No account. No tracking. Your answers stay on this phone.",
+      "detail": "We don't ask for your name, Social Security number or immigration status. You can delete everything in Settings."
+    },
+    "honesty": {
+      "title": "Our honesty rules",
+      "rule1": "We never make up a price, phone number, address or rule. If we don't know, we say so.",
+      "rule2": "Every fact shows where it came from and when we checked it.",
+      "rule3": "We keep three kinds of prices apart: prices you can pay today, coupon links (we never show their amount), and wholesale prices that nobody can buy at.",
+      "rule4": "We say \"may\" and \"could\" because only the program can decide.",
+      "rule5": "We never give medical advice. Ask your doctor or pharmacist before you change anything."
+    },
+    "affiliation": {
+      "title": "Not affiliated",
+      "body": "Not affiliated with GoodRx, SingleCare, Cost Plus Drugs, Covered California, Medi-Cal, or any drug maker — names are used only to describe where to look."
+    },
+    "licenses": {
+      "title": "Fonts and licenses",
+      "fredoka": "Fredoka — SIL Open Font License",
+      "atkinson": "Atkinson Hyperlegible Next — SIL Open Font License"
+    }
+  },
+  "gallery": {
+    "title": "Design gallery",
+    "devOnly": "This page is only in developer builds.",
+    "cards": "Cards",
+    "badges": "Badges",
+    "banners": "Banners",
+    "chips": "Chips and segmented control",
+    "buttons": "Buttons",
+    "sourceChips": "Source chips",
+    "rings": "Freshness rings",
+    "empty": "Empty state",
+    "illustrations": "Illustrations",
+    "toggles": "Toggle rows",
+    "sampleTitle": "Sample title",
+    "sampleBody": "Sample body text for design review.",
+    "confirmed": "Confirmed source",
+    "unconfirmed": "Not confirmed source",
+    "stale": "Older than 6 months",
+    "days_one": "{{count}} day old",
+    "days_other": "{{count}} days old",
+    "selected": "Selected",
+    "notSelected": "Not selected",
+    "primary": "Primary button",
+    "secondary": "Secondary button",
+    "ghost": "Ghost button",
+    "danger": "Danger button",
+    "info": "Info banner",
+    "caution": "Caution banner",
+    "success": "Success banner"
+  }
+}

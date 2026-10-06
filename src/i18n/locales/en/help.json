@@ -1,1 +1,111 @@
-{}
+{
+  "hub": {
+    "title": "Get help",
+    "intro": "Free help is out there. Pick what you need.",
+    "coverage": {
+      "title": "Coverage check",
+      "subtitle": "Answer a few questions to see what may help you"
+    },
+    "applications": {
+      "title": "My applications",
+      "subtitle": "Keep track of papers, dates and next steps"
+    },
+    "medicare": {
+      "title": "Medicare help",
+      "subtitle": "Drug cost limits, Extra Help and free counseling"
+    },
+    "clinics": {
+      "title": "Community clinics",
+      "subtitle": "Lower-cost care and medicine near you"
+    },
+    "helpers": {
+      "title": "People who help for free",
+      "subtitle": "Counselors and enrollers who can help you apply"
+    },
+    "glossary": {
+      "title": "Words explained",
+      "subtitle": "Plain meanings for hard words"
+    },
+    "notices": {
+      "title": "Recent rule changes",
+      "hint": "Rules about coverage change often. This is what changed lately.",
+      "since": "Since {{date}}",
+      "starts": "Starts {{date}}",
+      "for": "For: {{who}}",
+      "who": {
+        "medi-cal": "Medi-Cal",
+        "covered-california": "Covered California",
+        "medicare": "Medicare",
+        "pharmacy": "Pharmacies",
+        "all": "Everyone"
+      }
+    }
+  },
+  "contact": {
+    "call": "Call {{phone}}",
+    "website": "Website: {{host}}",
+    "directions": "Directions in Maps",
+    "noPhone": "Phone not listed",
+    "callFailed": "This phone can't make calls. The number is {{phone}}."
+  },
+  "medicare": {
+    "title": "Medicare help",
+    "intro": "Plain facts about Medicare drug costs, and free people who can help you choose a plan.",
+    "factsTitle": "Good to know",
+    "helpersTitle": "Free help with Medicare",
+    "helpersHint": "These counselors don't sell plans. Their help is free.",
+    "noHelpers": "We don't have a free Medicare helper listed for your county yet.",
+    "lookUp": "Look up a medicine"
+  },
+  "clinics": {
+    "title": "Community clinics",
+    "note": "Clinics may offer lower-cost care and medicine. Call to confirm what they offer.",
+    "countShown_one": "{{count}} clinic in {{county}}",
+    "countShown_other": "{{count}} clinics in {{county}}",
+    "countAll_one": "{{count}} clinic",
+    "countAll_other": "{{count}} clinics",
+    "pharmacy": "Pharmacy on site",
+    "pharmacyUnknown": "Pharmacy: call to confirm",
+    "pharmacyNo": "No pharmacy listed",
+    "slidingFee": "Sliding fee (cost based on income)",
+    "slidingFeeUnknown": "Fees: call to confirm",
+    "slidingFeeNo": "No sliding fee listed",
+    "pharmacyHours": "Pharmacy hours: {{hours}}",
+    "languages": "Languages: {{languages}}",
+    "phoneNotListed": "Phone not listed — use the website or visit",
+    "emptyTitle": "No clinics listed for {{county}} yet",
+    "emptyBody": "We only list clinics we could find on an official list. You can see clinics in the rest of the region, or ask a free helper.",
+    "showAll": "Show clinics in all counties",
+    "showMine": "Show only {{county}}",
+    "helpers": "Open People who help for free",
+    "unknownCounty": "Other places"
+  },
+  "helpers": {
+    "title": "People who help for free",
+    "intro": "These people and offices help for free. They can answer questions and help you apply.",
+    "forYou": "May fit you",
+    "others": "Also available",
+    "all": "Everyone in the region",
+    "for": {
+      "everyone": "For everyone",
+      "medicare": "For people with Medicare",
+      "uninsured": "For people without insurance",
+      "covered-california": "For Covered California",
+      "medi-cal": "For Medi-Cal"
+    },
+    "countyOnly": "Only for {{county}}",
+    "empty": "No free helpers are listed for your county yet."
+  },
+  "glossary": {
+    "title": "Words explained",
+    "intro": "Tap a word to see what it means. You can also listen to it.",
+    "search": "Search words",
+    "searchPlaceholder": "Type a word, like copay",
+    "clear": "Clear search",
+    "count_one": "{{count}} word",
+    "count_other": "{{count}} words",
+    "none": "No word matches \"{{query}}\"",
+    "noneBody": "Try a shorter word, or clear the search to see all words.",
+    "open": "Opens the meaning of {{term}}"
+  }
+}

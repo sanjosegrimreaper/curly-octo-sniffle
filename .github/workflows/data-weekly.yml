@@ -1,0 +1,72 @@
+name: Weekly data refresh
+
+# NADAC prices (data.medicaid.gov) and the Cost Plus Drugs snapshot. Each refresher writes only
+# complete, schema-valid data and skips cleanly (exit 0) when its source can't be reached.
+on:
+  schedule:
+    - cron: '17 14 * * 1' # Mondays 14:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-weekly
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Refresh NADAC prices
+        id: nadac
+        continue-on-error: true
+        run: npx tsx scripts/refresh-nadac.ts
+
+      - name: Snapshot Cost Plus prices
+        id: costplus
+        continue-on-error: true
+        run: npx tsx scripts/snapshot-costplus.ts
+
+      - name: Update pack manifest checksums
+        run: npx tsx scripts/pack-manifest.ts
+
+      - name: Regenerate VERIFICATION.md
+        run: npx tsx scripts/gen-verification.ts
+
+      - name: Validate packs
+        run: npx tsx scripts/validate-packs.ts
+
+      - name: Commit and push
+        run: |
+          if git diff --quiet; then
+            echo "No data changes this week."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/packs VERIFICATION.md
+          changed="$(git diff --cached --name-only)"
+          echo "$changed"
+          body=""
+          if echo "$changed" | grep -q 'prices/costplus.json'; then
+            body="Includes the weekly Cost Plus Drugs price snapshot."
+          fi
+          git commit -m "data: weekly NADAC refresh" ${body:+-m "$body"}
+          git push
+
+      - name: Report a failed refresher
+        if: ${{ steps.nadac.outcome == 'failure' || steps.costplus.outcome == 'failure' }}
+        run: |
+          echo "::error::A refresher failed (NADAC: ${{ steps.nadac.outcome }}, Cost Plus: ${{ steps.costplus.outcome }}). Data from the other one was still committed if it changed. See the step logs."
+          exit 1

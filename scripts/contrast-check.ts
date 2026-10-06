@@ -96,7 +96,10 @@ function main(): number {
   }
   console.log('');
   if (failures) {
-    console.log(color.red(color.bold(`✖ ${failures} of ${checked} pairs below the minimum.`)) + ' Adjust the tokens in src/design/tokens.ts.');
+    console.log(
+      color.red(color.bold(`✖ ${failures} of ${checked} pairs below the minimum.`)) +
+        ' Adjust the tokens in src/design/tokens.ts.',
+    );
     return 1;
   }
   console.log(color.green(color.bold(`✔ All ${checked} pairs meet their minimum.`)));

@@ -96,7 +96,10 @@ function checkLocales(errors: Problem[], warnings: Problem[]): Map<string, LangS
       // Values: strings only, never empty.
       for (const [key, value] of flat) {
         if (typeof value !== 'string') {
-          errors.push({ file: fileRel, message: `${key}: value must be a string (found ${value === null ? 'null' : typeof value})` });
+          errors.push({
+            file: fileRel,
+            message: `${key}: value must be a string (found ${value === null ? 'null' : typeof value})`,
+          });
         } else if (value.trim() === '') {
           s.empty++;
           errors.push({ file: fileRel, message: `${key}: empty string` });
@@ -112,7 +115,10 @@ function checkLocales(errors: Problem[], warnings: Problem[]): Map<string, LangS
         if (info.kind !== 'plural') continue;
         const has = new Set([...forms.keys()].map((k) => k.slice(k.lastIndexOf('_') + 1)));
         if (!has.has('other')) {
-          errors.push({ file: fileRel, message: `${logical.replace('{plural}', 'other')}: plural family has no _other form` });
+          errors.push({
+            file: fileRel,
+            message: `${logical.replace('{plural}', 'other')}: plural family has no _other form`,
+          });
         }
         for (const cat of requiredPluralCategories(lang, info.ordinal)) {
           if (cat === 'other' || has.has(cat)) continue;
@@ -127,8 +133,10 @@ function checkLocales(errors: Problem[], warnings: Problem[]): Map<string, LangS
       const extra = [...mine.keys()].filter((k) => !ref.has(k));
       s.missing += missing.length;
       s.extra += extra.length;
-      if (missing.length) errors.push({ file: fileRel, message: `missing ${missing.length} key(s): ${listKeys(missing)}` });
-      if (extra.length) errors.push({ file: fileRel, message: `extra ${extra.length} key(s) not in ${BASE}: ${listKeys(extra)}` });
+      if (missing.length)
+        errors.push({ file: fileRel, message: `missing ${missing.length} key(s): ${listKeys(missing)}` });
+      if (extra.length)
+        errors.push({ file: fileRel, message: `extra ${extra.length} key(s) not in ${BASE}: ${listKeys(extra)}` });
 
       for (const [logical, { forms }] of mine) {
         const r = ref.get(logical);
@@ -138,7 +146,10 @@ function checkLocales(errors: Problem[], warnings: Problem[]): Map<string, LangS
         if (a.join('|') !== b.join('|')) {
           s.placeholder++;
           const fmt = (l: string[]) => (l.length ? l.map((p) => `{{${p}}}`).join(' ') : '(none)');
-          errors.push({ file: fileRel, message: `${logical}: placeholders differ — ${BASE} ${fmt(a)} vs ${lang} ${fmt(b)}` });
+          errors.push({
+            file: fileRel,
+            message: `${logical}: placeholders differ — ${BASE} ${fmt(a)} vs ${lang} ${fmt(b)}`,
+          });
         }
       }
     }
@@ -160,7 +171,8 @@ const JSX_TEXT = /(?<![=\-])>([^<>{}]*[A-Za-z]{3,}[^<>{}]*)</g;
 const TEXT_PROP = /\b(accessibilityLabel|accessibilityHint|placeholder|title|label|alt)="([^"]*[A-Za-z]{3,}[^"]*)"/g;
 /** Captured text that is really code: assignments, calls, logic, or a ternary continuing after a tag. */
 const CODE_HINT = /[=;()]|&&|\|\||^[:?]/;
-const CODE_LINE = /^(return|export|import|const|let|var|type|interface|if|else|case|default|break|continue|throw|await|yield|function)\b/;
+const CODE_LINE =
+  /^(return|export|import|const|let|var|type|interface|if|else|case|default|break|continue|throw|await|yield|function)\b/;
 
 function scanHardcoded(warnings: Problem[]): number {
   let count = 0;
@@ -236,7 +248,8 @@ function main(): number {
     table(
       ['Language', 'Files', 'Logical keys', 'Missing', 'Extra', 'Placeholder diffs', 'Empty', 'Status'],
       [...stats].map(([lang, s]) => {
-        const bad = s.missing + s.extra + s.placeholder + s.empty > 0 || errors.some((e) => e.file.includes(`/locales/${lang}/`));
+        const bad =
+          s.missing + s.extra + s.placeholder + s.empty > 0 || errors.some((e) => e.file.includes(`/locales/${lang}/`));
         return [
           lang + (lang === BASE ? color.dim(' (base)') : ''),
           String(s.files),
@@ -250,13 +263,18 @@ function main(): number {
       }),
     ),
   );
-  console.log(color.dim(`Hard-coded string scan (${SCAN_DIRS.map((d) => rel(d)).join(', ')}): ${hardcoded} warning(s).`));
+  console.log(
+    color.dim(`Hard-coded string scan (${SCAN_DIRS.map((d) => rel(d)).join(', ')}): ${hardcoded} warning(s).`),
+  );
   console.log('');
   if (errors.length) {
     console.log(color.red(color.bold(`✖ ${errors.length} translation error(s), ${warnings.length} warning(s).`)));
     return 1;
   }
-  console.log(color.green(color.bold('✔ Translations are in parity')) + (warnings.length ? color.yellow(` (${warnings.length} warning(s))`) : '.'));
+  console.log(
+    color.green(color.bold('✔ Translations are in parity')) +
+      (warnings.length ? color.yellow(` (${warnings.length} warning(s))`) : '.'),
+  );
   return 0;
 }
 

@@ -219,6 +219,8 @@ export const nadacEntrySchema = z.object({
   effectiveDate: isoDate,
   /** G, B, B-ANDA, B-BIO ... as published. */
   classification: z.string().optional(),
+  /** How the value was chosen when several NDCs share a description (e.g. "median of 3 NDCs"). */
+  note: z.string().optional(),
 });
 export type NadacEntry = z.infer<typeof nadacEntrySchema>;
 

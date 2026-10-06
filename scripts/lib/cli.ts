@@ -59,7 +59,6 @@ export const color = {
   bold: wrap(1),
 };
 
-// eslint-disable-next-line no-control-regex
 const ANSI = /\x1b\[[0-9;]*m/g;
 const visibleLength = (s: string) => s.replace(ANSI, '').length;
 

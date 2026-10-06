@@ -46,7 +46,11 @@ async function main(): Promise<number> {
     const packDir = path.join(packsDir, pack);
     const manifestPath = path.join(packDir, 'manifest.json');
     if (!fs.existsSync(manifestPath)) {
-      console.error(color.red(`✖ ${pack}: pack file missing: ${rel(manifestPath)} — create it with packId, status, version, minAppVersion, generatedAt and files.`));
+      console.error(
+        color.red(
+          `✖ ${pack}: pack file missing: ${rel(manifestPath)} — create it with packId, status, version, minAppVersion, generatedAt and files.`,
+        ),
+      );
       failed = true;
       continue;
     }

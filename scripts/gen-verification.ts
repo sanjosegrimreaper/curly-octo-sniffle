@@ -112,7 +112,10 @@ function summarize(file: string, at: readonly PathSeg[], o: JsonObject): string 
     case 'programs': {
       const fplMax = num(o, 'fplMax');
       const fplYear = num(o, 'fplYear');
-      const cap = fplMax !== undefined ? `${fplMax}% FPL${fplYear !== undefined ? ` (${fplYear} guidelines)` : ''}` : 'not published';
+      const cap =
+        fplMax !== undefined
+          ? `${fplMax}% FPL${fplYear !== undefined ? ` (${fplYear} guidelines)` : ''}`
+          : 'not published';
       return `${str(o, 'name') ?? ''} (${str(o, 'sponsor') ?? '?'}) — ${str(o, 'kind') ?? '?'}; income cap ${cap}; insurance rule ${str(o, 'insuranceRule') ?? '?'}${o.closedToNew === true ? '; closed to new applicants' : ''}${str(o, 'phone') ? `; phone ${str(o, 'phone')}` : ''}`;
     }
     case 'outlooks':
@@ -247,7 +250,9 @@ function renderPack(p: PackData): string {
       continue;
     }
     if (!confirmed.length) {
-      out.push(`_No confirmed facts yet — all ${pending} are listed under "Not yet confirmed on the official page" below._`);
+      out.push(
+        `_No confirmed facts yet — all ${pending} are listed under "Not yet confirmed on the official page" below._`,
+      );
       out.push('');
       continue;
     }
@@ -351,7 +356,8 @@ function loadPacks(packsDir: string, problems: string[]): PackData[] {
     if (fs.existsSync(uPath)) {
       const r = readJsonFile(uPath);
       const parsed = r.ok ? parseWith(unverifiedSchema, r.json) : null;
-      if (!parsed) problems.push(`${rel(uPath)} must be an array of { item, reason, lastTried } (run npm run check:packs)`);
+      if (!parsed)
+        problems.push(`${rel(uPath)} must be an array of { item, reason, lastTried } (run npm run check:packs)`);
       unverified = parsed ?? [];
     }
     packs.push({ id, manifest, files, unverified });

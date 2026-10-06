@@ -76,7 +76,10 @@ async function fetchKeyRows(datasetId: string, key: string): Promise<{ rows: Nad
     const json = await fetchJson(`${queryUrl(datasetId)}?${params}`);
     const parsed = queryResponse.safeParse(json);
     if (!parsed.success) {
-      throw new HttpError(`unexpected datastore response for dataset ${datasetId}: ${formatZodIssues(parsed.error).join('; ')}`, 200);
+      throw new HttpError(
+        `unexpected datastore response for dataset ${datasetId}: ${formatZodIssues(parsed.error).join('; ')}`,
+        200,
+      );
     }
     const { results, count } = parsed.data;
     const pageRows = parseRows(results);
@@ -101,14 +104,25 @@ async function candidateDatasets(override: string | undefined, fromFiles: readon
   try {
     const found = nadacDatasets(await fetchJson(url, { timeoutMs: 60_000 }));
     if (found.length) {
-      console.log(`Datasets: ${found.slice(0, 3).map((d) => `${d.title} (${d.id})`).join(', ')}`);
+      console.log(
+        `Datasets: ${found
+          .slice(0, 3)
+          .map((d) => `${d.title} (${d.id})`)
+          .join(', ')}`,
+      );
       out.push(...found.slice(0, 2));
     } else {
-      console.log(color.yellow('warn  no "NADAC (National Average Drug Acquisition Cost) <year>" dataset in the metastore listing'));
+      console.log(
+        color.yellow(
+          'warn  no "NADAC (National Average Drug Acquisition Cost) <year>" dataset in the metastore listing',
+        ),
+      );
     }
   } catch (e) {
     if (e instanceof NetworkError) throw e;
-    console.log(color.yellow(`warn  dataset search failed (${errorMessage(e)}); falling back to the datasetId in nadac.json`));
+    console.log(
+      color.yellow(`warn  dataset search failed (${errorMessage(e)}); falling back to the datasetId in nadac.json`),
+    );
   }
   for (const id of fromFiles) if (!out.some((d) => d.id === id)) out.push({ id, title: '', year: 0 });
   return out;
@@ -149,7 +163,11 @@ async function main(): Promise<number> {
     const meds = parseWith(medicationsSchema, medsRead.json);
     const old = parseWith(nadacFeedWithNotes, feedRead.json);
     if (!meds || !old) {
-      console.error(color.red(`✖ ${pack}: ${!meds ? 'medications.json' : FEED_FILE} does not pass its schema — run npm run check:packs first.`));
+      console.error(
+        color.red(
+          `✖ ${pack}: ${!meds ? 'medications.json' : FEED_FILE} does not pass its schema — run npm run check:packs first.`,
+        ),
+      );
       return 1;
     }
     const keys = [
@@ -168,7 +186,9 @@ async function main(): Promise<number> {
   const fileIds = inputs.map((i) => i.old.datasetId).filter((id): id is string => !!id);
   const candidates = await candidateDatasets(args.value('dataset-id') ?? process.env.NADAC_DATASET_ID, fileIds);
   if (!candidates.length) {
-    console.error(color.red('✖ No NADAC dataset to query: none found in the metastore and nadac.json has no datasetId.'));
+    console.error(
+      color.red('✖ No NADAC dataset to query: none found in the metastore and nadac.json has no datasetId.'),
+    );
     return 1;
   }
 
@@ -228,7 +248,10 @@ async function main(): Promise<number> {
   for (const plan of plans) {
     const { update } = plan;
     console.log('');
-    console.log(color.bold(`${plan.pack}: ${rel(plan.file)}`) + color.dim(` — dataset ${chosen.title || chosen.id}, as of ${update.feed.asOfDate ?? '—'}`));
+    console.log(
+      color.bold(`${plan.pack}: ${rel(plan.file)}`) +
+        color.dim(` — dataset ${chosen.title || chosen.id}, as of ${update.feed.asOfDate ?? '—'}`),
+    );
     const rows = update.feed.entries.map((e) => [
       e.key,
       String(plan.summaries.get(e.key)?.ndcCount ?? '—'),
@@ -239,14 +262,17 @@ async function main(): Promise<number> {
       update.updated.includes(e.key) ? color.green('updated') : color.yellow('kept (no rows this week)'),
     ]);
     if (rows.length) console.log(table(['Key', 'NDCs', 'Per unit', 'Unit', 'Effective', 'NDC', ''], rows));
-    for (const k of update.skipped) console.log(color.yellow(`warn  no NADAC rows for "${k}" — skipped (the app shows "Not listed")`));
+    for (const k of update.skipped)
+      console.log(color.yellow(`warn  no NADAC rows for "${k}" — skipped (the app shows "Not listed")`));
     for (const k of update.dropped) console.log(color.dim(`note  dropped "${k}" — no strength uses it any more`));
   }
 
   console.log('');
   for (const plan of plans) {
     if (!plan.update.changed) {
-      console.log(color.green(`✔ ${plan.pack}: already current (as of ${plan.update.feed.asOfDate ?? '—'}) — not rewritten.`));
+      console.log(
+        color.green(`✔ ${plan.pack}: already current (as of ${plan.update.feed.asOfDate ?? '—'}) — not rewritten.`),
+      );
     } else if (dryRun) {
       console.log(color.cyan(`• ${plan.pack}: would update ${rel(plan.file)} (--dry-run, nothing written).`));
     } else {

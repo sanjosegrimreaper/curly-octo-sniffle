@@ -5,11 +5,11 @@
  */
 import fs from 'node:fs';
 
-import * as prettier from 'prettier';
+import { format, resolveConfig } from 'prettier';
 
 async function pretty(text: string, file: string, parser: 'json' | 'markdown'): Promise<string> {
-  const config = (await prettier.resolveConfig(file)) ?? {};
-  return prettier.format(text, { ...config, parser, filepath: file });
+  const config = (await resolveConfig(file)) ?? {};
+  return format(text, { ...config, parser, filepath: file });
 }
 
 export async function formatJson(value: unknown, file: string): Promise<string> {

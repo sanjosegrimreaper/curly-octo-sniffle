@@ -35,7 +35,9 @@ import { formatJson, writeFileAtomic } from './lib/format';
 import { fetchJson, HttpError, NetworkError } from './lib/http';
 import { formatZodIssues, listPackIds, parseWith, resolvePacksDir } from './lib/packs';
 
-const API = (process.env.COSTPLUS_API_BASE ?? 'https://us-central1-costplusdrugs-publicapi.cloudfunctions.net/main').replace(/\/+$/, '');
+const API = (
+  process.env.COSTPLUS_API_BASE ?? 'https://us-central1-costplusdrugs-publicapi.cloudfunctions.net/main'
+).replace(/\/+$/, '');
 const FILE = 'prices/costplus.json';
 const PAUSE_MS = 250;
 
@@ -57,7 +59,9 @@ async function main(): Promise<number> {
   const only = args.value('pack');
   const today = todayLocal();
 
-  const packs = listPackIds(packsDir).filter((p) => (!only || p === only) && fs.existsSync(path.join(packsDir, p, FILE)));
+  const packs = listPackIds(packsDir).filter(
+    (p) => (!only || p === only) && fs.existsSync(path.join(packsDir, p, FILE)),
+  );
   if (!packs.length) {
     console.log(`No Cost Plus snapshot files found (looked for ${rel(packsDir)}/*/${FILE}) — nothing to do.`);
     return 0;
@@ -73,7 +77,11 @@ async function main(): Promise<number> {
     const meds = medsRead.ok ? parseWith(medicationsSchema, medsRead.json) : null;
     const old = snapRead.ok ? parseWith(costPlusSnapshotSchema, snapRead.json) : null;
     if (!meds || !old) {
-      console.error(color.red(`✖ ${pack}: ${!meds ? 'medications.json' : FILE} is missing or fails its schema — run npm run check:packs first.`));
+      console.error(
+        color.red(
+          `✖ ${pack}: ${!meds ? 'medications.json' : FILE} is missing or fails its schema — run npm run check:packs first.`,
+        ),
+      );
       return 1;
     }
 
@@ -93,12 +101,21 @@ async function main(): Promise<number> {
       const matches = matchListing(listing, t.url);
       const row = matches[0];
       if (!row) {
-        console.log(color.yellow(`warn  ${label}: ${t.url} is not in the API listing — skipped (check the costPlusUrl)`));
+        console.log(
+          color.yellow(`warn  ${label}: ${t.url} is not in the API listing — skipped (check the costPlusUrl)`),
+        );
         continue;
       }
-      if (matches.length > 1) console.log(color.yellow(`warn  ${label}: ${matches.length} listing rows share that page; using NDC ${row.ndc}`));
+      if (matches.length > 1)
+        console.log(
+          color.yellow(`warn  ${label}: ${matches.length} listing rows share that page; using NDC ${row.ndc}`),
+        );
       if (!isPill(row) || t.strength.unitsPerCount !== 1) {
-        console.log(color.yellow(`warn  ${label}: not a pill product (${row.form ?? '?'}) — quantity units are ambiguous, skipped`));
+        console.log(
+          color.yellow(
+            `warn  ${label}: not a pill product (${row.form ?? '?'}) — quantity units are ambiguous, skipped`,
+          ),
+        );
         continue;
       }
       for (const qty of t.strength.quantities) {
@@ -106,9 +123,16 @@ async function main(): Promise<number> {
         const url = `${API}?${new URLSearchParams({ ndc: row.ndc, quantity_units: String(qty) })}`;
         const quoteRow = (await getRows(url)).find((r) => r.ndc === row.ndc);
         const cents = dollarsToCents(quoteRow?.requested_quote);
-        const units = quoteRow?.requested_quote_units !== undefined && quoteRow?.requested_quote_units !== null ? Number(quoteRow.requested_quote_units) : null;
+        const units =
+          quoteRow?.requested_quote_units !== undefined && quoteRow?.requested_quote_units !== null
+            ? Number(quoteRow.requested_quote_units)
+            : null;
         if (!quoteRow || cents === null || units !== qty) {
-          const why = quoteRow?.error_message ?? (quoteRow ? `no usable quote (${quoteRow.requested_quote ?? 'none'} for ${units ?? '?'} units)` : 'NDC missing from the answer');
+          const why =
+            quoteRow?.error_message ??
+            (quoteRow
+              ? `no usable quote (${quoteRow.requested_quote ?? 'none'} for ${units ?? '?'} units)`
+              : 'NDC missing from the answer');
           console.log(color.yellow(`warn  ${label} × ${qty}: ${why} — skipped`));
           continue;
         }
@@ -128,16 +152,27 @@ async function main(): Promise<number> {
           qty: String(qty),
           price: `$${(cents / 100).toFixed(2)}`,
           fee: impliedFee === null ? '—' : `$${(impliedFee / 100).toFixed(2)}`,
-          status: feeOk ? color.green('ok') : color.yellow(`fee ≠ formula ($${(old.formula.pharmacyFeeCents / 100).toFixed(2)})`),
+          status: feeOk
+            ? color.green('ok')
+            : color.yellow(`fee ≠ formula ($${(old.formula.pharmacyFeeCents / 100).toFixed(2)})`),
         });
       }
     }
 
     if (lines.length) {
-      console.log(table(['Strength', 'Qty', 'Quote (before shipping)', 'Implied pharmacy fee', 'Check'], lines.map((l) => [l.label, l.qty, l.price, l.fee, l.status])));
+      console.log(
+        table(
+          ['Strength', 'Qty', 'Quote (before shipping)', 'Implied pharmacy fee', 'Check'],
+          lines.map((l) => [l.label, l.qty, l.price, l.fee, l.status]),
+        ),
+      );
     }
     if (!quotes.length) {
-      console.error(color.red(`✖ ${pack}: no quotes could be taken — nothing written. Check the costPlusUrls and the API answers above.`));
+      console.error(
+        color.red(
+          `✖ ${pack}: no quotes could be taken — nothing written. Check the costPlusUrls and the API answers above.`,
+        ),
+      );
       return 1;
     }
 
@@ -170,10 +205,17 @@ async function main(): Promise<number> {
   console.log('');
   for (const p of plans) {
     if (!p.changed) console.log(color.green(`✔ ${p.pack}: already current — not rewritten.`));
-    else if (args.has('dry-run')) console.log(color.cyan(`• ${p.pack}: would write ${p.next.quotes.length} quote(s) to ${rel(p.file)} (--dry-run).`));
+    else if (args.has('dry-run'))
+      console.log(
+        color.cyan(`• ${p.pack}: would write ${p.next.quotes.length} quote(s) to ${rel(p.file)} (--dry-run).`),
+      );
     else {
       writeFileAtomic(p.file, await formatJson(p.next, p.file));
-      console.log(color.green(`✔ ${p.pack}: wrote ${p.next.quotes.length} quote(s) to ${rel(p.file)}. Next: npm run pack:manifest`));
+      console.log(
+        color.green(
+          `✔ ${p.pack}: wrote ${p.next.quotes.length} quote(s) to ${rel(p.file)}. Next: npm run pack:manifest`,
+        ),
+      );
     }
   }
   return 0;

@@ -1,1 +1,73 @@
-{}
+{
+  "title": "My medicines",
+  "intro": "Your saved medicines, their lowest prices today and your monthly total.",
+  "budget": {
+    "label": "Monthly budget",
+    "perMonth": "{{price}} a month",
+    "forCount_one": "for {{count}} medicine",
+    "forCount_other": "for {{count}} medicines",
+    "noPrice_one": "+ {{count}} without a listed price",
+    "noPrice_other": "+ {{count}} without a listed price",
+    "needDays_one": "+ {{count}} more once you tell us how long a fill lasts",
+    "needDays_other": "+ {{count}} more once you tell us how long a fill lasts",
+    "noneYet": "No monthly total yet",
+    "explain": "We add up only prices you can pay today that are listed in this app. We never guess a price. A medicine counts when we know its price and how many days one fill lasts.",
+    "showMath": "Show the math",
+    "hideMath": "Hide the math",
+    "mathLine": "{{name}}: {{price}} ÷ {{days}} days × 30 = {{monthly}}",
+    "mathTotal": "Total for 30 days: {{total}}"
+  },
+  "lock": {
+    "title": "Keep this list private",
+    "body": "You can lock this list in Settings.",
+    "cta": "Open Settings"
+  },
+  "empty": {
+    "title": "No saved medicines yet",
+    "body": "When you look up a medicine, tap the star to save it here. Then you can see your monthly total and set refill reminders.",
+    "cta": "Find a medicine"
+  },
+  "card": {
+    "lowestLabel": "Lowest price you can pay today",
+    "upTo": "Up to {{price}}",
+    "maxNote": "This is the most the pharmacy may charge. Call to confirm.",
+    "at": "at {{seller}}",
+    "per30": "{{price}} per 30 days",
+    "noPrice": "No checkout price loaded yet",
+    "noPriceBody": "Open the medicine to see coupon links and programs that may help.",
+    "missing": "This medicine is not in the current data. You can remove it.",
+    "genericWatch": "Generic watch",
+    "programAvailable": "Program available",
+    "lastsQuestion": "How long does one fill last?",
+    "lastsHint": "Pick one to add this medicine to your monthly budget.",
+    "days_one": "{{count}} day",
+    "days_other": "{{count}} days",
+    "open": "Open prices for {{name}}",
+    "remind": "Set a refill reminder",
+    "remindOn_one": "Reminder every {{count}} day",
+    "remindOn_other": "Reminder every {{count}} days",
+    "remindOff": "Tap to turn off the reminder",
+    "remove": "Remove {{name}}"
+  },
+  "remove": {
+    "title": "Remove {{name}}?",
+    "body": "It will no longer show in My medicines or My Plan. Any refill reminder for it stops.",
+    "confirm": "Yes, remove it",
+    "done": "Removed {{name}}."
+  },
+  "refill": {
+    "sheetTitle": "How long does one fill last?",
+    "sheetBody": "We will remind you on this phone when it's time to refill.",
+    "every_one": "Every {{count}} day",
+    "every_other": "Every {{count}} days",
+    "privacy": "Reminders stay on this phone. Nothing is sent anywhere.",
+    "title": "RxBridge",
+    "privateBody": "Time to refill a medicine",
+    "namedBody": "Time to refill {{name}}",
+    "set_one": "Reminder set: every {{count}} day.",
+    "set_other": "Reminder set: every {{count}} days.",
+    "off": "Refill reminder turned off.",
+    "web": "Reminders work in the phone app. They are not available on the web.",
+    "denied": "Reminders are off for RxBridge. You can turn on notifications in your phone's settings."
+  }
+}

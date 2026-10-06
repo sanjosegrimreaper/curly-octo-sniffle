@@ -1,1 +1,111 @@
-{}
+{
+  "greeting": {
+    "morning": "Good morning",
+    "afternoon": "Good afternoon",
+    "evening": "Good evening"
+  },
+  "openSettings": "Open settings",
+  "intro": {
+    "fresh": "Let's take the first step together. Everything you tell us stays on this phone.",
+    "saved_one": "You have {{count}} saved medicine. Here is what could help next.",
+    "saved_other": "You have {{count}} saved medicines. Here is what could help next."
+  },
+  "steps": {
+    "title": "Your next best steps",
+    "hint": "Start with number 1. Each step opens the place where you can do it.",
+    "a11yStep": "Step {{n}} of {{total}}",
+    "finishScreener": {
+      "kind": "Coverage",
+      "title": "Answer a few questions about your coverage",
+      "body": "Your answers help us show programs that may help you pay. They stay on this phone.",
+      "cta": "Answer coverage questions"
+    },
+    "applyBenefit": {
+      "kind": "Coverage",
+      "cta": "See my coverage results"
+    },
+    "checkMedicare": {
+      "kind": "Medicare",
+      "title": "Look into Medicare",
+      "body": "You said you are 65 or older. Medicare may help pay for medicines, and free counselors can help you choose.",
+      "cta": "Open Medicare help"
+    },
+    "findMedicine": {
+      "kind": "Prices",
+      "title": "Look up your first medicine",
+      "body": "See prices you can pay today and programs that may help.",
+      "cta": "Find a medicine"
+    },
+    "buyNow": {
+      "kind": "Price you can pay today",
+      "upTo": "Up to {{price}}",
+      "at": "at {{seller}}",
+      "cta": "See all prices for {{name}}"
+    },
+    "callProgram": {
+      "kind": "Program that may help",
+      "title": "Call {{program}}",
+      "body": "This program may help pay for {{medicine}}. A short checklist helps you get ready.",
+      "cta": "Get ready to call {{program}}"
+    },
+    "renew": {
+      "kind": "Renewal date",
+      "title": "Renew {{program}} by {{date}}",
+      "daysLeft_one": "{{count}} day left.",
+      "daysLeft_other": "{{count}} days left.",
+      "dueToday": "Due today.",
+      "overdue": "This date has passed. Call the program to ask what to do.",
+      "cta": "Open my applications"
+    },
+    "trackApplication": {
+      "kind": "Application",
+      "title": "Keep your {{program}} application moving",
+      "body": "Check your papers, notes and next step.",
+      "cta": "Open my applications"
+    },
+    "empty": {
+      "title": "You're all caught up",
+      "body": "Nothing needs you right now. You can look up another medicine any time.",
+      "cta": "Find a medicine"
+    }
+  },
+  "changes": {
+    "title": "Changes since your last visit",
+    "note": "Only prices you can pay today are compared.",
+    "priceChanged": "Price for {{name}} changed from {{from}} to {{to}}",
+    "lower": "Lower than before",
+    "higher": "Higher than before"
+  },
+  "saved": {
+    "title": "Saved medicines",
+    "seeAll": "Open My medicines",
+    "noPrice": "No price loaded yet",
+    "lowest": "Lowest price today",
+    "upTo": "Up to {{price}}",
+    "open": "Opens prices for {{name}}"
+  },
+  "freshness": {
+    "section": "Your data",
+    "title": "How fresh is this information?",
+    "pack": "Data version {{version}}",
+    "statusDraft": "Preview: some facts are not confirmed yet",
+    "statusRelease": "All facts confirmed on official sources",
+    "packDate": "Updated {{date}}",
+    "nadac": "Wholesale prices (NADAC) as of {{date}}",
+    "nadacNotLoaded": "Wholesale prices (NADAC): not loaded yet",
+    "open": "Opens Data sources and dates"
+  },
+  "startOver": {
+    "button": "Start over",
+    "title": "Start over?",
+    "body": "This clears your answers, saved medicines and applications on this phone. Your settings stay the same.",
+    "confirm": "Yes, clear and start over",
+    "done": "Your answers were cleared."
+  },
+  "notFound": {
+    "title": "We can't find this page",
+    "body": "The link may be old or typed wrong. Nothing you saved was changed.",
+    "home": "Go to My Plan",
+    "search": "Search for a medicine"
+  }
+}

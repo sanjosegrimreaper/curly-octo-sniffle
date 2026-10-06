@@ -24,15 +24,45 @@ const MAX_REFS_SHOWN = 3;
 
 type Category = 'broken' | 'bot-protected' | 'blocked' | 'network' | 'server' | 'other' | 'ok';
 type Ref = { file: string; path: string };
-type Result = { url: string; refs: Ref[]; category: Category; status?: number; method: 'HEAD' | 'GET'; detail?: string };
-type Probe = { kind: 'response'; status: number; blocked: boolean; redirected: string | null } | { kind: 'error'; message: string; blocked: boolean };
+type Result = {
+  url: string;
+  refs: Ref[];
+  category: Category;
+  status?: number;
+  method: 'HEAD' | 'GET';
+  detail?: string;
+};
+type Probe =
+  | { kind: 'response'; status: number; blocked: boolean; redirected: string | null }
+  | { kind: 'error'; message: string; blocked: boolean };
 
 const SECTIONS: readonly { category: Category; title: string; blurb: string }[] = [
-  { category: 'broken', title: 'Broken (404/410)', blurb: 'The page is gone. Find the new official page, or remove the fact and list it in unverified.json.' },
-  { category: 'bot-protected', title: 'Bot-protected (401/403/429) — verify in a browser', blurb: 'The site refused an automated check. Open each link in a browser; if it loads, it is fine.' },
-  { category: 'blocked', title: 'Blocked by network (proxy 403) — not checked', blurb: "This machine's network policy refused these hosts, so they were not checked. Run in GitHub Actions or open them in a browser." },
-  { category: 'network', title: 'Network errors', blurb: 'No answer (DNS, TLS, timeout). Often temporary; re-run before acting.' },
-  { category: 'server', title: 'Server errors (5xx)', blurb: 'The site had a problem. Often temporary; re-run before acting.' },
+  {
+    category: 'broken',
+    title: 'Broken (404/410)',
+    blurb: 'The page is gone. Find the new official page, or remove the fact and list it in unverified.json.',
+  },
+  {
+    category: 'bot-protected',
+    title: 'Bot-protected (401/403/429) — verify in a browser',
+    blurb: 'The site refused an automated check. Open each link in a browser; if it loads, it is fine.',
+  },
+  {
+    category: 'blocked',
+    title: 'Blocked by network (proxy 403) — not checked',
+    blurb:
+      "This machine's network policy refused these hosts, so they were not checked. Run in GitHub Actions or open them in a browser.",
+  },
+  {
+    category: 'network',
+    title: 'Network errors',
+    blurb: 'No answer (DNS, TLS, timeout). Often temporary; re-run before acting.',
+  },
+  {
+    category: 'server',
+    title: 'Server errors (5xx)',
+    blurb: 'The site had a problem. Often temporary; re-run before acting.',
+  },
   { category: 'other', title: 'Other HTTP answers', blurb: 'Unexpected status codes worth a look.' },
 ];
 
@@ -49,7 +79,12 @@ async function probe(url: string, method: 'HEAD' | 'GET'): Promise<Probe> {
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
     await res.body?.cancel().catch(() => undefined);
-    return { kind: 'response', status: res.status, blocked: isProxyBlock(res), redirected: res.redirected ? res.url : null };
+    return {
+      kind: 'response',
+      status: res.status,
+      blocked: isProxyBlock(res),
+      redirected: res.redirected ? res.url : null,
+    };
   } catch (e) {
     const d = describeFetchError(e);
     return { kind: 'error', message: d.message, blocked: d.blocked };
@@ -131,7 +166,8 @@ function report(results: readonly Result[], refsTotal: number, packsDir: string)
   const ok = results.filter((r) => r.category === 'ok');
   if (ok.length) {
     lines.push(`<details><summary>OK (${ok.length})</summary>`, '', '| URL | Answer |', '| --- | --- |');
-    for (const r of ok) lines.push(`| ${md(r.url)} | ${r.method} ${r.status ?? ''}${r.detail ? ` ${md(r.detail)}` : ''} |`);
+    for (const r of ok)
+      lines.push(`| ${md(r.url)} | ${r.method} ${r.status ?? ''}${r.detail ? ` ${md(r.detail)}` : ''} |`);
     lines.push('', '</details>', '');
   }
   return lines.join('\n');

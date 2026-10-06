@@ -192,7 +192,11 @@ function segId(v: unknown): string | undefined {
 }
 
 /** Depth-first walk over a parsed JSON value. Array items are labelled by their id/key/year when they have one. */
-export function walk(value: unknown, visit: (value: unknown, path: readonly PathSeg[]) => void, at: PathSeg[] = []): void {
+export function walk(
+  value: unknown,
+  visit: (value: unknown, path: readonly PathSeg[]) => void,
+  at: PathSeg[] = [],
+): void {
   visit(value, at);
   if (Array.isArray(value)) {
     value.forEach((item, index) => walk(item, visit, [...at, { index, id: segId(item) }]));

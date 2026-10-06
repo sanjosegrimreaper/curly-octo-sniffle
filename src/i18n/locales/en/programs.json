@@ -103,7 +103,7 @@
     "title": "Call coach",
     "intro": "Four calm steps. Take your time. You can keep this page open during the call.",
     "stepOf": "Step {{n}} of {{total}}",
-    "stepDone": "Done",
+    "stepOfDone": "Step {{n}} of {{total}} · Done",
     "beforeTitle": "Before you call",
     "beforeBody": "Have these next to you:",
     "itemPen": "A pen and paper",

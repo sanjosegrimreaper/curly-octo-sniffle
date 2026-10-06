@@ -71,7 +71,15 @@ export function parseRows(results: readonly unknown[]): { rows: NadacRow[]; reje
     const eff = p.success ? toIsoDate(p.data.effective_date) : null;
     const asOf = p.success ? toIsoDate(p.data.as_of_date) : null;
     const ndc = p.success ? p.data.ndc.replace(/\D/g, '') : '';
-    if (!p.success || !unit?.success || !Number.isFinite(perUnit) || perUnit < 0 || !eff || !asOf || ndc.length !== 11) {
+    if (
+      !p.success ||
+      !unit?.success ||
+      !Number.isFinite(perUnit) ||
+      perUnit < 0 ||
+      !eff ||
+      !asOf ||
+      ndc.length !== 11
+    ) {
       rejected++;
       continue;
     }
@@ -106,7 +114,9 @@ const round5 = (n: number) => Math.round(n * 100_000) / 100_000;
  */
 export function summarizeKey(key: string, rows: readonly NadacRow[]): KeySummary | null {
   const want = normalizeDescription(key);
-  const matching = rows.filter((r) => normalizeDescription(r.description) === want && !isExcludedForKey(key, r.description));
+  const matching = rows.filter(
+    (r) => normalizeDescription(r.description) === want && !isExcludedForKey(key, r.description),
+  );
   if (!matching.length) return null;
 
   const latestAsOf = matching.reduce((m, r) => (r.asOfDate > m ? r.asOfDate : m), '');

@@ -65,12 +65,15 @@
     "copayInvalid": "Type an amount in dollars, like 25 or 12.50.",
     "copaySaved": "Saved on this phone: {{amount}}",
     "copayClear": "Clear my copay",
+    "copayNoteTitle": "Good to know",
     "copayNote": "Cash prices can be lower than a copay. But cash payments may not count toward your deductible — ask your plan.",
     "compare": "Compare prices for my medicine"
   },
   "mediCal": {
     "title": "Using Medi-Cal for medicine",
-    "body": "Show your Medi-Cal card at the pharmacy. If a medicine is not covered, ask your doctor or pharmacist what to do.",
+    "body": "Two things to know at the pharmacy.",
+    "tipCard": "Show your Medi-Cal card at the pharmacy.",
+    "tipAsk": "If a medicine is not covered, ask your doctor or pharmacist what to do.",
     "noticesTitle": "Rules changed recently",
     "lookUp": "Look up a medicine"
   },
@@ -97,6 +100,8 @@
     "body": "Count yourself too.",
     "people_one": "{{count}} person",
     "people_other": "{{count}} people",
+    "unit_one": "person",
+    "unit_other": "people",
     "stepperLabel": "Household size",
     "fewer": "One fewer person",
     "more": "One more person",

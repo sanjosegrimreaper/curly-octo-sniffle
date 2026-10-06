@@ -99,13 +99,7 @@ function examples(paths: readonly string[]): string {
 }
 
 /** Honesty, URL, date, duplicate-id and translation checks on one parsed file. */
-function contentChecks(
-  pack: string,
-  file: string,
-  json: unknown,
-  today: string,
-  issues: Issues,
-): ContentResult {
+function contentChecks(pack: string, file: string, json: unknown, today: string, issues: Issues): ContentResult {
   let records = 0;
   const unconfirmedFacts: string[] = [];
   const unconfirmedSources: string[] = [];
@@ -230,7 +224,11 @@ function crossRefChecks(pack: string, data: ReadonlyMap<string, unknown>, issues
   if (costPlus) {
     costPlus.quotes.forEach((q, i) => {
       if (!medExists(q.medicationId)) {
-        issues.error(pack, 'prices/costplus.json', `quotes[${i}].medicationId: "${q.medicationId}" is not a medication`);
+        issues.error(
+          pack,
+          'prices/costplus.json',
+          `quotes[${i}].medicationId: "${q.medicationId}" is not a medication`,
+        );
       } else if (!strengthExists(q.medicationId, q.strengthId)) {
         issues.error(
           pack,
@@ -241,7 +239,11 @@ function crossRefChecks(pack: string, data: ReadonlyMap<string, unknown>, issues
     });
     costPlus.notListed.forEach((n, i) => {
       if (!medExists(n.medicationId)) {
-        issues.error(pack, 'prices/costplus.json', `notListed[${i}].medicationId: "${n.medicationId}" is not a medication`);
+        issues.error(
+          pack,
+          'prices/costplus.json',
+          `notListed[${i}].medicationId: "${n.medicationId}" is not a medication`,
+        );
       } else if (n.strengthId !== null && !strengthExists(n.medicationId, n.strengthId)) {
         issues.error(
           pack,
@@ -259,7 +261,11 @@ function crossRefChecks(pack: string, data: ReadonlyMap<string, unknown>, issues
     }
     for (const sid of d.strengthIds) {
       if (!strengthExists(d.medicationId, sid)) {
-        issues.error(pack, 'prices/direct.json', `prices[${d.id}].strengthIds: "${sid}" is not a strength of ${d.medicationId}`);
+        issues.error(
+          pack,
+          'prices/direct.json',
+          `prices[${d.id}].strengthIds: "${sid}" is not a strength of ${d.medicationId}`,
+        );
       }
     }
   }
@@ -340,7 +346,14 @@ function validateOptional(
   if (!r.success) for (const line of formatZodIssues(r.error)) issues.error(pack, file, `schema: ${line}`);
   const { records, unconfirmedFacts } = contentChecks(pack, file, read.json, today, issues);
   data.set(file, read.json);
-  rows.push({ pack, file, status: r.success ? 'ok' : 'invalid', optional: true, records, unconfirmed: unconfirmedFacts.length });
+  rows.push({
+    pack,
+    file,
+    status: r.success ? 'ok' : 'invalid',
+    optional: true,
+    records,
+    unconfirmed: unconfirmedFacts.length,
+  });
 }
 
 type PackResult = {
@@ -454,7 +467,9 @@ function main(): number {
   const registry = readPackRegistry();
   const issues = new Issues();
 
-  console.log(color.bold(`Validating data packs in ${rel(packsDir)}/ (today ${today}${forceRelease ? ', --release' : ''})`));
+  console.log(
+    color.bold(`Validating data packs in ${rel(packsDir)}/ (today ${today}${forceRelease ? ', --release' : ''})`),
+  );
 
   let packIds = listPackIds(packsDir);
   const only = args.value('pack');
@@ -473,7 +488,11 @@ function main(): number {
   if (registry && !only) {
     for (const id of registry.keys()) {
       if (!packIds.includes(id)) {
-        issues.error(id, '(pack)', `registered in PACK_FILES (src/data/pack.ts) but ${rel(path.join(packsDir, id))}/ does not exist`);
+        issues.error(
+          id,
+          '(pack)',
+          `registered in PACK_FILES (src/data/pack.ts) but ${rel(path.join(packsDir, id))}/ does not exist`,
+        );
       }
     }
   }
@@ -483,7 +502,10 @@ function main(): number {
     if (registry && !registry.has(pack)) {
       issues.warn(pack, '(pack)', 'not registered in PACK_FILES (src/data/pack.ts) — the app will not load it');
     }
-    results.set(pack, validatePack(pack, path.join(packsDir, pack), packFilesFor(pack, registry), forceRelease, today, issues));
+    results.set(
+      pack,
+      validatePack(pack, path.join(packsDir, pack), packFilesFor(pack, registry), forceRelease, today, issues),
+    );
   }
 
   const allPacks = [...new Set([...packIds, ...issues.list.map((i) => i.pack)])];
@@ -567,7 +589,9 @@ function main(): number {
     console.log(color.red(color.bold(`✖ ${errors} error(s), ${warnings} warning(s).`)));
     return 1;
   }
-  console.log(color.green(color.bold(`✔ All packs valid`)) + (warnings ? color.yellow(` (${warnings} warning(s))`) : '.'));
+  console.log(
+    color.green(color.bold(`✔ All packs valid`)) + (warnings ? color.yellow(` (${warnings} warning(s))`) : '.'),
+  );
   return 0;
 }
 

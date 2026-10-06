@@ -65,7 +65,9 @@ export function requiredPluralCategories(lang: string, ordinal = false): PluralC
 }
 
 /** Groups flattened keys into logical keys: plain keys map to themselves, plural forms to their family. */
-export function logicalKeys(flat: ReadonlyMap<string, unknown>): Map<string, { forms: Map<string, unknown>; info: KeyInfo }> {
+export function logicalKeys(
+  flat: ReadonlyMap<string, unknown>,
+): Map<string, { forms: Map<string, unknown>; info: KeyInfo }> {
   const out = new Map<string, { forms: Map<string, unknown>; info: KeyInfo }>();
   for (const [key, value] of flat) {
     const info = keyInfo(key);
