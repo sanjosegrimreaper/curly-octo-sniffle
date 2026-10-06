@@ -1,0 +1,7 @@
+{
+  "CFBundleDisplayName": "RxBridge",
+  "NSFaceIDUsageDescription": "RxBridge 可以使用面容 ID 保护您的药品清单隐私。",
+  "NSLocationWhenInUseUsageDescription": "RxBridge 只用您的位置按距离排列附近的药房。位置信息不会离开您的手机。",
+  "NSCalendarsUsageDescription": "RxBridge 可以在您的日历中添加援助计划的续期提醒。",
+  "NSCalendarsFullAccessUsageDescription": "RxBridge 可以在您的日历中添加援助计划的续期提醒。"
+}

@@ -1,0 +1,387 @@
+{
+  "medications": [
+    {
+      "id": "metformin-er",
+      "brand": null,
+      "generic": "metformin ER",
+      "displayName": {
+        "en": "Metformin ER (extended-release)"
+      },
+      "aliases": {
+        "en": [
+          "metformin",
+          "metformin ER",
+          "metformin XR",
+          "metformin extended release",
+          "Glucophage XR",
+          "glucophage"
+        ],
+        "es": [
+          "metformina",
+          "metformina de liberación prolongada",
+          "metformina XR"
+        ],
+        "zh-Hans": [
+          "二甲双胍",
+          "二甲双胍缓释片",
+          "格华止"
+        ],
+        "hi": [
+          "मेटफॉर्मिन",
+          "मेटफ़ॉर्मिन",
+          "मेटफॉर्मिन ईआर",
+          "metformin"
+        ]
+      },
+      "category": "diabetes",
+      "marketStatus": "genericAvailable",
+      "kind": "small-molecule",
+      "strengths": [
+        {
+          "id": "er-500",
+          "label": {
+            "en": "500 mg extended-release tablet"
+          },
+          "form": "tablet-er",
+          "pricingUnit": "EA",
+          "unitsPerCount": 1,
+          "countLabel": {
+            "en": "tablets"
+          },
+          "quantities": [
+            30,
+            60,
+            90,
+            120,
+            180
+          ],
+          "defaultQuantity": 60,
+          "daysPerCount": null,
+          "costPlusUrl": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-500mg-tablet/",
+          "nadacKey": "METFORMIN HCL ER 500 MG TABLET"
+        },
+        {
+          "id": "er-750",
+          "label": {
+            "en": "750 mg extended-release tablet"
+          },
+          "form": "tablet-er",
+          "pricingUnit": "EA",
+          "unitsPerCount": 1,
+          "countLabel": {
+            "en": "tablets"
+          },
+          "quantities": [
+            30,
+            60,
+            90,
+            120,
+            180
+          ],
+          "defaultQuantity": 60,
+          "daysPerCount": null,
+          "costPlusUrl": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-750mg-tablet/",
+          "nadacKey": "METFORMIN HCL ER 750 MG TABLET"
+        }
+      ],
+      "goodRxUrl": "https://www.goodrx.com/metformin-er-glucophage-xr",
+      "singleCareUrl": "https://www.singlecare.com/prescription/metformin-hcl-er",
+      "programIds": [],
+      "hasManufacturerPap": false,
+      "common": true,
+      "notes": [
+        {
+          "en": "Metformin ER comes in types with very different prices. Most prescriptions are for the regular (Glucophage XR-type) tablet. Osmotic (Fortamet-type) and modified (Glumetza-type) versions cost much more. Check which one your prescription says."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Cost Plus Drugs — Metformin ER 500 mg product page",
+          "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-500mg-tablet/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from costplusdrugs.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Cost Plus Drugs — Metformin ER 750 mg product page",
+          "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-750mg-tablet/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from costplusdrugs.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "GoodRx — metformin ER",
+          "url": "https://www.goodrx.com/metformin-er-glucophage-xr",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Coupon page address seen in web-search results; not opened (network blocked). Checked weekly by the link checker."
+        },
+        {
+          "name": "SingleCare — metformin ER",
+          "url": "https://www.singlecare.com/prescription/metformin-hcl-er",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Coupon page address seen in web-search results; not opened (network blocked). Checked weekly by the link checker."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "apixaban",
+      "brand": "Eliquis",
+      "generic": "apixaban",
+      "displayName": {
+        "en": "Eliquis (apixaban)"
+      },
+      "aliases": {
+        "en": [
+          "eliquis",
+          "apixaban",
+          "blood thinner"
+        ],
+        "es": [
+          "eliquis",
+          "apixabán",
+          "apixaban",
+          "anticoagulante"
+        ],
+        "zh-Hans": [
+          "艾乐妥",
+          "阿哌沙班",
+          "抗凝药"
+        ],
+        "hi": [
+          "एलिक्विस",
+          "एपिक्साबैन",
+          "apixaban"
+        ]
+      },
+      "category": "blood-thinner",
+      "marketStatus": "brandOnly",
+      "kind": "small-molecule",
+      "strengths": [
+        {
+          "id": "tab-2-5",
+          "label": {
+            "en": "2.5 mg tablet"
+          },
+          "form": "tablet",
+          "pricingUnit": "EA",
+          "unitsPerCount": 1,
+          "countLabel": {
+            "en": "tablets"
+          },
+          "quantities": [
+            60,
+            120,
+            180
+          ],
+          "defaultQuantity": 60,
+          "daysPerCount": null,
+          "costPlusUrl": null,
+          "nadacKey": "ELIQUIS 2.5 MG TABLET"
+        },
+        {
+          "id": "tab-5",
+          "label": {
+            "en": "5 mg tablet"
+          },
+          "form": "tablet",
+          "pricingUnit": "EA",
+          "unitsPerCount": 1,
+          "countLabel": {
+            "en": "tablets"
+          },
+          "quantities": [
+            60,
+            120,
+            180
+          ],
+          "defaultQuantity": 60,
+          "daysPerCount": null,
+          "costPlusUrl": null,
+          "nadacKey": "ELIQUIS 5 MG TABLET"
+        }
+      ],
+      "goodRxUrl": "https://www.goodrx.com/eliquis",
+      "singleCareUrl": "https://www.singlecare.com/prescription/eliquis",
+      "programIds": [
+        "bmspaf"
+      ],
+      "hasManufacturerPap": true,
+      "common": true,
+      "notes": [
+        {
+          "en": "No generic apixaban is sold in the U.S. yet."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Bristol Myers Squibb — Eliquis direct price page",
+          "url": "https://www.eliquis.bmscustomerconnect.com/price",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from eliquis.bmscustomerconnect.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Drugs.com — Generic Eliquis availability",
+          "url": "https://www.drugs.com/availability/generic-eliquis.html",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Secondary source summarizing FDA Orange Book patents for NDA 202155; seen in web-search results, not opened (network blocked)."
+        },
+        {
+          "name": "GoodRx — Eliquis",
+          "url": "https://www.goodrx.com/eliquis",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Coupon page address seen in web-search results; not opened (network blocked). Checked weekly by the link checker."
+        },
+        {
+          "name": "SingleCare — Eliquis",
+          "url": "https://www.singlecare.com/prescription/eliquis",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Coupon page address seen in web-search results; not opened (network blocked). Checked weekly by the link checker."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "insulin-glargine",
+      "brand": "Lantus",
+      "generic": "insulin glargine",
+      "displayName": {
+        "en": "Insulin glargine (Lantus, Basaglar, Rezvoglar and others)"
+      },
+      "aliases": {
+        "en": [
+          "insulin glargine",
+          "glargine",
+          "lantus",
+          "basaglar",
+          "rezvoglar",
+          "semglee",
+          "insulin glargine-yfgn",
+          "insulin glargine-aglr",
+          "long-acting insulin",
+          "insulin",
+          "calrx"
+        ],
+        "es": [
+          "insulina glargina",
+          "glargina",
+          "insulina",
+          "lantus"
+        ],
+        "zh-Hans": [
+          "甘精胰岛素",
+          "来得时",
+          "胰岛素",
+          "长效胰岛素"
+        ],
+        "hi": [
+          "इंसुलिन ग्लार्जिन",
+          "ग्लार्जिन",
+          "इंसुलिन",
+          "लैंटस"
+        ]
+      },
+      "category": "diabetes",
+      "marketStatus": "biosimilarAvailable",
+      "kind": "biologic",
+      "strengths": [
+        {
+          "id": "pens-5x3",
+          "label": {
+            "en": "100 units/mL — box of 5 pens (3 mL each)"
+          },
+          "form": "pen",
+          "pricingUnit": "ML",
+          "unitsPerCount": 15,
+          "countLabel": {
+            "en": "boxes"
+          },
+          "quantities": [
+            1,
+            2,
+            3
+          ],
+          "defaultQuantity": 1,
+          "daysPerCount": null,
+          "costPlusUrl": null,
+          "nadacKey": null
+        },
+        {
+          "id": "vial-10",
+          "label": {
+            "en": "100 units/mL — 10 mL vial"
+          },
+          "form": "vial",
+          "pricingUnit": "ML",
+          "unitsPerCount": 10,
+          "countLabel": {
+            "en": "vials"
+          },
+          "quantities": [
+            1,
+            2,
+            3
+          ],
+          "defaultQuantity": 1,
+          "daysPerCount": null,
+          "costPlusUrl": null,
+          "nadacKey": null
+        }
+      ],
+      "goodRxUrl": "https://www.goodrx.com/lantus",
+      "singleCareUrl": "https://www.singlecare.com/prescription/lantus",
+      "programIds": [
+        "lilly-cares",
+        "sanofi-patient-connection",
+        "biocon-pap"
+      ],
+      "hasManufacturerPap": true,
+      "common": true,
+      "notes": [
+        {
+          "en": "Insulin glargine is sold under several names. Interchangeable versions can be swapped at the pharmacy where the law allows. Ask your pharmacist which one costs least."
+        },
+        {
+          "en": "Toujeo is a stronger insulin glargine (300 units/mL). It is not the same and is not included here."
+        }
+      ],
+      "sources": [
+        {
+          "name": "FDA approval letter — insulin glargine-yfgn (BLA 761201), interchangeable",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2021/761201Orig1s000ltr.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from accessdata.fda.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "FDA letter — insulin glargine-aglr (BLA 761215)",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2022/761215Orig2s000ltr.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from accessdata.fda.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "GoodRx — Lantus",
+          "url": "https://www.goodrx.com/lantus",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Coupon page address seen in web-search results; not opened (network blocked). Checked weekly by the link checker."
+        },
+        {
+          "name": "SingleCare — Lantus",
+          "url": "https://www.singlecare.com/prescription/lantus",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Coupon page address seen in web-search results; not opened (network blocked). Checked weekly by the link checker."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

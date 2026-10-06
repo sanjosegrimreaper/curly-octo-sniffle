@@ -1,0 +1,232 @@
+{
+  "terms": [
+    {
+      "id": "nadac",
+      "term": {
+        "en": "NADAC"
+      },
+      "definition": {
+        "en": "NADAC is the average price pharmacies pay to buy a medicine from wholesalers. Medicaid publishes it every week. You cannot buy medicine at this price — it is a fair-price yardstick."
+      },
+      "sources": [
+        {
+          "name": "Medicaid.gov — NADAC (National Average Drug Acquisition Cost)",
+          "url": "https://data.medicaid.gov/dataset/fbb83258-11c7-47f5-8b18-5f8e79f7e704",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "pap",
+      "term": {
+        "en": "Patient assistance program"
+      },
+      "definition": {
+        "en": "A program, often run by a drug company, that gives medicine for free or at low cost to people who qualify. Most have an income limit and need a form signed by your doctor."
+      },
+      "sources": [
+        {
+          "name": "RxAssist — Patient assistance programs",
+          "url": "https://www.rxassist.org/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "fpl",
+      "term": {
+        "en": "Poverty level (FPL)"
+      },
+      "definition": {
+        "en": "The federal poverty level is an income amount set each year by the government. Programs use a percent of it, like 138%, to decide who can get help. It depends on how many people are in your household."
+      },
+      "sources": [
+        {
+          "name": "HealthCare.gov glossary — Federal poverty level",
+          "url": "https://www.healthcare.gov/glossary/federal-poverty-level-fpl/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "generic",
+      "term": {
+        "en": "Generic"
+      },
+      "definition": {
+        "en": "A generic medicine has the same active ingredient, strength and effect as the brand. It usually costs much less."
+      },
+      "sources": [
+        {
+          "name": "FDA — Generic drug facts",
+          "url": "https://www.fda.gov/drugs/generic-drugs/generic-drug-facts",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "biosimilar",
+      "term": {
+        "en": "Biosimilar"
+      },
+      "definition": {
+        "en": "A biosimilar is a medicine very close to a brand-name biologic, like insulin, with no meaningful difference in safety or effect. An \"interchangeable\" biosimilar can be swapped at the pharmacy where state law allows."
+      },
+      "sources": [
+        {
+          "name": "FDA — Biosimilar basics for patients",
+          "url": "https://www.fda.gov/drugs/biosimilars/biosimilar-basics-patients",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "copay",
+      "term": {
+        "en": "Copay"
+      },
+      "definition": {
+        "en": "A copay is the fixed amount you pay for a prescription when you use insurance."
+      },
+      "sources": [
+        {
+          "name": "HealthCare.gov glossary — Copayment",
+          "url": "https://www.healthcare.gov/glossary/co-payment/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "deductible",
+      "term": {
+        "en": "Deductible"
+      },
+      "definition": {
+        "en": "The amount you pay for covered care each year before your insurance starts to pay."
+      },
+      "sources": [
+        {
+          "name": "HealthCare.gov glossary — Deductible",
+          "url": "https://www.healthcare.gov/glossary/deductible/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "formulary",
+      "term": {
+        "en": "Formulary"
+      },
+      "definition": {
+        "en": "The list of medicines your insurance plan covers. Medicines are often grouped in tiers that cost different amounts."
+      },
+      "sources": [
+        {
+          "name": "HealthCare.gov glossary — Formulary",
+          "url": "https://www.healthcare.gov/glossary/formulary/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "household",
+      "term": {
+        "en": "Household"
+      },
+      "definition": {
+        "en": "For Medi-Cal and Covered California, your household is usually you, your spouse, and the people you claim on your taxes. Ask the county or an enroller if you are not sure."
+      },
+      "sources": [
+        {
+          "name": "HealthCare.gov glossary — Modified adjusted gross income (MAGI)",
+          "url": "https://www.healthcare.gov/glossary/modified-adjusted-gross-income-magi/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "income",
+      "term": {
+        "en": "Income"
+      },
+      "definition": {
+        "en": "Count money you earn from work before taxes, plus things like unemployment and Social Security. The county or an enroller can tell you exactly what counts."
+      },
+      "sources": [
+        {
+          "name": "HealthCare.gov glossary — Modified adjusted gross income (MAGI)",
+          "url": "https://www.healthcare.gov/glossary/modified-adjusted-gross-income-magi/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "extra-help",
+      "term": {
+        "en": "Extra Help"
+      },
+      "definition": {
+        "en": "A Medicare program that helps people with limited income and savings pay for prescription drugs."
+      },
+      "sources": [
+        {
+          "name": "Social Security — Extra Help with Medicare prescription drug costs",
+          "url": "https://www.ssa.gov/medicare/part-d-extra-help",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from ssa.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "coupon",
+      "term": {
+        "en": "Discount coupon"
+      },
+      "definition": {
+        "en": "A free coupon from a website like GoodRx or SingleCare that can lower the cash price at a pharmacy. The price depends on the pharmacy. It usually cannot be used together with insurance."
+      },
+      "sources": [
+        {
+          "name": "GoodRx",
+          "url": "https://www.goodrx.com/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

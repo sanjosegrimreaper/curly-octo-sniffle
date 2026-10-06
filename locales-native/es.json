@@ -1,0 +1,7 @@
+{
+  "CFBundleDisplayName": "RxBridge",
+  "NSFaceIDUsageDescription": "RxBridge puede usar Face ID para mantener privada su lista de medicinas.",
+  "NSLocationWhenInUseUsageDescription": "RxBridge usa su ubicación solo para ordenar las farmacias cercanas por distancia. Nunca sale de su teléfono.",
+  "NSCalendarsUsageDescription": "RxBridge puede agregar a su calendario un recordatorio para renovar su programa de ayuda.",
+  "NSCalendarsFullAccessUsageDescription": "RxBridge puede agregar a su calendario un recordatorio para renovar su programa de ayuda."
+}

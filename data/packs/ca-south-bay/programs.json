@@ -1,0 +1,201 @@
+{
+  "programs": [
+    {
+      "id": "bmspaf",
+      "kind": "manufacturerPap",
+      "name": "Bristol Myers Squibb Patient Assistance Foundation",
+      "sponsor": "Bristol Myers Squibb",
+      "description": {
+        "en": "Free Eliquis for some people who cannot afford it."
+      },
+      "medicationIds": [
+        "apixaban"
+      ],
+      "fplMax": null,
+      "fplYear": null,
+      "insuranceRule": "medicareOk",
+      "insuranceRuleText": {
+        "en": "For people with no coverage for this medicine, or with Medicare Part D who have spent at least 3% of household income on prescriptions this year. Not for people who qualify for Medicaid (Medi-Cal)."
+      },
+      "closedToNew": false,
+      "applicationUrl": "https://www.bmspaf.org/",
+      "phone": "1-800-736-0003",
+      "interpreterAvailable": null,
+      "documents": [
+        {
+          "en": "Proof of household income"
+        },
+        {
+          "en": "Front and back of any insurance cards"
+        },
+        {
+          "en": "If you have Medicare: a statement of what you paid for prescriptions this year"
+        },
+        {
+          "en": "If you have Medicare and income under 150% of the poverty level: a letter saying Extra Help was denied"
+        }
+      ],
+      "sendWhere": {
+        "en": "Fax 1-800-736-1611, or mail to: BMS Patient Assistance Foundation, PO Box 220769, Charlotte, NC 28222-0769"
+      },
+      "termMonths": null,
+      "cutoffNote": {
+        "en": "Income limit: call to confirm. One application form lists 300% of the poverty level."
+      },
+      "sources": [
+        {
+          "name": "Bristol Myers Squibb Patient Assistance Foundation",
+          "url": "https://www.bmspaf.org/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from bmspaf.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "RxAssist — BMS Patient Assistance Foundation program details",
+          "url": "https://www.rxassist.org/search/prog-details?program_Id=16&Drug_Id=3373",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from rxassist.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "lilly-cares",
+      "kind": "manufacturerPap",
+      "name": "Lilly Cares Foundation",
+      "sponsor": "Eli Lilly",
+      "description": {
+        "en": "Free Lilly medicines, including Basaglar (insulin glargine), for people who qualify."
+      },
+      "medicationIds": [
+        "insulin-glargine"
+      ],
+      "fplMax": 400,
+      "fplYear": 2026,
+      "insuranceRule": "medicareOk",
+      "insuranceRuleText": {
+        "en": "For people with no insurance, or with Medicare Part D. Not for people with Medicaid (Medi-Cal), full Extra Help, or VA coverage."
+      },
+      "closedToNew": false,
+      "applicationUrl": "https://www.lillycares.com/how-to-apply",
+      "phone": "1-800-545-6962",
+      "interpreterAvailable": null,
+      "documents": [
+        {
+          "en": "Proof of household income"
+        },
+        {
+          "en": "Application signed by you and your prescriber"
+        }
+      ],
+      "sendWhere": null,
+      "termMonths": 12,
+      "cutoffNote": {
+        "en": "This program covers Basaglar. Ask your doctor whether Basaglar is right for you."
+      },
+      "sources": [
+        {
+          "name": "Lilly Cares Foundation — How to apply",
+          "url": "https://www.lillycares.com/how-to-apply",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from lillycares.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "sanofi-patient-connection",
+      "kind": "manufacturerPap",
+      "name": "Sanofi Patient Connection",
+      "sponsor": "Sanofi",
+      "description": {
+        "en": "Free Sanofi medicines, including Lantus and Toujeo, for people who qualify."
+      },
+      "medicationIds": [
+        "insulin-glargine"
+      ],
+      "fplMax": 400,
+      "fplYear": 2026,
+      "insuranceRule": "medicareOk",
+      "insuranceRuleText": {
+        "en": "For people with no insurance, or with Medicare Part D who do not get Extra Help. If you might qualify for Medicaid (Medi-Cal), you may need a denial letter first."
+      },
+      "closedToNew": false,
+      "applicationUrl": "https://www.sanofipatientconnection.com/financial-eligibility",
+      "phone": "888-847-4877",
+      "interpreterAvailable": null,
+      "documents": [
+        {
+          "en": "Proof of household income"
+        },
+        {
+          "en": "Application signed by you and your prescriber"
+        }
+      ],
+      "sendWhere": null,
+      "termMonths": 12,
+      "cutoffNote": {
+        "en": "You need to apply again every 12 months."
+      },
+      "sources": [
+        {
+          "name": "Sanofi Patient Connection — Financial eligibility",
+          "url": "https://www.sanofipatientconnection.com/financial-eligibility",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from sanofipatientconnection.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "biocon-pap",
+      "kind": "manufacturerPap",
+      "name": "Biocon Biologics Patient Assistance Program",
+      "sponsor": "Biocon Biologics",
+      "description": {
+        "en": "Help with insulin glargine-yfgn for people who qualify."
+      },
+      "medicationIds": [
+        "insulin-glargine"
+      ],
+      "fplMax": null,
+      "fplYear": null,
+      "insuranceRule": "unknown",
+      "insuranceRuleText": {
+        "en": "Insurance rules: call to confirm."
+      },
+      "closedToNew": false,
+      "applicationUrl": "https://www.bioconbiologicsus.com/wp-content/uploads/2025/07/Semglee-PAP-Form.pdf",
+      "phone": "1-844-224-6266",
+      "interpreterAvailable": null,
+      "documents": [
+        {
+          "en": "Proof of household income"
+        },
+        {
+          "en": "Application signed by you and your prescriber"
+        }
+      ],
+      "sendWhere": {
+        "en": "Fax 1-833-851-4343"
+      },
+      "termMonths": 12,
+      "cutoffNote": {
+        "en": "Income limit: call to confirm. The form still uses the old brand name Semglee."
+      },
+      "sources": [
+        {
+          "name": "Biocon Biologics — Patient Assistance Program form",
+          "url": "https://www.bioconbiologicsus.com/wp-content/uploads/2025/07/Semglee-PAP-Form.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from bioconbiologicsus.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

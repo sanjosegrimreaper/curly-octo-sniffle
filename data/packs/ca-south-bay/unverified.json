@@ -1,0 +1,52 @@
+[
+  {
+    "item": "Pharmacy store addresses, phones and hours (chain store locators)",
+    "reason": "Store-locator sites blocked from the build environment.",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "NADAC per-unit prices for the three slice drugs",
+    "reason": "data.medicaid.gov blocked; filled by the weekly GitHub Action.",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "Cost Plus per-strength quotes",
+    "reason": "Cost Plus API blocked from the build environment; add a snapshot run with network access.",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "Medi-Cal Rx member phone and copays",
+    "reason": "No source found before the search budget ran out.",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "Federal 2025 law (H.R. 1) Medicaid start dates",
+    "reason": "Only secondary sources found.",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "California SB 40 insulin copay cap details",
+    "reason": "Bill text could not be opened.",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "BMS Patient Assistance Foundation income limit",
+    "reason": "Sources disagree; shown as \"call to confirm\".",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "Monterey County HICAP office",
+    "reason": "Not found before the search budget ran out.",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "Medi-Cal public charge guidance",
+    "reason": "Current status of 2025 proposed rule unknown.",
+    "lastTried": "2026-10-06"
+  },
+  {
+    "item": "California pharmacy rules: cash-price disclosure, emergency supply, translated labels",
+    "reason": "leginfo and the Board of Pharmacy were blocked.",
+    "lastTried": "2026-10-06"
+  }
+]

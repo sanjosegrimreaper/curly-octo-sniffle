@@ -1,0 +1,38 @@
+{
+  "years": [
+    {
+      "year": 2026,
+      "bySize": [15960, 21640, 27320, 33000, 38680, 44360, 50040, 55720],
+      "perAdditional": 5680,
+      "effectiveDate": "2026-01-13",
+      "sources": [
+        {
+          "name": "Federal Register — Annual Update of the HHS Poverty Guidelines (91 FR 1797)",
+          "url": "https://www.federalregister.gov/documents/2026/01/15/2026-00755/annual-update-of-the-hhs-poverty-guidelines",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "edition": "FR Doc. 2026-00755, published 2026-01-15",
+          "note": "Values seen in web-search results from federalregister.gov and govinfo.gov; the page itself could not be opened (network blocked)."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "year": 2025,
+      "bySize": [15650, 21150, 26650, 32150, 37650, 43150, 48650, 54150],
+      "perAdditional": 5500,
+      "effectiveDate": "2025-01-15",
+      "sources": [
+        {
+          "name": "Federal Register — Annual Update of the HHS Poverty Guidelines (90 FR 5917)",
+          "url": "https://www.federalregister.gov/documents/2025/01/17/2025-01377/annual-update-of-the-hhs-poverty-guidelines",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "edition": "FR Doc. 2025-01377, published 2025-01-17",
+          "note": "Values seen in web-search results from federalregister.gov; the page itself could not be opened (network blocked)."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

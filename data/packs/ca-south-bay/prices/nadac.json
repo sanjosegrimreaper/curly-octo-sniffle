@@ -1,0 +1,15 @@
+{
+  "asOfDate": null,
+  "datasetId": "fbb83258-11c7-47f5-8b18-5f8e79f7e704",
+  "entries": [],
+  "sources": [
+    {
+      "name": "data.medicaid.gov — NADAC 2026 dataset",
+      "url": "https://data.medicaid.gov/dataset/fbb83258-11c7-47f5-8b18-5f8e79f7e704",
+      "method": "unconfirmed",
+      "checkedOn": "2026-10-06",
+      "note": "Dataset id from catalog mirrors; the site could not be opened (network blocked). The weekly GitHub Action fills in prices."
+    }
+  ],
+  "verifiedAsOf": "2026-10-06"
+}

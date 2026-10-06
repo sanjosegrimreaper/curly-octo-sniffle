@@ -1,0 +1,179 @@
+{
+  "notices": [
+    {
+      "id": "medi-cal-immigration-2026",
+      "severity": "caution",
+      "appliesTo": [
+        "medi-cal"
+      ],
+      "title": {
+        "en": "Medi-Cal sign-up rules changed in 2026"
+      },
+      "body": {
+        "en": "Since January 1, 2026, some adults 19 and older may not be able to newly sign up for full Medi-Cal because of immigration rules. Children and pregnant people can still sign up. If you already have Medi-Cal, renew on time to keep it. This app never asks about immigration status."
+      },
+      "effectiveDate": "2026-01-01",
+      "sources": [
+        {
+          "name": "DHCS — Immigration status and changes to Medi-Cal eligibility",
+          "url": "https://www.dhcs.ca.gov/immigration-status-and-changes-to-medi-cal-eligibility/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from dhcs.ca.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Santa Clara County Social Services — Medi-Cal program changes 2026–2028",
+          "url": "https://ssa.santaclaracounty.gov/news/medi-cal-program-changes-2026-2028",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from ssa.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "medi-cal-assets-2026",
+      "severity": "info",
+      "appliesTo": [
+        "medi-cal"
+      ],
+      "title": {
+        "en": "Savings may count again for some people"
+      },
+      "body": {
+        "en": "Since January 1, 2026, Medi-Cal may count savings and property for people 65 and older or with a disability. The limit is $130,000 for 1 person, plus $65,000 for each extra person. Your home and one car do not count. Most adults under 65 have no asset limit."
+      },
+      "effectiveDate": "2026-01-01",
+      "sources": [
+        {
+          "name": "DHCS — Asset limit frequently asked questions",
+          "url": "https://www.dhcs.ca.gov/medi-cal/help/asset-limit-frequently-asked-questions/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from dhcs.ca.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "medi-cal-rx-glp1-2026",
+      "severity": "info",
+      "appliesTo": [
+        "medi-cal"
+      ],
+      "title": {
+        "en": "Weight-loss medicines are no longer covered"
+      },
+      "body": {
+        "en": "Since January 1, 2026, Medi-Cal does not pay for GLP-1 medicines for weight loss. They may still be covered for diabetes, heart or kidney problems. If Medi-Cal says no to a medicine, you can ask for a State Hearing, usually within 90 days."
+      },
+      "effectiveDate": "2026-01-01",
+      "sources": [
+        {
+          "name": "Medi-Cal Rx — State budget updates (members)",
+          "url": "https://medi-calrx.dhcs.ca.gov/member/state-budget-updates/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from medi-calrx.dhcs.ca.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "covered-ca-federal-help-2026",
+      "severity": "caution",
+      "appliesTo": [
+        "covered-california"
+      ],
+      "title": {
+        "en": "Extra federal help ended"
+      },
+      "body": {
+        "en": "Extra federal help paying for Covered California plans ended on December 31, 2025. In 2026, there is no federal help above 400% of the poverty level. Congress could still change this."
+      },
+      "effectiveDate": "2026-01-01",
+      "sources": [
+        {
+          "name": "Covered California press release, July 21, 2026 (2027 rates and state help)",
+          "url": "https://www.coveredca.com/press-releases/2026/07/21/covered-california-rates-and-plans-for-2027-california-continues-fight-for-health-insurance-affordability-and-access",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from coveredca.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "covered-ca-state-help-2027",
+      "severity": "info",
+      "appliesTo": [
+        "covered-california"
+      ],
+      "title": {
+        "en": "More California help planned for 2027"
+      },
+      "body": {
+        "en": "For 2027 coverage, California plans extra help paying for plans for people with income up to 200% of the poverty level."
+      },
+      "effectiveDate": "2027-01-01",
+      "sources": [
+        {
+          "name": "Covered California press release, July 21, 2026 (2027 rates and state help)",
+          "url": "https://www.coveredca.com/press-releases/2026/07/21/covered-california-rates-and-plans-for-2027-california-continues-fight-for-health-insurance-affordability-and-access",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from coveredca.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "covered-ca-oe-2027",
+      "severity": "info",
+      "appliesTo": [
+        "covered-california"
+      ],
+      "title": {
+        "en": "Open enrollment for 2027"
+      },
+      "body": {
+        "en": "You can sign up for 2027 coverage from November 1, 2026 to January 31, 2027. Sign up by December 31 for coverage starting January 1."
+      },
+      "effectiveDate": "2026-11-01",
+      "sources": [
+        {
+          "name": "Covered California — Enrollment dates and deadlines",
+          "url": "https://www.coveredca.com/support/before-you-buy/enrollment-dates-and-deadlines/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from coveredca.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "covered-ca-immigration-2027",
+      "severity": "caution",
+      "appliesTo": [
+        "covered-california"
+      ],
+      "title": {
+        "en": "Federal help rules change in 2027"
+      },
+      "body": {
+        "en": "Starting January 1, 2027, federal help paying for Covered California will be limited to certain immigration statuses. A free certified enroller can tell you what applies to you."
+      },
+      "effectiveDate": "2027-01-01",
+      "sources": [
+        {
+          "name": "Covered California — Federal changes guide (certified enroller toolkit)",
+          "url": "https://hbex.coveredca.com/toolkit/downloads/Federal_Changes_Guide.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from hbex.coveredca.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

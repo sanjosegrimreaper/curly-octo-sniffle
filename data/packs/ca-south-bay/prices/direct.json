@@ -1,0 +1,233 @@
+{
+  "prices": [
+    {
+      "id": "eliquis-bms-60",
+      "medicationId": "apixaban",
+      "strengthIds": [
+        "tab-2-5",
+        "tab-5"
+      ],
+      "seller": "Bristol Myers Squibb (Eliquis direct)",
+      "description": {
+        "en": "Cash price straight from the maker, shipped to you."
+      },
+      "priceKind": "fixed",
+      "priceCents": 34500,
+      "quantity": 60,
+      "per": {
+        "en": "60 tablets"
+      },
+      "url": "https://www.eliquis.bmscustomerconnect.com/price",
+      "eligibility": {
+        "en": "For people paying cash. Not for people with Medicare Part D."
+      },
+      "sources": [
+        {
+          "name": "Bristol Myers Squibb — Eliquis direct price page",
+          "url": "https://www.eliquis.bmscustomerconnect.com/price",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from eliquis.bmscustomerconnect.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "eliquis-bms-120",
+      "medicationId": "apixaban",
+      "strengthIds": [
+        "tab-2-5",
+        "tab-5"
+      ],
+      "seller": "Bristol Myers Squibb (Eliquis direct)",
+      "description": {
+        "en": "Cash price straight from the maker, shipped to you."
+      },
+      "priceKind": "fixed",
+      "priceCents": 69000,
+      "quantity": 120,
+      "per": {
+        "en": "120 tablets"
+      },
+      "url": "https://www.eliquis.bmscustomerconnect.com/price",
+      "eligibility": {
+        "en": "For people paying cash. Not for people with Medicare Part D."
+      },
+      "sources": [
+        {
+          "name": "Bristol Myers Squibb — Eliquis direct price page",
+          "url": "https://www.eliquis.bmscustomerconnect.com/price",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from eliquis.bmscustomerconnect.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "eliquis-bms-180",
+      "medicationId": "apixaban",
+      "strengthIds": [
+        "tab-2-5",
+        "tab-5"
+      ],
+      "seller": "Bristol Myers Squibb (Eliquis direct)",
+      "description": {
+        "en": "Cash price straight from the maker, shipped to you."
+      },
+      "priceKind": "fixed",
+      "priceCents": 103500,
+      "quantity": 180,
+      "per": {
+        "en": "180 tablets"
+      },
+      "url": "https://www.eliquis.bmscustomerconnect.com/price",
+      "eligibility": {
+        "en": "For people paying cash. Not for people with Medicare Part D."
+      },
+      "sources": [
+        {
+          "name": "Bristol Myers Squibb — Eliquis direct price page",
+          "url": "https://www.eliquis.bmscustomerconnect.com/price",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from eliquis.bmscustomerconnect.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "eliquis-costplus-60",
+      "medicationId": "apixaban",
+      "strengthIds": [
+        "tab-2-5",
+        "tab-5"
+      ],
+      "seller": "Mark Cuban Cost Plus Drugs",
+      "description": {
+        "en": "Brand Eliquis by mail from Cost Plus Drugs, as announced by the maker."
+      },
+      "priceKind": "fixed",
+      "priceCents": 34500,
+      "quantity": 60,
+      "per": {
+        "en": "60 tablets (a 30-day supply in the announcement)"
+      },
+      "url": "https://www.costplusdrugs.com/",
+      "eligibility": {
+        "en": "Price announced by Bristol Myers Squibb in April 2026. Shipping may be extra. Check the current price on Cost Plus."
+      },
+      "sources": [
+        {
+          "name": "Bristol Myers Squibb news — Eliquis available through Cost Plus Drugs (2026)",
+          "url": "https://news.bms.com/news/corporate-financial/2026/Bristol-Myers-Squibb-and-Pfizer-to-Make-Eliquis-apixaban-Available-via-Mark-Cuban-Cost-Plus-Drug-Company/default.aspx",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from news.bms.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "calrx-glargine",
+      "medicationId": "insulin-glargine",
+      "strengthIds": [
+        "pens-5x3"
+      ],
+      "seller": "CalRx / Civica (insulin glargine-yfgn)",
+      "description": {
+        "en": "California's state-label insulin, sold at pharmacies that carry it."
+      },
+      "priceKind": "maximum",
+      "priceCents": 5500,
+      "quantity": 1,
+      "per": {
+        "en": "box of 5 pens"
+      },
+      "url": "https://civicainsulin.org/for-patients/",
+      "eligibility": {
+        "en": "Suggested maximum price; the pharmacy sets the final price. Not every pharmacy has it yet — ask first. A current insulin glargine or Lantus prescription works."
+      },
+      "sources": [
+        {
+          "name": "Civica — Insulin for patients",
+          "url": "https://civicainsulin.org/for-patients/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from civicainsulin.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Office of the Governor — CalRx insulin announcement (Oct 16, 2025)",
+          "url": "https://www.gov.ca.gov/2025/10/16/governor-newsom-announces-affordable-calrx-insulin-11-a-pen-will-soon-be-available-for-purchase/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from gov.ca.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "sanofi-valyou",
+      "medicationId": "insulin-glargine",
+      "strengthIds": [
+        "pens-5x3",
+        "vial-10"
+      ],
+      "seller": "Sanofi Insulins Valyou (Lantus)",
+      "description": {
+        "en": "A fixed monthly price for Sanofi insulins, including Lantus."
+      },
+      "priceKind": "fixed",
+      "priceCents": 3500,
+      "quantity": null,
+      "per": {
+        "en": "30-day supply"
+      },
+      "url": "https://www.lantus.com/sign-up-for-savings",
+      "eligibility": {
+        "en": "For people without insurance or paying cash, at any income. Call (833) 813-0190."
+      },
+      "sources": [
+        {
+          "name": "Lantus.com — Savings (Insulins Valyou)",
+          "url": "https://www.lantus.com/sign-up-for-savings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from lantus.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "lilly-ivp",
+      "medicationId": "insulin-glargine",
+      "strengthIds": [
+        "pens-5x3"
+      ],
+      "seller": "Lilly Insulin Value Program (Basaglar, Rezvoglar)",
+      "description": {
+        "en": "A monthly price for Lilly insulins, including Basaglar and Rezvoglar."
+      },
+      "priceKind": "fixed",
+      "priceCents": 3500,
+      "quantity": null,
+      "per": {
+        "en": "month"
+      },
+      "url": "https://insulins.lilly.com/lilly-insulin-value-program",
+      "eligibility": {
+        "en": "For people with commercial insurance or no insurance. Not for people with government coverage like Medicare or Medi-Cal. Call (833) 808-1234."
+      },
+      "sources": [
+        {
+          "name": "Lilly — Insulin Value Program",
+          "url": "https://insulins.lilly.com/lilly-insulin-value-program",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from insulins.lilly.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "expo": {
+    "name": "RxBridge",
+    "slug": "rxbridge",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "rxbridge",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#EEF6FF",
+    "description": "Find the lowest honest price for your medicine and see which programs may help. Free, private, no account.",
+    "ios": {
+      "bundleIdentifier": "org.rxbridge.app",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "RxBridge can use Face ID to keep your medicine list private.",
+        "NSLocationWhenInUseUsageDescription": "RxBridge uses your location only to sort nearby pharmacies by distance. It never leaves your phone.",
+        "NSCalendarsUsageDescription": "RxBridge can add a renewal reminder for your assistance program to your calendar.",
+        "NSCalendarsFullAccessUsageDescription": "RxBridge can add a renewal reminder for your assistance program to your calendar.",
+        "CFBundleAllowMixedLocalizations": true
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "org.rxbridge.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#EEF6FF",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "permissions": ["ACCESS_COARSE_LOCATION", "USE_BIOMETRIC", "USE_FINGERPRINT", "READ_CALENDAR", "WRITE_CALENDAR"],
+      "blockedPermissions": ["ACCESS_FINE_LOCATION", "RECORD_AUDIO", "CAMERA", "READ_CONTACTS"],
+      "predictiveBackGestureEnabled": true
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png",
+      "name": "RxBridge",
+      "shortName": "RxBridge",
+      "themeColor": "#4F46E5",
+      "backgroundColor": "#EEF6FF"
+    },
+    "locales": {
+      "es": "./locales-native/es.json",
+      "zh-Hans": "./locales-native/zh-Hans.json",
+      "hi": "./locales-native/hi.json"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#EEF6FF",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 120,
+          "dark": {
+            "backgroundColor": "#0B1020",
+            "image": "./assets/images/splash-icon.png"
+          }
+        }
+      ],
+      "expo-localization",
+      "expo-sharing",
+      "expo-font",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "RxBridge uses your location only to sort nearby pharmacies by distance. It never leaves your phone."
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "RxBridge can use Face ID to keep your medicine list private."
+        }
+      ],
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "RxBridge can add a renewal reminder for your assistance program to your calendar."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#4F46E5"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "feeds": {
+        "nadacUrl": "https://raw.githubusercontent.com/sanjosegrimreaper/curly-octo-sniffle/main/data/packs/ca-south-bay/prices/nadac.json"
+      }
+    }
+  }
+}

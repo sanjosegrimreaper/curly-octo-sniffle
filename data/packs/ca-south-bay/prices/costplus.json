@@ -1,0 +1,37 @@
+{
+  "snapshotDate": null,
+  "formula": {
+    "markupPercent": 15,
+    "pharmacyFeeCents": 500,
+    "shippingCents": null,
+    "sources": [
+      {
+        "name": "Cost Plus Drugs — Our mission (pricing formula)",
+        "url": "https://www.costplusdrugs.com/mission/",
+        "method": "unconfirmed",
+        "checkedOn": "2026-10-06",
+        "note": "Seen in web-search results from costplusdrugs.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+      },
+      {
+        "name": "Becker's Hospital Review — Cost Plus raises pharmacy labor fee to $5",
+        "url": "https://www.beckershospitalreview.com/pharmacy/cuban-increases-pharmacy-labor-fee.html",
+        "method": "unconfirmed",
+        "checkedOn": "2026-10-06",
+        "note": "Secondary news source; seen in web-search results; not opened (network blocked)."
+      }
+    ],
+    "verifiedAsOf": "2026-10-06"
+  },
+  "quotes": [],
+  "notListed": [],
+  "sources": [
+    {
+      "name": "Cost Plus Drugs public API documentation",
+      "url": "https://costplusdrugs.github.io/apidocs/",
+      "method": "unconfirmed",
+      "checkedOn": "2026-10-06",
+      "note": "Seen in web-search results from costplusdrugs.github.io; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+    }
+  ],
+  "verifiedAsOf": "2026-10-06"
+}

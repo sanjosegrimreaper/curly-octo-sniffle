@@ -1,0 +1,87 @@
+{
+  "appName": "RxBridge",
+  "back": "Back",
+  "close": "Close",
+  "cancel": "Cancel",
+  "continue": "Continue",
+  "skip": "Skip",
+  "done": "Done",
+  "save": "Save",
+  "edit": "Change",
+  "startOver": "Start over",
+  "call": "Call",
+  "directions": "Directions",
+  "website": "Website",
+  "opensWebsite": "Opens a website",
+  "notTranslated": "This part is not translated yet, so it is shown in English.",
+  "notListed": "Not listed",
+  "callToConfirm": "Call to confirm",
+  "unknown": "Not known",
+  "mayLabel": "This is an estimate, not a decision.",
+  "tabs": {
+    "plan": "My Plan",
+    "find": "Find",
+    "medicines": "My medicines",
+    "help": "Get help"
+  },
+  "readAloud": {
+    "start": "Read this aloud",
+    "stop": "Stop reading aloud",
+    "short": "Listen",
+    "stopShort": "Stop",
+    "noVoice": "Your phone has no voice for this language. You can add one in your phone's settings."
+  },
+  "source": {
+    "verified": "Checked",
+    "snapshot": "Price from",
+    "sheetTitle": "Where this comes from",
+    "hint": "Shows the source, the date we checked it, and how",
+    "verifiedOn": "We checked this on {{date}}",
+    "checkedOn": "checked {{date}}",
+    "edition": "Edition: {{edition}}",
+    "openSource": "Open the source: {{name}}",
+    "howWeVerify": "We only show facts we could check on an official page or file. If something looks wrong, please tell us.",
+    "report": "Report a problem with this",
+    "reportSubject": "RxBridge: problem with {{id}}",
+    "reportBody": "Record: {{id}}\nData version: {{version}}\n\nWhat looks wrong?\n",
+    "packVersion": "Data version {{version}}",
+    "freshness": {
+      "fresh_one": "Checked {{count}} day ago",
+      "fresh_other": "Checked {{count}} days ago",
+      "aging_one": "Checked {{count}} day ago — getting older",
+      "aging_other": "Checked {{count}} days ago — getting older",
+      "stale_one": "Checked {{count}} day ago — more than 6 months old. Call to confirm.",
+      "stale_other": "Checked {{count}} days ago — more than 6 months old. Call to confirm."
+    },
+    "method": {
+      "http-200": "Official web page",
+      "browser-confirmed": "Official web page (checked in a browser)",
+      "official-data-file": "Official data file",
+      "official-pdf": "Official document",
+      "official-api": "Official data service",
+      "phone-confirmed": "Confirmed by phone",
+      "unconfirmed": "Not yet confirmed"
+    },
+    "unconfirmedChip": "Not yet confirmed — call to confirm",
+    "unconfirmedTitle": "Not yet confirmed on the official page",
+    "unconfirmedBody": "We could not check this on the official page yet (for example, we only saw it in search results). Call or visit the source to confirm before you rely on it."
+  },
+  "glossary": {
+    "whatIs": "What does {{term}} mean?"
+  },
+  "error": {
+    "title": "Something went wrong on this screen",
+    "body": "Your answers are safe. Try again.",
+    "retry": "Try again"
+  },
+  "lock": {
+    "title": "RxBridge is locked",
+    "body": "Your medicine list is private. Unlock to continue.",
+    "unlock": "Unlock",
+    "prompt": "Unlock RxBridge"
+  },
+  "draft": {
+    "title": "Preview data",
+    "body": "Some facts in this app are not yet confirmed on official pages. They are marked \"Not yet confirmed\". Call to confirm before you rely on them."
+  }
+}

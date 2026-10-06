@@ -1,0 +1,25 @@
+{
+  "packId": "ca-south-bay",
+  "status": "draft",
+  "version": "0.1.0-draft",
+  "minAppVersion": "1.0.0",
+  "generatedAt": "2026-10-06",
+  "files": {
+    "benefits.json": "3627c210d71b2409601641d5e3ad3710acdf2013588bedd5d27ff975bbb96475",
+    "clinics.json": "2b9a283d0fb0c87e709bab13d89c1cef44ee625e03e57e5e98697ecf8033a457",
+    "facts.json": "f2861acad9b83b2e15e47013a5dee65da1b7f5fedb3b5ad2d55a647ac07d1241",
+    "fpl.json": "3e38af45a48d43e64939a2f8dfb29ecd11367f0a9db0a8693bd228d1477067f1",
+    "glossary.json": "2fb0afbd80276e5d303104443d042d849d8a5c48130a629bbf26e7072d89ab08",
+    "helpers.json": "8bdd121c4806992470cf66fbea74a29d5c000f4c21642c38a3ceb13618d3d06f",
+    "medications.json": "c717fa88de9eacc8b29aa3be6f1a165e68cd755ee9a9ce60870e9b5bd336999b",
+    "notices.json": "017fcd1f1c822b0b11e9637cc9c56392fa9b697255ab6d959b91068f0ee63b0a",
+    "outlook.json": "cfcb93b5f5f2a81495743355e04bcad7cff2952d3b4951fb04b39f15a349d369",
+    "pharmacies.json": "22a9638de52193e17be4dc51bc15b4feb659853e054583c42b091e24c12b041a",
+    "prices/costplus.json": "659b91142ad376b955262a1a04debdd2fe9b5d710a6cca106e6d68fdffe4fbab",
+    "prices/direct.json": "4714e7d81d998bdf2bb18ddb6ba9d52fbdc16f4dcdeb15b6d4ab562220b9d7bd",
+    "prices/nadac.json": "2454c5792e4806686791f34dfc9b6a0428a4d11c94feedd618e28e1e25b20aac",
+    "programs.json": "6714ad6f7b655d4e1e89bd59d9941caac0d4e6ff2b665da53f751126757482d1",
+    "region.json": "25ae31a4df5a76b1be037a9ad8e1911b5579da48e9a1b211edbf0b9bec57e1e4",
+    "unverified.json": "9b57d457a948be9023cf2d16b47df7567fe1b0a0ad1a7ee97e1f1779e0613aa5"
+  }
+}

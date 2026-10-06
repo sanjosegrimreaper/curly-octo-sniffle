@@ -1,0 +1,368 @@
+{
+  "rules": [
+    {
+      "id": "medi-cal-adult",
+      "programKey": "medi-cal",
+      "title": {
+        "en": "You may be able to get Medi-Cal"
+      },
+      "summary": {
+        "en": "Medi-Cal is free or low-cost health coverage in California. It includes prescriptions."
+      },
+      "when": {
+        "all": [
+          {
+            "insurance": [
+              "none",
+              "unsure"
+            ]
+          },
+          {
+            "incomePctFplMax": 138
+          }
+        ]
+      },
+      "fplYear": 2026,
+      "tier": "mayQualify",
+      "links": [
+        {
+          "id": "benefitscal",
+          "label": {
+            "en": "Apply on BenefitsCal"
+          },
+          "url": "https://benefitscal.com/",
+          "sources": [
+            {
+              "name": "BenefitsCal (California benefits application)",
+              "url": "https://benefitscal.com/",
+              "method": "unconfirmed",
+              "checkedOn": "2026-10-06",
+              "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+            }
+          ],
+          "verifiedAsOf": "2026-10-06"
+        },
+        {
+          "id": "dhcs",
+          "label": {
+            "en": "Learn about Medi-Cal (DHCS)"
+          },
+          "url": "https://www.dhcs.ca.gov/",
+          "sources": [
+            {
+              "name": "California Department of Health Care Services (DHCS)",
+              "url": "https://www.dhcs.ca.gov/",
+              "method": "unconfirmed",
+              "checkedOn": "2026-10-06",
+              "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+            }
+          ],
+          "verifiedAsOf": "2026-10-06"
+        }
+      ],
+      "nextSteps": [
+        {
+          "en": "You can apply online, by phone, by mail, or at your county office."
+        },
+        {
+          "en": "Have proof of income and identity ready if you have it. The county will tell you what else it needs."
+        },
+        {
+          "en": "The county makes the decision, not this app."
+        }
+      ],
+      "sources": [
+        {
+          "name": "DHCS — 2026 Federal Poverty Level chart (ACWDL 26-01, Enclosure 1)",
+          "url": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/2026-fpl-calculation-chart-monthly-values-enclosure-1/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from dhcs.ca.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it.",
+          "edition": "ACWDL 26-01, issued 2026-01-21"
+        },
+        {
+          "name": "DHCS — Program descriptions by FPL (ACWDL 26-01, Enclosure 3)",
+          "url": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from dhcs.ca.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "covered-ca-help",
+      "programKey": "covered-california",
+      "title": {
+        "en": "You may qualify for help paying for Covered California"
+      },
+      "summary": {
+        "en": "Covered California sells health plans. People with income in this range may get help paying the monthly cost."
+      },
+      "when": {
+        "all": [
+          {
+            "insurance": [
+              "none",
+              "unsure"
+            ]
+          },
+          {
+            "incomePctFplMin": 138
+          },
+          {
+            "incomePctFplMax": 400
+          }
+        ]
+      },
+      "fplYear": 2025,
+      "tier": "mayQualify",
+      "links": [
+        {
+          "id": "coveredca",
+          "label": {
+            "en": "Open Covered California"
+          },
+          "url": "https://www.coveredca.com/",
+          "sources": [
+            {
+              "name": "Covered California",
+              "url": "https://www.coveredca.com/",
+              "method": "unconfirmed",
+              "checkedOn": "2026-10-06",
+              "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+            }
+          ],
+          "verifiedAsOf": "2026-10-06"
+        },
+        {
+          "id": "coveredca-help",
+          "label": {
+            "en": "Find free help near you (Covered California)"
+          },
+          "url": "https://www.coveredca.com/find-help/",
+          "sources": [
+            {
+              "name": "Covered California — Find local help",
+              "url": "https://www.coveredca.com/find-help/",
+              "method": "unconfirmed",
+              "checkedOn": "2026-10-06",
+              "note": "Seen in web-search results from coveredca.com press release; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+            }
+          ],
+          "verifiedAsOf": "2026-10-06"
+        }
+      ],
+      "nextSteps": [
+        {
+          "en": "Open enrollment for 2027 coverage runs from November 1, 2026 to January 31, 2027."
+        },
+        {
+          "en": "Free certified enrollers can help you in your language."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Covered California — 2026 State Premium Subsidy policy explanation",
+          "url": "https://hbex.coveredca.com/stakeholders/PDFs/2026-02_StatePremiumSub_PolicyExplainer-Final.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from hbex.coveredca.com (uses 2025 poverty guidelines for 2026 coverage); not opened (network blocked)."
+        },
+        {
+          "name": "Covered California — Enrollment dates and deadlines",
+          "url": "https://www.coveredca.com/support/before-you-buy/enrollment-dates-and-deadlines/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from coveredca.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "covered-ca-no-federal-help",
+      "programKey": "standard",
+      "title": {
+        "en": "Covered California plans without federal help"
+      },
+      "summary": {
+        "en": "In 2026, federal help paying for a plan is not available above 400% of the poverty level. You can still compare plans and prices."
+      },
+      "when": {
+        "all": [
+          {
+            "insurance": [
+              "none",
+              "unsure"
+            ]
+          },
+          {
+            "incomePctFplMin": 400
+          }
+        ]
+      },
+      "fplYear": 2025,
+      "tier": "worthChecking",
+      "links": [
+        {
+          "id": "coveredca-compare",
+          "label": {
+            "en": "Open Covered California"
+          },
+          "url": "https://www.coveredca.com/",
+          "sources": [
+            {
+              "name": "Covered California",
+              "url": "https://www.coveredca.com/",
+              "method": "unconfirmed",
+              "checkedOn": "2026-10-06",
+              "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+            }
+          ],
+          "verifiedAsOf": "2026-10-06"
+        }
+      ],
+      "nextSteps": [
+        {
+          "en": "Even with insurance, check the cash prices in this app. Cash can cost less than a copay."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Covered California press release, July 21, 2026 (2027 rates and state help)",
+          "url": "https://www.coveredca.com/press-releases/2026/07/21/covered-california-rates-and-plans-for-2027-california-continues-fight-for-health-insurance-affordability-and-access",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from coveredca.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "medicare-65",
+      "programKey": "medicare",
+      "title": {
+        "en": "Check if you can get Medicare"
+      },
+      "summary": {
+        "en": "People 65 and older may be able to get Medicare, including drug coverage (Part D). Free counselors can help you choose."
+      },
+      "when": {
+        "all": [
+          {
+            "age65": "yes"
+          },
+          {
+            "insurance": [
+              "none",
+              "unsure"
+            ]
+          }
+        ]
+      },
+      "fplYear": null,
+      "tier": "worthChecking",
+      "links": [
+        {
+          "id": "medicare",
+          "label": {
+            "en": "Open Medicare.gov"
+          },
+          "url": "https://www.medicare.gov/",
+          "sources": [
+            {
+              "name": "Medicare.gov",
+              "url": "https://www.medicare.gov/",
+              "method": "unconfirmed",
+              "checkedOn": "2026-10-06",
+              "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+            }
+          ],
+          "verifiedAsOf": "2026-10-06"
+        }
+      ],
+      "nextSteps": [
+        {
+          "en": "Call HICAP for free, unbiased Medicare counseling: 1-800-434-0222."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Medicare.gov",
+          "url": "https://www.medicare.gov/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "scc-pcap",
+      "programKey": "county",
+      "title": {
+        "en": "You may be able to get care through Santa Clara County's PCAP"
+      },
+      "summary": {
+        "en": "The Primary Care Access Program offers low-cost primary care and prescriptions to uninsured adults 19 and older who live in Santa Clara County. Copays may apply."
+      },
+      "when": {
+        "all": [
+          {
+            "county": [
+              "santa-clara"
+            ]
+          },
+          {
+            "insurance": [
+              "none",
+              "unsure"
+            ]
+          },
+          {
+            "incomePctFplMax": 650
+          }
+        ]
+      },
+      "fplYear": null,
+      "tier": "worthChecking",
+      "links": [
+        {
+          "id": "pcap",
+          "label": {
+            "en": "Learn about PCAP (Santa Clara County)"
+          },
+          "url": "https://vhpn.santaclaracounty.gov/primary-care-access-program-pcap/program-description",
+          "sources": [
+            {
+              "name": "Valley Health Plan Network — Primary Care Access Program (PCAP)",
+              "url": "https://vhpn.santaclaracounty.gov/primary-care-access-program-pcap/program-description",
+              "method": "unconfirmed",
+              "checkedOn": "2026-10-06",
+              "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+            }
+          ],
+          "verifiedAsOf": "2026-10-06"
+        }
+      ],
+      "nextSteps": [
+        {
+          "en": "Call 1-888-363-3394 and choose option 1 for help enrolling."
+        },
+        {
+          "en": "PCAP is for people who cannot get other insurance, such as Medi-Cal."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — Primary Care Access Program (PCAP)",
+          "url": "https://vhpn.santaclaracounty.gov/primary-care-access-program-pcap/program-description",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

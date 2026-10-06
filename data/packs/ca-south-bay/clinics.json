@@ -1,0 +1,518 @@
+{
+  "clinics": [
+    {
+      "id": "aaci-moorpark",
+      "name": "AACI Health Center - Moorpark",
+      "organization": "Asian Americans for Community Involvement (AACI)",
+      "address": "2400 Moorpark Avenue",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95128",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "aaci-jackson",
+      "name": "AACI - N. Jackson Ave",
+      "organization": "Asian Americans for Community Involvement (AACI)",
+      "address": "266 N. Jackson Avenue Ste 4",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95116",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "gardner-alviso",
+      "name": "Gardner Health Center - Alviso",
+      "organization": "Gardner Health Services",
+      "address": "1621 Gold St.",
+      "city": "Alviso",
+      "county": "santa-clara",
+      "zip": "95002",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "gardner-gilroy",
+      "name": "Gardner Health Center - Gilroy",
+      "organization": "Gardner Health Services",
+      "address": "7526 Monterey St.",
+      "city": "Gilroy",
+      "county": "santa-clara",
+      "zip": "95020",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "gardner-alum-rock",
+      "name": "Gardner Health Center - Alum Rock",
+      "organization": "Gardner Health Services",
+      "address": "1783 Alum Rock Ave.",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95116",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "ihc-capitol",
+      "name": "Indian Health Center of Santa Clara Valley",
+      "organization": "Indian Health Center of Santa Clara Valley",
+      "address": "1642 E. Capitol Expwy.",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95121",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "shc-cunningham",
+      "name": "School Health Clinics - Cunningham Ave",
+      "organization": "School Health Clinics of Santa Clara County",
+      "address": "1835 Cunningham Ave.",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95122",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "shc-oak",
+      "name": "School Health Clinics - Oak Street",
+      "organization": "School Health Clinics of Santa Clara County",
+      "address": "100 Oak Street Room F-3",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95110",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "nems-lundy",
+      "name": "North East Medical Services - San Jose (Lundy)",
+      "organization": "North East Medical Services (NEMS)",
+      "address": "1870 Lundy Ave.",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95131",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+      "slidingFee": null,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Valley Health Plan Network — PCAP clinic listings",
+          "url": "https://vhpn.santaclaracounty.gov/pcap/how-apply/pcap-clinic-listings",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from vhpn.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-gilroy",
+      "name": "Valley Health Center Gilroy",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "7475 Camino Arroyo",
+      "city": "Gilroy",
+      "county": "santa-clara",
+      "zip": "95020",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://www.scvh.org/hospitals-clinics/locations/ambulatory-clinics/valley-health-center-gilroy",
+      "slidingFee": true,
+      "hasPharmacy": true,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Santa Clara Valley Healthcare — Outpatient pharmacy locations and hours",
+          "url": "https://scvmc.scvh.org/healthcare-services/pharmacy/outpatient-pharmacy/pharmacy-locations-hours",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvmc.scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-tully",
+      "name": "Valley Health Center Tully",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "500 Tully Road",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95111",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://scvmc.scvh.org/hospitals-clinics/valley-health-center-tully",
+      "slidingFee": true,
+      "hasPharmacy": true,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Santa Clara Valley Healthcare — Outpatient pharmacy locations and hours",
+          "url": "https://scvmc.scvh.org/healthcare-services/pharmacy/outpatient-pharmacy/pharmacy-locations-hours",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvmc.scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-downtown",
+      "name": "Valley Health Center Downtown",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "777 E. Santa Clara Street",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95112",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://www.scvh.org/hospitals-clinics/locations/ambulatory-clinics/valley-health-center-downtown",
+      "slidingFee": true,
+      "hasPharmacy": true,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Santa Clara Valley Healthcare — Outpatient pharmacy locations and hours",
+          "url": "https://scvmc.scvh.org/healthcare-services/pharmacy/outpatient-pharmacy/pharmacy-locations-hours",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvmc.scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-east-valley",
+      "name": "Valley Health Center East Valley",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "1993 McKee Road",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": "95116",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://www.scvh.org/hospitals-clinics/locations/ambulatory-clinics/valley-health-center-east-valley",
+      "slidingFee": true,
+      "hasPharmacy": true,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Santa Clara Valley Healthcare — Outpatient pharmacy locations and hours",
+          "url": "https://scvmc.scvh.org/healthcare-services/pharmacy/outpatient-pharmacy/pharmacy-locations-hours",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvmc.scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-morgan-hill",
+      "name": "Valley Health Center Morgan Hill",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "18550 De Paul Drive",
+      "city": "Morgan Hill",
+      "county": "santa-clara",
+      "zip": "18550",
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://www.scvh.org/locations",
+      "slidingFee": true,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-san-jose",
+      "name": "Valley Health Center San Jose",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "750 S. Bascom Avenue",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://www.scvh.org/locations",
+      "slidingFee": true,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-lenzen",
+      "name": "Valley Health Center Lenzen",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "976 Lenzen Avenue",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://www.scvh.org/locations",
+      "slidingFee": true,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-lundy",
+      "name": "Valley Health Center Lundy",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "1996 Lundy Avenue",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://www.scvh.org/locations",
+      "slidingFee": true,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "vhc-moorpark",
+      "name": "Valley Health Center Moorpark",
+      "organization": "Santa Clara Valley Healthcare",
+      "address": "2400 Moorpark Avenue",
+      "city": "San Jose",
+      "county": "santa-clara",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "phone": null,
+      "url": "https://www.scvh.org/locations",
+      "slidingFee": true,
+      "hasPharmacy": null,
+      "pharmacyHours": null,
+      "languages": [],
+      "sources": [
+        {
+          "name": "Santa Clara Valley Healthcare — Locations",
+          "url": "https://www.scvh.org/locations",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from scvh.org; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "facts": [
+    {
+      "id": "medicare-partd-cap-2026",
+      "title": {
+        "en": "Medicare drug costs have a yearly limit"
+      },
+      "body": {
+        "en": "In 2026, people with Medicare drug coverage (Part D) pay at most $2,100 a year out of pocket for covered drugs."
+      },
+      "sources": [
+        {
+          "name": "CMS — Final CY 2026 Part D redesign program instructions (fact sheet)",
+          "url": "https://www.cms.gov/newsroom/fact-sheets/final-cy-2026-part-d-redesign-program-instructions",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from cms.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "medicare-extra-help-2026",
+      "title": {
+        "en": "Extra Help lowers Medicare drug costs"
+      },
+      "body": {
+        "en": "Extra Help may lower Medicare drug costs for people with limited income and savings. In 2026 the limits are about $23,940 a year in income ($32,460 for a couple) and $18,090 in savings ($36,100 for a couple)."
+      },
+      "sources": [
+        {
+          "name": "Social Security — Extra Help with Medicare prescription drug costs",
+          "url": "https://www.ssa.gov/medicare/part-d-extra-help",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from ssa.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Social Security publication EN-05-10508 (Extra Help)",
+          "url": "https://www.ssa.gov/pubs/EN-05-10508.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from ssa.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "medicare-payment-plan",
+      "title": {
+        "en": "Spread drug costs over the year"
+      },
+      "body": {
+        "en": "The Medicare Prescription Payment Plan lets you pay for drugs in monthly bills instead of all at the pharmacy. It does not lower the total. Since 2026 it renews automatically if you stay in the same plan."
+      },
+      "sources": [
+        {
+          "name": "Medicare.gov — Medicare Prescription Payment Plan",
+          "url": "https://www.medicare.gov/prescription-payment-plan",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from medicare.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "medicare-insulin-35",
+      "title": {
+        "en": "Insulin costs $35 or less a month with Medicare"
+      },
+      "body": {
+        "en": "With Medicare drug coverage, covered insulin costs no more than $35 for a month’s supply."
+      },
+      "sources": [
+        {
+          "name": "Medicare.gov — Insulin coverage",
+          "url": "https://www.medicare.gov/coverage/insulin",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from medicare.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "medicare-eliquis-negotiated",
+      "title": {
+        "en": "Medicare negotiated the price of Eliquis"
+      },
+      "body": {
+        "en": "Since January 1, 2026, Medicare’s negotiated price for Eliquis is $231 for a 30-day supply. This is what Medicare drug plans pay, not what you pay at the counter."
+      },
+      "sources": [
+        {
+          "name": "CMS — Fact sheet: negotiated prices for the first 10 drugs (effective 2026)",
+          "url": "https://www.cms.gov/files/document/fact-sheet-negotiated-prices-initial-price-applicability-year-2026.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from cms.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "id": "hicap",
+      "title": {
+        "en": "Free Medicare counseling (HICAP)"
+      },
+      "body": {
+        "en": "HICAP gives free, unbiased help with Medicare choices. Call 1-800-434-0222."
+      },
+      "sources": [
+        {
+          "name": "California Department of Aging — Medicare counseling (HICAP)",
+          "url": "https://www.aging.ca.gov/Programs_and_Services/Medicare_Counseling/",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from aging.ca.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}

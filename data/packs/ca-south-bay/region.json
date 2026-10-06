@@ -1,0 +1,55 @@
+{
+  "id": "ca-south-bay",
+  "name": {
+    "en": "Santa Clara County and Monterey County, California"
+  },
+  "description": {
+    "en": "San José, Gilroy, Morgan Hill, Salinas and nearby towns"
+  },
+  "counties": [
+    {
+      "id": "santa-clara",
+      "name": "Santa Clara County"
+    },
+    {
+      "id": "monterey",
+      "name": "Monterey County"
+    }
+  ],
+  "districtsNote": {
+    "en": "Congressional district maps changed after Proposition 50 (2025), so this app uses counties, not districts."
+  },
+  "languages": [
+    "en",
+    "es",
+    "zh-Hans",
+    "hi"
+  ],
+  "center": {
+    "lat": 37.05,
+    "lng": -121.75
+  },
+  "partnerDomains": [
+    "costplusdrugs.com",
+    "goodrx.com",
+    "singlecare.com",
+    "benefitscal.com",
+    "coveredca.com",
+    "dhcs.ca.gov",
+    "medicare.gov",
+    "ssa.gov",
+    "github.com"
+  ],
+  "reportProblemUrl": "https://github.com/sanjosegrimreaper/curly-octo-sniffle/issues/new",
+  "requestMedicineUrl": "https://github.com/sanjosegrimreaper/curly-octo-sniffle/issues/new",
+  "sources": [
+    {
+      "name": "Santa Clara County Registrar of Voters — Redistricting (Proposition 50)",
+      "url": "https://vote.santaclaracounty.gov/elections/redistricting",
+      "method": "unconfirmed",
+      "checkedOn": "2026-10-06",
+      "note": "Seen in web-search results from vote.santaclaracounty.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+    }
+  ],
+  "verifiedAsOf": "2026-10-06"
+}

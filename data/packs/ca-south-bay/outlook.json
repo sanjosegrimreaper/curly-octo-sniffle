@@ -1,0 +1,75 @@
+{
+  "outlooks": [
+    {
+      "medicationId": "apixaban",
+      "kind": "prediction",
+      "earliestDate": "2028-04-01",
+      "label": "Earliest generic launch allowed by court settlements",
+      "basis": {
+        "en": "Generic apixaban is FDA-approved, but legal settlements allow sales no earlier than April 1, 2028. This is not a promised launch date."
+      },
+      "sources": [
+        {
+          "name": "Pfizer — Bristol Myers Squibb-Pfizer Alliance statement on the Federal Circuit Eliquis patent decision",
+          "url": "https://www.pfizer.com/news/announcements/bristol-myers-squibb-pfizer-alliance-pleased-decision-us-court-appeals-federal",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from pfizer.com; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "Drugs.com — Generic Eliquis availability",
+          "url": "https://www.drugs.com/availability/generic-eliquis.html",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Secondary source summarizing FDA Orange Book patents for NDA 202155; seen in web-search results, not opened (network blocked)."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "medicationId": "insulin-glargine",
+      "kind": "alreadyHasAlternative",
+      "earliestDate": null,
+      "label": null,
+      "basis": {
+        "en": "Interchangeable biosimilars of Lantus (insulin glargine-yfgn and insulin glargine-aglr) are already sold. A pharmacist may be able to swap one for the other."
+      },
+      "sources": [
+        {
+          "name": "FDA approval letter — insulin glargine-yfgn (BLA 761201), interchangeable",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2021/761201Orig1s000ltr.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from accessdata.fda.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        },
+        {
+          "name": "FDA letter — insulin glargine-aglr (BLA 761215)",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2022/761215Orig2s000ltr.pdf",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Seen in web-search results from accessdata.fda.gov; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    },
+    {
+      "medicationId": "metformin-er",
+      "kind": "alreadyHasAlternative",
+      "earliestDate": null,
+      "label": null,
+      "basis": {
+        "en": "Metformin ER is already sold as a low-cost generic."
+      },
+      "sources": [
+        {
+          "name": "FDA — Generic drug facts",
+          "url": "https://www.fda.gov/drugs/generic-drugs/generic-drug-facts",
+          "method": "unconfirmed",
+          "checkedOn": "2026-10-06",
+          "note": "Official page address from general knowledge; not opened in this build (network blocked). The weekly link checker confirms it loads."
+        }
+      ],
+      "verifiedAsOf": "2026-10-06"
+    }
+  ]
+}
