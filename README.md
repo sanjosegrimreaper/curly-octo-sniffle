@@ -13,6 +13,28 @@ No account, no ads, no tracking. Answers stay on the phone.
 
 > ⚠️ **The data in this build is a draft.** The build environment's network policy blocked the official sources (fda.gov, dhcs.ca.gov, data.medicaid.gov, coveredca.com, costplusdrugs.com and others), so facts could only be seen in web-search results. Every one of them is labeled **"Not yet confirmed — call to confirm"** in the app, and the data pack's `manifest.status` is `draft`. See [VERIFICATION.md](VERIFICATION.md) and [How to confirm the data](#how-to-confirm-the-data).
 
+## Status (October 2026)
+
+| Area | State |
+|---|---|
+| **Screens** | All built in 4 languages (en, es, zh-Hans, hi): onboarding with the Bridge progress, Find, strength & quantity, Results (Prices / Help paying), My Plan, My medicines, Get help, Medicare, clinics, helpers, glossary, call coach, application tracker, pharmacist card, share/PDF, settings, navigator mode. |
+| **Checks** | `npm run check` is green: TypeScript strict, ESLint, 343 Jest tests (domain property tests + component tests), i18n parity (1,062 keys per language), honesty lint, WCAG contrast (146 pairs), pack validation, verification report. |
+| **Data** | Draft pack (`manifest.status: "draft"`). Facts were seen in search results only, because official sites were blocked from the build environment. Every one is labeled "Not yet confirmed". |
+| **Web preview** | `npx expo export --platform web` works. Screens were reviewed through Playwright screenshots in `docs/screens/`. |
+
+**Not tested on a real device yet:** Expo Go on iOS/Android, haptics, local notifications and the calendar editor, app lock (Face ID / fingerprint), keep-awake and brightness on the pharmacist card, the PDF share sheet, read-aloud voices, and location sorting.
+
+**Known gaps, tracked in `RXBRIDGE_BUILD_PROMPT.md` v2:**
+- **Data not filled yet.** No confirmed pharmacy store records (store locators were blocked). NADAC and Cost Plus snapshots are empty until the weekly GitHub Action runs with network access.
+- **Prompt v2 changes still to implement:**
+  - multi-select coverage (Medicare + Medi-Cal);
+  - product/formulation variants with NDC lists;
+  - integer price math (`perUnitE5`);
+  - Intl polyfill detection;
+  - Playwright E2E flows in CI;
+  - authored Maestro flows.
+- **Bundle size.** The web bundle is about 6 MB because the Lucide icon set isn't tree-shaken by Metro. Per-icon imports would shrink it.
+
 ## What's inside
 
 | Area | What it does |
