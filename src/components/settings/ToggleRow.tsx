@@ -78,7 +78,7 @@ export function ToggleRow({
           </Text>
         ) : null}
       </View>
-      <View style={styles.right} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
+      <View style={styles.right} aria-hidden>
         <Text variant="caption" bold style={{ color: value ? palette.accentInk : palette.textMuted }}>
           {value ? t('on') : t('off')}
         </Text>

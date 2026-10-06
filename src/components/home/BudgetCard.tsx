@@ -21,6 +21,8 @@ export function BudgetCard({ view }: { view: BudgetView }) {
   const hasTotal = view.known > 0;
   const mint = palette.signals.mint;
   const counted = view.lines.filter((l) => l.reason === 'counted');
+  // A "maximum" price is the most a pharmacy may charge: the total is then an upper bound.
+  const hasMax = counted.some((l) => l.option?.priceKind === 'maximum');
 
   return (
     <Card signal={hasTotal ? 'mint' : undefined} treatment={hasTotal ? 'solid' : 'plain'} testID="budget-card">
@@ -33,7 +35,7 @@ export function BudgetCard({ view }: { view: BudgetView }) {
       {hasTotal ? (
         <>
           <Text variant="price" style={{ color: mint.ink }} testID="budget-total">
-            {t('budget.perMonth', { price: formatMoney(view.monthlyCents, lang) })}
+            {t(hasMax ? 'budget.perMonthUpTo' : 'budget.perMonth', { price: formatMoney(view.monthlyCents, lang) })}
           </Text>
           <Text variant="subheading">{t('budget.forCount', { count: view.known })}</Text>
         </>
@@ -52,6 +54,7 @@ export function BudgetCard({ view }: { view: BudgetView }) {
           {t('budget.needDays', { count: view.needDays })}
         </Text>
       ) : null}
+      {hasMax ? <Text variant="label">{t('budget.upToNote')}</Text> : null}
       <Text variant="label" tone="muted">
         {t('budget.explain')}
       </Text>
@@ -77,7 +80,7 @@ export function BudgetCard({ view }: { view: BudgetView }) {
               {counted.map((l) =>
                 l.option && l.summary && l.days !== null && l.monthlyCents !== null ? (
                   <Text key={l.key} variant="label" tabular>
-                    {t('budget.mathLine', {
+                    {t(l.option.priceKind === 'maximum' ? 'budget.mathLineUpTo' : 'budget.mathLine', {
                       name: shortName(l.summary.medication, lang),
                       price: formatMoney(l.option.priceCents, lang),
                       days: l.days,

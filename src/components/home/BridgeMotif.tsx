@@ -86,7 +86,7 @@ export function BridgeMotif({ height = 96 }: { height?: number }) {
   const deck = highContrast ? palette.text : palette.accentInk;
 
   return (
-    <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden style={{ width: '100%', height }}>
+    <View aria-hidden style={{ width: '100%', height }}>
       <Svg width="100%" height="100%" viewBox="0 0 320 112" preserveAspectRatio="xMidYMid meet">
         {!highContrast ? <Rect x="8" y="96" width="304" height="12" rx="6" fill={s.sky.tint} /> : null}
         <ACircle cx="262" r="13" fill={s.sunflower.fill} animatedProps={sunProps} />

@@ -22,7 +22,9 @@ import { wipeEverything } from '@/components/home/wipe';
 import { getPack } from '@/data/pack';
 import { Button, EmptyState, HeaderButton, motion, ReadAloud, Screen, spacing, Text, useTheme } from '@/design';
 import { LANGUAGES } from '@/i18n/languages';
+import { useApplications } from '@/state/applications';
 import { useMedicines } from '@/state/medicines';
+import { useScreener } from '@/state/screener';
 import { useUi } from '@/state/ui';
 
 /** Stagger entrance: ~40ms apart, each ≤320ms. Nothing animates with Reduce Motion. */
@@ -37,6 +39,10 @@ export default function HomeScreen() {
   const enter = useEnter();
   const { steps, saved, summaries, summariesByKey, today } = usePlanData();
   const setLastSeen = useMedicines((s) => s.setLastSeen);
+  // "Start over" only when there is something of the person's to clear.
+  const hasAnswers = useScreener((s) => s.coverage !== null || s.completedAt !== null || s.skipped);
+  const hasApps = useApplications((s) => Object.keys(s.byProgram).length > 0);
+  const hasData = saved.length > 0 || hasAnswers || hasApps;
   const [hour] = useState(() => new Date().getHours());
 
   const views = useMemo(() => {
@@ -153,9 +159,11 @@ export default function HomeScreen() {
         <FreshnessCard />
       </Animated.View>
 
-      <Animated.View entering={enter(n++)} style={{ marginTop: spacing.md }}>
-        <Button variant="ghost" icon={RotateCcw} label={t('startOver.button')} onPress={startOver} testID="start-over" />
-      </Animated.View>
+      {hasData ? (
+        <Animated.View entering={enter(n++)} style={{ marginTop: spacing.md }}>
+          <Button variant="ghost" icon={RotateCcw} label={t('startOver.button')} onPress={startOver} testID="start-over" />
+        </Animated.View>
+      ) : null}
     </Screen>
   );
 }

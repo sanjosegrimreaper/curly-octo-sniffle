@@ -77,7 +77,7 @@
     "emptyBody": "We only list clinics we could find on an official list. You can see clinics in the rest of the region, or ask a free helper.",
     "showAll": "Show clinics in all counties",
     "showMine": "Show only {{county}}",
-    "helpers": "Open People who help for free",
+    "helpers": "See free helpers",
     "unknownCounty": "Other places"
   },
   "helpers": {

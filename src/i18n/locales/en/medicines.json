@@ -4,6 +4,7 @@
   "budget": {
     "label": "Monthly budget",
     "perMonth": "{{price}} a month",
+    "perMonthUpTo": "Up to {{price}} a month",
     "forCount_one": "for {{count}} medicine",
     "forCount_other": "for {{count}} medicines",
     "noPrice_one": "+ {{count}} without a listed price",
@@ -12,9 +13,11 @@
     "needDays_other": "+ {{count}} more once you tell us how long a fill lasts",
     "noneYet": "No monthly total yet",
     "explain": "We add up only prices you can pay today that are listed in this app. We never guess a price. A medicine counts when we know its price and how many days one fill lasts.",
+    "upToNote": "Some prices are the most a pharmacy may charge, so your total may be lower.",
     "showMath": "Show the math",
     "hideMath": "Hide the math",
     "mathLine": "{{name}}: {{price}} ÷ {{days}} days × 30 = {{monthly}}",
+    "mathLineUpTo": "{{name}}: up to {{price}} ÷ {{days}} days × 30 = {{monthly}}",
     "mathTotal": "Total for 30 days: {{total}}"
   },
   "lock": {

@@ -61,7 +61,8 @@ describe('Bridge steps follow the current path', () => {
 
 describe('ChoiceCard', () => {
   it('has radio semantics and reports its checked state', async () => {
-    await renderUi(<ChoiceCard title="Yes" subtitle="I have health coverage" selected onPress={() => {}} testID="c" />);
+    const [title, subtitle] = ['Yes', 'I have health coverage'];
+    await renderUi(<ChoiceCard title={title} subtitle={subtitle} selected onPress={() => {}} testID="c" />);
     const card = screen.getByTestId('c');
     expect(card.props.accessibilityRole).toBe('radio');
     expect(card.props.accessibilityState).toMatchObject({ checked: true, selected: true });
@@ -121,7 +122,10 @@ describe('ResultCard (real bundled pack)', () => {
   });
 
   it('a little over the limit → says so instead of a tier', async () => {
-    const r = resultFor({ coverage: 'no', householdSize: 1, income: { kind: 'exact', annual: 22500 } }, 'medi-cal-adult');
+    const r = resultFor(
+      { coverage: 'no', householdSize: 1, income: { kind: 'exact', annual: 22500 } },
+      'medi-cal-adult',
+    );
     expect(r.tier).toBe('notLikely');
     await renderUi(<ResultCard result={r} householdSize={1} overLimit />);
     expect(screen.getByText('A little over the limit')).toBeTruthy();

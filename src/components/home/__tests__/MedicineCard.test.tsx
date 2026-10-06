@@ -76,6 +76,14 @@ describe('BudgetCard', () => {
     expect(screen.getByText('+ 1 without a listed price')).toBeTruthy();
   });
 
+  it('says "Up to" when the total includes a most-you-may-pay price', async () => {
+    const withDays = { ...insulin, perDay: 1 / 30 }; // one box lasts 30 days
+    const view = budgetView([withDays], [summaryOf(withDays)]);
+    await renderUi(<BudgetCard view={view} />);
+    expect(screen.getByText('Up to $55 a month')).toBeTruthy();
+    expect(screen.getByText(/your total may be lower/)).toBeTruthy();
+  });
+
   it('counts a medicine missing from the pack as "without a listed price"', () => {
     const gone = saved({ drugId: 'no-such-drug', strengthId: 'x', quantity: 30 });
     const view = budgetView([gone], [summaryOf(gone)]);
