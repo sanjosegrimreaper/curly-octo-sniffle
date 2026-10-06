@@ -110,18 +110,13 @@ export function BuyNowCard({ option, strength, perDay, formula, versions }: Prop
       )}
 
       <View style={styles.priceRow}>
-        <View style={styles.priceBlock}>
+        <View>
           {option.priceKind === 'maximum' ? (
             <Text variant="label" bold tone="mint">
               {t('buyNow.upTo')}
             </Text>
           ) : null}
           <Odometer text={price} variant="price" testID={`buy-now-price-${option.id}`} />
-          {pkg ? (
-            <Text variant="subheading" tone="muted">
-              {pkg}
-            </Text>
-          ) : null}
         </View>
         <Button
           variant="ghost"
@@ -133,6 +128,11 @@ export function BuyNowCard({ option, strength, perDay, formula, versions }: Prop
           style={[styles.mathButton, { backgroundColor: palette.surface, borderColor: mint.solid }]}
         />
       </View>
+      {pkg ? (
+        <Text variant="subheading" tone="muted">
+          {pkg}
+        </Text>
+      ) : null}
 
       {option.priceKind === 'maximum' ? (
         <View style={styles.noteRow}>
@@ -221,11 +221,10 @@ const styles = StyleSheet.create({
   card: { gap: spacing.sm },
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
   flex: { flex: 1 },
-  priceBlock: { alignSelf: 'flex-start', gap: 2 },
   product: { gap: 2 },
   noteRow: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.xs },
   formula: { gap: spacing.xs, borderLeftWidth: 3, paddingLeft: spacing.sm },
-  priceRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: spacing.xs },
+  priceRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: spacing.xs },
   mathButton: { alignSelf: 'flex-start', paddingHorizontal: spacing.sm, borderWidth: 1.5 },
   open: { alignSelf: 'stretch' },
   mathBox: { gap: spacing.xs, padding: spacing.md, borderRadius: 16, borderWidth: 1 },

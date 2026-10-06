@@ -336,12 +336,15 @@ function RenewSection({ program, application }: { program: Program; application:
       return;
     }
     const { title, body } = texts();
-    const reminderId = await scheduleDateReminder(title, body, date);
+    // Remind a month ahead (time to gather papers) when that's still in the future.
+    const monthBefore = addMonthsISO(date, -1);
+    const remindOn = monthBefore > today ? monthBefore : date;
+    const reminderId = await scheduleDateReminder(title, body, remindOn);
     if (reminderId) {
       if (application.reminderId) void cancelReminder(application.reminderId);
       update(id, { renewBy: date, reminderId });
       haptic.success();
-      showToast(t('tracker.reminderSaved', { date: formatDate(date, lang, 'long') }), 'success');
+      showToast(t('tracker.reminderSaved', { date: formatDate(remindOn, lang, 'long') }), 'success');
     } else {
       showToast(IS_WEB ? t('tracker.webNote') : t('tracker.reminderFailed'), 'caution');
     }

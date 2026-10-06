@@ -1,1 +1,84 @@
-{}
+{
+  "appName": "RxBridge",
+  "back": "返回",
+  "close": "关闭",
+  "cancel": "取消",
+  "continue": "继续",
+  "skip": "跳过",
+  "done": "完成",
+  "save": "保存",
+  "edit": "修改",
+  "startOver": "重新开始",
+  "call": "打电话",
+  "directions": "路线",
+  "website": "网站",
+  "opensWebsite": "会打开一个网站",
+  "notTranslated": "这部分还没有翻译，所以显示英文。",
+  "notListed": "未列出",
+  "callToConfirm": "请打电话确认",
+  "unknown": "不清楚",
+  "mayLabel": "这只是估计，不是最终决定。",
+  "tabs": {
+    "plan": "我的计划",
+    "find": "查找",
+    "medicines": "我的药",
+    "help": "寻求帮助"
+  },
+  "readAloud": {
+    "start": "朗读这段内容",
+    "stop": "停止朗读",
+    "short": "收听",
+    "stopShort": "停止",
+    "noVoice": "您的手机没有这种语言的语音。您可以在手机设置中添加。"
+  },
+  "source": {
+    "verified": "核实于",
+    "snapshot": "价格日期",
+    "sheetTitle": "信息来源",
+    "hint": "显示信息来源、我们核实的日期和方式",
+    "verifiedOn": "我们于 {{date}} 核实了这条信息",
+    "checkedOn": "{{date}} 核实",
+    "edition": "版本：{{edition}}",
+    "openSource": "打开来源：{{name}}",
+    "howWeVerify": "我们只显示能在官方网页或文件上核实的信息。如果您发现哪里有错，请告诉我们。",
+    "report": "报告这条信息的问题",
+    "reportSubject": "RxBridge：{{id}} 有问题",
+    "reportBody": "记录：{{id}}\n数据版本：{{version}}\n\n哪里看起来有错？\n",
+    "packVersion": "数据版本 {{version}}",
+    "freshness": {
+      "fresh_other": "{{count}} 天前核实",
+      "aging_other": "{{count}} 天前核实——有点旧了",
+      "stale_other": "{{count}} 天前核实——已超过6个月。请打电话确认。"
+    },
+    "method": {
+      "http-200": "官方网页",
+      "browser-confirmed": "官方网页（已在浏览器中核实）",
+      "official-data-file": "官方数据文件",
+      "official-pdf": "官方文件",
+      "official-api": "官方数据服务",
+      "phone-confirmed": "已通过电话确认",
+      "unconfirmed": "尚未确认"
+    },
+    "unconfirmedChip": "尚未确认——请打电话确认",
+    "unconfirmedTitle": "尚未在官方网页上确认",
+    "unconfirmedBody": "我们还无法在官方网页上核实这条信息（例如，我们只在搜索结果中看到过）。在依靠这条信息之前，请打电话或访问来源网站确认。"
+  },
+  "glossary": {
+    "whatIs": "{{term}} 是什么意思？"
+  },
+  "error": {
+    "title": "这个页面出了问题",
+    "body": "您的回答没有丢失。请再试一次。",
+    "retry": "再试一次"
+  },
+  "lock": {
+    "title": "RxBridge 已锁定",
+    "body": "您的药品清单是私密的。请解锁后继续。",
+    "unlock": "解锁",
+    "prompt": "解锁 RxBridge"
+  },
+  "draft": {
+    "title": "预览数据",
+    "body": "本应用中的部分信息尚未在官方网页上确认，会标有“尚未确认”。在依靠这些信息之前，请打电话确认。"
+  }
+}

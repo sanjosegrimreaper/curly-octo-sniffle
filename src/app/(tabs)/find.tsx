@@ -63,9 +63,11 @@ export default function FindScreen() {
 
       {typing ? (
         <View style={styles.list}>
-          <Text variant="label" tone="muted" accessibilityLiveRegion="polite" testID="results-count">
-            {t('resultsCount', { count: results.length })}
-          </Text>
+          {results.length > 0 ? (
+            <Text variant="label" tone="muted" accessibilityLiveRegion="polite" testID="results-count">
+              {t('resultsCount', { count: results.length })}
+            </Text>
+          ) : null}
           {results.map((r, i) => (
             <Animated.View key={r.medication.id} entering={enter(i)}>
               <MedicationRow
@@ -87,6 +89,7 @@ export default function FindScreen() {
                   requestUrl ? (
                     <Button
                       variant="secondary"
+                      compact
                       icon={MessageSquarePlus}
                       external
                       label={t('empty.request')}

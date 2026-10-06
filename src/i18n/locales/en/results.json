@@ -253,7 +253,8 @@
     "incomeOver": "Income: over {{min}} a year",
     "incomeExact": "Income: {{amount}} a year",
     "incomeUnknown": "Income: not shared",
-    "noProfile": "No household or income answers saved."
+    "noProfile": "No household or income answers saved.",
+    "subtitleOne": "A one-page summary. It stays on your phone until you share it."
   },
   "coverage": {
     "medicareTitle": "You have Medicare",

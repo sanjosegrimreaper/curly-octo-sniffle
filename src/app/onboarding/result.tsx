@@ -54,21 +54,26 @@ export default function ResultScreen() {
   const incomeKnown = income?.kind === 'bracket' || income?.kind === 'exact';
   // Without an income answer, only rules that don't depend on income can be estimated.
   const visible = results.filter((r) => r.tier !== 'notLikely' && (incomeKnown || !ruleUsesIncome(r.rule)));
+  // Programs that may help, vs. "standard" options (e.g. Covered California plans without federal help).
+  const helpful = visible.filter((r) => r.rule.programKey !== 'standard');
   const size = profile.householdSize;
   const exactAnnual = income?.kind === 'exact' ? income.annual : null;
   // Rules missed only because an exact income is a little over the limit: "Some income may not count."
   const justOver = results.filter((r) => isJustOverLimit(r, getPack().fpl, size, exactAnnual));
+  const noneHelp = incomeKnown && helpful.length === 0;
+  // Standard options: the ones that apply, or (when nothing else fits) every standard rule in the pack.
+  const standardShown = visible.filter((r) => r.rule.programKey === 'standard');
   const standard =
-    incomeKnown && visible.length === 0
+    noneHelp && standardShown.length === 0
       ? results.filter((r) => r.rule.programKey === 'standard' && !justOver.includes(r))
-      : [];
+      : standardShown;
   // Celebrate only when something may help; otherwise stay calm.
-  const celebrate = visible.length > 0;
+  const celebrate = helpful.length > 0;
 
   useEffect(() => {
     if (celebrate) haptic.success();
     AccessibilityInfo.announceForAccessibility(
-      visible.length > 0 ? t('result.announce', { count: visible.length }) : t('result.announceNone'),
+      helpful.length > 0 ? t('result.announce', { count: helpful.length }) : t('result.announceNone'),
     );
     // Announce once, when the result first appears.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -118,8 +123,8 @@ export default function ResultScreen() {
     return out;
   }, [screener.coverage, screener.county, size, income, pcts, lang, t]);
 
-  const title = visible.length > 0 ? t('result.title') : t('result.titleNone');
-  const countText = visible.length > 0 ? t('result.count', { count: visible.length }) : null;
+  const title = helpful.length > 0 ? t('result.title') : t('result.titleNone');
+  const countText = helpful.length > 0 ? t('result.count', { count: helpful.length }) : null;
 
   return (
     <Screen
@@ -232,7 +237,7 @@ export default function ResultScreen() {
         </Animated.View>
       ) : null}
 
-      {visible.map((r, i) => (
+      {helpful.map((r, i) => (
         <Animated.View
           key={r.rule.id}
           entering={
@@ -247,6 +252,24 @@ export default function ResultScreen() {
           <Notices programKey={r.rule.programKey} />
         </Animated.View>
       ))}
+
+      {noneHelp ? (
+        <Animated.View
+          entering={
+            reduceMotion
+              ? undefined
+              : FadeInDown.delay(motion.slow + 280)
+                  .duration(motion.slow)
+                  .easing(ease)
+          }>
+          <EmptyState
+            illustration="bridge"
+            title={t('result.standardTitle')}
+            body={t('result.standardBody')}
+            testID="result-standard"
+          />
+        </Animated.View>
+      ) : null}
 
       {justOver.map((r) => (
         <Animated.View
@@ -264,27 +287,21 @@ export default function ResultScreen() {
         </Animated.View>
       ))}
 
-      {incomeKnown && visible.length === 0 ? (
+      {standard.map((r) => (
         <Animated.View
+          key={r.rule.id}
           entering={
             reduceMotion
               ? undefined
-              : FadeInDown.delay(motion.slow + 280)
+              : FadeInDown.delay(motion.slow + 340)
                   .duration(motion.slow)
                   .easing(ease)
           }
           style={styles.group}>
-          <EmptyState
-            illustration="bridge"
-            title={t('result.standardTitle')}
-            body={t('result.standardBody')}
-            testID="result-standard"
-          />
-          {standard.map((r) => (
-            <ResultCard key={r.rule.id} result={r} householdSize={size} showTier={false} />
-          ))}
+          <ResultCard result={r} householdSize={size} showTier={r.tier !== 'notLikely'} />
+          <Notices programKey={r.rule.programKey} />
         </Animated.View>
-      ) : null}
+      ))}
 
       <Button
         variant="ghost"

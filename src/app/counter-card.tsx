@@ -149,6 +149,11 @@ export default function CounterCardScreen() {
           />
         ) : null}
       </View>
+      <View style={styles.inner}>
+        <Text variant="subheading" style={{ color: hc.textMuted }}>
+          {t('counter.title')}
+        </Text>
+      </View>
 
       <ScrollView
         ref={scroller}

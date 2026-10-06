@@ -122,6 +122,19 @@ for (const s of shots) {
     if (a.scroll) await page.mouse.wheel(0, a.scroll);
   }
   const file = path.join(outDir, `${s.name}.png`);
+  if (s.fullPage) {
+    // RN-web screens scroll inside a ScrollView, so page-level fullPage misses content.
+    // Grow the viewport to the tallest scrollable element, then capture.
+    const contentHeight = await page.evaluate(() => {
+      let max = document.documentElement.scrollHeight;
+      for (const el of document.querySelectorAll('*')) {
+        if (el.scrollHeight > el.clientHeight + 1) max = Math.max(max, el.scrollHeight + (window.innerHeight - el.clientHeight));
+      }
+      return Math.min(max, 12000);
+    });
+    await page.setViewportSize({ width: s.width ?? 390, height: Math.max(s.height ?? 844, Math.ceil(contentHeight)) });
+    await page.waitForTimeout(400);
+  }
   await page.screenshot({ path: file, fullPage: !!s.fullPage });
   console.log('saved', path.relative(process.cwd(), file));
   await ctx.close();

@@ -102,7 +102,7 @@ export default function ShareScreen() {
       }>
       <View style={styles.head}>
         <Text variant="title">{t('share.title')}</Text>
-        <Text tone="muted">{t('share.subtitle')}</Text>
+        <Text tone="muted">{langs.length > 1 ? t('share.subtitle') : t('share.subtitleOne')}</Text>
       </View>
 
       <Card style={styles.switchRow}>

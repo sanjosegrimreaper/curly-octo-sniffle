@@ -65,7 +65,7 @@ export function PeopleRow({ count }: { count: number }) {
 
 function Person({ color, head }: { color: string; head: string }) {
   return (
-    <Svg width={30} height={44} viewBox="0 0 30 44">
+    <Svg width={32} height={47} viewBox="0 0 30 44">
       <Circle cx={15} cy={10} r={8} fill={color} />
       <Circle cx={12.5} cy={8.5} r={2.2} fill={head} opacity={0.35} />
       <Path d="M3 42 V33 a12 12 0 0 1 24 0 V42 Z" fill={color} />
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-end',
     gap: 6,
-    minHeight: 52,
+    minHeight: 56,
     paddingVertical: spacing.xxs,
   },
   extra: {
