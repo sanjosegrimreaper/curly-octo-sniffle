@@ -43,7 +43,7 @@ export function AnimatedSplash() {
   return (
     <Animated.View
       pointerEvents="none"
-      importantForAccessibility="no-hide-descendants"
+      aria-hidden
       style={[StyleSheet.absoluteFill, styles.center, { backgroundColor: palette.bg }, overlay]}>
       <Svg width={200} height={110} viewBox="0 0 200 110">
         <Path d="M10 92 H190" stroke={palette.text} strokeWidth={8} strokeLinecap="round" />

@@ -8,7 +8,7 @@ import { useTheme } from '../theme';
 export const GraphPaper = memo(function GraphPaper() {
   const { palette, showGrid } = useTheme();
   return (
-    <View style={[StyleSheet.absoluteFill, { backgroundColor: palette.bg }]} pointerEvents="none" importantForAccessibility="no-hide-descendants">
+    <View style={[StyleSheet.absoluteFill, { backgroundColor: palette.bg }]} pointerEvents="none" aria-hidden>
       {showGrid ? (
         <Svg width="100%" height="100%">
           <Defs>

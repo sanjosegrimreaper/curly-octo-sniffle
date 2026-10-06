@@ -64,7 +64,7 @@ export function Button({
         style,
       ]}>
       <View style={styles.row}>
-        {loading ? <ActivityIndicator color={colors.fg} /> : Icon ? <Icon color={colors.fg} size={22} /> : null}
+        {loading ? <ActivityIndicator color={colors.fg} /> : Icon ? <Icon color={colors.fg} size={22} style={{ flexShrink: 0 }} /> : null}
         <Text
           variant={compact ? 'label' : 'subheading'}
           style={{ color: colors.fg, flexShrink: 1 }}
@@ -72,7 +72,7 @@ export function Button({
           bold={compact}>
           {label}
         </Text>
-        {external ? <ExternalLink color={colors.fg} size={18} accessibilityElementsHidden importantForAccessibility="no" /> : null}
+        {external ? <ExternalLink color={colors.fg} size={18} aria-hidden style={{ flexShrink: 0 }} /> : null}
       </View>
     </Tappable>
   );
@@ -85,5 +85,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: spacing.xs,
   },
-  row: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.xs, flexWrap: 'wrap' },
+  row: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.xs },
 });

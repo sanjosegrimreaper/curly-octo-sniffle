@@ -29,7 +29,7 @@ export function FreshnessRing({ verifiedAsOf, size = 28, today }: { verifiedAsOf
   const animatedProps = useAnimatedProps(() => ({ strokeDashoffset: c * (1 - progress.value) }));
 
   return (
-    <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
+    <View aria-hidden>
       <Svg width={size} height={size}>
         <Circle cx={size / 2} cy={size / 2} r={r} stroke={palette.border} strokeWidth={stroke} fill="none" />
         <ACircle

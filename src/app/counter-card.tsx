@@ -149,7 +149,7 @@ export default function CounterCardScreen() {
           />
         ) : null}
       </View>
-      <View style={styles.inner}>
+      <View style={[styles.inner, { paddingTop: spacing.sm }]}>
         <Text variant="subheading" style={{ color: hc.textMuted }}>
           {t('counter.title')}
         </Text>

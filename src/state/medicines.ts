@@ -28,6 +28,7 @@ export type MedicinesState = {
   isSaved: (sel: Selection) => boolean;
   setLastSeen: (key: string, lastSeen: SavedMedicine['lastSeen']) => void;
   setRefill: (key: string, refill: SavedMedicine['refill']) => void;
+  setPerDay: (key: string, perDay: number | null) => void;
   addRecent: (query: string) => void;
   removeRecent: (query: string) => void;
   select: (sel: Selection) => void;
@@ -54,6 +55,7 @@ export const useMedicines = create<MedicinesState>()(
       setLastSeen: (key, lastSeen) =>
         set((s) => ({ saved: s.saved.map((m) => (m.key === key ? { ...m, lastSeen } : m)) })),
       setRefill: (key, refill) => set((s) => ({ saved: s.saved.map((m) => (m.key === key ? { ...m, refill } : m)) })),
+      setPerDay: (key, perDay) => set((s) => ({ saved: s.saved.map((m) => (m.key === key ? { ...m, perDay } : m)) })),
       addRecent: (query) => {
         const q = query.trim();
         if (!q) return;

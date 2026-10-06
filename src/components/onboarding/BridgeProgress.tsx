@@ -84,8 +84,9 @@ export type BridgeProgressProps = {
  * It is also the accessible progress bar ("Step 3 of 6").
  */
 export function BridgeProgress({ now: rawNow, total: rawTotal, name }: BridgeProgressProps) {
-  const { palette, reduceMotion } = useTheme();
+  const { palette, reduceMotion, scheme, textScale } = useTheme();
   const { t } = useTranslation('onboarding');
+  const hangerOpacity = scheme === 'dark' ? 0.6 : 0.4;
   const total = Math.max(1, Math.round(rawTotal));
   const now = Math.min(total, Math.max(1, Math.round(rawNow)));
   const label = t('steps.label', { now, total });
@@ -151,7 +152,10 @@ export function BridgeProgress({ now: rawNow, total: rawTotal, name }: BridgePro
         testID="bridge-label">
         {t('steps.labelWithName', { now, total, name: t(`steps.${name}`) })}
       </Text>
-      <View style={styles.art} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
+      <View
+        style={[styles.art, textScale > 1.15 ? { maxWidth: 300 } : null]}
+        importantForAccessibility="no-hide-descendants"
+        accessibilityElementsHidden>
         <Svg width="100%" height="100%" viewBox={`0 0 ${VB_W} ${VB_H}`}>
           {/* water */}
           <Path
@@ -195,7 +199,7 @@ export function BridgeProgress({ now: rawNow, total: rawTotal, name }: BridgePro
               x2={plankCenter(k)}
               y2={PLANK_Y}
               stroke={palette.accent}
-              strokeOpacity={0.4}
+              strokeOpacity={hangerOpacity}
               strokeWidth={1.5}
             />
           ))}
@@ -219,6 +223,7 @@ export function BridgeProgress({ now: rawNow, total: rawTotal, name }: BridgePro
               width={plankW}
               order={i}
               color={palette.accent}
+              hangerOpacity={hangerOpacity}
               reduceMotion={reduceMotion}
             />
           ))}
@@ -258,6 +263,7 @@ function NewPlank({
   width,
   order,
   color,
+  hangerOpacity,
   reduceMotion,
 }: {
   x: number;
@@ -265,6 +271,7 @@ function NewPlank({
   width: number;
   order: number;
   color: string;
+  hangerOpacity: number;
   reduceMotion: boolean;
 }) {
   const p = useSharedValue(reduceMotion ? 1 : 0);
@@ -281,7 +288,7 @@ function NewPlank({
     y: PLANK_Y - (1 - p.value) * 16,
     opacity: Math.min(1, Math.max(0, p.value * 1.6)),
   }));
-  const hangerProps = useAnimatedProps(() => ({ strokeOpacity: Math.max(0, Math.min(1, p.value)) * 0.4 }));
+  const hangerProps = useAnimatedProps(() => ({ strokeOpacity: Math.max(0, Math.min(1, p.value)) * hangerOpacity }));
 
   return (
     <>

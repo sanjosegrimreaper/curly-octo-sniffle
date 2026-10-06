@@ -147,12 +147,12 @@ export default function ResultScreen() {
       <View style={styles.hero}>
         {celebrate ? (
           <View style={styles.badgeWrap}>
-            <CelebrationBurst size={176} delay={motion.slow} />
+            <CelebrationBurst size={150} delay={motion.slow} />
             <Animated.View
               entering={reduceMotion ? undefined : ZoomIn.delay(motion.slow).springify().damping(11).stiffness(200)}
               style={[styles.badge, { backgroundColor: palette.accent, shadowColor: palette.shadow }]}
               testID="result-celebration">
-              <Sparkles size={34} color={palette.onAccent} />
+              <Sparkles size={30} color={palette.onAccent} />
             </Animated.View>
           </View>
         ) : (
@@ -360,12 +360,12 @@ function StartOverConfirm() {
 }
 
 const styles = StyleSheet.create({
-  hero: { alignItems: 'center', gap: spacing.sm, paddingTop: spacing.xs },
-  badgeWrap: { width: 96, height: 96, alignItems: 'center', justifyContent: 'center' },
-  calmBadge: { width: 64, height: 64, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
+  hero: { alignItems: 'center', gap: spacing.xs },
+  badgeWrap: { width: 80, height: 80, alignItems: 'center', justifyContent: 'center' },
+  calmBadge: { width: 56, height: 56, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
   badge: {
-    width: 76,
-    height: 76,
+    width: 64,
+    height: 64,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',

@@ -55,11 +55,11 @@ export function SourceChip({
           : { borderColor: palette.signals.sunflower.solid, backgroundColor: palette.signals.sunflower.tint },
       ]}>
       {!confirmed ? (
-        <AlertCircle size={16} color={palette.signals.sunflower.ink} />
+        <AlertCircle size={16} color={palette.signals.sunflower.ink} style={{ flexShrink: 0 }} />
       ) : f.level === 'stale' ? (
         <FreshnessRing verifiedAsOf={verifiedAsOf} size={18} />
       ) : (
-        <BadgeCheck size={16} color={palette.signals.mint.ink} />
+        <BadgeCheck size={16} color={palette.signals.mint.ink} style={{ flexShrink: 0 }} />
       )}
       <Text variant="caption" tone={confirmed ? 'muted' : 'sunflower'} style={{ flexShrink: 1 }}>
         {text}
@@ -77,7 +77,8 @@ const styles = StyleSheet.create({
     minHeight: minTap - 8,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xxs,
-    borderRadius: radius.pill,
+    // Not a pill: chips often wrap to two lines at large text sizes.
+    borderRadius: radius.sm,
     borderWidth: 1,
     maxWidth: '100%',
   },

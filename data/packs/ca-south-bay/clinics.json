@@ -386,7 +386,7 @@
       "address": "18550 De Paul Drive",
       "city": "Morgan Hill",
       "county": "santa-clara",
-      "zip": "18550",
+      "zip": null,
       "lat": null,
       "lng": null,
       "phone": null,

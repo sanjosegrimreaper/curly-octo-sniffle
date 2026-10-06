@@ -36,7 +36,7 @@ export function ListRow({
         </View>
       ) : null}
       <View style={styles.text}>
-        <Text variant="subheading" style={{ fontSize: 17 }}>
+        <Text variant="body" bold>
           {title}
         </Text>
         {subtitle ? (

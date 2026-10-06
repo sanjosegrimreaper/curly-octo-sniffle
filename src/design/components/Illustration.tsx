@@ -137,7 +137,7 @@ export function Illustration({ name, size = 120 }: { name: IllustrationName; siz
   })();
 
   return (
-    <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden style={{ alignSelf: 'center' }}>
+    <View aria-hidden style={{ alignSelf: 'center' }}>
       <Svg width={size} height={size} viewBox="0 0 120 112">
         {art}
       </Svg>

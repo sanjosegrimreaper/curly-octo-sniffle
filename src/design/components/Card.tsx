@@ -50,7 +50,7 @@ export function Card({ children, signal, treatment = 'plain', style, padded = tr
 
 function Hatch({ color }: { color: string }) {
   return (
-    <View style={StyleSheet.absoluteFill} pointerEvents="none" importantForAccessibility="no-hide-descendants">
+    <View style={StyleSheet.absoluteFill} pointerEvents="none" aria-hidden>
       <Svg width="100%" height="100%">
         <Defs>
           <Pattern id="hatch" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(45)">

@@ -68,6 +68,16 @@ export async function scheduleDateReminder(title: string, body: string, isoDate:
   }
 }
 
+/** Cancels every reminder this app scheduled (Start over / Clear my data / New client). */
+export async function cancelAllReminders() {
+  if (Platform.OS === 'web') return;
+  try {
+    await Notifications.cancelAllScheduledNotificationsAsync();
+  } catch {
+    // nothing scheduled or not available
+  }
+}
+
 export async function cancelReminder(id: string | null | undefined) {
   if (!id || Platform.OS === 'web') return;
   try {
