@@ -5,12 +5,14 @@
       "title": {
         "en": "Medicare drug costs have a yearly limit",
         "zh-Hans": "Medicare 药费每年有上限",
-        "es": "Los costos de medicamentos de Medicare tienen un límite anual"
+        "es": "Los costos de medicamentos de Medicare tienen un límite anual",
+        "hi": "Medicare में दवाओं के खर्च की एक सालाना सीमा है"
       },
       "body": {
         "en": "In 2026, people with Medicare drug coverage (Part D) pay at most $2,100 a year out of pocket for covered drugs.",
         "zh-Hans": "2026年，有 Medicare 处方药保险（Part D）的人，每年为承保药物自付的费用最多为 $2,100。",
-        "es": "En 2026, las personas con cobertura de medicamentos de Medicare (Part D) pagan como máximo $2,100 al año de su bolsillo por los medicamentos cubiertos."
+        "es": "En 2026, las personas con cobertura de medicamentos de Medicare (Part D) pagan como máximo $2,100 al año de su bolsillo por los medicamentos cubiertos.",
+        "hi": "2026 में, जिन लोगों के पास Medicare दवा कवरेज (Part D) है, वे कवर की गई दवाओं के लिए साल भर में अपनी जेब से ज़्यादा से ज़्यादा $2,100 देते हैं।"
       },
       "sources": [
         {
@@ -28,12 +30,14 @@
       "title": {
         "en": "Extra Help lowers Medicare drug costs",
         "zh-Hans": "Extra Help（额外补助）可降低 Medicare 药费",
-        "es": "Extra Help (Ayuda Adicional) baja los costos de medicamentos de Medicare"
+        "es": "Extra Help (Ayuda Adicional) baja los costos de medicamentos de Medicare",
+        "hi": "Extra Help (अतिरिक्त सहायता) से Medicare में दवाओं का खर्च कम होता है"
       },
       "body": {
         "en": "Extra Help may lower Medicare drug costs for people with limited income and savings. In 2026 the limits are about $23,940 a year in income ($32,460 for a couple) and $18,090 in savings ($36,100 for a couple).",
         "zh-Hans": "Extra Help（额外补助）可能会降低收入和储蓄有限的人的 Medicare 药费。2026年的上限大约是：年收入 $23,940（夫妻 $32,460），储蓄 $18,090（夫妻 $36,100）。",
-        "es": "Extra Help (Ayuda Adicional) puede bajar los costos de medicamentos de Medicare para personas con ingresos y ahorros limitados. En 2026, los límites son de aproximadamente $23,940 al año en ingresos ($32,460 para una pareja) y $18,090 en ahorros ($36,100 para una pareja)."
+        "es": "Extra Help (Ayuda Adicional) puede bajar los costos de medicamentos de Medicare para personas con ingresos y ahorros limitados. En 2026, los límites son de aproximadamente $23,940 al año en ingresos ($32,460 para una pareja) y $18,090 en ahorros ($36,100 para una pareja).",
+        "hi": "जिन लोगों की आमदनी और बचत कम है, उनके लिए Extra Help (अतिरिक्त सहायता) Medicare में दवाओं का खर्च कम कर सकती है। 2026 में सीमाएँ लगभग इस तरह हैं: सालाना आमदनी $23,940 (पति-पत्नी के लिए $32,460) और बचत $18,090 (पति-पत्नी के लिए $36,100)।"
       },
       "sources": [
         {
@@ -58,12 +62,14 @@
       "title": {
         "en": "Spread drug costs over the year",
         "zh-Hans": "把药费分摊到全年",
-        "es": "Reparta el costo de sus medicamentos durante el año"
+        "es": "Reparta el costo de sus medicamentos durante el año",
+        "hi": "दवाओं का खर्च साल भर में बाँटें"
       },
       "body": {
         "en": "The Medicare Prescription Payment Plan lets you pay for drugs in monthly bills instead of all at the pharmacy. It does not lower the total. Since 2026 it renews automatically if you stay in the same plan.",
         "zh-Hans": "Medicare 处方药付款计划（Medicare Prescription Payment Plan）让您按月付药费，不用在药房一次付清。它不会降低总费用。从2026年起，如果您继续留在同一个保险计划，它会自动续期。",
-        "es": "El Plan de Pago de Medicamentos Recetados de Medicare (Medicare Prescription Payment Plan) le permite pagar sus medicamentos con facturas mensuales, en vez de pagar todo en la farmacia. No baja el total. Desde 2026, se renueva automáticamente si usted se queda en el mismo plan."
+        "es": "El Plan de Pago de Medicamentos Recetados de Medicare (Medicare Prescription Payment Plan) le permite pagar sus medicamentos con facturas mensuales, en vez de pagar todo en la farmacia. No baja el total. Desde 2026, se renueva automáticamente si usted se queda en el mismo plan.",
+        "hi": "Medicare Prescription Payment Plan से आप दवाओं का पैसा फ़ार्मेसी पर एक साथ देने के बजाय हर महीने के बिल में दे सकते हैं। इससे कुल खर्च कम नहीं होता। 2026 से, अगर आप उसी प्लान में रहते हैं, तो यह अपने-आप रिन्यू हो जाता है।"
       },
       "sources": [
         {
@@ -81,12 +87,14 @@
       "title": {
         "en": "Insulin costs $35 or less a month with Medicare",
         "zh-Hans": "有 Medicare，胰岛素每月 $35 或更少",
-        "es": "Con Medicare, la insulina cuesta $35 o menos al mes"
+        "es": "Con Medicare, la insulina cuesta $35 o menos al mes",
+        "hi": "Medicare के साथ इंसुलिन का खर्च महीने में $35 या उससे कम है"
       },
       "body": {
         "en": "With Medicare drug coverage, covered insulin costs no more than $35 for a month’s supply.",
         "zh-Hans": "如果您有 Medicare 处方药保险，承保的胰岛素一个月用量的费用不超过 $35。",
-        "es": "Con la cobertura de medicamentos de Medicare, la insulina cubierta no cuesta más de $35 por un suministro para un mes."
+        "es": "Con la cobertura de medicamentos de Medicare, la insulina cubierta no cuesta más de $35 por un suministro para un mes.",
+        "hi": "Medicare दवा कवरेज में शामिल इंसुलिन का खर्च एक महीने की सप्लाई के लिए $35 से ज़्यादा नहीं होता।"
       },
       "sources": [
         {
@@ -104,12 +112,14 @@
       "title": {
         "en": "Medicare negotiated the price of Eliquis",
         "zh-Hans": "Medicare 谈定了 Eliquis 的价格",
-        "es": "Medicare negoció el precio de Eliquis"
+        "es": "Medicare negoció el precio de Eliquis",
+        "hi": "Medicare ने Eliquis की कीमत मोलभाव करके तय की"
       },
       "body": {
         "en": "Since January 1, 2026, Medicare’s negotiated price for Eliquis is $231 for a 30-day supply. This is what Medicare drug plans pay, not what you pay at the counter.",
         "zh-Hans": "从2026年1月1日起，Medicare 为 Eliquis 谈定的价格是30天用量 $231。这是 Medicare 药物计划支付的价格，不是您在药房柜台付的钱。",
-        "es": "Desde el 1 de enero de 2026, el precio negociado por Medicare para Eliquis es $231 por un suministro para 30 días. Esto es lo que pagan los planes de medicamentos de Medicare, no lo que usted paga en el mostrador de la farmacia."
+        "es": "Desde el 1 de enero de 2026, el precio negociado por Medicare para Eliquis es $231 por un suministro para 30 días. Esto es lo que pagan los planes de medicamentos de Medicare, no lo que usted paga en el mostrador de la farmacia.",
+        "hi": "1 जनवरी 2026 से, Medicare की मोलभाव से तय की गई Eliquis की कीमत 30 दिन की सप्लाई के लिए $231 है। यह वह रकम है जो Medicare के दवा प्लान देते हैं, न कि वह जो आप फ़ार्मेसी काउंटर पर देते हैं।"
       },
       "sources": [
         {
@@ -127,12 +137,14 @@
       "title": {
         "en": "Free Medicare counseling (HICAP)",
         "zh-Hans": "免费 Medicare 咨询（HICAP）",
-        "es": "Asesoría gratuita sobre Medicare (HICAP)"
+        "es": "Asesoría gratuita sobre Medicare (HICAP)",
+        "hi": "Medicare पर मुफ़्त सलाह (HICAP)"
       },
       "body": {
         "en": "HICAP gives free, unbiased help with Medicare choices. Call 1-800-434-0222.",
         "zh-Hans": "HICAP 为您的 Medicare 选择提供免费、公正的帮助。请致电 1-800-434-0222。",
-        "es": "HICAP ofrece ayuda gratuita e imparcial para tomar decisiones sobre Medicare. Llame al 1-800-434-0222."
+        "es": "HICAP ofrece ayuda gratuita e imparcial para tomar decisiones sobre Medicare. Llame al 1-800-434-0222.",
+        "hi": "HICAP, Medicare से जुड़े फ़ैसलों में मुफ़्त और निष्पक्ष मदद देता है। 1-800-434-0222 पर फ़ोन करें।"
       },
       "sources": [
         {

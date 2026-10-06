@@ -8,7 +8,8 @@
       "description": {
         "en": "Free Eliquis for some people who cannot afford it.",
         "zh-Hans": "为一些负担不起的人免费提供 Eliquis。",
-        "es": "Eliquis gratis para algunas personas que no pueden pagarlo."
+        "es": "Eliquis gratis para algunas personas que no pueden pagarlo.",
+        "hi": "उन कुछ लोगों के लिए मुफ़्त Eliquis जो इसका खर्च नहीं उठा सकते।"
       },
       "medicationIds": [
         "apixaban"
@@ -19,7 +20,8 @@
       "insuranceRuleText": {
         "en": "For people with no coverage for this medicine, or with Medicare Part D who have spent at least 3% of household income on prescriptions this year. Not for people who qualify for Medicaid (Medi-Cal).",
         "zh-Hans": "适合这种药没有保险承保的人；或有 Medicare Part D、且今年已花费家庭收入至少3%购买处方药的人。不适合符合 Medicaid（在加州叫 Medi-Cal）条件的人。",
-        "es": "Para personas sin cobertura para este medicamento, o con Medicare Part D que este año ya gastaron en recetas al menos el 3% de los ingresos de su hogar. No es para personas que reúnen los requisitos de Medicaid (Medi-Cal)."
+        "es": "Para personas sin cobertura para este medicamento, o con Medicare Part D que este año ya gastaron en recetas al menos el 3% de los ingresos de su hogar. No es para personas que reúnen los requisitos de Medicaid (Medi-Cal).",
+        "hi": "उन लोगों के लिए जिनके पास इस दवा का कोई कवरेज नहीं है, या जिनके पास Medicare Part D है और जिन्होंने इस साल परिवार की आमदनी का कम से कम 3% प्रिस्क्रिप्शन की दवाओं पर खर्च किया है। उन लोगों के लिए नहीं जो Medicaid (Medi-Cal) की शर्तें पूरी करते हैं।"
       },
       "closedToNew": false,
       "applicationUrl": "https://www.bmspaf.org/",
@@ -29,34 +31,40 @@
         {
           "en": "Proof of household income",
           "zh-Hans": "家庭收入证明",
-          "es": "Comprobante de los ingresos de su hogar"
+          "es": "Comprobante de los ingresos de su hogar",
+          "hi": "परिवार की आमदनी का सबूत"
         },
         {
           "en": "Front and back of any insurance cards",
           "zh-Hans": "所有保险卡的正面和背面",
-          "es": "El frente y el reverso de cualquier tarjeta de seguro que tenga"
+          "es": "El frente y el reverso de cualquier tarjeta de seguro que tenga",
+          "hi": "आपके जो भी इंश्योरेंस कार्ड हैं, उनकी दोनों तरफ़ (आगे और पीछे) की कॉपी"
         },
         {
           "en": "If you have Medicare: a statement of what you paid for prescriptions this year",
           "zh-Hans": "如果您有 Medicare：一份说明您今年为处方药付了多少钱的对账单",
-          "es": "Si tiene Medicare: un documento que muestre lo que pagó por sus recetas este año"
+          "es": "Si tiene Medicare: un documento que muestre lo que pagó por sus recetas este año",
+          "hi": "अगर आपके पास Medicare है: इस साल प्रिस्क्रिप्शन की दवाओं पर आपने जितने पैसे दिए, उसका स्टेटमेंट (हिसाब)"
         },
         {
           "en": "If you have Medicare and income under 150% of the poverty level: a letter saying Extra Help was denied",
           "zh-Hans": "如果您有 Medicare 且收入低于联邦贫困线150%：一封说明 Extra Help（额外补助）申请被拒的信",
-          "es": "Si tiene Medicare e ingresos de menos del 150% del nivel federal de pobreza (FPL): una carta que diga que le negaron Extra Help (Ayuda Adicional)"
+          "es": "Si tiene Medicare e ingresos de menos del 150% del nivel federal de pobreza (FPL): una carta que diga que le negaron Extra Help (Ayuda Adicional)",
+          "hi": "अगर आपके पास Medicare है और आमदनी संघीय गरीबी स्तर (FPL) के 150% से कम है: Extra Help (अतिरिक्त सहायता) के लिए मना करने वाली चिट्ठी"
         }
       ],
       "sendWhere": {
         "en": "Fax 1-800-736-1611, or mail to: BMS Patient Assistance Foundation, PO Box 220769, Charlotte, NC 28222-0769",
         "zh-Hans": "传真至 1-800-736-1611，或邮寄至：BMS Patient Assistance Foundation, PO Box 220769, Charlotte, NC 28222-0769",
-        "es": "Envíe por fax al 1-800-736-1611, o por correo a: BMS Patient Assistance Foundation, PO Box 220769, Charlotte, NC 28222-0769"
+        "es": "Envíe por fax al 1-800-736-1611, o por correo a: BMS Patient Assistance Foundation, PO Box 220769, Charlotte, NC 28222-0769",
+        "hi": "1-800-736-1611 पर फ़ैक्स करें, या डाक से यहाँ भेजें: BMS Patient Assistance Foundation, PO Box 220769, Charlotte, NC 28222-0769"
       },
       "termMonths": null,
       "cutoffNote": {
         "en": "Income limit: call to confirm. One application form lists 300% of the poverty level.",
         "zh-Hans": "收入限制：请打电话确认。有一份申请表上写的是联邦贫困线的300%。",
-        "es": "Límite de ingresos: llame para confirmarlo. Un formulario de solicitud indica el 300% del nivel federal de pobreza (FPL)."
+        "es": "Límite de ingresos: llame para confirmarlo. Un formulario de solicitud indica el 300% del nivel federal de pobreza (FPL).",
+        "hi": "आमदनी की सीमा: फ़ोन करके पता कर लें। एक आवेदन फ़ॉर्म में संघीय गरीबी स्तर (FPL) का 300% लिखा है।"
       },
       "sources": [
         {
@@ -84,7 +92,8 @@
       "description": {
         "en": "Free Lilly medicines, including Basaglar (insulin glargine), for people who qualify.",
         "zh-Hans": "为符合条件的人免费提供礼来（Lilly）的药物，包括 Basaglar（甘精胰岛素）。",
-        "es": "Medicamentos de Lilly gratis, incluido Basaglar (insulina glargina), para las personas que reúnan los requisitos."
+        "es": "Medicamentos de Lilly gratis, incluido Basaglar (insulina glargina), para las personas que reúnan los requisitos.",
+        "hi": "शर्तें पूरी करने वाले लोगों के लिए मुफ़्त Lilly दवाएँ, जिनमें Basaglar (इंसुलिन ग्लार्जिन) भी शामिल है।"
       },
       "medicationIds": [
         "insulin-glargine"
@@ -95,7 +104,8 @@
       "insuranceRuleText": {
         "en": "For people with no insurance, or with Medicare Part D. Not for people with Medicaid (Medi-Cal), full Extra Help, or VA coverage.",
         "zh-Hans": "适合没有保险或有 Medicare Part D 的人。不适合有 Medicaid（Medi-Cal）、全额 Extra Help（额外补助）或退伍军人（VA）医疗保险的人。",
-        "es": "Para personas sin seguro o con Medicare Part D. No es para personas con Medicaid (Medi-Cal), Extra Help (Ayuda Adicional) completa o cobertura de la VA (Asuntos de Veteranos)."
+        "es": "Para personas sin seguro o con Medicare Part D. No es para personas con Medicaid (Medi-Cal), Extra Help (Ayuda Adicional) completa o cobertura de la VA (Asuntos de Veteranos).",
+        "hi": "बिना इंश्योरेंस वाले लोगों के लिए, या Medicare Part D वाले लोगों के लिए। Medicaid (Medi-Cal), पूरी Extra Help (अतिरिक्त सहायता), या VA (पूर्व सैनिकों का) कवरेज वाले लोगों के लिए नहीं।"
       },
       "closedToNew": false,
       "applicationUrl": "https://www.lillycares.com/how-to-apply",
@@ -105,12 +115,14 @@
         {
           "en": "Proof of household income",
           "zh-Hans": "家庭收入证明",
-          "es": "Comprobante de los ingresos de su hogar"
+          "es": "Comprobante de los ingresos de su hogar",
+          "hi": "परिवार की आमदनी का सबूत"
         },
         {
           "en": "Application signed by you and your prescriber",
           "zh-Hans": "由您和为您开处方的医生签字的申请表",
-          "es": "Solicitud firmada por usted y por quien le receta el medicamento"
+          "es": "Solicitud firmada por usted y por quien le receta el medicamento",
+          "hi": "आपके और आपकी दवा लिखने वाले डॉक्टर के दस्तख़त वाला आवेदन फ़ॉर्म"
         }
       ],
       "sendWhere": null,
@@ -118,7 +130,8 @@
       "cutoffNote": {
         "en": "This program covers Basaglar. Ask your doctor whether Basaglar is right for you.",
         "zh-Hans": "这个计划涵盖 Basaglar。请问问您的医生 Basaglar 是否适合您。",
-        "es": "Este programa cubre Basaglar. Pregunte a su médico si Basaglar es adecuado para usted."
+        "es": "Este programa cubre Basaglar. Pregunte a su médico si Basaglar es adecuado para usted.",
+        "hi": "यह कार्यक्रम Basaglar को कवर करता है। अपने डॉक्टर से पूछें कि क्या Basaglar आपके लिए सही है।"
       },
       "sources": [
         {
@@ -139,7 +152,8 @@
       "description": {
         "en": "Free Sanofi medicines, including Lantus and Toujeo, for people who qualify.",
         "zh-Hans": "为符合条件的人免费提供赛诺菲（Sanofi）的药物，包括 Lantus 和 Toujeo。",
-        "es": "Medicamentos de Sanofi gratis, incluidos Lantus y Toujeo, para las personas que reúnan los requisitos."
+        "es": "Medicamentos de Sanofi gratis, incluidos Lantus y Toujeo, para las personas que reúnan los requisitos.",
+        "hi": "शर्तें पूरी करने वाले लोगों के लिए मुफ़्त Sanofi दवाएँ, जिनमें Lantus और Toujeo भी शामिल हैं।"
       },
       "medicationIds": [
         "insulin-glargine"
@@ -150,7 +164,8 @@
       "insuranceRuleText": {
         "en": "For people with no insurance, or with Medicare Part D who do not get Extra Help. If you might qualify for Medicaid (Medi-Cal), you may need a denial letter first.",
         "zh-Hans": "适合没有保险的人，或有 Medicare Part D 但没有 Extra Help（额外补助）的人。如果您可能符合 Medicaid（Medi-Cal）的条件，您可能需要先拿到一封拒绝信。",
-        "es": "Para personas sin seguro, o con Medicare Part D que no reciben Extra Help (Ayuda Adicional). Si es posible que usted reúna los requisitos de Medicaid (Medi-Cal), quizás primero necesite una carta de rechazo."
+        "es": "Para personas sin seguro, o con Medicare Part D que no reciben Extra Help (Ayuda Adicional). Si es posible que usted reúna los requisitos de Medicaid (Medi-Cal), quizás primero necesite una carta de rechazo.",
+        "hi": "बिना इंश्योरेंस वाले लोगों के लिए, या Medicare Part D वाले उन लोगों के लिए जिन्हें Extra Help (अतिरिक्त सहायता) नहीं मिलती। अगर आपको Medicaid (Medi-Cal) मिल सकता है, तो शायद आपको पहले मना करने वाली चिट्ठी (denial letter) की ज़रूरत पड़े।"
       },
       "closedToNew": false,
       "applicationUrl": "https://www.sanofipatientconnection.com/financial-eligibility",
@@ -160,12 +175,14 @@
         {
           "en": "Proof of household income",
           "zh-Hans": "家庭收入证明",
-          "es": "Comprobante de los ingresos de su hogar"
+          "es": "Comprobante de los ingresos de su hogar",
+          "hi": "परिवार की आमदनी का सबूत"
         },
         {
           "en": "Application signed by you and your prescriber",
           "zh-Hans": "由您和为您开处方的医生签字的申请表",
-          "es": "Solicitud firmada por usted y por quien le receta el medicamento"
+          "es": "Solicitud firmada por usted y por quien le receta el medicamento",
+          "hi": "आपके और आपकी दवा लिखने वाले डॉक्टर के दस्तख़त वाला आवेदन फ़ॉर्म"
         }
       ],
       "sendWhere": null,
@@ -173,7 +190,8 @@
       "cutoffNote": {
         "en": "You need to apply again every 12 months.",
         "zh-Hans": "您需要每12个月重新申请一次。",
-        "es": "Tiene que volver a presentar la solicitud cada 12 meses."
+        "es": "Tiene que volver a presentar la solicitud cada 12 meses.",
+        "hi": "आपको हर 12 महीने में दोबारा आवेदन करना होगा।"
       },
       "sources": [
         {
@@ -194,7 +212,8 @@
       "description": {
         "en": "Help with insulin glargine-yfgn for people who qualify.",
         "zh-Hans": "为符合条件的人提供 insulin glargine-yfgn（甘精胰岛素）方面的帮助。",
-        "es": "Ayuda con la insulina glargina-yfgn para las personas que reúnan los requisitos."
+        "es": "Ayuda con la insulina glargina-yfgn para las personas que reúnan los requisitos.",
+        "hi": "शर्तें पूरी करने वाले लोगों के लिए इंसुलिन ग्लार्जिन-yfgn के लिए मदद।"
       },
       "medicationIds": [
         "insulin-glargine"
@@ -205,7 +224,8 @@
       "insuranceRuleText": {
         "en": "Insurance rules: call to confirm.",
         "zh-Hans": "保险规定：请打电话确认。",
-        "es": "Reglas sobre el seguro: llame para confirmarlas."
+        "es": "Reglas sobre el seguro: llame para confirmarlas.",
+        "hi": "इंश्योरेंस के नियम: फ़ोन करके पता कर लें।"
       },
       "closedToNew": false,
       "applicationUrl": "https://www.bioconbiologicsus.com/wp-content/uploads/2025/07/Semglee-PAP-Form.pdf",
@@ -215,24 +235,28 @@
         {
           "en": "Proof of household income",
           "zh-Hans": "家庭收入证明",
-          "es": "Comprobante de los ingresos de su hogar"
+          "es": "Comprobante de los ingresos de su hogar",
+          "hi": "परिवार की आमदनी का सबूत"
         },
         {
           "en": "Application signed by you and your prescriber",
           "zh-Hans": "由您和为您开处方的医生签字的申请表",
-          "es": "Solicitud firmada por usted y por quien le receta el medicamento"
+          "es": "Solicitud firmada por usted y por quien le receta el medicamento",
+          "hi": "आपके और आपकी दवा लिखने वाले डॉक्टर के दस्तख़त वाला आवेदन फ़ॉर्म"
         }
       ],
       "sendWhere": {
         "en": "Fax 1-833-851-4343",
         "zh-Hans": "传真至 1-833-851-4343",
-        "es": "Envíe por fax al 1-833-851-4343"
+        "es": "Envíe por fax al 1-833-851-4343",
+        "hi": "1-833-851-4343 पर फ़ैक्स करें"
       },
       "termMonths": 12,
       "cutoffNote": {
         "en": "Income limit: call to confirm. The form still uses the old brand name Semglee.",
         "zh-Hans": "收入限制：请打电话确认。申请表上仍然使用旧的品牌名 Semglee。",
-        "es": "Límite de ingresos: llame para confirmarlo. El formulario todavía usa el nombre de marca anterior, Semglee."
+        "es": "Límite de ingresos: llame para confirmarlo. El formulario todavía usa el nombre de marca anterior, Semglee.",
+        "hi": "आमदनी की सीमा: फ़ोन करके पता कर लें। फ़ॉर्म पर अब भी पुराना ब्रांड नाम Semglee लिखा है।"
       },
       "sources": [
         {

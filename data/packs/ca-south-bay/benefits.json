@@ -6,12 +6,14 @@
       "title": {
         "en": "You may be able to get Medi-Cal",
         "zh-Hans": "您也许可以获得 Medi-Cal",
-        "es": "Es posible que pueda obtener Medi-Cal"
+        "es": "Es posible que pueda obtener Medi-Cal",
+        "hi": "हो सकता है आपको Medi-Cal मिल सके"
       },
       "summary": {
         "en": "Medi-Cal is free or low-cost health coverage in California. It includes prescriptions.",
         "zh-Hans": "Medi-Cal 是加州免费或低价的医疗保险。它也包括处方药。",
-        "es": "Medi-Cal es cobertura de salud gratis o de bajo costo en California. Incluye medicamentos recetados."
+        "es": "Medi-Cal es cobertura de salud gratis o de bajo costo en California. Incluye medicamentos recetados.",
+        "hi": "Medi-Cal कैलिफ़ोर्निया में मुफ़्त या कम खर्च वाला हेल्थ कवरेज है। इसमें प्रिस्क्रिप्शन की दवाएँ भी शामिल हैं।"
       },
       "when": {
         "all": [
@@ -34,7 +36,8 @@
           "label": {
             "en": "Apply on BenefitsCal",
             "zh-Hans": "在 BenefitsCal 上申请",
-            "es": "Solicitar en BenefitsCal"
+            "es": "Solicitar en BenefitsCal",
+            "hi": "BenefitsCal पर आवेदन करें"
           },
           "url": "https://benefitscal.com/",
           "sources": [
@@ -53,7 +56,8 @@
           "label": {
             "en": "Learn about Medi-Cal (DHCS)",
             "zh-Hans": "了解 Medi-Cal（DHCS）",
-            "es": "Información sobre Medi-Cal (DHCS)"
+            "es": "Información sobre Medi-Cal (DHCS)",
+            "hi": "Medi-Cal के बारे में जानें (DHCS)"
           },
           "url": "https://www.dhcs.ca.gov/",
           "sources": [
@@ -72,17 +76,20 @@
         {
           "en": "You can apply online, by phone, by mail, or at your county office.",
           "zh-Hans": "您可以在网上、打电话、邮寄，或到您所在县的办公室申请。",
-          "es": "Puede presentar su solicitud por internet, por teléfono, por correo o en la oficina de su condado."
+          "es": "Puede presentar su solicitud por internet, por teléfono, por correo o en la oficina de su condado.",
+          "hi": "आप ऑनलाइन, फ़ोन से, डाक से, या अपने काउंटी ऑफ़िस में जाकर आवेदन कर सकते हैं।"
         },
         {
           "en": "Have proof of income and identity ready if you have it. The county will tell you what else it needs.",
           "zh-Hans": "如果有的话，请准备好收入证明和身份证明。县里会告诉您还需要什么。",
-          "es": "Si los tiene, tenga listos sus comprobantes de ingresos y de identidad. El condado le dirá qué más necesita."
+          "es": "Si los tiene, tenga listos sus comprobantes de ingresos y de identidad. El condado le dirá qué más necesita.",
+          "hi": "अगर आपके पास आमदनी और पहचान का सबूत है, तो उसे तैयार रखें। काउंटी आपको बताएगी कि और क्या चाहिए।"
         },
         {
           "en": "The county makes the decision, not this app.",
           "zh-Hans": "是否批准由县政府决定，不是由本应用决定。",
-          "es": "El condado toma la decisión, no esta aplicación."
+          "es": "El condado toma la decisión, no esta aplicación.",
+          "hi": "फ़ैसला काउंटी करती है, यह ऐप नहीं।"
         }
       ],
       "sources": [
@@ -110,12 +117,14 @@
       "title": {
         "en": "You may qualify for help paying for Covered California",
         "zh-Hans": "您可能有资格获得 Covered California 保费补助",
-        "es": "Es posible que reúna los requisitos para recibir ayuda para pagar Covered California"
+        "es": "Es posible que reúna los requisitos para recibir ayuda para pagar Covered California",
+        "hi": "हो सकता है आपको Covered California का खर्च भरने में मदद मिल सके"
       },
       "summary": {
         "en": "Covered California sells health plans. People with income in this range may get help paying the monthly cost.",
         "zh-Hans": "Covered California 出售医疗保险计划。收入在这个范围内的人，可能会得到补助，帮忙支付每月保费。",
-        "es": "Covered California vende planes de salud. Las personas con ingresos en este rango podrían recibir ayuda para pagar el costo mensual."
+        "es": "Covered California vende planes de salud. Las personas con ingresos en este rango podrían recibir ayuda para pagar el costo mensual.",
+        "hi": "Covered California हेल्थ प्लान बेचता है। जिन लोगों की आमदनी इस दायरे में है, उन्हें हर महीने का खर्च भरने में मदद मिल सकती है।"
       },
       "when": {
         "all": [
@@ -141,7 +150,8 @@
           "label": {
             "en": "Open Covered California",
             "zh-Hans": "打开 Covered California",
-            "es": "Abrir Covered California"
+            "es": "Abrir Covered California",
+            "hi": "Covered California खोलें"
           },
           "url": "https://www.coveredca.com/",
           "sources": [
@@ -160,7 +170,8 @@
           "label": {
             "en": "Find free help near you (Covered California)",
             "zh-Hans": "查找您附近的免费帮助（Covered California）",
-            "es": "Buscar ayuda gratis cerca de usted (Covered California)"
+            "es": "Buscar ayuda gratis cerca de usted (Covered California)",
+            "hi": "अपने पास मुफ़्त मदद ढूँढें (Covered California)"
           },
           "url": "https://www.coveredca.com/find-help/",
           "sources": [
@@ -179,12 +190,14 @@
         {
           "en": "Open enrollment for 2027 coverage runs from November 1, 2026 to January 31, 2027.",
           "zh-Hans": "2027年保险的公开投保期为2026年11月1日至2027年1月31日。",
-          "es": "La inscripción abierta para la cobertura de 2027 es del 1 de noviembre de 2026 al 31 de enero de 2027."
+          "es": "La inscripción abierta para la cobertura de 2027 es del 1 de noviembre de 2026 al 31 de enero de 2027.",
+          "hi": "2027 के कवरेज के लिए ओपन एनरोलमेंट (साइन-अप का समय) 1 नवंबर 2026 से 31 जनवरी 2027 तक है।"
         },
         {
           "en": "Free certified enrollers can help you in your language.",
           "zh-Hans": "免费的认证注册顾问可以用您的语言帮助您。",
-          "es": "Hay consejeros de inscripción certificados que pueden ayudarle gratis en su idioma."
+          "es": "Hay consejeros de inscripción certificados que pueden ayudarle gratis en su idioma.",
+          "hi": "मुफ़्त सर्टिफ़ाइड एनरोलर (नाम लिखवाने में मदद करने वाले) आपकी भाषा में आपकी मदद कर सकते हैं।"
         }
       ],
       "sources": [
@@ -211,12 +224,14 @@
       "title": {
         "en": "Covered California plans without federal help",
         "zh-Hans": "没有联邦补助的 Covered California 保险计划",
-        "es": "Planes de Covered California sin ayuda federal"
+        "es": "Planes de Covered California sin ayuda federal",
+        "hi": "संघीय सरकार की मदद के बिना Covered California प्लान"
       },
       "summary": {
         "en": "In 2026, federal help paying for a plan is not available above 400% of the poverty level. You can still compare plans and prices.",
         "zh-Hans": "2026年，收入高于联邦贫困线400%的人，无法获得联邦保费补助。您仍然可以比较各个计划和价格。",
-        "es": "En 2026 no hay ayuda federal para pagar un plan si sus ingresos son de más del 400% del nivel federal de pobreza (FPL). Aun así, puede comparar planes y precios."
+        "es": "En 2026 no hay ayuda federal para pagar un plan si sus ingresos son de más del 400% del nivel federal de pobreza (FPL). Aun así, puede comparar planes y precios.",
+        "hi": "2026 में, संघीय गरीबी स्तर (FPL) के 400% से ज़्यादा आमदनी पर प्लान का खर्च भरने के लिए संघीय सरकार की मदद नहीं मिलती। आप फिर भी प्लान और कीमतों की तुलना कर सकते हैं।"
       },
       "when": {
         "all": [
@@ -239,7 +254,8 @@
           "label": {
             "en": "Open Covered California",
             "zh-Hans": "打开 Covered California",
-            "es": "Abrir Covered California"
+            "es": "Abrir Covered California",
+            "hi": "Covered California खोलें"
           },
           "url": "https://www.coveredca.com/",
           "sources": [
@@ -258,7 +274,8 @@
         {
           "en": "Even with insurance, check the cash prices in this app. Cash can cost less than a copay.",
           "zh-Hans": "即使有保险，也请在本应用中查看现金价。现金价有时可能比共付额还便宜。",
-          "es": "Aunque tenga seguro, revise los precios sin seguro en esta aplicación. Pagar sin seguro puede costar menos que un copago."
+          "es": "Aunque tenga seguro, revise los precios sin seguro en esta aplicación. Pagar sin seguro puede costar menos que un copago.",
+          "hi": "इंश्योरेंस होने पर भी, इस ऐप में कैश कीमतें देखें। कैश में देना कोपे (copay) से सस्ता पड़ सकता है।"
         }
       ],
       "sources": [
@@ -278,12 +295,14 @@
       "title": {
         "en": "Check if you can get Medicare",
         "zh-Hans": "看看您能否获得 Medicare",
-        "es": "Vea si puede obtener Medicare"
+        "es": "Vea si puede obtener Medicare",
+        "hi": "देखें कि क्या आपको Medicare मिल सकता है"
       },
       "summary": {
         "en": "People 65 and older may be able to get Medicare, including drug coverage (Part D). Free counselors can help you choose.",
         "zh-Hans": "65岁及以上的人也许可以获得 Medicare，包括处方药保险（Part D）。免费的顾问可以帮您选择。",
-        "es": "Las personas de 65 años o más podrían obtener Medicare, incluida la cobertura de medicamentos (Part D). Hay consejeros gratuitos que pueden ayudarle a elegir."
+        "es": "Las personas de 65 años o más podrían obtener Medicare, incluida la cobertura de medicamentos (Part D). Hay consejeros gratuitos que pueden ayudarle a elegir.",
+        "hi": "65 साल या उससे ज़्यादा उम्र के लोगों को Medicare मिल सकता है, जिसमें दवाओं का कवरेज (Part D) भी शामिल है। मुफ़्त सलाहकार आपको चुनने में मदद कर सकते हैं।"
       },
       "when": {
         "all": [
@@ -306,7 +325,8 @@
           "label": {
             "en": "Open Medicare.gov",
             "zh-Hans": "打开 Medicare.gov",
-            "es": "Abrir Medicare.gov"
+            "es": "Abrir Medicare.gov",
+            "hi": "Medicare.gov खोलें"
           },
           "url": "https://www.medicare.gov/",
           "sources": [
@@ -325,7 +345,8 @@
         {
           "en": "Call HICAP for free, unbiased Medicare counseling: 1-800-434-0222.",
           "zh-Hans": "请致电 HICAP，获得免费、公正的 Medicare 咨询：1-800-434-0222。",
-          "es": "Llame a HICAP para recibir asesoría gratuita e imparcial sobre Medicare: 1-800-434-0222."
+          "es": "Llame a HICAP para recibir asesoría gratuita e imparcial sobre Medicare: 1-800-434-0222.",
+          "hi": "Medicare पर मुफ़्त और निष्पक्ष सलाह के लिए HICAP को 1-800-434-0222 पर फ़ोन करें।"
         }
       ],
       "sources": [
@@ -345,12 +366,14 @@
       "title": {
         "en": "You may be able to get care through Santa Clara County's PCAP",
         "zh-Hans": "您也许可以通过圣塔克拉拉县的 PCAP 获得医疗服务",
-        "es": "Es posible que pueda recibir atención médica por medio del PCAP del Condado de Santa Clara"
+        "es": "Es posible que pueda recibir atención médica por medio del PCAP del Condado de Santa Clara",
+        "hi": "हो सकता है आपको सांता क्लारा काउंटी के PCAP से इलाज मिल सके"
       },
       "summary": {
         "en": "The Primary Care Access Program offers low-cost primary care and prescriptions to uninsured adults 19 and older who live in Santa Clara County. Copays may apply.",
         "zh-Hans": "初级保健服务计划（Primary Care Access Program，PCAP）为住在圣塔克拉拉县、19岁及以上、没有保险的成年人，提供低价的初级保健和处方药。可能需要付共付额。",
-        "es": "El Programa de Acceso a Atención Primaria (Primary Care Access Program, PCAP) ofrece atención primaria y medicamentos recetados de bajo costo a adultos de 19 años o más, sin seguro médico, que viven en el Condado de Santa Clara. Es posible que tenga que pagar copagos."
+        "es": "El Programa de Acceso a Atención Primaria (Primary Care Access Program, PCAP) ofrece atención primaria y medicamentos recetados de bajo costo a adultos de 19 años o más, sin seguro médico, que viven en el Condado de Santa Clara. Es posible que tenga que pagar copagos.",
+        "hi": "Primary Care Access Program (PCAP) सांता क्लारा काउंटी में रहने वाले 19 साल या उससे ज़्यादा उम्र के बिना इंश्योरेंस वाले लोगों को कम खर्च में प्राइमरी केयर (आम डॉक्टरी इलाज) और प्रिस्क्रिप्शन की दवाएँ देता है। कोपे (copay) लग सकता है।"
       },
       "when": {
         "all": [
@@ -378,7 +401,8 @@
           "label": {
             "en": "Learn about PCAP (Santa Clara County)",
             "zh-Hans": "了解 PCAP（圣塔克拉拉县）",
-            "es": "Información sobre PCAP (Condado de Santa Clara)"
+            "es": "Información sobre PCAP (Condado de Santa Clara)",
+            "hi": "PCAP के बारे में जानें (सांता क्लारा काउंटी)"
           },
           "url": "https://vhpn.santaclaracounty.gov/primary-care-access-program-pcap/program-description",
           "sources": [
@@ -397,12 +421,14 @@
         {
           "en": "Call 1-888-363-3394 and choose option 1 for help enrolling.",
           "zh-Hans": "请拨打 1-888-363-3394，按 1 获得登记帮助。",
-          "es": "Llame al 1-888-363-3394 y marque la opción 1 para recibir ayuda con la inscripción."
+          "es": "Llame al 1-888-363-3394 y marque la opción 1 para recibir ayuda con la inscripción.",
+          "hi": "नाम लिखवाने में मदद के लिए 1-888-363-3394 पर फ़ोन करें और ऑप्शन 1 चुनें।"
         },
         {
           "en": "PCAP is for people who cannot get other insurance, such as Medi-Cal.",
           "zh-Hans": "PCAP 适合无法获得其他保险（例如 Medi-Cal）的人。",
-          "es": "PCAP es para personas que no pueden obtener otro seguro, como Medi-Cal."
+          "es": "PCAP es para personas que no pueden obtener otro seguro, como Medi-Cal.",
+          "hi": "PCAP उन लोगों के लिए है जिन्हें कोई दूसरा इंश्योरेंस, जैसे Medi-Cal, नहीं मिल सकता।"
         }
       ],
       "sources": [

@@ -7,7 +7,8 @@
       "displayName": {
         "en": "Metformin ER (extended-release)",
         "zh-Hans": "二甲双胍缓释片（Metformin ER）",
-        "es": "Metformina ER (de liberación prolongada)"
+        "es": "Metformina ER (de liberación prolongada)",
+        "hi": "मेटफॉर्मिन ईआर (Metformin ER, एक्सटेंडेड-रिलीज़)"
       },
       "aliases": {
         "en": [
@@ -44,7 +45,8 @@
           "label": {
             "en": "500 mg extended-release tablet",
             "zh-Hans": "500 mg 缓释片",
-            "es": "Tableta de liberación prolongada de 500 mg"
+            "es": "Tableta de liberación prolongada de 500 mg",
+            "hi": "500 mg एक्सटेंडेड-रिलीज़ टैबलेट"
           },
           "form": "tablet-er",
           "pricingUnit": "EA",
@@ -52,7 +54,8 @@
           "countLabel": {
             "en": "tablets",
             "zh-Hans": "片",
-            "es": "tabletas"
+            "es": "tabletas",
+            "hi": "टैबलेट"
           },
           "quantities": [
             30,
@@ -71,7 +74,8 @@
           "label": {
             "en": "750 mg extended-release tablet",
             "zh-Hans": "750 mg 缓释片",
-            "es": "Tableta de liberación prolongada de 750 mg"
+            "es": "Tableta de liberación prolongada de 750 mg",
+            "hi": "750 mg एक्सटेंडेड-रिलीज़ टैबलेट"
           },
           "form": "tablet-er",
           "pricingUnit": "EA",
@@ -79,7 +83,8 @@
           "countLabel": {
             "en": "tablets",
             "zh-Hans": "片",
-            "es": "tabletas"
+            "es": "tabletas",
+            "hi": "टैबलेट"
           },
           "quantities": [
             30,
@@ -103,7 +108,8 @@
         {
           "en": "Metformin ER comes in types with very different prices. Most prescriptions are for the regular (Glucophage XR-type) tablet. Osmotic (Fortamet-type) and modified (Glumetza-type) versions cost much more. Check which one your prescription says.",
           "zh-Hans": "二甲双胍缓释片有几种不同类型，价格相差很大。大多数处方开的是普通型（Glucophage XR 类）药片。渗透泵型（Fortamet 类）和改良型（Glumetza 类）贵得多。请看看您的处方上写的是哪一种。",
-          "es": "La metformina ER viene en varios tipos con precios muy diferentes. La mayoría de las recetas son para la tableta común (tipo Glucophage XR). Las versiones osmóticas (tipo Fortamet) y modificadas (tipo Glumetza) cuestan mucho más. Revise cuál dice su receta."
+          "es": "La metformina ER viene en varios tipos con precios muy diferentes. La mayoría de las recetas son para la tableta común (tipo Glucophage XR). Las versiones osmóticas (tipo Fortamet) y modificadas (tipo Glumetza) cuestan mucho más. Revise cuál dice su receta.",
+          "hi": "मेटफॉर्मिन ईआर कई तरह की आती है, और उनकी कीमतों में बहुत फ़र्क़ होता है। ज़्यादातर प्रिस्क्रिप्शन आम (Glucophage XR जैसी) टैबलेट के लिए होते हैं। ऑस्मोटिक (Fortamet जैसी) और मॉडिफ़ाइड (Glumetza जैसी) टैबलेट कहीं ज़्यादा महँगी होती हैं। देखें कि आपके प्रिस्क्रिप्शन में कौन-सी लिखी है।"
         }
       ],
       "sources": [
@@ -145,7 +151,8 @@
       "displayName": {
         "en": "Eliquis (apixaban)",
         "zh-Hans": "Eliquis（阿哌沙班 apixaban）",
-        "es": "Eliquis (apixabán)"
+        "es": "Eliquis (apixabán)",
+        "hi": "Eliquis (एपिक्साबैन, apixaban)"
       },
       "aliases": {
         "en": [
@@ -179,7 +186,8 @@
           "label": {
             "en": "2.5 mg tablet",
             "zh-Hans": "2.5 mg 药片",
-            "es": "Tableta de 2.5 mg"
+            "es": "Tableta de 2.5 mg",
+            "hi": "2.5 mg टैबलेट"
           },
           "form": "tablet",
           "pricingUnit": "EA",
@@ -187,7 +195,8 @@
           "countLabel": {
             "en": "tablets",
             "zh-Hans": "片",
-            "es": "tabletas"
+            "es": "tabletas",
+            "hi": "टैबलेट"
           },
           "quantities": [
             60,
@@ -204,7 +213,8 @@
           "label": {
             "en": "5 mg tablet",
             "zh-Hans": "5 mg 药片",
-            "es": "Tableta de 5 mg"
+            "es": "Tableta de 5 mg",
+            "hi": "5 mg टैबलेट"
           },
           "form": "tablet",
           "pricingUnit": "EA",
@@ -212,7 +222,8 @@
           "countLabel": {
             "en": "tablets",
             "zh-Hans": "片",
-            "es": "tabletas"
+            "es": "tabletas",
+            "hi": "टैबलेट"
           },
           "quantities": [
             60,
@@ -236,7 +247,8 @@
         {
           "en": "No generic apixaban is sold in the U.S. yet.",
           "zh-Hans": "美国目前还没有阿哌沙班仿制药出售。",
-          "es": "Todavía no se vende apixabán genérico en los EE. UU."
+          "es": "Todavía no se vende apixabán genérico en los EE. UU.",
+          "hi": "अमेरिका में अभी तक एपिक्साबैन (apixaban) की कोई जेनेरिक दवा नहीं बिकती।"
         }
       ],
       "sources": [
@@ -278,7 +290,8 @@
       "displayName": {
         "en": "Insulin glargine (Lantus, Basaglar, Rezvoglar and others)",
         "zh-Hans": "甘精胰岛素 insulin glargine（Lantus、Basaglar、Rezvoglar 等）",
-        "es": "Insulina glargina (Lantus, Basaglar, Rezvoglar y otras)"
+        "es": "Insulina glargina (Lantus, Basaglar, Rezvoglar y otras)",
+        "hi": "इंसुलिन ग्लार्जिन (Lantus, Basaglar, Rezvoglar और दूसरे)"
       },
       "aliases": {
         "en": [
@@ -322,7 +335,8 @@
           "label": {
             "en": "100 units/mL — box of 5 pens (3 mL each)",
             "zh-Hans": "100 单位/mL — 每盒5支笔（每支3 mL）",
-            "es": "100 unidades/mL — caja de 5 plumas (3 mL cada una)"
+            "es": "100 unidades/mL — caja de 5 plumas (3 mL cada una)",
+            "hi": "100 units/mL — 5 पेन का डिब्बा (हर पेन 3 mL)"
           },
           "form": "pen",
           "pricingUnit": "ML",
@@ -330,7 +344,8 @@
           "countLabel": {
             "en": "boxes",
             "zh-Hans": "盒",
-            "es": "cajas"
+            "es": "cajas",
+            "hi": "डिब्बे"
           },
           "quantities": [
             1,
@@ -347,7 +362,8 @@
           "label": {
             "en": "100 units/mL — 10 mL vial",
             "zh-Hans": "100 单位/mL — 10 mL 药瓶",
-            "es": "100 unidades/mL — frasco (vial) de 10 mL"
+            "es": "100 unidades/mL — frasco (vial) de 10 mL",
+            "hi": "100 units/mL — 10 mL की शीशी (vial)"
           },
           "form": "vial",
           "pricingUnit": "ML",
@@ -355,7 +371,8 @@
           "countLabel": {
             "en": "vials",
             "zh-Hans": "瓶",
-            "es": "frascos"
+            "es": "frascos",
+            "hi": "शीशियाँ"
           },
           "quantities": [
             1,
@@ -381,12 +398,14 @@
         {
           "en": "Insulin glargine is sold under several names. Interchangeable versions can be swapped at the pharmacy where the law allows. Ask your pharmacist which one costs least.",
           "zh-Hans": "甘精胰岛素有好几种品牌名称。在法律允许的地方，可互换的版本可以在药房直接替换。请问问您的药剂师哪一种最便宜。",
-          "es": "La insulina glargina se vende con varios nombres. En la farmacia se pueden cambiar las versiones intercambiables, donde la ley lo permite. Pregunte a su farmacéutico cuál cuesta menos."
+          "es": "La insulina glargina se vende con varios nombres. En la farmacia se pueden cambiar las versiones intercambiables, donde la ley lo permite. Pregunte a su farmacéutico cuál cuesta menos.",
+          "hi": "इंसुलिन ग्लार्जिन कई नामों से बिकती है। जहाँ क़ानून इजाज़त देता है, वहाँ इंटरचेंजेबल (बदली जा सकने वाली) किस्मों को फ़ार्मेसी पर बदला जा सकता है। अपने फ़ार्मासिस्ट से पूछें कि कौन-सी सबसे सस्ती है।"
         },
         {
           "en": "Toujeo is a stronger insulin glargine (300 units/mL). It is not the same and is not included here.",
           "zh-Hans": "Toujeo 是浓度更高的甘精胰岛素（300 单位/mL）。它和其他甘精胰岛素不同，不包括在这里。",
-          "es": "Toujeo es una insulina glargina más concentrada (300 unidades/mL). No es lo mismo y no se incluye aquí."
+          "es": "Toujeo es una insulina glargina más concentrada (300 unidades/mL). No es lo mismo y no se incluye aquí.",
+          "hi": "Toujeo ज़्यादा ताक़त वाली इंसुलिन ग्लार्जिन है (300 units/mL)। यह वही दवा नहीं है और इसे यहाँ शामिल नहीं किया गया है।"
         }
       ],
       "sources": [

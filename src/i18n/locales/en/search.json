@@ -1,1 +1,41 @@
-{}
+{
+  "title": "Find a medicine",
+  "subtitle": "Type the brand or generic name. Any language works.",
+  "inputLabel": "Search for a medicine",
+  "placeholder": "Medicine name",
+  "clear": "Clear search",
+  "resultsCount_one": "{{count}} medicine found",
+  "resultsCount_other": "{{count}} medicines found",
+  "matched": "Matches “{{term}}”",
+  "openHint": "Opens strength and amount for this medicine",
+  "recents": {
+    "title": "Recent searches",
+    "search": "Search for {{term}} again",
+    "remove": "Remove {{term}} from recent searches"
+  },
+  "common": {
+    "title": "Common prescriptions",
+    "subtitle": "Tap one to pick a strength and see prices."
+  },
+  "empty": {
+    "title": "No match — try the generic name",
+    "body": "It's on your pill bottle label.",
+    "request": "Ask us to add this medicine",
+    "requestHint": "Opens our request page on GitHub"
+  },
+  "category": {
+    "diabetes": "Diabetes",
+    "heart": "Heart",
+    "blood-pressure": "Blood pressure",
+    "cholesterol": "Cholesterol",
+    "blood-thinner": "Blood thinner",
+    "other": "Other"
+  },
+  "market": {
+    "genericAvailable": "Generic available",
+    "biosimilarAvailable": "Biosimilar available",
+    "brandOnly": "Brand only"
+  },
+  "moreStrengths_one": "+{{count}} more",
+  "moreStrengths_other": "+{{count}} more"
+}

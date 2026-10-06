@@ -5,12 +5,14 @@
       "term": {
         "en": "NADAC",
         "zh-Hans": "NADAC",
-        "es": "NADAC"
+        "es": "NADAC",
+        "hi": "NADAC"
       },
       "definition": {
         "en": "NADAC is the average price pharmacies pay to buy a medicine from wholesalers. Medicaid publishes it every week. You cannot buy medicine at this price — it is a fair-price yardstick.",
         "zh-Hans": "NADAC 是药房从批发商那里购买一种药的平均价格。Medicaid 每周公布一次。您无法以这个价格买到药——它是用来衡量价格是否公道的标尺。",
-        "es": "NADAC es el precio promedio que pagan las farmacias para comprar un medicamento a los mayoristas. Medicaid lo publica cada semana. Usted no puede comprar medicamentos a este precio — sirve como referencia para saber qué es un precio justo."
+        "es": "NADAC es el precio promedio que pagan las farmacias para comprar un medicamento a los mayoristas. Medicaid lo publica cada semana. Usted no puede comprar medicamentos a este precio — sirve como referencia para saber qué es un precio justo.",
+        "hi": "NADAC वह औसत कीमत है जो फ़ार्मेसियाँ थोक विक्रेताओं (होलसेलर) से दवा खरीदने के लिए देती हैं। Medicaid इसे हर हफ़्ते जारी करता है। आप इस कीमत पर दवा नहीं खरीद सकते — यह वाजिब कीमत परखने का एक पैमाना है।"
       },
       "sources": [
         {
@@ -28,12 +30,14 @@
       "term": {
         "en": "Patient assistance program",
         "zh-Hans": "患者援助计划",
-        "es": "Programa de ayuda al paciente"
+        "es": "Programa de ayuda al paciente",
+        "hi": "मरीज़ सहायता कार्यक्रम"
       },
       "definition": {
         "en": "A program, often run by a drug company, that gives medicine for free or at low cost to people who qualify. Most have an income limit and need a form signed by your doctor.",
         "zh-Hans": "常常由药厂开办的计划，为符合条件的人免费或低价提供药物。大多数计划有收入限制，并需要您的医生签字的表格。",
-        "es": "Un programa, muchas veces de una compañía farmacéutica, que da medicamentos gratis o a bajo costo a las personas que reúnen los requisitos. La mayoría tiene un límite de ingresos y pide un formulario firmado por su médico."
+        "es": "Un programa, muchas veces de una compañía farmacéutica, que da medicamentos gratis o a bajo costo a las personas que reúnen los requisitos. La mayoría tiene un límite de ingresos y pide un formulario firmado por su médico.",
+        "hi": "एक कार्यक्रम, जिसे अक्सर कोई दवा कंपनी चलाती है, और जो शर्तें पूरी करने वाले लोगों को दवा मुफ़्त या कम कीमत पर देता है। ज़्यादातर कार्यक्रमों में आमदनी की सीमा होती है और आपके डॉक्टर के दस्तख़त वाला फ़ॉर्म चाहिए होता है।"
       },
       "sources": [
         {
@@ -51,12 +55,14 @@
       "term": {
         "en": "Poverty level (FPL)",
         "zh-Hans": "联邦贫困线（FPL）",
-        "es": "Nivel federal de pobreza (FPL)"
+        "es": "Nivel federal de pobreza (FPL)",
+        "hi": "संघीय गरीबी स्तर (FPL)"
       },
       "definition": {
         "en": "The federal poverty level is an income amount set each year by the government. Programs use a percent of it, like 138%, to decide who can get help. It depends on how many people are in your household.",
         "zh-Hans": "联邦贫困线是政府每年定下的一个收入标准。各项计划用它的百分比（例如138%）来决定谁可以得到帮助。具体数额取决于您的家庭人数。",
-        "es": "El nivel federal de pobreza es una cantidad de ingresos que el gobierno fija cada año. Los programas usan un porcentaje de esa cantidad, como el 138%, para decidir quién puede recibir ayuda. Depende de cuántas personas hay en su hogar."
+        "es": "El nivel federal de pobreza es una cantidad de ingresos que el gobierno fija cada año. Los programas usan un porcentaje de esa cantidad, como el 138%, para decidir quién puede recibir ayuda. Depende de cuántas personas hay en su hogar.",
+        "hi": "संघीय गरीबी स्तर (FPL) आमदनी की एक रकम है जो सरकार हर साल तय करती है। कार्यक्रम इसके एक प्रतिशत, जैसे 138%, से तय करते हैं कि किसे मदद मिल सकती है। यह इस पर निर्भर करता है कि आपके परिवार में कितने लोग हैं।"
       },
       "sources": [
         {
@@ -74,12 +80,14 @@
       "term": {
         "en": "Generic",
         "zh-Hans": "仿制药",
-        "es": "Genérico"
+        "es": "Genérico",
+        "hi": "जेनेरिक दवा"
       },
       "definition": {
         "en": "A generic medicine has the same active ingredient, strength and effect as the brand. It usually costs much less.",
         "zh-Hans": "仿制药与品牌药的有效成分、剂量和效果都相同。它通常便宜很多。",
-        "es": "Un medicamento genérico tiene el mismo ingrediente activo, la misma dosis y el mismo efecto que el medicamento de marca. Normalmente cuesta mucho menos."
+        "es": "Un medicamento genérico tiene el mismo ingrediente activo, la misma dosis y el mismo efecto que el medicamento de marca. Normalmente cuesta mucho menos.",
+        "hi": "जेनेरिक दवा में ब्रांड वाली दवा जैसा ही मुख्य तत्व (active ingredient), वही स्ट्रेंथ (ताक़त) और वही असर होता है। आमतौर पर यह काफ़ी सस्ती होती है।"
       },
       "sources": [
         {
@@ -97,12 +105,14 @@
       "term": {
         "en": "Biosimilar",
         "zh-Hans": "生物类似药",
-        "es": "Biosimilar"
+        "es": "Biosimilar",
+        "hi": "बायोसिमिलर"
       },
       "definition": {
         "en": "A biosimilar is a medicine very close to a brand-name biologic, like insulin, with no meaningful difference in safety or effect. An \"interchangeable\" biosimilar can be swapped at the pharmacy where state law allows.",
         "zh-Hans": "生物类似药是与品牌生物药（例如胰岛素）非常接近的药物，在安全性和效果上没有实质性差别。在州法律允许的地方，“可互换”的生物类似药可以在药房直接替换。",
-        "es": "Un biosimilar es un medicamento muy parecido a un medicamento biológico de marca, como la insulina, sin diferencias importantes en seguridad o efecto. Un biosimilar \"intercambiable\" se puede cambiar por el de marca en la farmacia, donde la ley estatal lo permite."
+        "es": "Un biosimilar es un medicamento muy parecido a un medicamento biológico de marca, como la insulina, sin diferencias importantes en seguridad o efecto. Un biosimilar \"intercambiable\" se puede cambiar por el de marca en la farmacia, donde la ley estatal lo permite.",
+        "hi": "बायोसिमिलर एक ऐसी दवा है जो किसी ब्रांड वाली बायोलॉजिक दवा (जैसे इंसुलिन) से बहुत मिलती-जुलती है, और सुरक्षा या असर में इनमें कोई ख़ास फ़र्क़ नहीं होता। जहाँ राज्य का क़ानून इजाज़त देता है, वहाँ \"इंटरचेंजेबल\" (बदली जा सकने वाली) बायोसिमिलर को फ़ार्मेसी पर बदला जा सकता है।"
       },
       "sources": [
         {
@@ -120,12 +130,14 @@
       "term": {
         "en": "Copay",
         "zh-Hans": "共付额",
-        "es": "Copago"
+        "es": "Copago",
+        "hi": "कोपे (copay)"
       },
       "definition": {
         "en": "A copay is the fixed amount you pay for a prescription when you use insurance.",
         "zh-Hans": "共付额是您使用保险时，为一个处方药支付的固定金额。",
-        "es": "El copago es la cantidad fija que usted paga por una receta cuando usa su seguro."
+        "es": "El copago es la cantidad fija que usted paga por una receta cuando usa su seguro.",
+        "hi": "कोपे (copay) वह तय रकम है जो आप इंश्योरेंस इस्तेमाल करते समय किसी प्रिस्क्रिप्शन के लिए देते हैं।"
       },
       "sources": [
         {
@@ -143,12 +155,14 @@
       "term": {
         "en": "Deductible",
         "zh-Hans": "免赔额",
-        "es": "Deducible"
+        "es": "Deducible",
+        "hi": "डिडक्टिबल (deductible)"
       },
       "definition": {
         "en": "The amount you pay for covered care each year before your insurance starts to pay.",
         "zh-Hans": "每年在保险开始付钱之前，您需要先为承保的医疗服务支付的金额。",
-        "es": "La cantidad que usted paga cada año por la atención cubierta antes de que su seguro empiece a pagar."
+        "es": "La cantidad que usted paga cada año por la atención cubierta antes de que su seguro empiece a pagar.",
+        "hi": "वह रकम जो आप हर साल कवर किए गए इलाज के लिए खुद देते हैं, इससे पहले कि आपका इंश्योरेंस पैसे देना शुरू करे।"
       },
       "sources": [
         {
@@ -166,12 +180,14 @@
       "term": {
         "en": "Formulary",
         "zh-Hans": "药品目录",
-        "es": "Lista de medicamentos cubiertos (formulario)"
+        "es": "Lista de medicamentos cubiertos (formulario)",
+        "hi": "कवर की गई दवाओं की सूची (formulary)"
       },
       "definition": {
         "en": "The list of medicines your insurance plan covers. Medicines are often grouped in tiers that cost different amounts.",
         "zh-Hans": "您的保险计划承保的药物清单。药物常常分成不同等级，费用各不相同。",
-        "es": "La lista de medicamentos que cubre su plan de seguro. Muchas veces los medicamentos se agrupan en niveles que cuestan diferentes cantidades."
+        "es": "La lista de medicamentos que cubre su plan de seguro. Muchas veces los medicamentos se agrupan en niveles que cuestan diferentes cantidades.",
+        "hi": "उन दवाओं की सूची जिन्हें आपका इंश्योरेंस प्लान कवर करता है। दवाओं को अक्सर अलग-अलग टियर (स्तर) में रखा जाता है, जिनका खर्च अलग-अलग होता है।"
       },
       "sources": [
         {
@@ -189,12 +205,14 @@
       "term": {
         "en": "Household",
         "zh-Hans": "家庭（家庭人数）",
-        "es": "Hogar (personas en su hogar)"
+        "es": "Hogar (personas en su hogar)",
+        "hi": "परिवार (घर के सदस्य)"
       },
       "definition": {
         "en": "For Medi-Cal and Covered California, your household is usually you, your spouse, and the people you claim on your taxes. Ask the county or an enroller if you are not sure.",
         "zh-Hans": "对 Medi-Cal 和 Covered California 来说，您的家庭通常包括您本人、您的配偶，以及您报税时申报的人。如果不确定，请询问县政府或注册顾问。",
-        "es": "Para Medi-Cal y Covered California, su hogar normalmente lo forman usted, su cónyuge y las personas que declara en sus impuestos. Si tiene dudas, pregunte al condado o a un consejero de inscripción."
+        "es": "Para Medi-Cal y Covered California, su hogar normalmente lo forman usted, su cónyuge y las personas que declara en sus impuestos. Si tiene dudas, pregunte al condado o a un consejero de inscripción.",
+        "hi": "Medi-Cal और Covered California के लिए, आपके परिवार में आमतौर पर आप, आपके पति या पत्नी, और वे लोग गिने जाते हैं जिन्हें आप अपने टैक्स रिटर्न में दिखाते हैं। अगर आपको यक़ीन नहीं है, तो काउंटी या किसी एनरोलर से पूछें।"
       },
       "sources": [
         {
@@ -212,12 +230,14 @@
       "term": {
         "en": "Income",
         "zh-Hans": "收入",
-        "es": "Ingresos"
+        "es": "Ingresos",
+        "hi": "आमदनी"
       },
       "definition": {
         "en": "Count money you earn from work before taxes, plus things like unemployment and Social Security. The county or an enroller can tell you exactly what counts.",
         "zh-Hans": "请计算您工作赚的税前收入，再加上失业救济金和社会安全福利金等。县政府或注册顾问可以告诉您具体哪些要算进去。",
-        "es": "Cuente el dinero que gana por su trabajo antes de impuestos, más cosas como los beneficios de desempleo y el Seguro Social. El condado o un consejero de inscripción le puede decir exactamente qué cuenta."
+        "es": "Cuente el dinero que gana por su trabajo antes de impuestos, más cosas como los beneficios de desempleo y el Seguro Social. El condado o un consejero de inscripción le puede decir exactamente qué cuenta.",
+        "hi": "काम से होने वाली कमाई टैक्स कटने से पहले की गिनें, और साथ में बेरोज़गारी भत्ता (unemployment) और Social Security जैसी चीज़ें भी जोड़ें। क्या-क्या गिना जाता है, यह काउंटी या कोई एनरोलर आपको ठीक-ठीक बता सकते हैं।"
       },
       "sources": [
         {
@@ -235,12 +255,14 @@
       "term": {
         "en": "Extra Help",
         "zh-Hans": "Extra Help（额外补助）",
-        "es": "Extra Help (Ayuda Adicional)"
+        "es": "Extra Help (Ayuda Adicional)",
+        "hi": "Extra Help (अतिरिक्त सहायता)"
       },
       "definition": {
         "en": "A Medicare program that helps people with limited income and savings pay for prescription drugs.",
         "zh-Hans": "Medicare 的一个计划，帮助收入和储蓄有限的人支付处方药费用。",
-        "es": "Un programa de Medicare que ayuda a las personas con ingresos y ahorros limitados a pagar sus medicamentos recetados."
+        "es": "Un programa de Medicare que ayuda a las personas con ingresos y ahorros limitados a pagar sus medicamentos recetados.",
+        "hi": "Medicare का एक कार्यक्रम जो कम आमदनी और कम बचत वाले लोगों को प्रिस्क्रिप्शन की दवाओं का खर्च भरने में मदद करता है।"
       },
       "sources": [
         {
@@ -258,12 +280,14 @@
       "term": {
         "en": "Discount coupon",
         "zh-Hans": "折扣券",
-        "es": "Cupón de descuento"
+        "es": "Cupón de descuento",
+        "hi": "डिस्काउंट कूपन"
       },
       "definition": {
         "en": "A free coupon from a website like GoodRx or SingleCare that can lower the cash price at a pharmacy. The price depends on the pharmacy. It usually cannot be used together with insurance.",
         "zh-Hans": "来自 GoodRx 或 SingleCare 等网站的免费折扣券，可以降低药房的现金价。价格因药房而不同。它通常不能和保险一起使用。",
-        "es": "Un cupón gratis de un sitio web como GoodRx o SingleCare que puede bajar el precio sin seguro en una farmacia. El precio depende de la farmacia. Normalmente no se puede usar junto con el seguro."
+        "es": "Un cupón gratis de un sitio web como GoodRx o SingleCare que puede bajar el precio sin seguro en una farmacia. El precio depende de la farmacia. Normalmente no se puede usar junto con el seguro.",
+        "hi": "GoodRx या SingleCare जैसी वेबसाइट से मिलने वाला मुफ़्त कूपन, जिससे फ़ार्मेसी पर कैश कीमत कम हो सकती है। कीमत फ़ार्मेसी पर निर्भर करती है। आमतौर पर इसे इंश्योरेंस के साथ इस्तेमाल नहीं किया जा सकता।"
       },
       "sources": [
         {

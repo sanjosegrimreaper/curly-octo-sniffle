@@ -11,7 +11,8 @@
       "description": {
         "en": "Cash price straight from the maker, shipped to you.",
         "zh-Hans": "直接从药厂购买的现金价，寄送到您家。",
-        "es": "Precio sin seguro, directo del fabricante, con envío a su casa."
+        "es": "Precio sin seguro, directo del fabricante, con envío a su casa.",
+        "hi": "दवा बनाने वाली कंपनी से सीधे कैश कीमत पर, आपके पते पर भेजी जाती है।"
       },
       "priceKind": "fixed",
       "priceCents": 34500,
@@ -19,13 +20,15 @@
       "per": {
         "en": "60 tablets",
         "zh-Hans": "60 片",
-        "es": "60 tabletas"
+        "es": "60 tabletas",
+        "hi": "60 टैबलेट"
       },
       "url": "https://www.eliquis.bmscustomerconnect.com/price",
       "eligibility": {
         "en": "For people paying cash. Not for people with Medicare Part D.",
         "zh-Hans": "适合付现金的人。不适合有 Medicare Part D 的人。",
-        "es": "Para personas que pagan sin usar seguro. No es para personas con Medicare Part D."
+        "es": "Para personas que pagan sin usar seguro. No es para personas con Medicare Part D.",
+        "hi": "कैश में पैसे देने वाले लोगों के लिए। Medicare Part D वाले लोगों के लिए नहीं।"
       },
       "sources": [
         {
@@ -49,7 +52,8 @@
       "description": {
         "en": "Cash price straight from the maker, shipped to you.",
         "zh-Hans": "直接从药厂购买的现金价，寄送到您家。",
-        "es": "Precio sin seguro, directo del fabricante, con envío a su casa."
+        "es": "Precio sin seguro, directo del fabricante, con envío a su casa.",
+        "hi": "दवा बनाने वाली कंपनी से सीधे कैश कीमत पर, आपके पते पर भेजी जाती है।"
       },
       "priceKind": "fixed",
       "priceCents": 69000,
@@ -57,13 +61,15 @@
       "per": {
         "en": "120 tablets",
         "zh-Hans": "120 片",
-        "es": "120 tabletas"
+        "es": "120 tabletas",
+        "hi": "120 टैबलेट"
       },
       "url": "https://www.eliquis.bmscustomerconnect.com/price",
       "eligibility": {
         "en": "For people paying cash. Not for people with Medicare Part D.",
         "zh-Hans": "适合付现金的人。不适合有 Medicare Part D 的人。",
-        "es": "Para personas que pagan sin usar seguro. No es para personas con Medicare Part D."
+        "es": "Para personas que pagan sin usar seguro. No es para personas con Medicare Part D.",
+        "hi": "कैश में पैसे देने वाले लोगों के लिए। Medicare Part D वाले लोगों के लिए नहीं।"
       },
       "sources": [
         {
@@ -87,7 +93,8 @@
       "description": {
         "en": "Cash price straight from the maker, shipped to you.",
         "zh-Hans": "直接从药厂购买的现金价，寄送到您家。",
-        "es": "Precio sin seguro, directo del fabricante, con envío a su casa."
+        "es": "Precio sin seguro, directo del fabricante, con envío a su casa.",
+        "hi": "दवा बनाने वाली कंपनी से सीधे कैश कीमत पर, आपके पते पर भेजी जाती है।"
       },
       "priceKind": "fixed",
       "priceCents": 103500,
@@ -95,13 +102,15 @@
       "per": {
         "en": "180 tablets",
         "zh-Hans": "180 片",
-        "es": "180 tabletas"
+        "es": "180 tabletas",
+        "hi": "180 टैबलेट"
       },
       "url": "https://www.eliquis.bmscustomerconnect.com/price",
       "eligibility": {
         "en": "For people paying cash. Not for people with Medicare Part D.",
         "zh-Hans": "适合付现金的人。不适合有 Medicare Part D 的人。",
-        "es": "Para personas que pagan sin usar seguro. No es para personas con Medicare Part D."
+        "es": "Para personas que pagan sin usar seguro. No es para personas con Medicare Part D.",
+        "hi": "कैश में पैसे देने वाले लोगों के लिए। Medicare Part D वाले लोगों के लिए नहीं।"
       },
       "sources": [
         {
@@ -125,7 +134,8 @@
       "description": {
         "en": "Brand Eliquis by mail from Cost Plus Drugs, as announced by the maker.",
         "zh-Hans": "根据药厂的公告，可通过 Cost Plus Drugs 邮购品牌药 Eliquis。",
-        "es": "Eliquis de marca por correo, de Cost Plus Drugs, según lo anunció el fabricante."
+        "es": "Eliquis de marca por correo, de Cost Plus Drugs, según lo anunció el fabricante.",
+        "hi": "Cost Plus Drugs से डाक द्वारा ब्रांड वाली Eliquis, दवा बनाने वाली कंपनी की घोषणा के मुताबिक़।"
       },
       "priceKind": "fixed",
       "priceCents": 34500,
@@ -133,13 +143,15 @@
       "per": {
         "en": "60 tablets (a 30-day supply in the announcement)",
         "zh-Hans": "60 片（公告中为30天用量）",
-        "es": "60 tabletas (un suministro para 30 días, según el anuncio)"
+        "es": "60 tabletas (un suministro para 30 días, según el anuncio)",
+        "hi": "60 टैबलेट (घोषणा में 30 दिन की सप्लाई)"
       },
       "url": "https://www.costplusdrugs.com/",
       "eligibility": {
         "en": "Price announced by Bristol Myers Squibb in April 2026. Shipping may be extra. Check the current price on Cost Plus.",
         "zh-Hans": "价格由百时美施贵宝（Bristol Myers Squibb）于2026年4月公布。可能需要另付运费。请在 Cost Plus 网站上查看当前价格。",
-        "es": "Precio anunciado por Bristol Myers Squibb en abril de 2026. Es posible que el envío cueste aparte. Revise el precio actual en Cost Plus."
+        "es": "Precio anunciado por Bristol Myers Squibb en abril de 2026. Es posible que el envío cueste aparte. Revise el precio actual en Cost Plus.",
+        "hi": "यह कीमत Bristol Myers Squibb ने अप्रैल 2026 में घोषित की थी। शिपिंग (डाक खर्च) अलग से लग सकता है। Cost Plus पर अभी की कीमत देख लें।"
       },
       "sources": [
         {
@@ -162,7 +174,8 @@
       "description": {
         "en": "California's state-label insulin, sold at pharmacies that carry it.",
         "zh-Hans": "加州政府自有品牌的胰岛素，在有售的药房购买。",
-        "es": "La insulina con la marca propia del estado de California, a la venta en las farmacias que la tienen."
+        "es": "La insulina con la marca propia del estado de California, a la venta en las farmacias que la tienen.",
+        "hi": "कैलिफ़ोर्निया राज्य के अपने लेबल वाली इंसुलिन, जो उन फ़ार्मेसियों पर बिकती है जो इसे रखती हैं।"
       },
       "priceKind": "maximum",
       "priceCents": 5500,
@@ -170,13 +183,15 @@
       "per": {
         "en": "box of 5 pens",
         "zh-Hans": "一盒5支笔",
-        "es": "caja de 5 plumas"
+        "es": "caja de 5 plumas",
+        "hi": "5 पेन का डिब्बा"
       },
       "url": "https://civicainsulin.org/for-patients/",
       "eligibility": {
         "en": "Suggested maximum price; the pharmacy sets the final price. Not every pharmacy has it yet — ask first. A current insulin glargine or Lantus prescription works.",
         "zh-Hans": "这是建议的最高价格；最终价格由药房决定。目前不是每家药房都有——请先问清楚。使用有效的甘精胰岛素或 Lantus 处方即可。",
-        "es": "Precio máximo sugerido; la farmacia decide el precio final. Todavía no todas las farmacias la tienen — pregunte antes. Sirve una receta vigente de insulina glargina o de Lantus."
+        "es": "Precio máximo sugerido; la farmacia decide el precio final. Todavía no todas las farmacias la tienen — pregunte antes. Sirve una receta vigente de insulina glargina o de Lantus.",
+        "hi": "सुझाई गई ज़्यादा से ज़्यादा कीमत; आख़िरी कीमत फ़ार्मेसी तय करती है। अभी हर फ़ार्मेसी में यह नहीं मिलती — पहले पूछ लें। इंसुलिन ग्लार्जिन या Lantus का मौजूदा प्रिस्क्रिप्शन चल जाता है।"
       },
       "sources": [
         {
@@ -207,7 +222,8 @@
       "description": {
         "en": "A fixed monthly price for Sanofi insulins, including Lantus.",
         "zh-Hans": "赛诺菲（Sanofi）胰岛素（包括 Lantus）的固定月价。",
-        "es": "Un precio fijo al mes para las insulinas de Sanofi, incluida Lantus."
+        "es": "Un precio fijo al mes para las insulinas de Sanofi, incluida Lantus.",
+        "hi": "Sanofi की इंसुलिन दवाओं के लिए, Lantus समेत, हर महीने की एक तय कीमत।"
       },
       "priceKind": "fixed",
       "priceCents": 3500,
@@ -215,13 +231,15 @@
       "per": {
         "en": "30-day supply",
         "zh-Hans": "30天用量",
-        "es": "suministro para 30 días"
+        "es": "suministro para 30 días",
+        "hi": "30 दिन की सप्लाई"
       },
       "url": "https://www.lantus.com/sign-up-for-savings",
       "eligibility": {
         "en": "For people without insurance or paying cash, at any income. Call (833) 813-0190.",
         "zh-Hans": "适合没有保险或付现金的人，不论收入多少。请致电 (833) 813-0190。",
-        "es": "Para personas sin seguro o que pagan sin usar seguro, con cualquier nivel de ingresos. Llame al (833) 813-0190."
+        "es": "Para personas sin seguro o que pagan sin usar seguro, con cualquier nivel de ingresos. Llame al (833) 813-0190.",
+        "hi": "बिना इंश्योरेंस वाले या कैश में पैसे देने वाले लोगों के लिए, आमदनी चाहे जितनी हो। (833) 813-0190 पर फ़ोन करें।"
       },
       "sources": [
         {
@@ -244,7 +262,8 @@
       "description": {
         "en": "A monthly price for Lilly insulins, including Basaglar and Rezvoglar.",
         "zh-Hans": "礼来（Lilly）胰岛素（包括 Basaglar 和 Rezvoglar）的每月价格。",
-        "es": "Un precio mensual para las insulinas de Lilly, incluidas Basaglar y Rezvoglar."
+        "es": "Un precio mensual para las insulinas de Lilly, incluidas Basaglar y Rezvoglar.",
+        "hi": "Lilly की इंसुलिन दवाओं के लिए, Basaglar और Rezvoglar समेत, हर महीने की एक कीमत।"
       },
       "priceKind": "fixed",
       "priceCents": 3500,
@@ -252,13 +271,15 @@
       "per": {
         "en": "month",
         "zh-Hans": "一个月",
-        "es": "mes"
+        "es": "mes",
+        "hi": "महीना"
       },
       "url": "https://insulins.lilly.com/lilly-insulin-value-program",
       "eligibility": {
         "en": "For people with commercial insurance or no insurance. Not for people with government coverage like Medicare or Medi-Cal. Call (833) 808-1234.",
         "zh-Hans": "适合有商业保险或没有保险的人。不适合有政府医疗保险（例如 Medicare 或 Medi-Cal）的人。请致电 (833) 808-1234。",
-        "es": "Para personas con seguro comercial (privado) o sin seguro. No es para personas con cobertura del gobierno, como Medicare o Medi-Cal. Llame al (833) 808-1234."
+        "es": "Para personas con seguro comercial (privado) o sin seguro. No es para personas con cobertura del gobierno, como Medicare o Medi-Cal. Llame al (833) 808-1234.",
+        "hi": "प्राइवेट (कमर्शियल) इंश्योरेंस वाले या बिना इंश्योरेंस वाले लोगों के लिए। Medicare या Medi-Cal जैसे सरकारी कवरेज वाले लोगों के लिए नहीं। (833) 808-1234 पर फ़ोन करें।"
       },
       "sources": [
         {
