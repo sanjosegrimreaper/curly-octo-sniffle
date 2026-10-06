@@ -106,9 +106,10 @@ const styles = StyleSheet.create({
   main: { padding: spacing.md, borderRadius: radius.md },
   row: { flexDirection: 'row', gap: spacing.sm, alignItems: 'flex-start' },
   number: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    minWidth: 40,
+    minHeight: 40,
+    paddingHorizontal: spacing.xxs,
+    borderRadius: radius.pill,
     borderWidth: 2,
     alignItems: 'center',
     justifyContent: 'center',
