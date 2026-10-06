@@ -3,10 +3,12 @@
     {
       "id": "medicare-partd-cap-2026",
       "title": {
-        "en": "Medicare drug costs have a yearly limit"
+        "en": "Medicare drug costs have a yearly limit",
+        "zh-Hans": "Medicare 药费每年有上限"
       },
       "body": {
-        "en": "In 2026, people with Medicare drug coverage (Part D) pay at most $2,100 a year out of pocket for covered drugs."
+        "en": "In 2026, people with Medicare drug coverage (Part D) pay at most $2,100 a year out of pocket for covered drugs.",
+        "zh-Hans": "2026年，有 Medicare 处方药保险（Part D）的人，每年为承保药物自付的费用最多为 $2,100。"
       },
       "sources": [
         {
@@ -22,10 +24,12 @@
     {
       "id": "medicare-extra-help-2026",
       "title": {
-        "en": "Extra Help lowers Medicare drug costs"
+        "en": "Extra Help lowers Medicare drug costs",
+        "zh-Hans": "Extra Help（额外补助）可降低 Medicare 药费"
       },
       "body": {
-        "en": "Extra Help may lower Medicare drug costs for people with limited income and savings. In 2026 the limits are about $23,940 a year in income ($32,460 for a couple) and $18,090 in savings ($36,100 for a couple)."
+        "en": "Extra Help may lower Medicare drug costs for people with limited income and savings. In 2026 the limits are about $23,940 a year in income ($32,460 for a couple) and $18,090 in savings ($36,100 for a couple).",
+        "zh-Hans": "Extra Help（额外补助）可能会降低收入和储蓄有限的人的 Medicare 药费。2026年的上限大约是：年收入 $23,940（夫妻 $32,460），储蓄 $18,090（夫妻 $36,100）。"
       },
       "sources": [
         {
@@ -48,10 +52,12 @@
     {
       "id": "medicare-payment-plan",
       "title": {
-        "en": "Spread drug costs over the year"
+        "en": "Spread drug costs over the year",
+        "zh-Hans": "把药费分摊到全年"
       },
       "body": {
-        "en": "The Medicare Prescription Payment Plan lets you pay for drugs in monthly bills instead of all at the pharmacy. It does not lower the total. Since 2026 it renews automatically if you stay in the same plan."
+        "en": "The Medicare Prescription Payment Plan lets you pay for drugs in monthly bills instead of all at the pharmacy. It does not lower the total. Since 2026 it renews automatically if you stay in the same plan.",
+        "zh-Hans": "Medicare 处方药付款计划（Medicare Prescription Payment Plan）让您按月付药费，不用在药房一次付清。它不会降低总费用。从2026年起，如果您继续留在同一个保险计划，它会自动续期。"
       },
       "sources": [
         {
@@ -67,10 +73,12 @@
     {
       "id": "medicare-insulin-35",
       "title": {
-        "en": "Insulin costs $35 or less a month with Medicare"
+        "en": "Insulin costs $35 or less a month with Medicare",
+        "zh-Hans": "有 Medicare，胰岛素每月 $35 或更少"
       },
       "body": {
-        "en": "With Medicare drug coverage, covered insulin costs no more than $35 for a month’s supply."
+        "en": "With Medicare drug coverage, covered insulin costs no more than $35 for a month’s supply.",
+        "zh-Hans": "如果您有 Medicare 处方药保险，承保的胰岛素一个月用量的费用不超过 $35。"
       },
       "sources": [
         {
@@ -86,10 +94,12 @@
     {
       "id": "medicare-eliquis-negotiated",
       "title": {
-        "en": "Medicare negotiated the price of Eliquis"
+        "en": "Medicare negotiated the price of Eliquis",
+        "zh-Hans": "Medicare 谈定了 Eliquis 的价格"
       },
       "body": {
-        "en": "Since January 1, 2026, Medicare’s negotiated price for Eliquis is $231 for a 30-day supply. This is what Medicare drug plans pay, not what you pay at the counter."
+        "en": "Since January 1, 2026, Medicare’s negotiated price for Eliquis is $231 for a 30-day supply. This is what Medicare drug plans pay, not what you pay at the counter.",
+        "zh-Hans": "从2026年1月1日起，Medicare 为 Eliquis 谈定的价格是30天用量 $231。这是 Medicare 药物计划支付的价格，不是您在药房柜台付的钱。"
       },
       "sources": [
         {
@@ -105,10 +115,12 @@
     {
       "id": "hicap",
       "title": {
-        "en": "Free Medicare counseling (HICAP)"
+        "en": "Free Medicare counseling (HICAP)",
+        "zh-Hans": "免费 Medicare 咨询（HICAP）"
       },
       "body": {
-        "en": "HICAP gives free, unbiased help with Medicare choices. Call 1-800-434-0222."
+        "en": "HICAP gives free, unbiased help with Medicare choices. Call 1-800-434-0222.",
+        "zh-Hans": "HICAP 为您的 Medicare 选择提供免费、公正的帮助。请致电 1-800-434-0222。"
       },
       "sources": [
         {

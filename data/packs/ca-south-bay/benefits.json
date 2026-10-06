@@ -4,10 +4,12 @@
       "id": "medi-cal-adult",
       "programKey": "medi-cal",
       "title": {
-        "en": "You may be able to get Medi-Cal"
+        "en": "You may be able to get Medi-Cal",
+        "zh-Hans": "您也许可以获得 Medi-Cal"
       },
       "summary": {
-        "en": "Medi-Cal is free or low-cost health coverage in California. It includes prescriptions."
+        "en": "Medi-Cal is free or low-cost health coverage in California. It includes prescriptions.",
+        "zh-Hans": "Medi-Cal 是加州免费或低价的医疗保险。它也包括处方药。"
       },
       "when": {
         "all": [
@@ -28,7 +30,8 @@
         {
           "id": "benefitscal",
           "label": {
-            "en": "Apply on BenefitsCal"
+            "en": "Apply on BenefitsCal",
+            "zh-Hans": "在 BenefitsCal 上申请"
           },
           "url": "https://benefitscal.com/",
           "sources": [
@@ -45,7 +48,8 @@
         {
           "id": "dhcs",
           "label": {
-            "en": "Learn about Medi-Cal (DHCS)"
+            "en": "Learn about Medi-Cal (DHCS)",
+            "zh-Hans": "了解 Medi-Cal（DHCS）"
           },
           "url": "https://www.dhcs.ca.gov/",
           "sources": [
@@ -62,13 +66,16 @@
       ],
       "nextSteps": [
         {
-          "en": "You can apply online, by phone, by mail, or at your county office."
+          "en": "You can apply online, by phone, by mail, or at your county office.",
+          "zh-Hans": "您可以在网上、打电话、邮寄，或到您所在县的办公室申请。"
         },
         {
-          "en": "Have proof of income and identity ready if you have it. The county will tell you what else it needs."
+          "en": "Have proof of income and identity ready if you have it. The county will tell you what else it needs.",
+          "zh-Hans": "如果有的话，请准备好收入证明和身份证明。县里会告诉您还需要什么。"
         },
         {
-          "en": "The county makes the decision, not this app."
+          "en": "The county makes the decision, not this app.",
+          "zh-Hans": "是否批准由县政府决定，不是由本应用决定。"
         }
       ],
       "sources": [
@@ -94,10 +101,12 @@
       "id": "covered-ca-help",
       "programKey": "covered-california",
       "title": {
-        "en": "You may qualify for help paying for Covered California"
+        "en": "You may qualify for help paying for Covered California",
+        "zh-Hans": "您可能有资格获得 Covered California 保费补助"
       },
       "summary": {
-        "en": "Covered California sells health plans. People with income in this range may get help paying the monthly cost."
+        "en": "Covered California sells health plans. People with income in this range may get help paying the monthly cost.",
+        "zh-Hans": "Covered California 出售医疗保险计划。收入在这个范围内的人，可能会得到补助，帮忙支付每月保费。"
       },
       "when": {
         "all": [
@@ -121,7 +130,8 @@
         {
           "id": "coveredca",
           "label": {
-            "en": "Open Covered California"
+            "en": "Open Covered California",
+            "zh-Hans": "打开 Covered California"
           },
           "url": "https://www.coveredca.com/",
           "sources": [
@@ -138,7 +148,8 @@
         {
           "id": "coveredca-help",
           "label": {
-            "en": "Find free help near you (Covered California)"
+            "en": "Find free help near you (Covered California)",
+            "zh-Hans": "查找您附近的免费帮助（Covered California）"
           },
           "url": "https://www.coveredca.com/find-help/",
           "sources": [
@@ -155,10 +166,12 @@
       ],
       "nextSteps": [
         {
-          "en": "Open enrollment for 2027 coverage runs from November 1, 2026 to January 31, 2027."
+          "en": "Open enrollment for 2027 coverage runs from November 1, 2026 to January 31, 2027.",
+          "zh-Hans": "2027年保险的公开投保期为2026年11月1日至2027年1月31日。"
         },
         {
-          "en": "Free certified enrollers can help you in your language."
+          "en": "Free certified enrollers can help you in your language.",
+          "zh-Hans": "免费的认证注册顾问可以用您的语言帮助您。"
         }
       ],
       "sources": [
@@ -183,10 +196,12 @@
       "id": "covered-ca-no-federal-help",
       "programKey": "standard",
       "title": {
-        "en": "Covered California plans without federal help"
+        "en": "Covered California plans without federal help",
+        "zh-Hans": "没有联邦补助的 Covered California 保险计划"
       },
       "summary": {
-        "en": "In 2026, federal help paying for a plan is not available above 400% of the poverty level. You can still compare plans and prices."
+        "en": "In 2026, federal help paying for a plan is not available above 400% of the poverty level. You can still compare plans and prices.",
+        "zh-Hans": "2026年，收入高于联邦贫困线400%的人，无法获得联邦保费补助。您仍然可以比较各个计划和价格。"
       },
       "when": {
         "all": [
@@ -207,7 +222,8 @@
         {
           "id": "coveredca-compare",
           "label": {
-            "en": "Open Covered California"
+            "en": "Open Covered California",
+            "zh-Hans": "打开 Covered California"
           },
           "url": "https://www.coveredca.com/",
           "sources": [
@@ -224,7 +240,8 @@
       ],
       "nextSteps": [
         {
-          "en": "Even with insurance, check the cash prices in this app. Cash can cost less than a copay."
+          "en": "Even with insurance, check the cash prices in this app. Cash can cost less than a copay.",
+          "zh-Hans": "即使有保险，也请在本应用中查看现金价。现金价有时可能比共付额还便宜。"
         }
       ],
       "sources": [
@@ -242,10 +259,12 @@
       "id": "medicare-65",
       "programKey": "medicare",
       "title": {
-        "en": "Check if you can get Medicare"
+        "en": "Check if you can get Medicare",
+        "zh-Hans": "看看您能否获得 Medicare"
       },
       "summary": {
-        "en": "People 65 and older may be able to get Medicare, including drug coverage (Part D). Free counselors can help you choose."
+        "en": "People 65 and older may be able to get Medicare, including drug coverage (Part D). Free counselors can help you choose.",
+        "zh-Hans": "65岁及以上的人也许可以获得 Medicare，包括处方药保险（Part D）。免费的顾问可以帮您选择。"
       },
       "when": {
         "all": [
@@ -266,7 +285,8 @@
         {
           "id": "medicare",
           "label": {
-            "en": "Open Medicare.gov"
+            "en": "Open Medicare.gov",
+            "zh-Hans": "打开 Medicare.gov"
           },
           "url": "https://www.medicare.gov/",
           "sources": [
@@ -283,7 +303,8 @@
       ],
       "nextSteps": [
         {
-          "en": "Call HICAP for free, unbiased Medicare counseling: 1-800-434-0222."
+          "en": "Call HICAP for free, unbiased Medicare counseling: 1-800-434-0222.",
+          "zh-Hans": "请致电 HICAP，获得免费、公正的 Medicare 咨询：1-800-434-0222。"
         }
       ],
       "sources": [
@@ -301,10 +322,12 @@
       "id": "scc-pcap",
       "programKey": "county",
       "title": {
-        "en": "You may be able to get care through Santa Clara County's PCAP"
+        "en": "You may be able to get care through Santa Clara County's PCAP",
+        "zh-Hans": "您也许可以通过圣塔克拉拉县的 PCAP 获得医疗服务"
       },
       "summary": {
-        "en": "The Primary Care Access Program offers low-cost primary care and prescriptions to uninsured adults 19 and older who live in Santa Clara County. Copays may apply."
+        "en": "The Primary Care Access Program offers low-cost primary care and prescriptions to uninsured adults 19 and older who live in Santa Clara County. Copays may apply.",
+        "zh-Hans": "初级保健服务计划（Primary Care Access Program，PCAP）为住在圣塔克拉拉县、19岁及以上、没有保险的成年人，提供低价的初级保健和处方药。可能需要付共付额。"
       },
       "when": {
         "all": [
@@ -330,7 +353,8 @@
         {
           "id": "pcap",
           "label": {
-            "en": "Learn about PCAP (Santa Clara County)"
+            "en": "Learn about PCAP (Santa Clara County)",
+            "zh-Hans": "了解 PCAP（圣塔克拉拉县）"
           },
           "url": "https://vhpn.santaclaracounty.gov/primary-care-access-program-pcap/program-description",
           "sources": [
@@ -347,10 +371,12 @@
       ],
       "nextSteps": [
         {
-          "en": "Call 1-888-363-3394 and choose option 1 for help enrolling."
+          "en": "Call 1-888-363-3394 and choose option 1 for help enrolling.",
+          "zh-Hans": "请拨打 1-888-363-3394，按 1 获得登记帮助。"
         },
         {
-          "en": "PCAP is for people who cannot get other insurance, such as Medi-Cal."
+          "en": "PCAP is for people who cannot get other insurance, such as Medi-Cal.",
+          "zh-Hans": "PCAP 适合无法获得其他保险（例如 Medi-Cal）的人。"
         }
       ],
       "sources": [

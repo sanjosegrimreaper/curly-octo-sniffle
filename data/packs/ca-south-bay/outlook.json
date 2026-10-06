@@ -6,7 +6,8 @@
       "earliestDate": "2028-04-01",
       "label": "Earliest generic launch allowed by court settlements",
       "basis": {
-        "en": "Generic apixaban is FDA-approved, but legal settlements allow sales no earlier than April 1, 2028. This is not a promised launch date."
+        "en": "Generic apixaban is FDA-approved, but legal settlements allow sales no earlier than April 1, 2028. This is not a promised launch date.",
+        "zh-Hans": "阿哌沙班仿制药已获 FDA 批准，但根据法律和解协议，最早要到2028年4月1日才能开始销售。这不是承诺的上市日期。"
       },
       "sources": [
         {
@@ -32,7 +33,8 @@
       "earliestDate": null,
       "label": null,
       "basis": {
-        "en": "Interchangeable biosimilars of Lantus (insulin glargine-yfgn and insulin glargine-aglr) are already sold. A pharmacist may be able to swap one for the other."
+        "en": "Interchangeable biosimilars of Lantus (insulin glargine-yfgn and insulin glargine-aglr) are already sold. A pharmacist may be able to swap one for the other.",
+        "zh-Hans": "Lantus 的可互换生物类似药（insulin glargine-yfgn 和 insulin glargine-aglr）已经在销售。药剂师也许可以把其中一种换成另一种。"
       },
       "sources": [
         {
@@ -58,7 +60,8 @@
       "earliestDate": null,
       "label": null,
       "basis": {
-        "en": "Metformin ER is already sold as a low-cost generic."
+        "en": "Metformin ER is already sold as a low-cost generic.",
+        "zh-Hans": "二甲双胍缓释片已经有低价的仿制药在销售。"
       },
       "sources": [
         {

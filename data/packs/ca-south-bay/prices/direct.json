@@ -9,17 +9,20 @@
       ],
       "seller": "Bristol Myers Squibb (Eliquis direct)",
       "description": {
-        "en": "Cash price straight from the maker, shipped to you."
+        "en": "Cash price straight from the maker, shipped to you.",
+        "zh-Hans": "直接从药厂购买的现金价，寄送到您家。"
       },
       "priceKind": "fixed",
       "priceCents": 34500,
       "quantity": 60,
       "per": {
-        "en": "60 tablets"
+        "en": "60 tablets",
+        "zh-Hans": "60 片"
       },
       "url": "https://www.eliquis.bmscustomerconnect.com/price",
       "eligibility": {
-        "en": "For people paying cash. Not for people with Medicare Part D."
+        "en": "For people paying cash. Not for people with Medicare Part D.",
+        "zh-Hans": "适合付现金的人。不适合有 Medicare Part D 的人。"
       },
       "sources": [
         {
@@ -41,17 +44,20 @@
       ],
       "seller": "Bristol Myers Squibb (Eliquis direct)",
       "description": {
-        "en": "Cash price straight from the maker, shipped to you."
+        "en": "Cash price straight from the maker, shipped to you.",
+        "zh-Hans": "直接从药厂购买的现金价，寄送到您家。"
       },
       "priceKind": "fixed",
       "priceCents": 69000,
       "quantity": 120,
       "per": {
-        "en": "120 tablets"
+        "en": "120 tablets",
+        "zh-Hans": "120 片"
       },
       "url": "https://www.eliquis.bmscustomerconnect.com/price",
       "eligibility": {
-        "en": "For people paying cash. Not for people with Medicare Part D."
+        "en": "For people paying cash. Not for people with Medicare Part D.",
+        "zh-Hans": "适合付现金的人。不适合有 Medicare Part D 的人。"
       },
       "sources": [
         {
@@ -73,17 +79,20 @@
       ],
       "seller": "Bristol Myers Squibb (Eliquis direct)",
       "description": {
-        "en": "Cash price straight from the maker, shipped to you."
+        "en": "Cash price straight from the maker, shipped to you.",
+        "zh-Hans": "直接从药厂购买的现金价，寄送到您家。"
       },
       "priceKind": "fixed",
       "priceCents": 103500,
       "quantity": 180,
       "per": {
-        "en": "180 tablets"
+        "en": "180 tablets",
+        "zh-Hans": "180 片"
       },
       "url": "https://www.eliquis.bmscustomerconnect.com/price",
       "eligibility": {
-        "en": "For people paying cash. Not for people with Medicare Part D."
+        "en": "For people paying cash. Not for people with Medicare Part D.",
+        "zh-Hans": "适合付现金的人。不适合有 Medicare Part D 的人。"
       },
       "sources": [
         {
@@ -105,17 +114,20 @@
       ],
       "seller": "Mark Cuban Cost Plus Drugs",
       "description": {
-        "en": "Brand Eliquis by mail from Cost Plus Drugs, as announced by the maker."
+        "en": "Brand Eliquis by mail from Cost Plus Drugs, as announced by the maker.",
+        "zh-Hans": "根据药厂的公告，可通过 Cost Plus Drugs 邮购品牌药 Eliquis。"
       },
       "priceKind": "fixed",
       "priceCents": 34500,
       "quantity": 60,
       "per": {
-        "en": "60 tablets (a 30-day supply in the announcement)"
+        "en": "60 tablets (a 30-day supply in the announcement)",
+        "zh-Hans": "60 片（公告中为30天用量）"
       },
       "url": "https://www.costplusdrugs.com/",
       "eligibility": {
-        "en": "Price announced by Bristol Myers Squibb in April 2026. Shipping may be extra. Check the current price on Cost Plus."
+        "en": "Price announced by Bristol Myers Squibb in April 2026. Shipping may be extra. Check the current price on Cost Plus.",
+        "zh-Hans": "价格由百时美施贵宝（Bristol Myers Squibb）于2026年4月公布。可能需要另付运费。请在 Cost Plus 网站上查看当前价格。"
       },
       "sources": [
         {
@@ -136,17 +148,20 @@
       ],
       "seller": "CalRx / Civica (insulin glargine-yfgn)",
       "description": {
-        "en": "California's state-label insulin, sold at pharmacies that carry it."
+        "en": "California's state-label insulin, sold at pharmacies that carry it.",
+        "zh-Hans": "加州政府自有品牌的胰岛素，在有售的药房购买。"
       },
       "priceKind": "maximum",
       "priceCents": 5500,
       "quantity": 1,
       "per": {
-        "en": "box of 5 pens"
+        "en": "box of 5 pens",
+        "zh-Hans": "一盒5支笔"
       },
       "url": "https://civicainsulin.org/for-patients/",
       "eligibility": {
-        "en": "Suggested maximum price; the pharmacy sets the final price. Not every pharmacy has it yet — ask first. A current insulin glargine or Lantus prescription works."
+        "en": "Suggested maximum price; the pharmacy sets the final price. Not every pharmacy has it yet — ask first. A current insulin glargine or Lantus prescription works.",
+        "zh-Hans": "这是建议的最高价格；最终价格由药房决定。目前不是每家药房都有——请先问清楚。使用有效的甘精胰岛素或 Lantus 处方即可。"
       },
       "sources": [
         {
@@ -175,17 +190,20 @@
       ],
       "seller": "Sanofi Insulins Valyou (Lantus)",
       "description": {
-        "en": "A fixed monthly price for Sanofi insulins, including Lantus."
+        "en": "A fixed monthly price for Sanofi insulins, including Lantus.",
+        "zh-Hans": "赛诺菲（Sanofi）胰岛素（包括 Lantus）的固定月价。"
       },
       "priceKind": "fixed",
       "priceCents": 3500,
       "quantity": null,
       "per": {
-        "en": "30-day supply"
+        "en": "30-day supply",
+        "zh-Hans": "30天用量"
       },
       "url": "https://www.lantus.com/sign-up-for-savings",
       "eligibility": {
-        "en": "For people without insurance or paying cash, at any income. Call (833) 813-0190."
+        "en": "For people without insurance or paying cash, at any income. Call (833) 813-0190.",
+        "zh-Hans": "适合没有保险或付现金的人，不论收入多少。请致电 (833) 813-0190。"
       },
       "sources": [
         {
@@ -206,17 +224,20 @@
       ],
       "seller": "Lilly Insulin Value Program (Basaglar, Rezvoglar)",
       "description": {
-        "en": "A monthly price for Lilly insulins, including Basaglar and Rezvoglar."
+        "en": "A monthly price for Lilly insulins, including Basaglar and Rezvoglar.",
+        "zh-Hans": "礼来（Lilly）胰岛素（包括 Basaglar 和 Rezvoglar）的每月价格。"
       },
       "priceKind": "fixed",
       "priceCents": 3500,
       "quantity": null,
       "per": {
-        "en": "month"
+        "en": "month",
+        "zh-Hans": "一个月"
       },
       "url": "https://insulins.lilly.com/lilly-insulin-value-program",
       "eligibility": {
-        "en": "For people with commercial insurance or no insurance. Not for people with government coverage like Medicare or Medi-Cal. Call (833) 808-1234."
+        "en": "For people with commercial insurance or no insurance. Not for people with government coverage like Medicare or Medi-Cal. Call (833) 808-1234.",
+        "zh-Hans": "适合有商业保险或没有保险的人。不适合有政府医疗保险（例如 Medicare 或 Medi-Cal）的人。请致电 (833) 808-1234。"
       },
       "sources": [
         {

@@ -3,10 +3,12 @@
     {
       "id": "nadac",
       "term": {
-        "en": "NADAC"
+        "en": "NADAC",
+        "zh-Hans": "NADAC"
       },
       "definition": {
-        "en": "NADAC is the average price pharmacies pay to buy a medicine from wholesalers. Medicaid publishes it every week. You cannot buy medicine at this price — it is a fair-price yardstick."
+        "en": "NADAC is the average price pharmacies pay to buy a medicine from wholesalers. Medicaid publishes it every week. You cannot buy medicine at this price — it is a fair-price yardstick.",
+        "zh-Hans": "NADAC 是药房从批发商那里购买一种药的平均价格。Medicaid 每周公布一次。您无法以这个价格买到药——它是用来衡量价格是否公道的标尺。"
       },
       "sources": [
         {
@@ -22,10 +24,12 @@
     {
       "id": "pap",
       "term": {
-        "en": "Patient assistance program"
+        "en": "Patient assistance program",
+        "zh-Hans": "患者援助计划"
       },
       "definition": {
-        "en": "A program, often run by a drug company, that gives medicine for free or at low cost to people who qualify. Most have an income limit and need a form signed by your doctor."
+        "en": "A program, often run by a drug company, that gives medicine for free or at low cost to people who qualify. Most have an income limit and need a form signed by your doctor.",
+        "zh-Hans": "常常由药厂开办的计划，为符合条件的人免费或低价提供药物。大多数计划有收入限制，并需要您的医生签字的表格。"
       },
       "sources": [
         {
@@ -41,10 +45,12 @@
     {
       "id": "fpl",
       "term": {
-        "en": "Poverty level (FPL)"
+        "en": "Poverty level (FPL)",
+        "zh-Hans": "联邦贫困线（FPL）"
       },
       "definition": {
-        "en": "The federal poverty level is an income amount set each year by the government. Programs use a percent of it, like 138%, to decide who can get help. It depends on how many people are in your household."
+        "en": "The federal poverty level is an income amount set each year by the government. Programs use a percent of it, like 138%, to decide who can get help. It depends on how many people are in your household.",
+        "zh-Hans": "联邦贫困线是政府每年定下的一个收入标准。各项计划用它的百分比（例如138%）来决定谁可以得到帮助。具体数额取决于您的家庭人数。"
       },
       "sources": [
         {
@@ -60,10 +66,12 @@
     {
       "id": "generic",
       "term": {
-        "en": "Generic"
+        "en": "Generic",
+        "zh-Hans": "仿制药"
       },
       "definition": {
-        "en": "A generic medicine has the same active ingredient, strength and effect as the brand. It usually costs much less."
+        "en": "A generic medicine has the same active ingredient, strength and effect as the brand. It usually costs much less.",
+        "zh-Hans": "仿制药与品牌药的有效成分、剂量和效果都相同。它通常便宜很多。"
       },
       "sources": [
         {
@@ -79,10 +87,12 @@
     {
       "id": "biosimilar",
       "term": {
-        "en": "Biosimilar"
+        "en": "Biosimilar",
+        "zh-Hans": "生物类似药"
       },
       "definition": {
-        "en": "A biosimilar is a medicine very close to a brand-name biologic, like insulin, with no meaningful difference in safety or effect. An \"interchangeable\" biosimilar can be swapped at the pharmacy where state law allows."
+        "en": "A biosimilar is a medicine very close to a brand-name biologic, like insulin, with no meaningful difference in safety or effect. An \"interchangeable\" biosimilar can be swapped at the pharmacy where state law allows.",
+        "zh-Hans": "生物类似药是与品牌生物药（例如胰岛素）非常接近的药物，在安全性和效果上没有实质性差别。在州法律允许的地方，“可互换”的生物类似药可以在药房直接替换。"
       },
       "sources": [
         {
@@ -98,10 +108,12 @@
     {
       "id": "copay",
       "term": {
-        "en": "Copay"
+        "en": "Copay",
+        "zh-Hans": "共付额"
       },
       "definition": {
-        "en": "A copay is the fixed amount you pay for a prescription when you use insurance."
+        "en": "A copay is the fixed amount you pay for a prescription when you use insurance.",
+        "zh-Hans": "共付额是您使用保险时，为一个处方药支付的固定金额。"
       },
       "sources": [
         {
@@ -117,10 +129,12 @@
     {
       "id": "deductible",
       "term": {
-        "en": "Deductible"
+        "en": "Deductible",
+        "zh-Hans": "免赔额"
       },
       "definition": {
-        "en": "The amount you pay for covered care each year before your insurance starts to pay."
+        "en": "The amount you pay for covered care each year before your insurance starts to pay.",
+        "zh-Hans": "每年在保险开始付钱之前，您需要先为承保的医疗服务支付的金额。"
       },
       "sources": [
         {
@@ -136,10 +150,12 @@
     {
       "id": "formulary",
       "term": {
-        "en": "Formulary"
+        "en": "Formulary",
+        "zh-Hans": "药品目录"
       },
       "definition": {
-        "en": "The list of medicines your insurance plan covers. Medicines are often grouped in tiers that cost different amounts."
+        "en": "The list of medicines your insurance plan covers. Medicines are often grouped in tiers that cost different amounts.",
+        "zh-Hans": "您的保险计划承保的药物清单。药物常常分成不同等级，费用各不相同。"
       },
       "sources": [
         {
@@ -155,10 +171,12 @@
     {
       "id": "household",
       "term": {
-        "en": "Household"
+        "en": "Household",
+        "zh-Hans": "家庭（家庭人数）"
       },
       "definition": {
-        "en": "For Medi-Cal and Covered California, your household is usually you, your spouse, and the people you claim on your taxes. Ask the county or an enroller if you are not sure."
+        "en": "For Medi-Cal and Covered California, your household is usually you, your spouse, and the people you claim on your taxes. Ask the county or an enroller if you are not sure.",
+        "zh-Hans": "对 Medi-Cal 和 Covered California 来说，您的家庭通常包括您本人、您的配偶，以及您报税时申报的人。如果不确定，请询问县政府或注册顾问。"
       },
       "sources": [
         {
@@ -174,10 +192,12 @@
     {
       "id": "income",
       "term": {
-        "en": "Income"
+        "en": "Income",
+        "zh-Hans": "收入"
       },
       "definition": {
-        "en": "Count money you earn from work before taxes, plus things like unemployment and Social Security. The county or an enroller can tell you exactly what counts."
+        "en": "Count money you earn from work before taxes, plus things like unemployment and Social Security. The county or an enroller can tell you exactly what counts.",
+        "zh-Hans": "请计算您工作赚的税前收入，再加上失业救济金和社会安全福利金等。县政府或注册顾问可以告诉您具体哪些要算进去。"
       },
       "sources": [
         {
@@ -193,10 +213,12 @@
     {
       "id": "extra-help",
       "term": {
-        "en": "Extra Help"
+        "en": "Extra Help",
+        "zh-Hans": "Extra Help（额外补助）"
       },
       "definition": {
-        "en": "A Medicare program that helps people with limited income and savings pay for prescription drugs."
+        "en": "A Medicare program that helps people with limited income and savings pay for prescription drugs.",
+        "zh-Hans": "Medicare 的一个计划，帮助收入和储蓄有限的人支付处方药费用。"
       },
       "sources": [
         {
@@ -212,10 +234,12 @@
     {
       "id": "coupon",
       "term": {
-        "en": "Discount coupon"
+        "en": "Discount coupon",
+        "zh-Hans": "折扣券"
       },
       "definition": {
-        "en": "A free coupon from a website like GoodRx or SingleCare that can lower the cash price at a pharmacy. The price depends on the pharmacy. It usually cannot be used together with insurance."
+        "en": "A free coupon from a website like GoodRx or SingleCare that can lower the cash price at a pharmacy. The price depends on the pharmacy. It usually cannot be used together with insurance.",
+        "zh-Hans": "来自 GoodRx 或 SingleCare 等网站的免费折扣券，可以降低药房的现金价。价格因药房而不同。它通常不能和保险一起使用。"
       },
       "sources": [
         {

@@ -3,10 +3,12 @@
     {
       "id": "hicap",
       "name": {
-        "en": "HICAP — free Medicare counseling"
+        "en": "HICAP — free Medicare counseling",
+        "zh-Hans": "HICAP — 免费 Medicare 咨询"
       },
       "what": {
-        "en": "Free, unbiased help choosing and using Medicare, including drug plans."
+        "en": "Free, unbiased help choosing and using Medicare, including drug plans.",
+        "zh-Hans": "免费、公正地帮助您选择和使用 Medicare，包括处方药计划。"
       },
       "phone": "1-800-434-0222",
       "url": "https://www.aging.ca.gov/Programs_and_Services/Medicare_Counseling/",
@@ -26,10 +28,12 @@
     {
       "id": "sourcewise-hicap",
       "name": {
-        "en": "Sourcewise HICAP (Santa Clara County)"
+        "en": "Sourcewise HICAP (Santa Clara County)",
+        "zh-Hans": "Sourcewise HICAP（圣塔克拉拉县）"
       },
       "what": {
-        "en": "Local HICAP Medicare counseling for Santa Clara County. Choose option 1."
+        "en": "Local HICAP Medicare counseling for Santa Clara County. Choose option 1.",
+        "zh-Hans": "为圣塔克拉拉县提供本地 HICAP Medicare 咨询。请按 1。"
       },
       "phone": "(408) 350-3200",
       "url": null,
@@ -51,10 +55,12 @@
     {
       "id": "coveredca-service",
       "name": {
-        "en": "Covered California service center"
+        "en": "Covered California service center",
+        "zh-Hans": "Covered California 客户服务中心"
       },
       "what": {
-        "en": "Questions about Covered California plans and help paying. Spanish: (800) 300-0213. Mandarin: (800) 300-1533. Cantonese: (800) 339-8938. TTY: (888) 889-4500."
+        "en": "Questions about Covered California plans and help paying. Spanish: (800) 300-0213. Mandarin: (800) 300-1533. Cantonese: (800) 339-8938. TTY: (888) 889-4500.",
+        "zh-Hans": "关于 Covered California 保险计划和保费补助的问题。西班牙语：(800) 300-0213。普通话：(800) 300-1533。粤语：(800) 339-8938。听障专线（TTY）：(888) 889-4500。"
       },
       "phone": "(800) 300-1506",
       "url": "https://www.coveredca.com/support/contact-us/",
@@ -74,10 +80,12 @@
     {
       "id": "extra-help",
       "name": {
-        "en": "Extra Help (Social Security)"
+        "en": "Extra Help (Social Security)",
+        "zh-Hans": "社会安全局 Extra Help（额外补助）"
       },
       "what": {
-        "en": "Apply for help paying for Medicare drug costs."
+        "en": "Apply for help paying for Medicare drug costs.",
+        "zh-Hans": "申请帮助支付 Medicare 药费。"
       },
       "phone": null,
       "url": "https://www.ssa.gov/medicare/part-d-extra-help",
@@ -97,10 +105,12 @@
     {
       "id": "scc-pcap",
       "name": {
-        "en": "PCAP enrollment help (Santa Clara County)"
+        "en": "PCAP enrollment help (Santa Clara County)",
+        "zh-Hans": "PCAP 登记帮助（圣塔克拉拉县）"
       },
       "what": {
-        "en": "Low-cost care and prescriptions for uninsured adults 19+ in Santa Clara County. Choose option 1 to enroll."
+        "en": "Low-cost care and prescriptions for uninsured adults 19+ in Santa Clara County. Choose option 1 to enroll.",
+        "zh-Hans": "为圣塔克拉拉县19岁及以上、没有保险的成年人，提供低价医疗服务和处方药。请按 1 登记。"
       },
       "phone": "1-888-363-3394",
       "url": "https://vhpn.santaclaracounty.gov/how-enroll",
@@ -122,10 +132,12 @@
     {
       "id": "scc-pharmacy-call-center",
       "name": {
-        "en": "County pharmacy call center (Santa Clara County)"
+        "en": "County pharmacy call center (Santa Clara County)",
+        "zh-Hans": "县药房服务电话中心（圣塔克拉拉县）"
       },
       "what": {
-        "en": "For PCAP members who need to know where to get their medicine."
+        "en": "For PCAP members who need to know where to get their medicine.",
+        "zh-Hans": "适合需要知道去哪里领药的 PCAP 会员。"
       },
       "phone": "408-977-3503",
       "url": "https://vhpn.santaclaracounty.gov/primary-care-access-program-pcap/pharmacy",
@@ -147,10 +159,12 @@
     {
       "id": "scc-hap",
       "name": {
-        "en": "Healthcare Access Program (Santa Clara County)"
+        "en": "Healthcare Access Program (Santa Clara County)",
+        "zh-Hans": "医疗费用援助计划（Healthcare Access Program，圣塔克拉拉县）"
       },
       "what": {
-        "en": "Free or discounted care at county health facilities. Free at or below 400% of the poverty level; discounts up to 650% for county residents."
+        "en": "Free or discounted care at county health facilities. Free at or below 400% of the poverty level; discounts up to 650% for county residents.",
+        "zh-Hans": "在县立医疗机构获得免费或打折的医疗服务。收入在联邦贫困线400%或以下的可免费；本县居民收入最高到650%的可享折扣。"
       },
       "phone": "866-967-4677",
       "url": "https://health.santaclaracounty.gov/services/get-help-paying-your-bill-healthcare-access-program-hap",
@@ -172,10 +186,12 @@
     {
       "id": "monterey-sliding-fee",
       "name": {
-        "en": "Monterey County clinics — sliding fee"
+        "en": "Monterey County clinics — sliding fee",
+        "zh-Hans": "蒙特雷县诊所 — 按收入浮动收费"
       },
       "what": {
-        "en": "If you have no insurance, county clinics may charge a lower fee based on family size and income. Call Patient Financial Services."
+        "en": "If you have no insurance, county clinics may charge a lower fee based on family size and income. Call Patient Financial Services.",
+        "zh-Hans": "如果您没有保险，县诊所可能会根据家庭人数和收入，收取较低的费用。请致电患者财务服务部（Patient Financial Services）。"
       },
       "phone": "(831) 796-1359",
       "url": "https://www.countyofmonterey.gov/government/departments-a-h/health/clinic-services/patient-resources",
@@ -197,10 +213,12 @@
     {
       "id": "monterey-esperanza",
       "name": {
-        "en": "Esperanza Care (Monterey County)"
+        "en": "Esperanza Care (Monterey County)",
+        "zh-Hans": "Esperanza Care（蒙特雷县）"
       },
       "what": {
-        "en": "Limited health care for Monterey County residents 19 and older who are uninsured, cannot get full Medi-Cal, and have income under 138% of the poverty level. Apply at Natividad Financial Counseling, 1441 Constitution Blvd., Salinas."
+        "en": "Limited health care for Monterey County residents 19 and older who are uninsured, cannot get full Medi-Cal, and have income under 138% of the poverty level. Apply at Natividad Financial Counseling, 1441 Constitution Blvd., Salinas.",
+        "zh-Hans": "为蒙特雷县19岁及以上、没有保险、无法获得全面福利 Medi-Cal、且收入低于联邦贫困线138%的居民，提供有限的医疗服务。请到 Natividad 财务咨询处（Natividad Financial Counseling）申请，地址：1441 Constitution Blvd., Salinas。"
       },
       "phone": null,
       "url": "https://www.natividad.com/news_press_release/monterey-county-launches-esperanza-care-2026-program-to-expand-access-to-health-care/",
