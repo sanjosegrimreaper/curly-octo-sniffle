@@ -1,0 +1,4 @@
+{
+  "$comment": "Exceptions for scripts/honesty-lint.ts. Each entry allows a forbidden phrase at one file + key path (as the linter prints them). Only for honest text, e.g. a sentence that says 'This is not guaranteed'. Every entry needs a justification.",
+  "allow": []
+}

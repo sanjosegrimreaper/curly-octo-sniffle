@@ -91,7 +91,9 @@
     "gen:verification": "tsx scripts/gen-verification.ts",
     "refresh:nadac": "tsx scripts/refresh-nadac.ts",
     "pack:manifest": "tsx scripts/pack-manifest.ts",
-    "check": "npm run typecheck && npm run lint && npm test -- --ci && npm run check:packs && npm run check:i18n && npm run check:honesty && npm run check:contrast"
+    "check": "npm run typecheck && npm run lint && npm test -- --ci && npm run check:packs && npm run check:i18n && npm run check:honesty && npm run check:contrast",
+    "snapshot:costplus": "tsx scripts/snapshot-costplus.ts",
+    "shoot": "node scripts/shoot.mjs"
   },
   "private": true
 }
