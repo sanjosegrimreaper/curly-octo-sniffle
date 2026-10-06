@@ -7,7 +7,7 @@ import Animated, { Easing, FadeIn, FadeInDown } from 'react-native-reanimated';
 import { href, ROUTES } from '@/components/onboarding/steps';
 import { LanguageTile } from '@/components/onboarding/LanguageTile';
 import { WelcomeHero } from '@/components/onboarding/WelcomeHero';
-import { Button, motion, Screen, spacing, Text, useTheme } from '@/design';
+import { Button, motion, radius, Screen, spacing, Text, useTheme } from '@/design';
 import { LAUNCH_LANGUAGES, type Lang } from '@/i18n/languages';
 import { useScreener } from '@/state/screener';
 import { useSettings } from '@/state/settings';
@@ -106,7 +106,7 @@ export default function WelcomeScreen() {
           alignSelf: 'center',
           paddingVertical: spacing.xs,
           paddingHorizontal: spacing.md,
-          borderRadius: 999,
+          borderRadius: radius.md,
           backgroundColor: palette.signals.mint.tint,
         }}
         testID="welcome-privacy">

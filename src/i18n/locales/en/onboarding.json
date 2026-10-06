@@ -40,7 +40,7 @@
     "unsureSub": "That's okay. We'll help you check."
   },
   "coverageType": {
-    "title": "What kind?",
+    "title": "What kind of coverage?",
     "body": "Pick the one that fits best.",
     "groupLabel": "Kind of insurance",
     "private": "Job or Covered California",
