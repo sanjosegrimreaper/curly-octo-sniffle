@@ -3,7 +3,7 @@
   "status": "draft",
   "version": "0.1.0-draft",
   "minAppVersion": "1.0.0",
-  "generatedAt": "2026-10-06",
+  "generatedAt": "2026-10-12",
   "files": {
     "benefits.json": "6b6d8d8b8e6150d22f473d312850ab8701d1b532aaa44301b3c1b8f9ae9f7f44",
     "clinics.json": "dc626f6e4426dc674cfd1f43b284acdd70aae9df162a2bbadd986638272163cc",
@@ -15,9 +15,9 @@
     "notices.json": "fc25e50303a20d7ce9bb2fbe909dd42d598e05695bde784c579cd1a733fa9787",
     "outlook.json": "06968f4a6ad1b081dd34af27b8b8287ccf04811ce1f5577135ae0c23d21dd9e4",
     "pharmacies.json": "22a9638de52193e17be4dc51bc15b4feb659853e054583c42b091e24c12b041a",
-    "prices/costplus.json": "659b91142ad376b955262a1a04debdd2fe9b5d710a6cca106e6d68fdffe4fbab",
+    "prices/costplus.json": "824e2664c5308c4ca874768f02a404d9cf08ea68a70fc48afa1eb752cb0e98fe",
     "prices/direct.json": "77979be1d9e2d00002f74527b5557832c4266748e7ee07cd7b0cd8080dae7450",
-    "prices/nadac.json": "2454c5792e4806686791f34dfc9b6a0428a4d11c94feedd618e28e1e25b20aac",
+    "prices/nadac.json": "9800485bb68a07384f6c92b5511dba5712cdefafa10f397a16484de93cfa4e70",
     "programs.json": "ccfaab367de79c84b6bdcfd5de6f14f451277ae0a4a9234322a0a9bc7a4ed348",
     "region.json": "4f640cc7b6ef21be0cfc05aaf50bf764da515d73d9df888301684d8b1aa88b81",
     "unverified.json": "9b57d457a948be9023cf2d16b47df7567fe1b0a0ad1a7ee97e1f1779e0613aa5"

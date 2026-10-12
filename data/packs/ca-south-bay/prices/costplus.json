@@ -1,5 +1,5 @@
 {
-  "snapshotDate": null,
+  "snapshotDate": "2026-10-12",
   "formula": {
     "markupPercent": 15,
     "pharmacyFeeCents": 500,
@@ -22,16 +22,97 @@
     ],
     "verifiedAsOf": "2026-10-06"
   },
-  "quotes": [],
+  "quotes": [
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-500",
+      "quantity": 30,
+      "priceCents": 569,
+      "productName": "Metformin Extended Release (ER) 500mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-500mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-500",
+      "quantity": 60,
+      "priceCents": 638,
+      "productName": "Metformin Extended Release (ER) 500mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-500mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-500",
+      "quantity": 90,
+      "priceCents": 707,
+      "productName": "Metformin Extended Release (ER) 500mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-500mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-500",
+      "quantity": 120,
+      "priceCents": 776,
+      "productName": "Metformin Extended Release (ER) 500mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-500mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-500",
+      "quantity": 180,
+      "priceCents": 914,
+      "productName": "Metformin Extended Release (ER) 500mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-500mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-750",
+      "quantity": 30,
+      "priceCents": 607,
+      "productName": "Metformin Extended Release (ER) 750mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-750mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-750",
+      "quantity": 60,
+      "priceCents": 714,
+      "productName": "Metformin Extended Release (ER) 750mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-750mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-750",
+      "quantity": 90,
+      "priceCents": 821,
+      "productName": "Metformin Extended Release (ER) 750mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-750mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-750",
+      "quantity": 120,
+      "priceCents": 928,
+      "productName": "Metformin Extended Release (ER) 750mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-750mg-tablet/"
+    },
+    {
+      "medicationId": "metformin-er",
+      "strengthId": "er-750",
+      "quantity": 180,
+      "priceCents": 1142,
+      "productName": "Metformin Extended Release (ER) 750mg Extended Release Tablet",
+      "url": "https://www.costplusdrugs.com/medications/metforminextendedreleaseer-750mg-tablet/"
+    }
+  ],
   "notListed": [],
   "sources": [
     {
       "name": "Cost Plus Drugs public API documentation",
       "url": "https://costplusdrugs.github.io/apidocs/",
-      "method": "unconfirmed",
-      "checkedOn": "2026-10-06",
-      "note": "Seen in web-search results from costplusdrugs.github.io; the page itself could not be opened from the build environment (network blocked). Confirm before relying on it."
+      "method": "official-api",
+      "checkedOn": "2026-10-12",
+      "note": "Quotes from the Cost Plus Drugs public API (https://us-central1-costplusdrugs-publicapi.cloudfunctions.net/main?ndc=…&quantity_units=…) by scripts/snapshot-costplus.ts. Each quote includes markup and the pharmacy fee; shipping is extra."
     }
   ],
-  "verifiedAsOf": "2026-10-06"
+  "verifiedAsOf": "2026-10-12"
 }
