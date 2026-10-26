@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-10-19",
+  "snapshotDate": "2026-10-26",
   "formula": {
     "markupPercent": 15,
     "pharmacyFeeCents": 500,
@@ -110,9 +110,9 @@
       "name": "Cost Plus Drugs public API documentation",
       "url": "https://costplusdrugs.github.io/apidocs/",
       "method": "official-api",
-      "checkedOn": "2026-10-19",
+      "checkedOn": "2026-10-26",
       "note": "Quotes from the Cost Plus Drugs public API (https://us-central1-costplusdrugs-publicapi.cloudfunctions.net/main?ndc=…&quantity_units=…) by scripts/snapshot-costplus.ts. Each quote includes markup and the pharmacy fee; shipping is extra."
     }
   ],
-  "verifiedAsOf": "2026-10-19"
+  "verifiedAsOf": "2026-10-26"
 }

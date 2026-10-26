@@ -1,46 +1,46 @@
 {
-  "asOfDate": "2026-10-14",
+  "asOfDate": "2026-10-21",
   "datasetId": "fbb83258-11c7-47f5-8b18-5f8e79f7e704",
   "entries": [
     {
       "key": "METFORMIN HCL ER 500 MG TABLET",
       "ndcDescription": "METFORMIN HCL ER 500 MG TABLET",
       "ndc": "29300038901",
-      "perUnit": 0.02838,
+      "perUnit": 0.02841,
       "pricingUnit": "EA",
-      "effectiveDate": "2026-09-23",
+      "effectiveDate": "2026-10-21",
       "classification": "G",
-      "note": "Median of 31 NDCs in the NADAC file as of 2026-10-14; ndc is the NDC closest to the median."
+      "note": "Median of 31 NDCs in the NADAC file as of 2026-10-21; ndc is the NDC closest to the median."
     },
     {
       "key": "METFORMIN HCL ER 750 MG TABLET",
       "ndcDescription": "METFORMIN HCL ER 750 MG TABLET",
       "ndc": "29300039901",
-      "perUnit": 0.05264,
+      "perUnit": 0.05075,
       "pricingUnit": "EA",
-      "effectiveDate": "2026-09-23",
+      "effectiveDate": "2026-10-21",
       "classification": "G",
-      "note": "Median of 17 NDCs in the NADAC file as of 2026-10-14; ndc is the NDC closest to the median."
+      "note": "Median of 17 NDCs in the NADAC file as of 2026-10-21; ndc is the NDC closest to the median."
     },
     {
       "key": "ELIQUIS 2.5 MG TABLET",
       "ndcDescription": "ELIQUIS 2.5 MG TABLET",
       "ndc": "00003089321",
-      "perUnit": 5.51282,
+      "perUnit": 5.51243,
       "pricingUnit": "EA",
-      "effectiveDate": "2026-09-23",
+      "effectiveDate": "2026-10-21",
       "classification": "B",
-      "note": "Median of 2 NDCs in the NADAC file as of 2026-10-14; ndc is the NDC closest to the median."
+      "note": "Median of 2 NDCs in the NADAC file as of 2026-10-21; ndc is the NDC closest to the median."
     },
     {
       "key": "ELIQUIS 5 MG TABLET",
       "ndcDescription": "ELIQUIS 5 MG TABLET",
       "ndc": "00003089421",
-      "perUnit": 5.52114,
+      "perUnit": 5.52144,
       "pricingUnit": "EA",
-      "effectiveDate": "2026-09-23",
+      "effectiveDate": "2026-10-21",
       "classification": "B",
-      "note": "Median of 3 NDCs in the NADAC file as of 2026-10-14; ndc is the NDC closest to the median."
+      "note": "Median of 3 NDCs in the NADAC file as of 2026-10-21; ndc is the NDC closest to the median."
     }
   ],
   "sources": [
@@ -48,10 +48,10 @@
       "name": "data.medicaid.gov — NADAC (National Average Drug Acquisition Cost) 2026",
       "url": "https://data.medicaid.gov/dataset/fbb83258-11c7-47f5-8b18-5f8e79f7e704",
       "method": "official-api",
-      "checkedOn": "2026-10-19",
+      "checkedOn": "2026-10-26",
       "edition": "NADAC (National Average Drug Acquisition Cost) 2026",
       "note": "Weekly refresh by scripts/refresh-nadac.ts from the datastore API (https://data.medicaid.gov/api/1/datastore/query/fbb83258-11c7-47f5-8b18-5f8e79f7e704/0). When several NDCs share a description, perUnit is their median."
     }
   ],
-  "verifiedAsOf": "2026-10-19"
+  "verifiedAsOf": "2026-10-26"
 }
